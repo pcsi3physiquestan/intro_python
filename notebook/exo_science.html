@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. A vous de coder &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/exo_science.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Matplotlib : tracés graphiques" href="plt_presentation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/exo_science.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="A vous de coder" />
+<meta property="og:description" content="A vous de coder  Voici quelques exercices pour vous entraîner à coder. Il est conseillé d’utiliser Pyzo pour créer un fichier par exercice puis les exécuter. Qu" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Eléments de bases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html">
+   1. Langage de programmation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+   2. Les types et opérations usuelles.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#variables-et-affection">
+   3. Variables et affection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-listes">
+   4. Les listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-commentaires">
+   5. Les commentaires
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Fonctions et blocs
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fonctions.html">
+   1. Les fonctions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="structures.html">
+   2. Blocs d’instructions.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  S'entraîner
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. A vous de coder
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/exo_science.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_science.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_science.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercices">
+   1.1. Exercices
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-vous-de-coder">
+<h1><span class="section-number">1. </span>A vous de coder<a class="headerlink" href="#a-vous-de-coder" title="Permalink to this headline">¶</a></h1>
+<p>Voici quelques exercices pour vous entraîner à coder. Il est conseillé d’utiliser Pyzo pour créer un fichier par exercice puis les exécuter. Quelques consignes :</p>
+<ul class="simple">
+<li><p>Créér un répertoire dans lequel vous mettrez vos fichiers contenant vos scripts.</p></li>
+<li><p>N’oubliez pas de bien indenter votre code</p></li>
+<li><p>Pensez à commenter votre code</p></li>
+<li><p>N’oubliez pas d’importer les bibliothèques numpy et matplotlib.pyplot lorsqu’elles sont utiles.</p></li>
+<li><p>Essayer de lire les messages d’erreurs quand il y en a pour comprendre où vous avez un problème (numéro de ligne) et quel est le problème.</p></li>
+</ul>
+<div class="section" id="exercices">
+<h2><span class="section-number">1.1. </span>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-exercice-1 admonition">
+<p class="admonition-title">Exercice 1</p>
+<p>Vous devez tracer le graphique de la fonction <span class="math notranslate nohighlight">\(f(x) = 2x + 3 * sin(x)\)</span> sur l’intervalle <span class="math notranslate nohighlight">\([0, 4\pi]\)</span> en prenant <span class="math notranslate nohighlight">\(N = 2000\)</span> points pour le tracé.</p>
+<p>On suppose qu’il s’agit du mouvement d’une “Masse sur un axe”. Le tracé de la courbe devra être rouge (trait plein). Les abscisses seront des temps (en secondes) et les ordonnées des positions (en mètre). Utilisez ces informations pour légender et titrer votre graphique.</p>
+</div>
+<div class="toggle docutils container">
+<ul class="simple">
+<li><p>Vous avez besoin des deux bibliothèques. N’oubliez pas de les importer.</p></li>
+<li><p>Vous n’allez pas créer un vecteur de 2000 points manuellement, pensez aux fonction qui permettent de créer automatiquement des vecteurs.</p></li>
+<li><p>Seule la fonction <code class="docutils literal notranslate"><span class="pre">sin</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> est vectorialisable.</p></li>
+<li><p>Essayer d’avoir une organisation claire de vos instructions pour créer le graphique. Vous pourrez la réutiliser souvent.</p></li>
+</ul>
+</div>
+<div class="admonition-exercice-2 admonition">
+<p class="admonition-title">Exercice 2</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">uniform(a,</span> <span class="pre">b,</span> <span class="pre">N)</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> permet de réaliser N tirages aléatoires suivant une loi uniforme (toutes les valeurs ont la même probabilité) entre a et b. La fonction renvoie un vecteur numpy de taille N contenant les tirages.</p>
+<p>Vous devez :</p>
+<ol class="simple">
+<li><p>importer la sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> dans l’espace nommé <code class="docutils literal notranslate"><span class="pre">rd</span></code> pour l’utiliser ensuite.</p></li>
+<li><p>Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">uniform</span></code> pour créer un vecteur contenant <span class="math notranslate nohighlight">\(N = 1000000\)</span> de tirages aléatoires.</p></li>
+<li><p>Obtenir alors le vecteur X contenant le carré de chaque valeur tirées précédemment.</p></li>
+<li><p>Tracer l’histogramme des valeurs de X. Le titre sera “Distribution statistique”, il n’est pas utile d’afficher la légende.</p></li>
+</ol>
+</div>
+<div class="toggle docutils container">
+<ul class="simple">
+<li><p>Vous avez besoin des deux bibliothèques scientifiques en plus de <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>. N’oubliez pas de les importer aussi.</p></li>
+<li><p>Bien comprendre le fonctionnement de <code class="docutils literal notranslate"><span class="pre">uniform</span></code> pour l’utiliser.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="plt_presentation.html" title="previous page"><span class="section-number">2. </span>Matplotlib : tracés graphiques</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
