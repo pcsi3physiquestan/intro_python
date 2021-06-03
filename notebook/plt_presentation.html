@@ -168,7 +168,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  S'entraîner
+  S'entrainer
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -406,14 +406,10 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subplots</span></code> n’est pas obligatoire mais il permet d’affecter la fenêtre graphique et les axes (zone de tracé) à des variables (ici <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code>) pour être sûr d’affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).</p></li>
 <li><p>Le <code class="docutils literal notranslate"><span class="pre">f.</span></code> permet justement d’ajouter un titre à la fenêtre graphique <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
-<li><p>Idem pour <code class="docutils literal notranslate"><span class="pre">ax.</span></code> qui légende les axes de la fenêtres graphiques <code class="docutils literal notranslate"><span class="pre">ax</span></code> (et pas une autre s’il y en a plusieurs). Le tracé plot sera dans la zone de tracé <code class="docutils literal notranslate"><span class="pre">ax</span></code>…</p></li>
+<li><p>Idem pour <code class="docutils literal notranslate"><span class="pre">ax.</span></code> qui légende les axes (zone  de tracé) <code class="docutils literal notranslate"><span class="pre">ax</span></code> (et pas un autre s’il y en a plusieurs). Le tracé plot sera donc dans la zone de tracé <code class="docutils literal notranslate"><span class="pre">ax</span></code>, idem pour les légendes des abscisses et ordonnées…</p></li>
 <li><p>La légende est <strong>affichée</strong> par la méthode <code class="docutils literal notranslate"><span class="pre">legend()</span></code> mais pour légender <strong>une courbe</strong> il faut utiliser l’argument <code class="docutils literal notranslate"><span class="pre">label=&quot;chaine</span> <span class="pre">de</span> <span class="pre">caractère&quot;</span></code> dans la fonction <code class="docutils literal notranslate"><span class="pre">plot</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">show</span></code> permet d’afficher les graphiques qui ont été créé.</p></li>
 </ul>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Attention, si vous n’utiliser le principe d’affection de la fenêtre et des axes dans des variables (<code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code> par exemple), les noms des fonctions (<code class="docutils literal notranslate"><span class="pre">suptitle</span></code>, <code class="docutils literal notranslate"><span class="pre">set_xlabel</span></code>…) seront un peu différent. On ne donne pas leurs noms ici pour ne pas tout mélanger.</p>
-</div>
 </div>
 <div class="section" id="les-types-de-courbes-utiles">
 <h3><span class="section-number">2.3.3. </span>Les types de courbes utiles.<a class="headerlink" href="#les-types-de-courbes-utiles" title="Permalink to this headline">¶</a></h3>
@@ -456,8 +452,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 <p>On cite les plus utiles :</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="61418b9a-28f2-4f01-a046-61b1c7f3c06e" name="e9cc2d80-2796-4033-9e1a-63caf39096e1" type="radio">
-</input><label class="tabbed-label" for="61418b9a-28f2-4f01-a046-61b1c7f3c06e">
+<input checked="checked" id="98410e1c-0597-4c25-becf-38f0ce82287c" name="c0d4e563-020d-4fde-89fa-ce8371521e43" type="radio">
+</input><label class="tabbed-label" for="98410e1c-0597-4c25-becf-38f0ce82287c">
 Pour plot et errorbar</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linestyle</span></code> : style de ligne qui relie les points (non exhaustif):</p>
@@ -479,8 +475,8 @@ Pour plot et errorbar</label><div class="tabbed-content docutils">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>
-<input id="77bfc093-6a30-42c6-bec6-daa1170b58ba" name="e9cc2d80-2796-4033-9e1a-63caf39096e1" type="radio">
-</input><label class="tabbed-label" for="77bfc093-6a30-42c6-bec6-daa1170b58ba">
+<input id="ecae76d8-55c8-47be-ae04-60f2c17bb271" name="c0d4e563-020d-4fde-89fa-ce8371521e43" type="radio">
+</input><label class="tabbed-label" for="ecae76d8-55c8-47be-ae04-60f2c17bb271">
 Pour hist</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">legend</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>

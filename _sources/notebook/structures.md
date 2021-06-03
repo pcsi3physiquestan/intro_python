@@ -53,13 +53,12 @@ On va utiliser les instructions conditionnelles pour créer une fonction mathém
 def fonction_morceau(x):
 	if x < 3:  # Si x < 3
 		a = x - 4
-		return a
 	elif x < 5:  # Si 3 <= x < 5
-		return x ** 2
+		a = x ** 2
 	else:  # Si x >=5
-		a = x + 4
-		b = a ** 3
-		return b
+		b = x + 4
+		a = b ** 3
+	return a
 
 print(fonction_morceau(3))
 print(fonction_morceau(4))
@@ -103,10 +102,6 @@ for n in L:
 ```{code-cell}
 for n in range(4):  # On aura donc n=0, n=1, n=2, n=3 et on sort de la boucle
 	print(n**2)
-```
-
-```{margin}
-On pourra utiliser `range(start, stop, pas)` qui crée une succession de valeur de `start` (inclus) jusqu'à `stop` (non inclus) avec un incrément de `pas` (facultatif, il vaut alors 1). _Cela ne fonctionne qu'avec des __entiers__._ 
 ```
 
 ```{important}

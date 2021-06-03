@@ -84,8 +84,8 @@ y = np.polyval([2, 3], [1, 4, 6, 7, 8, 24])
 
 ````
 
-````{tabbed} arange()
-A connaître : `arange(start, stop, step)` est une fonction de `numpy` similaire à `range` mais qui produit un tableau numpy. Elle peut aussi utiliser un pas non entier. _La valeur `stop` est exclus comme pour `range`_.
+````{tabbed} arange
+_A connaître_ : `arange(start, stop, step)` est une fonction de `numpy` qui va créer une liste de flottants partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
 
 ```{code-block} ipython3
 y = np.arange(2, 6, 0.5)
@@ -94,8 +94,8 @@ y = np.arange(2, 6, 0.5)
 
 ````
 
-````{tabbed} linspace()
-A connaître : `linspace(start, stop, N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments réparties uniformément entre les valeurs `start` et `stop` (cette fois `stop` est inclus, il faut la compter dans les N valeurs !).
+````{tabbed} linspace
+_A connaître_ : `linspace(start, stop, N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments réparties uniformément entre les valeurs `start` et `stop` (cette fois `stop` est inclus, il faut la compter dans les N valeurs !).
 
 ```{code-block} ipython3
 y = np.linspace(2, 6, 9)
@@ -104,8 +104,8 @@ y = np.linspace(2, 6, 9)
 
 ````
 
-````{tabbed} zeros()
-A connaître : `zeros(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments nuls.  
+````{tabbed} zeros et ones
+_A connaître_ : `zeros(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments nuls.  
 A connaître : `ones(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments tous égaux à 1.
 
 ```{code-block} ipython3
@@ -289,6 +289,10 @@ print("Quatrième sélection", L1[1])  # Permet de sélectionner la deuxième li
 print("Cinquième sélection", L1[-1, :])  # Permet de sélectionner la dernière ligne en entier (c'est un vecteur)
 ```
 
+Voici le tableau `L1` avec les indices des lignes et colonnes pour mieux comprendre.
+
+![Tableau numpy 2](./images/tableau_2.png)
+
 ## Si j'ai bien compris...
 ```{admonition} Exercice
 :class: tip
@@ -350,19 +354,21 @@ __Les vecteurs__ :
 * L3 est une liste de 4 éléments composées uniquement de 1.
 
 __Le tableau__ :
-* M est le tableau composé des trois vecteurs. Il est donc de taille 3*4 (3 lignes, 4 colonnes).
+* M est le tableau composé des trois vecteurs. Il est donc de taille 3*4 (3 lignes, 4 colonnes). Soit :
+
+![Tableau numpy](./images/matrice_numpy.png)
 
 __Les affichage__:
 * Cas 1 : Affichage du tableau complet
-* Cas 2 : Affichage de l'élément de la troisième ligne, quatrième colonne, soit {glue:}`cas_2`
-* Cas 3 : Afficahge de l'élément de la dernière ligne, troisième colonne soit {glue:}`cas_3`
-* Cas 4 : Affichage de la __deuxième ligne__ soit {glue:}`cas_4`
-* Cas 5 : Affichage de la troisième ligne soit {glue:}`cas_5`
-* Cas 6 : Affichage de la dernière colonne soit {glue:}`cas_6`
-* Cas 7 : Affichage de l'avant-dernière colonne soit {glue:}`cas_7`
+* Cas 2 : Affichage de l'élément de la troisième ligne (indice 2), quatrième colonne (indice 3), soit {glue:}`cas_2`
+* Cas 3 : Afficahge de l'élément de la dernière ligne (indice -1), troisième colonne (indice 2) soit {glue:}`cas_3`
+* Cas 4 : Affichage de la __deuxième ligne (indice 1)__ soit {glue:}`cas_4`
+* Cas 5 : Affichage de la troisième ligne (indice 2) soit {glue:}`cas_5`
+* Cas 6 : Affichage de la dernière colonne (indice -1) soit {glue:}`cas_6`
+* Cas 7 : Affichage de l'avant-dernière colonne (indice -2) soit {glue:}`cas_7`
 * Cas 8 : Affichage du tableau limité à la deuxième ligne (de l'indice 1 à l'indice 2 __exclus__) et à la première colonne soit {glue:}`cas_8` (de l'indice 0 à l'indice 1 __exclus__). _C'est bien un tableau mais avec une seule valeur !_
 * Cas 9 : Affichage de la deuxième colonne mais sans la dernière ligne (on va jusqu'au -1 __exclus__) {glue:}`cas_9`
-* Cas 10 : Affichage du tableau limité aux deux premières lignes (de l'indice -3 soit indice 0 - puisqu'il y a 3 lignes - jusqu'à l'indice -1 (dernier) __exclus__) et à la deuxième et troisième (de l'indice - 3 soit la colonne d'indice 1 - puisque qu'il y a 4 colonnes - jusqu'à l'indice 3 soit la dernière colonne __exclus__) soit {glue:}`cas_10`
+* Cas 10 : Affichage du tableau limité aux deux premières lignes (de l'indice -3 soit indice 0 - puisqu'il y a 3 lignes - jusqu'à l'indice -1 (dernier) __exclus__) et à la deuxième et troisième colonne (de l'indice - 3 soit la colonne d'indice 1 - puisque qu'il y a 4 colonnes - jusqu'à l'indice 3 soit la dernière colonne __exclus__) soit {glue:}`cas_10`
 ```
 
 ## Fonctions de la bibliothèque

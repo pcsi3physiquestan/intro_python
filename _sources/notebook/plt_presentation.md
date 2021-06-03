@@ -78,13 +78,9 @@ plt.show()  # On demande d'afficher le graphique.
 ### Remarques sur le code
 * `subplots` n'est pas obligatoire mais il permet d'affecter la fenêtre graphique et les axes (zone de tracé) à des variables (ici `f` et `ax`) pour être sûr d'affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).
 * Le `f.` permet justement d'ajouter un titre à la fenêtre graphique `f`.
-* Idem pour `ax.` qui légende les axes de la fenêtres graphiques `ax` (et pas une autre s'il y en a plusieurs). Le tracé plot sera dans la zone de tracé `ax`...
+* Idem pour `ax.` qui légende les axes (zone  de tracé) `ax` (et pas un autre s'il y en a plusieurs). Le tracé plot sera donc dans la zone de tracé `ax`, idem pour les légendes des abscisses et ordonnées...
 * La légende est __affichée__ par la méthode `legend()` mais pour légender __une courbe__ il faut utiliser l'argument `label="chaine de caractère"` dans la fonction `plot`
 * `show` permet d'afficher les graphiques qui ont été créé.
-
-```{margin}
-Attention, si vous n'utiliser le principe d'affection de la fenêtre et des axes dans des variables (`f` et `ax` par exemple), les noms des fonctions (`suptitle`, `set_xlabel`...) seront un peu différent. On ne donne pas leurs noms ici pour ne pas tout mélanger.
-```
 
 ### Les types de courbes utiles.
 

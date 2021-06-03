@@ -168,7 +168,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  S'entraîner
+  S'entrainer
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -416,13 +416,12 @@
 <span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 	<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
 		<span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
-		<span class="k">return</span> <span class="n">a</span>
 	<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Si 3 &lt;= x &lt; 5</span>
-		<span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 	<span class="k">else</span><span class="p">:</span>  <span class="c1"># Si x &gt;=5</span>
-		<span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
-		<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">3</span>
-		<span class="k">return</span> <span class="n">b</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">3</span>
+	<span class="k">return</span> <span class="n">a</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">fonction_morceau</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fonction_morceau</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
@@ -511,10 +510,6 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>On pourra utiliser <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">pas)</span></code> qui crée une succession de valeur de <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclus) jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> (non inclus) avec un incrément de <code class="docutils literal notranslate"><span class="pre">pas</span></code> (facultatif, il vaut alors 1). <em>Cela ne fonctionne qu’avec des <strong>entiers</strong>.</em></p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>

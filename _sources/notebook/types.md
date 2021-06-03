@@ -26,7 +26,7 @@ On le différencie des langages dits __compilés__ qui lise l'ensemble du progra
 
 On utilise Python de deux manières :
 * Dans une console Python (appelé aussi Shell) : on rentre alors une instruction. Python l'interprête et l'exécute. On peut alors en rentrer une autre et ainsi de suite.
-* Dans un fichier contenant une série d'instruction les unes à la suite des autres. La commande python va alors lire et exécuter l'ensemble des instructions les unes après les autres. On peut ainsi écrire des programmes pus complexes et c'est pourquoi on privilégiera cette façon de procéder.
+* Dans un fichier contenant une série d'instruction les unes à la suite des autres. La commande python va alors lire et exécuter l'ensemble des instructions les unes après les autres. On peut ainsi écrire des programmes plus complexes et c'est pourquoi on privilégiera cette façon de procéder.
 
 ```{margin}
 Les environnements de développements comme Spyder ou Pyzo permettent d'interprêter un fichier par simple clic mais on peut aussi demander à python d'interprêter un fichier depuis un terminal en ligne de commande.
@@ -147,7 +147,7 @@ Un nom de variables :
 * ne peut être un mot reservé par python (comme `print`) (Python renverra une erreur le cas échéant donc pas la peine d'apprendre ces mots par coeur !)
 
 # Les listes
-Les listes sont des objets Python un peu plus complexe qui permette de stocker, un ensemble d'objets dans un ordre choisi.
+Les listes sont des objets Python un peu plus complexe qui permettent de stocker, un ensemble d'objets dans un ordre choisi.
 
 ## Créer et manipuler une liste
 ```{margin}
@@ -202,6 +202,8 @@ Vous pouvez retenir le message d'erreur très significatif : `index out of range
 
 ```{tip}
 On peut utiliser des nombres négatifs pour "partir de la fin", le nombre -1 désigne alors le __dernier élément de la liste__.
+
+![Liste et index](./images/liste_index.png)
 
 Dans l'exemple précédent, `l[-1]` renvoie `9` et `l[-2]` renvoie `7`.
 ```

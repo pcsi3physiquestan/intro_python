@@ -114,7 +114,7 @@ Il peut arriver qu'une fonction ne prennent aucun argument ou ne renvoie rien. M
 Tout est dans le titre...
 
 ### Créer n'est pas appeler.
-La cellule précédente a créé la fonction mais n'a pas _utiliser la fonction_ (on dit __appeler la fonction__). Une fois créée, il faut encore l'appeler pour qu'elle soit exécuter dans un programme. L'appel de la fonction se fait comme pour une fonction native.
+La cellule précédente a créé la fonction mais n'a pas _utilisé la fonction_ (on dit __appeler la fonction__). Une fois créée, il faut encore l'appeler pour qu'elle soit exécuter dans un programme. L'appel de la fonction se fait comme pour une fonction native.
 
 ```{code-cell}
 """ On appelle la fonction qu'on vient de créer précédemment"""
