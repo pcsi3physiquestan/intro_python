@@ -20,7 +20,7 @@ Voici quelques exercices pour vous entraîner à coder. Il est conseillé d'util
 * N'oubliez pas de bien indenter votre code
 * Pensez à commenter votre code
 * N'oubliez pas d'importer les bibliothèques numpy et matplotlib.pyplot lorsqu'elles sont utiles.
-* Essayer de lire les messages d'erreurs quand il y en a pour comprendre où vous avez un problème (numéro de ligne) et quel est le problème.
+* Essayer de lire les messages d'erreurs quand il y en a pour comprendre où vous avez un problème (numéro de ligne) et quel est le problème. Si vous avez du mal à les lire, quelques conseils sont données [ici](erreurs).
 
 ## Exercices
 

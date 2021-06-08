@@ -1,0 +1,1291 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Comprendre ses erreurs &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plus_loin.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. A vous de coder" href="exo_science.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plus_loin.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Comprendre ses erreurs" />
+<meta property="og:description" content="Comprendre ses erreurs  Quand on écrit du code, on fait des erreurs. Ca arrive à tout le monde. Il y a deux types d’erreurs :  Les erreurs qui empêchent le code" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Eléments de bases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html">
+   1. Langage de programmation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+   2. Les types et opérations usuelles.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#variables-et-affection">
+   3. Variables et affection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-listes">
+   4. Les listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="types.html#les-commentaires">
+   5. Les commentaires
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Fonctions et blocs
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fonctions.html">
+   1. Les fonctions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="structures.html">
+   2. Blocs d’instructions.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  S'entrainer
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science.html">
+   1. A vous de coder
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pour aller plus loin
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Comprendre ses erreurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#la-bibliotheque-numpy-random">
+   2. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#la-fonction-numpy-polyfit">
+   3. La fonction numpy.polyfit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#tableaux-numpy-manipulations">
+   4. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#la-comprehension-des-listes">
+   5. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#les-dictionnaires">
+   6. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#fonctions-et-methodes">
+   7. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/plus_loin.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/plus_loin.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/plus_loin.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Comprendre ses erreurs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-et-les-messages-d-erreurs">
+     1.1. Python et les messages d’erreurs.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exemple-basique">
+       1.1.1. Exemple basique
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#le-cas-d-erreur-dans-une-fonction">
+       1.1.2. Le cas d’erreur dans une fonction
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-parentheses">
+     1.2. Les parenthèses…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-bibliotheque-numpy-random">
+   2. La bibliothèque numpy.random
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rappel-importation-de-la-bibliotheque">
+     2.1. Rappel : Importation de la bibliothèque
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#signature-des-fonctions">
+     2.2. Signature des fonctions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pour-aller-encore-plus-loin">
+     2.3. Pour aller encore plus loin…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-fonction-numpy-polyfit">
+   3. La fonction numpy.polyfit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-syntaxe">
+     3.1. La syntaxe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple">
+     3.2. Un exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tableaux-numpy-manipulations">
+   4. Tableaux numpy : manipulations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-usuelles-et-concatenation">
+     4.1. Opérations usuelles et concaténation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selection-d-une-partie-d-un-tableau">
+     4.2. Sélection d’une partie d’un tableau.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#selection-d-un-element">
+       4.2.1. Sélection d’un élément.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#selection-d-une-portion-d-un-tableau">
+       4.2.2. Sélection d’une portion d’un tableau
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#si-j-ai-bien-compris">
+     4.3. Si j’ai bien compris…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-comprehension-des-listes">
+   5. La compréhension des listes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#position-du-probleme">
+     5.1. Position du problème
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#premiere-solution">
+     5.2. Première solution
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-de-la-comprehension-des-listes">
+     5.3. Utilisation de la compréhension des listes.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-dictionnaires">
+   6. Les dictionnaires
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonctions-et-methodes">
+   7. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Essayez avant tout de bien comprendre la première partie. Certains points abordés ici serviront très peu ou seront abordés pendant l’année.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;On importe les bibliothèques scientifiques car elles seront utilisées ensuite&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>L’ordre des parties va du plus important au moins important.</p>
+</div>
+<div class="section" id="comprendre-ses-erreurs">
+<span id="erreurs"></span><h1><span class="section-number">1. </span>Comprendre ses erreurs<a class="headerlink" href="#comprendre-ses-erreurs" title="Permalink to this headline">¶</a></h1>
+<p>Quand on écrit du code, on fait des erreurs. Ca arrive à tout le monde. Il y a deux types d’erreurs :</p>
+<ul class="simple">
+<li><p>Les erreurs qui empêchent le code de s’exécuter correctement : Python renvoie alors un message d’erreur.</p></li>
+<li><p>Les erreurs qui n’empêchent pas le code de s’exécuter mais qui font que le programme ne renvoie pas ce qui est attendu.</p></li>
+</ul>
+<div class="section" id="python-et-les-messages-d-erreurs">
+<h2><span class="section-number">1.1. </span>Python et les messages d’erreurs.<a class="headerlink" href="#python-et-les-messages-d-erreurs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exemple-basique">
+<h3><span class="section-number">1.1.1. </span>Exemple basique<a class="headerlink" href="#exemple-basique" title="Permalink to this headline">¶</a></h3>
+<p>Lorsqu’un script bute sur un erreur d’exécution. Python affiche un message :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">L3</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">L3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b43b36e465ad</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">L3</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,) (2,) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour comprendre et corriger son erreur, deux points sont importants :</p>
+<ul class="simple">
+<li><p>L’endroit où l’erreur a été commise : ici <code class="docutils literal notranslate"><span class="pre">----&gt;</span> <span class="pre">6</span> <span class="pre">L3</span> <span class="pre">=</span> <span class="pre">L1</span> <span class="pre">+</span> <span class="pre">L2</span></code>. C’est à la ligne 6.</p></li>
+<li><p>Le message d’erreur : <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">operands</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">broadcast</span> <span class="pre">together</span> <span class="pre">with</span> <span class="pre">shapes</span> <span class="pre">(3,)</span> <span class="pre">(2,)</span> </code>. Avec un peu de connaissance en anglais, on comprend que les deux vecteurs numpy n’ont pas la même taille (shape) et qu’on ne peut donc pas les sommer.</p></li>
+</ul>
+<p>Dans la majorité des cas, ces deux éléments vont permettront de comprendre votre erreur.</p>
+</div>
+<div class="section" id="le-cas-d-erreur-dans-une-fonction">
+<h3><span class="section-number">1.1.2. </span>Le cas d’erreur dans une fonction<a class="headerlink" href="#le-cas-d-erreur-dans-une-fonction" title="Permalink to this headline">¶</a></h3>
+<p>Il arrive que certaines erreurs se trouvent dans une fonction. Le message d’erreur est alors un peu plus compliqué :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_carre</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">x_carre</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">5177</span><span class="n">d4a278f0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">b</span> <span class="o">=</span> <span class="n">x_carre</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-3-5177d4a278f0&gt;</span> in <span class="ni">x_carre</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">x_carre</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>   <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for ** or pow(): &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici, Python signale deux endroits où il y a une erreur. L’explication est simple : ici le message est assez clair, l’opérateur puissance (<code class="docutils literal notranslate"><span class="pre">**</span></code>) ne peut s’appliquer entre une chaine de caractère <code class="docutils literal notranslate"><span class="pre">str</span></code> et un entier <code class="docutils literal notranslate"><span class="pre">int</span></code> (logique !!). Sauf que cette erreur se produit dans une fonction (<code class="docutils literal notranslate"><span class="pre">x_carre</span></code>). Python signale alors :</p>
+<ul class="simple">
+<li><p>l’endroit où la fonction a été appelée <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">x_carre(a)</span></code></p></li>
+<li><p>l’endroit <em>dans la fonction</em> à l’erreur a été déclenchée (<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">2</span></code>)</p></li>
+</ul>
+<p>A vous de savoir si le problème est la définition de la fonction ou la manière de l’appeler. Ici c’est vraisemblablement la manière de l’appeler car on ne devrait pas chercher à calculer le carré d’une chaine de caractère !</p>
+<p>Ce système est très efficace mais peut dérouter, surtout quand on utilise des fonctions déjà existantes qui sont souvent imbriquées. Un exemple ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">c859c85d5b52</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
+<span class="ne">-&gt; </span><span class="mi">1743</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span><span class="s2">         for line in lines:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1745</span><span class="s2">             self.add_line(line)</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="s2">                 this += args[0],</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span><span class="s2">                 args = args[1:]</span>
+<span class="ne">--&gt; </span><span class="mi">273</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span><span class="s2">     def get_next_color(self):</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
+<span class="ne">--&gt; </span><span class="mi">399</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
+
+<span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (3,) and (2,)
+</pre></div>
+</div>
+<img alt="../_images/plus_loin_7_1.png" src="../_images/plus_loin_7_1.png" />
+</div>
+</div>
+<p>Pour corriger son erreur, il faut :</p>
+<ul class="simple">
+<li><p>garder son calme !</p></li>
+<li><p>chercher le message d’erreur (ici <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">same</span> <span class="pre">first</span> <span class="pre">dimension,</span> <span class="pre">but</span> <span class="pre">have</span> <span class="pre">shapes</span> <span class="pre">(3,)</span> <span class="pre">and</span> <span class="pre">(2,)</span></code>)</p></li>
+<li><p>chercher la partie du message d’erreur qui point vers <strong>votre code</strong> (on peut raisonnablement penser qu’il n’y a pas d’erreurs dans les fonctions des bibliothèques officielles). Ici <code class="docutils literal notranslate"><span class="pre">ax.plot(L1,</span> <span class="pre">L2)</span></code> : <code class="docutils literal notranslate"><span class="pre">L1</span></code> et <code class="docutils literal notranslate"><span class="pre">L2</span></code> n’ont pas la même taille, c’est là le problème.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="les-parentheses">
+<h2><span class="section-number">1.2. </span>Les parenthèses…<a class="headerlink" href="#les-parentheses" title="Permalink to this headline">¶</a></h2>
+<p>Lorsqu’on écrit une formule un peu trop grosse, il arrive qu’on oublie de fermer une parenthèse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">/</span> <span class="n">v2</span>
+<span class="n">ua</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u1</span> <span class="o">/</span> <span class="n">v1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">u2</span> <span class="o">/</span> <span class="n">v2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ua</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-5-8048891cc3a0&gt;&quot;</span><span class="gt">, line </span><span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ua</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Problèmes :</p>
+<ul class="simple">
+<li><p>le message est peu verbeux (syntaxe invalide)</p></li>
+<li><p>la ligne pointé par le message n’est pas la ligne où il y a une erreur !</p></li>
+</ul>
+<p>En effet, Python  ne se rend compte du problème de parenthèse mal fermée que lorsqu’il arrive sur une nouvelle instruction. C’est pourquoi, <strong>en cas d’erreur de syntaxe invalide, pensez aussi à vérifier l’écriture des lignes <em>au dessus</em> de l’endroit signalé par le message d’erreur.</strong></p>
+</div>
+</div>
+<div class="section" id="la-bibliotheque-numpy-random">
+<h1><span class="section-number">2. </span>La bibliothèque numpy.random<a class="headerlink" href="#la-bibliotheque-numpy-random" title="Permalink to this headline">¶</a></h1>
+<p>La sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> a été rapidement évoquée dans un exercice. Elle sera très utile en physique et en chimie pourles calculs d’incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : <code class="docutils literal notranslate"><span class="pre">uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
+<div class="section" id="rappel-importation-de-la-bibliotheque">
+<h2><span class="section-number">2.1. </span>Rappel : Importation de la bibliothèque<a class="headerlink" href="#rappel-importation-de-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>  <span class="c1"># Il est conseillé d&#39;importer les bibliothèques au début de votre script</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="signature-des-fonctions">
+<h2><span class="section-number">2.2. </span>Signature des fonctions<a class="headerlink" href="#signature-des-fonctions" title="Permalink to this headline">¶</a></h2>
+<p>On ne présente pas ici les loi de probabilités. Voici quelques informations :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Loi_uniforme_continue">Loi uniforme - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Loi_normale">Loi normale (ou gaussienne) - Wikipedia</a></p></li>
+</ul>
+<p>La syntaxe :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rd.uniform(a,</span> <span class="pre">b,</span> <span class="pre">N)</span></code> va réaliser N tirages aléatoires suivant une loi uniforme entre les valeurs <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rd.normal(m,</span> <span class="pre">s,</span> <span class="pre">N)</span></code> va réaliser N tirages aléatoires suivant une loi normale d’espérance <code class="docutils literal notranslate"><span class="pre">m</span></code> et d’écart-type <code class="docutils literal notranslate"><span class="pre">s</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les deux fonctions renvoient un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>  # Permet d&#39;afficher le temps d&#39;exécution (pas à connaître). 
+<span class="c1"># On verra qu&#39;on peut ainsi faire un grande nombre de simulation rapidement</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>  <span class="c1"># Nombre d&#39;échantillons</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution uniforme&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution normale&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 1 µs, total: 8 µs
+Wall time: 15.7 µs
+</pre></div>
+</div>
+<img alt="../_images/plus_loin_14_1.png" src="../_images/plus_loin_14_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pour-aller-encore-plus-loin">
+<h2><span class="section-number">2.3. </span>Pour aller encore plus loin…<a class="headerlink" href="#pour-aller-encore-plus-loin" title="Permalink to this headline">¶</a></h2>
+<p>La syntaxe précédente suffira en général. Mais si on a plusieurs variables <span class="math notranslate nohighlight">\(u_1, u_2, u_3, ...\)</span> qui suivent le même type de loi (ex : loi uniforme) avec des paramètres différents (entre <span class="math notranslate nohighlight">\(a_1\)</span> et<span class="math notranslate nohighlight">\(b_1\)</span>, entre <span class="math notranslate nohighlight">\(a_2\)</span> et<span class="math notranslate nohighlight">\(b_2\)</span>, entre <span class="math notranslate nohighlight">\(a_2\)</span> et <span class="math notranslate nohighlight">\(b_2\)</span>,…). On peut alors utiliser demander à la fonction  <code class="docutils literal notranslate"><span class="pre">uniform</span></code> (idem pour <code class="docutils literal notranslate"><span class="pre">normal</span></code>) de créer un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> de valeur où chaque colonne contient N tirages suivant chaque distritubion choisie. Ci-après la syntaxe :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>  <span class="c1"># Nombre de tirages</span>
+<span class="n">u_min</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>  <span class="c1"># 3 valeurs minimales des 3 distributions uniformes</span>
+<span class="n">u_max</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>  <span class="c1"># 3 valeurs amximales des 3 distributions uniformes</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_min</span><span class="p">)</span>
+
+<span class="n">u_sims</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">u_min</span><span class="p">,</span> <span class="n">u_max</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>  <span class="c1"># On demande explicite un tableau de taille N*k</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Simulation des u1</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Simulation des u2</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># Simulation des u3</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Entre 1 et 3&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Entre 5 et 7&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X3</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Entre 10 et 12&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_16_0.png" src="../_images/plus_loin_16_0.png" />
+</div>
+</div>
+<p>Et avec des lois normales :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>  <span class="c1"># Nombre de tirages</span>
+<span class="n">u_mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>  <span class="c1"># 3 valeurs minimales des 3 distributions uniformes</span>
+<span class="n">u_u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># 3 valeurs amximales des 3 distributions uniformes</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_min</span><span class="p">)</span>
+
+<span class="n">u_sims</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">u_mean</span><span class="p">,</span> <span class="n">u_u</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>  <span class="c1"># On demande explicite un tableau de taille N*k</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Simulation des u1</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Simulation des u2</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="n">u_sims</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># Simulation des u3</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;m=1, s=1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;m=5, s=2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X3</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;m=15, s=3&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_18_0.png" src="../_images/plus_loin_18_0.png" />
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Voir la <a class="reference internal" href="#tableau-numpy"><span class="std std-ref">partie sur les tableaux</span></a> pour la sélection d’une colonne du tableau.</p>
+</div>
+</div>
+</div>
+<div class="section" id="la-fonction-numpy-polyfit">
+<h1><span class="section-number">3. </span>La fonction numpy.polyfit<a class="headerlink" href="#la-fonction-numpy-polyfit" title="Permalink to this headline">¶</a></h1>
+<p>Il arrive fréquemment qu’on veuille ajuster un modèle théorique sur des points de données expérimentaux. Le plus courramment utilisé pour non est l’ajustement d’un modèle affine <span class="math notranslate nohighlight">\(y = ax + b\)</span> à des points expérimentaux <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> (i allant de 1 à  N). On veut connaître les valeurs de <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> qui donne une droite passant au plus près des points expérimentaux.</p>
+<p>On ne va pas présenter ici ce que signifie “au plus près”, ni comment sont déterminer les coefficients <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>. On présente juste une fonction (<code class="docutils literal notranslate"><span class="pre">polyfit</span></code>) de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui permet justement de réaliser cet ajustement (on parle de <strong>régression linéaire</strong>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de réaliser un ajustement par un polynôme de degré <code class="docutils literal notranslate"><span class="pre">n</span></code> quelconque. On se limitera ici à <span class="math notranslate nohighlight">\(n=1\)</span> soit une droite.</p>
+</div>
+<div class="section" id="la-syntaxe">
+<h2><span class="section-number">3.1. </span>La syntaxe<a class="headerlink" href="#la-syntaxe" title="Permalink to this headline">¶</a></h2>
+<p>On dispose de deux vecteurs numpy (ou listes classiques) contenant les <span class="math notranslate nohighlight">\(x_i\)</span> (variable <code class="docutils literal notranslate"><span class="pre">xi</span></code>) et les <span class="math notranslate nohighlight">\(y_i\)</span> (variable <code class="docutils literal notranslate"><span class="pre">yi</span></code>) expérimentaux. On écrit :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># n est le degré du polynôme d&#39;ajustement donc pour nous n=1</span>
+
+</pre></div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de réaliser un ajustement par un polynôme de degré <code class="docutils literal notranslate"><span class="pre">n</span></code> quelconque. On se limitera ici à <span class="math notranslate nohighlight">\(n=1\)</span> soit une droite.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> est un vecteur numpy contenant les coefficients du polynôme par ordre de puissance décroissante. Ainsi pour :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># n est le degré du polynôme d&#39;ajustement donc pour nous n=1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> contient : <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> avec comme modèle : <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">ax</span> <span class="pre">+</span> <span class="pre">b</span></code>. On y accède par : <code class="docutils literal notranslate"><span class="pre">p[0]</span></code> (pente) et <code class="docutils literal notranslate"><span class="pre">p[1]</span></code> (ordonnée à l’origine).</p>
+</div>
+<div class="section" id="un-exemple">
+<h2><span class="section-number">3.2. </span>Un exemple<a class="headerlink" href="#un-exemple" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Fausses (!) données expérimentales &quot;&quot;&quot;</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">])</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">,</span> <span class="mf">21.8</span><span class="p">])</span>
+
+<span class="sd">&quot;&quot;&quot;Ajustement linéaire&quot;&quot;&quot;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On applique la droite ajusté aux xi pour comparaison.</span>
+
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Ajustement linéaire&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Données expérimentales&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">y_adj</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajustement&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7b31e0b850&gt;
+</pre></div>
+</div>
+<img alt="../_images/plus_loin_21_1.png" src="../_images/plus_loin_21_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tableaux-numpy-manipulations">
+<span id="tableau-numpy"></span><h1><span class="section-number">4. </span>Tableaux numpy : manipulations<a class="headerlink" href="#tableaux-numpy-manipulations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="operations-usuelles-et-concatenation">
+<h2><span class="section-number">4.1. </span>Opérations usuelles et concaténation<a class="headerlink" href="#operations-usuelles-et-concatenation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Les opérations usuelles et fonctions mathématiques présentées précédemment s’appliquent à nouveau pour les tableaux numpy.</p></li>
+<li><p>Concaténation : La fonction <code class="docutils literal notranslate"><span class="pre">append</span></code> doit prendre un troisième argument si on concatène deux tableaux (ou un tableau et un vecteur). L’argument <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> </code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">0</span></code> : Concaténer <em>verticalement</em> : les deux tableaux doivent donc avec le même nombre de colonnes. Sinon Python renverra une erreur.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">1</span></code> : Concaténer <em>horizontalement</em> : les deux tableaux doivent donc avec le même nombre de lignes. Sinon Python renverra une erreur.</p></li>
+<li><p>Pas de <code class="docutils literal notranslate"><span class="pre">axis</span></code> : Python va transformer les tableaux en vecteurs et concaténer les vecteurs.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">4.17</span><span class="p">]])</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.2</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">]])</span>
+
+<span class="n">L3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>  <span class="c1"># On aplatit les tableaux pour obtenir un vecteur.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L3</span><span class="p">)</span>
+
+<span class="n">L4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># On place L2 sous L1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L4</span><span class="p">)</span>
+
+<span class="n">L5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Renvoie un erreur car on ne peut placer L2 à droite de L1 : pas le même nombre de lignes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.3  2.5  3.14 3.16 3.14 4.17 1.2  3.7  4.2  3.1 ]
+[[2.3  2.5 ]
+ [3.14 3.16]
+ [3.14 4.17]
+ [1.2  3.7 ]
+ [4.2  3.1 ]]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">6</span><span class="n">a2b3cf6bb19</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">L4</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">L5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Renvoie un erreur car on ne peut placer L2 à droite de L1 : pas le même nombre de lignes</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">L5</span><span class="p">)</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">append</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/numpy/lib/function_base.py</span> in <span class="ni">append</span><span class="nt">(arr, values, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">ravel</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4670</span>         <span class="n">axis</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="o">-</span><span class="mi">1</span>
+<span class="ne">-&gt; </span><span class="mi">4671</span>     <span class="k">return</span> <span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4672</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4673</span> 
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">concatenate</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="ne">ValueError</span>: all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 3 and the array at index 1 has size 2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selection-d-une-partie-d-un-tableau">
+<h2><span class="section-number">4.2. </span>Sélection d’une partie d’un tableau.<a class="headerlink" href="#selection-d-une-partie-d-un-tableau" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>La méthode présentée ne fonctionne pas avec une liste de listes classique. Uniquement avec des tableaux <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p>Attention, l’<strong>indexation commence toujours à 0</strong></p></li>
+</ul>
+</div>
+<div class="section" id="selection-d-un-element">
+<h3><span class="section-number">4.2.1. </span>Sélection d’un élément.<a class="headerlink" href="#selection-d-un-element" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">4.17</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">2 : sélection de la troisième ligne</span>
+<span class="sd">1 : sélection de la deuxième colonne</span>
+
+<span class="sd">On affiche donc 4.17</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.17
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n2 : sélection de la troisième ligne\n1 : sélection de la deuxième colonne\n\nOn affiche donc 4.17\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selection-d-une-portion-d-un-tableau">
+<h3><span class="section-number">4.2.2. </span>Sélection d’une portion d’un tableau<a class="headerlink" href="#selection-d-une-portion-d-un-tableau" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>On rappelle que L1[1:3] sélectionne jusqu’à l’index 3 (quatrième élément ) <strong>non inclus</strong>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">4.17</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.6</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span>  <span class="o">-</span><span class="mf">8.2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Première sélection&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># Sélection des deux premières lignes (0 et 1) et colonnes d&#39;index (1 et 2). C&#39;est un tableau.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deuxième sélection&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># Permet de sélectionner la deuxième colonne en entier (c&#39;est un vecteur)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Troisième sélection&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>  <span class="c1"># Permet de sélectionner la deuxième ligne en entier (c&#39;est un vecteur)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Quatrième sélection&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Permet de sélectionner la deuxième ligne en entier aussi (c&#39;est un vecteur)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cinquième sélection&quot;</span><span class="p">,</span> <span class="n">L1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>  <span class="c1"># Permet de sélectionner la dernière ligne en entier (c&#39;est un vecteur)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Première sélection [[ 2.5   6.8 ]
+ [ 3.16 -1.3 ]]
+Deuxième sélection [2.5  3.16 4.17 4.2 ]
+Troisième sélection [ 3.14  3.16 -1.3 ]
+Quatrième sélection [ 3.14  3.16 -1.3 ]
+Cinquième sélection [ 1.6  4.2 -8.2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici le tableau <code class="docutils literal notranslate"><span class="pre">L1</span></code> avec les indices des lignes et colonnes pour mieux comprendre.</p>
+<p><img alt="Tableau numpy 2" src="../_images/tableau_2.png" /></p>
+</div>
+</div>
+<div class="section" id="si-j-ai-bien-compris">
+<h2><span class="section-number">4.3. </span>Si j’ai bien compris…<a class="headerlink" href="#si-j-ai-bien-compris" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Exercice</p>
+<p>Essayer de prévoir ce qu’affichera chaque <code class="docutils literal notranslate"><span class="pre">print</span></code> puis observer le résultat en cliquant sur la croix en bas à droite.</p>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">L1</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ci-dessous : une méthode pour créer un tableau à partir de 3 vecteurs de même taille.</span>
+<span class="sd">Les L1, L2, L3 sont les lignes du tableau.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 1 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 2 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 3 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 4 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 5 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 6 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 7 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 8 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 9 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># Un peu plus compliqué...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cas 10 :&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># On se concentre bien...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cas 1 : [[0. 1. 2. 3.]
+ [0. 1. 4. 9.]
+ [1. 1. 1. 1.]]
+Cas 2 : 1.0
+Cas 3 : 1.0
+Cas 4 : [0. 1. 4. 9.]
+Cas 5 : [1. 1. 1. 1.]
+Cas 6 : [3. 9. 1.]
+Cas 7 : [2. 4. 1.]
+Cas 8 : [[0.]]
+Cas 9 : [1. 1.]
+Cas 10 : [[1. 2.]
+ [1. 4.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Explication des réponses<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><strong>Les vecteurs</strong> :</p>
+<ul class="simple">
+<li><p class="card-text">L1 crée une liste d’entier partant de 0 jusqu’à 4 <strong>exclus</strong> soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p></li>
+<li><p class="card-text">L2 est la multiplication terme à terme L1 par lui-même, on passe chaque élément au carré soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">9]</span></code></p></li>
+<li><p class="card-text">L3 est une liste de 4 éléments composées uniquement de 1.</p></li>
+</ul>
+<p class="card-text"><strong>Le tableau</strong> :</p>
+<ul class="simple">
+<li><p class="card-text">M est le tableau composé des trois vecteurs. Il est donc de taille 3*4 (3 lignes, 4 colonnes). Soit :</p></li>
+</ul>
+<p class="card-text"><img alt="Tableau numpy" src="../_images/matrice_numpy.png" /></p>
+<p class="card-text"><strong>Les affichage</strong>:</p>
+<ul class="simple">
+<li><p class="card-text">Cas 1 : Affichage du tableau complet</p></li>
+<li><p class="card-text">Cas 2 : Affichage de l’élément de la troisième ligne (indice 2), quatrième colonne (indice 3), soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
+<li><p class="card-text">Cas 3 : Afficahge de l’élément de la dernière ligne (indice -1), troisième colonne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
+<li><p class="card-text">Cas 4 : Affichage de la <strong>deuxième ligne (indice 1)</strong> soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([0.,</span> <span class="pre">1.,</span> <span class="pre">4.,</span> <span class="pre">9.])</span></code></span></p></li>
+<li><p class="card-text">Cas 5 : Affichage de la troisième ligne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.,</span> <span class="pre">1.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="card-text">Cas 6 : Affichage de la dernière colonne (indice -1) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([3.,</span> <span class="pre">9.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="card-text">Cas 7 : Affichage de l’avant-dernière colonne (indice -2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.,</span> <span class="pre">4.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="card-text">Cas 8 : Affichage du tableau limité à la deuxième ligne (de l’indice 1 à l’indice 2 <strong>exclus</strong>) et à la première colonne soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[0.]])</span></code></span> (de l’indice 0 à l’indice 1 <strong>exclus</strong>). <em>C’est bien un tableau mais avec une seule valeur !</em></p></li>
+<li><p class="card-text">Cas 9 : Affichage de la deuxième colonne mais sans la dernière ligne (on va jusqu’au -1 <strong>exclus</strong>) <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="card-text">Cas 10 : Affichage du tableau limité aux deux premières lignes (de l’indice -3 soit indice 0 - puisqu’il y a 3 lignes - jusqu’à l’indice -1 (dernier) <strong>exclus</strong>) et à la deuxième et troisième colonne (de l’indice - 3 soit la colonne d’indice 1 - puisque qu’il y a 4 colonnes - jusqu’à l’indice 3 soit la dernière colonne <strong>exclus</strong>) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[1.,</span> <span class="pre">2.],</span>
+&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1.,</span> <span class="pre">4.]])</span></code></span></p></li>
+</ul>
+</div>
+</details></div>
+</div>
+<div class="section" id="la-comprehension-des-listes">
+<h1><span class="section-number">5. </span>La compréhension des listes<a class="headerlink" href="#la-comprehension-des-listes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="position-du-probleme">
+<h2><span class="section-number">5.1. </span>Position du problème<a class="headerlink" href="#position-du-probleme" title="Permalink to this headline">¶</a></h2>
+<p>On a vu que les listes classiques ne permettaient pas d’appliquer une fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> à chaque élément en écrivant <code class="docutils literal notranslate"><span class="pre">f(L)</span></code> (<code class="docutils literal notranslate"><span class="pre">L</span></code> étant une liste classique). Cela a motivé l’utilisation des listes numpy. Néanmoins :</p>
+<ul class="simple">
+<li><p>On est quelques fois obligé d’utiliser les listes classiques</p></li>
+<li><p>La syntaxe <code class="docutils literal notranslate"><span class="pre">f(L)</span></code> ne fonctionne que si <code class="docutils literal notranslate"><span class="pre">f</span></code> est <em>vectorialisable</em>, c’est-à-dire programmée pour pouvoir s’appliquer à chaque élément.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Fonctions et opérateurs vectorialisables</p>
+<p>Non exhaustif :</p>
+<ul class="simple">
+<li><p>Les opérateurs classiues <code class="docutils literal notranslate"><span class="pre">+,-,/,*</span></code> sont vectorialisables</p></li>
+<li><p>Les fonctions de la bibliothèques numpy (sin, cos, exp…) sont vectorialisables.</p></li>
+</ul>
+</div>
+<p>Un exemple fréquent est quand la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> fait appelle à un structure conditionnelle qui n’est pas vectorialisable. On reprend la fonction définie par morceau :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
+  <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Si 3 &lt;= x &lt; 5</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+  <span class="k">else</span><span class="p">:</span>  <span class="c1"># Si x &gt;=5</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">3</span>
+  <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Impossible de l’appliquer directement à un vecteur numpy (pour la tracer par exemple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Vecteur de 1000 valeurs entre 0 et 15</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">c0a804038c36</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Vecteur de 1000 valeurs entre 0 et 15</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-16-45c6fcf56df6&gt;</span> in <span class="ni">fonction_morceau</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>   <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Si 3 &lt;= x &lt; 5</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">truth</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">with</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">one</span> <span class="pre">element</span> <span class="pre">is</span> <span class="pre">ambiguous.</span></code> : Le message est clair : il cherche à travailler sur le vecteur et non sur chaque élément.</p>
+</div>
+<div class="section" id="premiere-solution">
+<h2><span class="section-number">5.2. </span>Première solution<a class="headerlink" href="#premiere-solution" title="Permalink to this headline">¶</a></h2>
+<p>On peut écrire une boucle classique qui parcout tous les éléments de <code class="docutils literal notranslate"><span class="pre">x</span></code> et leur applique <code class="docutils literal notranslate"><span class="pre">fonction_morceau</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># On crée un vecteur nul qu&#39;on va remplir</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>  <span class="c1"># i prendra les indices de 0 à len(x) - 1</span>
+  <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># On remplit l&#39;élément d&#39;indice i</span>
+
+
+<span class="sd">&quot;&quot;&quot;On peut même le tracer&quot;&quot;&quot;</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># On ne va pas légender le graphique puisqu&#39;il n&#39;y a pas de contexte ici.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_37_0.png" src="../_images/plus_loin_37_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="utilisation-de-la-comprehension-des-listes">
+<h2><span class="section-number">5.3. </span>Utilisation de la compréhension des listes.<a class="headerlink" href="#utilisation-de-la-comprehension-des-listes" title="Permalink to this headline">¶</a></h2>
+<p>Une <strong>liste en compréhension</strong> est une liste qui est obtenue par action (et/ou filtrage) de chaque élément d’une autre liste. La syntaxe est simple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="n">fonction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>  <span class="c1"># L est une liste et L1 la nouvelle liste en compréhension</span>
+</pre></div>
+</div>
+<p>La syntaxe est assez clair : “Applique la <code class="docutils literal notranslate"><span class="pre">fonction</span></code> à <code class="docutils literal notranslate"><span class="pre">x</span></code> pour <code class="docutils literal notranslate"><span class="pre">x</span></code> qui parcourt chaque élément de <code class="docutils literal notranslate"><span class="pre">L</span></code>”</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Ca fonction si <code class="docutils literal notranslate"><span class="pre">L</span></code> est un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Cette méthode renvoie une liste <strong>classique</strong>, pas un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Si vous voulez obtenir un vecteur numpy, il faudra utiliser la fonction <code class="docutils literal notranslate"><span class="pre">array</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fonction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>A titre d’exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fonction_morceau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+
+
+<span class="sd">&quot;&quot;&quot;On peut même le tracer&quot;&quot;&quot;</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># On ne va pas légender le graphique puisqu&#39;il n&#39;y a pas de contexte ici.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_39_0.png" src="../_images/plus_loin_39_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="les-dictionnaires">
+<h1><span class="section-number">6. </span>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Permalink to this headline">¶</a></h1>
+<p>Les <strong>dictionnaires</strong> sont des objets python un peu plus complexes que vous pourriez rencontrer comme retour d’une fonction native. Un dictionnaire, comme une liste possède un ensemble d’éléments (des entiers, flottants, chaine de caractère, listes, vecteur numpy …) mais ces éléments sont rangés dans des <em>champs nommés</em>. Un exemple avec les différentes manipulations utiles :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; On définit un dictionnaire. </span>
+<span class="sd">- Il a 4 champs : fruit, couleur, rouge, prix.</span>
+<span class="sd">- On a assigner à ces champs les valeurs respectives : &quot;Pomme&quot;, &quot;Rouge&quot;, 234, 3.45</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fruit&#39;</span><span class="p">:</span> <span class="s2">&quot;Pomme&quot;</span><span class="p">,</span> <span class="s1">&#39;couleur&#39;</span><span class="p">:</span> <span class="s2">&quot;Rouge&quot;</span><span class="p">,</span> <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="mi">234</span><span class="p">,</span> <span class="s1">&#39;prix&#39;</span><span class="p">:</span> <span class="mf">3.45</span><span class="p">}</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;fruit&#39;</span><span class="p">]</span>  <span class="c1"># Pour accéder au contenu du champ &quot;fruit&quot; du dictionnaire a</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nom des champs :&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">truc</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>  <span class="c1"># truc prendra les différents nom des champs</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">truc</span><span class="p">)</span>  <span class="c1"># On affiche le nom des champs</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Contenu des champs :&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">truc</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>  <span class="c1"># truc prendra les différents nom des champs</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">truc</span><span class="p">])</span>  <span class="c1"># On affiche le contenu de chaque champ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nom des champs :
+fruit
+couleur
+nombre
+prix
+Contenu des champs :
+Pomme
+Rouge
+234
+3.45
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Attention:</p>
+<ul class="simple">
+<li><p>Si <code class="docutils literal notranslate"><span class="pre">fruit</span></code> est le nom d’un champ, on écrit <code class="docutils literal notranslate"><span class="pre">a[&quot;fruit&quot;]</span></code> avec des <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> : c’est bien une chaine de caractère</p></li>
+<li><p>Si <code class="docutils literal notranslate"><span class="pre">truc</span></code> est le nombre de la variable qui contient la chaine de caractère <code class="docutils literal notranslate"><span class="pre">&quot;fruit&quot;</span></code>, on écrit <code class="docutils literal notranslate"><span class="pre">a[truc]</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="fonctions-et-methodes">
+<h1><span class="section-number">7. </span>Fonctions et méthodes<a class="headerlink" href="#fonctions-et-methodes" title="Permalink to this headline">¶</a></h1>
+<p>Vous avez peut-être remarqué que la façon d’appeler les “fonctions” pouvait un peu différer suivant les cas :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(f)</span></code> : La <strong>fonction</strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> agit sur <em>l’argument</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en l’affichant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f.suptitle()</span></code> : la <strong>méthode</strong>  <code class="docutils literal notranslate"><span class="pre">suptitle</span></code> agit sur <em>l’objet</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en le modifiant</p></li>
+</ul>
+<p>On ne revient pas sur les fonctions qui ont déjà été présentées précédemment.</p>
+<p>Les <strong>méthodes</strong> sont comme des fonctions mais qui sont étroitement associées à certains types de variables (on parle d’objets). Cette notion est reliée à la <strong>Programmation Orientée Objet</strong> (POO) rendue possibles par de nombreux langages informatiques (comme Python).</p>
+<p>Sans rentrer dans les détails, on peut en POO définir des <em>objets</em> qui vont posséder certaines caractéristiques (des <em>attributs</em>) et certaines fonctions propres (des <em>méthodes</em>) qui permettent de les modifier ou d’obtenir certaines caractéristiques.</p>
+<p>Par exemple, si je crée un vecteur numpy <code class="docutils literal notranslate"><span class="pre">v0</span></code> : c’est un objet.</p>
+<ul class="simple">
+<li><p>Il possède certaines attributs. Ex : <code class="docutils literal notranslate"><span class="pre">shape</span></code> donnera sa taille. Pour obtenir cet attribut, on écrira <code class="docutils literal notranslate"><span class="pre">v0.shape</span></code> (l’attribut <code class="docutils literal notranslate"><span class="pre">shape</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">v0</span></code>)</p></li>
+<li><p>Il possède des méthodes. Ex : <code class="docutils literal notranslate"><span class="pre">fill(valeur)</span></code> remplit le vecteur avec la même <code class="docutils literal notranslate"><span class="pre">valeur</span></code>. Pour appliquer cette méthode à <code class="docutils literal notranslate"><span class="pre">v0</span></code>, on écrira <code class="docutils literal notranslate"><span class="pre">v0.fill(3)</span></code>.</p></li>
+</ul>
+<p>Il n’est pas nécessaire de maîtriser complètement la POO. Il suffira surtout de repérer quand on utilise la syntaxe d’une fonction (ex : <code class="docutils literal notranslate"><span class="pre">round(3.4)</span></code>) et qu’on il s’agit de la syntaxe d’une méthode (ex : <code class="docutils literal notranslate"><span class="pre">ax.set_xlabel('Légende</span> <span class="pre">des</span> <span class="pre">x')</span></code>).</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="exo_science.html" title="previous page"><span class="section-number">1. </span>A vous de coder</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
