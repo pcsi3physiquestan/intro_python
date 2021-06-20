@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Traiter des données expérimentales avec numpy &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/import_file.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. La bibliothèque numpy.random" href="num_random.html" />
+    <link rel="prev" title="3. S’entraîner" href="exo_science.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/import_file.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Traiter des données expérimentales avec numpy" />
+<meta property="og:description" content="Traiter des données expérimentales avec numpy  Lorsqu’il y a peu de données expérimentales, on peut les importer “à la main” mais si ces données sont nombreuses" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Réviser les bases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#indentation">
+     1.2. Indentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+     1.3. Les types et opérations usuelles.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#variables-et-affection">
+     1.4. Variables et affection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-listes">
+     1.5. Les listes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-commentaires">
+     1.6. Les commentaires
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boucles.html">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_general.html">
+   3. S’entraîner.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science.html">
+   3. S’entraîner
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   5. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science_2.html">
+   6. S’entraîner
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compléments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html">
+   1. Comprendre ses erreurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+   2. La fonction numpy.polyfit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+   3. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
+   4. Simulations plus complexes avec numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
+   5. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#les-dictionnaires">
+   6. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
+   7. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/import_file.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/import_file.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/import_file.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preambule-repertoire-et-chemin-vers-un-fichier">
+   4.1. Préambule : Répertoire et chemin vers un fichier
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chemin-absolu">
+     4.1.1. Chemin absolu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chemin-relatif">
+     4.1.2. Chemin relatif
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparer-l-importation">
+   4.2. Préparer l’importation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importation-dans-python">
+   4.3. Importation dans Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntaxe">
+     4.3.1. Syntaxe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple">
+     4.3.2. Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sauvegarder-des-donnees-depuis-python">
+   4.4. Sauvegarder des données depuis Python
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe des fonctions de la bibliothèque standard (<code class="docutils literal notranslate"><span class="pre">open</span></code>) qui permettent d’accéder au contenu d’un fichier puis d’écrire dans un fichier. Nous ne présentons pas ici ces fonctions pour ne pas alourdir la présentation bien qu’elles puissent être très utiles pour un utilisateur de Python. On se concentre ici sur l’importation et l’exportation de données expérimentales qui seront des nombres (entiers ou flottants) directement dans des vecteurs et tableaux <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+<div class="section" id="traiter-des-donnees-experimentales-avec-numpy">
+<h1><span class="section-number">4. </span>Traiter des données expérimentales avec numpy<a class="headerlink" href="#traiter-des-donnees-experimentales-avec-numpy" title="Permalink to this headline">¶</a></h1>
+<p>Lorsqu’il y a peu de données expérimentales, on peut les importer “à la main” mais si ces données sont nombreuses, il devient utile de stocker ces données dans un fichier (extension <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.dat</span></code> ou autre) pour les importer dans Python lorsqu’on veut les utiliser. Cela permettra en plus de réutiliser un script Python déjà écrit sur de nouvelles données expérimentales en ne changeant que le nom du fichier.</p>
+<div class="section" id="preambule-repertoire-et-chemin-vers-un-fichier">
+<h2><span class="section-number">4.1. </span>Préambule : Répertoire et chemin vers un fichier<a class="headerlink" href="#preambule-repertoire-et-chemin-vers-un-fichier" title="Permalink to this headline">¶</a></h2>
+<p>En général les données expérimentales proviendront :</p>
+<ul class="simple">
+<li><p>d’un système d’acquisition tiers qui a enregistré les données dans un fichier localisé ailleurs sur l’ordinateur. Dans ce cas, il faudra localiser l’endroit où est stocké le fichier : la suite de répertoires et sous-répertoires dans lequel se trouve le fichier, c’est-à-dire le <strong>chemin</strong> vers ce fichier.</p></li>
+<li><p>d’un fichier partagé par l’enseignant ou par des camarades. Il faudra en général le télécharger sur votre ordinateur (ou celui du TP) en choisissant correctement le répertoire de destination (<em>il est conseillé de le déplacé dans le même répertoire que le fichier contenant votre script</em>).</p></li>
+</ul>
+<p>Dans tous les cas, Python n’est pas censé connaître où est le fichier de données, il faudra donc lui donner le <strong>chemin</strong> d’accès au fichier.</p>
+<div class="section" id="chemin-absolu">
+<h3><span class="section-number">4.1.1. </span>Chemin absolu<a class="headerlink" href="#chemin-absolu" title="Permalink to this headline">¶</a></h3>
+<p>Si vous avez déjà utilisé un explorateur de fichier, vous avez peut-être remarqué qu’en remontant d’un dossier parent à un autre on finit par arrive à un répertoire <em>racine</em> (<code class="docutils literal notranslate"><span class="pre">C:/</span></code> sous <code class="docutils literal notranslate"><span class="pre">Windows</span></code> et <code class="docutils literal notranslate"><span class="pre">/</span></code> ou le nom de l’ordinateur sous <code class="docutils literal notranslate"><span class="pre">MacOs</span></code> et <code class="docutils literal notranslate"><span class="pre">Linux</span></code>). On peut ainsi localiser un fichier par la succession de répértoire dans lesquels il est inclus depuis ce répertoire racine, on parle de <strong>chemin absolu</strong>.</p>
+<blockquote>
+<div><p>Exemple sous Windows : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous Windows) <code class="docutils literal notranslate"><span class="pre">Users</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">Documents</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la créatino de votre compte sur votre ordinateur). On note alors le <strong>chemin absole vers le fichier</strong> :
+<code class="docutils literal notranslate"><span class="pre">C:/Users/nom_utilisateur/Documents/python_prepa/exercice.py</span></code></p>
+</div></blockquote>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<ul class="simple">
+<li><p>On donne ici la syntaxe utilisée sous Python. Sous Windows (dans un terminal par exemple), il faudra remplacer les <code class="docutils literal notranslate"><span class="pre">/</span></code> par des <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p></li>
+<li><p>Le répertoire racine peut-être une autre lettre (<code class="docutils literal notranslate"><span class="pre">D:/</span></code>, <code class="docutils literal notranslate"><span class="pre">P:/</span></code>) en cas de disques durs multiples ou d’utilisation d’un réseau.</p></li>
+</ul>
+</div>
+<blockquote>
+<div><p>Exemple sous MacOS et Linux : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous MacOs ou Linux) <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la créatino de votre compte sur votre ordinateur). On note alors le <strong>chemin absolu vers le fichier</strong> :
+<code class="docutils literal notranslate"><span class="pre">/home/nom_utilisateur/python_prepa/exercice.py</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="chemin-relatif">
+<h3><span class="section-number">4.1.2. </span>Chemin relatif<a class="headerlink" href="#chemin-relatif" title="Permalink to this headline">¶</a></h3>
+<p>Les chemins absolus sont pratiques car ils ne souffrent d’aucune ambiguité. Il ont par contre le défaut d’être long et nécessite la connaissance du chemin complet (logique !). Il est souvent utiliser uniquement le chemin depuis le fichier qu’on est en train d’utiliser. On parle de <strong>chemin relatif</strong></p>
+<blockquote>
+<div><p>Exemple : On utilise le fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> précédent mais on a besoin de données expérimentales situées dans le fichier <code class="docutils literal notranslate"><span class="pre">/home/nom_utilisateur/python_prepa/donnees/data.txt</span></code>. Pour “passer” du répertoire de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> au répertoire de <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>, il suffit simplement d’entrer dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees</span></code>. Le <strong>chemin relatif de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> vers <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> est alors :</strong>
+<code class="docutils literal notranslate"><span class="pre">donnees/data.txt</span></code>
+<em>On remarquera l’absence de <code class="docutils literal notranslate"><span class="pre">C:/</span></code> ou <code class="docutils literal notranslate"><span class="pre">/</span></code> au début qui signifie qu’il s’agit d’un chemin relatif.</em></p>
+</div></blockquote>
+<p>La plupart du temps, l’utilisation de chemin relatif serra préfèrée.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il arrive qu’on doivent remonter d’un répertoire, on utilise alors <code class="docutils literal notranslate"><span class="pre">..</span></code></p>
+<blockquote>
+<div><p>Exemple : le chemin relatif de <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> vers <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> est <code class="docutils literal notranslate"><span class="pre">../exercice.py</span></code></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="preparer-l-importation">
+<h2><span class="section-number">4.2. </span>Préparer l’importation<a class="headerlink" href="#preparer-l-importation" title="Permalink to this headline">¶</a></h2>
+<p>Avant d’importer un fichier de données, il est important :</p>
+<ul class="simple">
+<li><p>de le localiser (cf. supra)</p></li>
+<li><p>de l’ouvrir pour regarder la forme du fichier (<em>pyzo permet en général d’ouvrir un fichier texte contenant des données</em>)</p></li>
+</ul>
+<p>Un fichier de données expérimentales contient en général :</p>
+<ol class="simple">
+<li><p>(Facultatif) un en-tête décrivant les données expérimentales receuillies (expérience réalisée et conditions expérimentales, date, …)</p></li>
+<li><p>Un tableau de valeur avec</p>
+<ul class="simple">
+<li><p>une ligne (ou plusieurs) d’en-tête donnant les grandeurs mesurées et leur unité</p></li>
+<li><p>des lignes contenant les données expérimentales</p></li>
+<li><p>sur une ligne, chaque donnée (chaque “colonne”) est séparée par un séparateur (<code class="docutils literal notranslate"><span class="pre">,</span></code> ou <code class="docutils literal notranslate"><span class="pre">;</span></code>)</p></li>
+</ul>
+</li>
+</ol>
+<p>Pour préparer l’importation, il est important de vérifier le nombre de lignes de commentaires (elles ne seront pas importées), la ligne titre qui donne l’ordre des grandeurs mesurées, l’unité… et le séparateur utilisé. Dans <a class="reference internal" href="#donnees-exp"><span class="std std-ref">l’exemple ci-après</span></a>, on observe :</p>
+<ul class="simple">
+<li><p>6 lignes de commentaires et une ligne d’en-tête</p></li>
+<li><p>les mesures dans l’ordre : Température en Kelvin, Pression en bar, Volume en <span class="math notranslate nohighlight">\(cm^3\)</span> puis un entier représentant l’état du système (Liquide, Gaz, Liquide+Gaz, Fluide supercritique).</p></li>
+<li><p>Un séparation des colonnes par des <code class="docutils literal notranslate"><span class="pre">,</span></code></p></li>
+</ul>
+<div class="figure align-center" id="donnees-exp">
+<img alt="../_images/fichier_donnees.png" src="../_images/fichier_donnees.png" />
+<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Exemple de fichier de données affichés dans Pyzo</span><a class="headerlink" href="#donnees-exp" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="importation-dans-python">
+<h2><span class="section-number">4.3. </span>Importation dans Python<a class="headerlink" href="#importation-dans-python" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Il existe d’autres fonctions d’importation comme <code class="docutils literal notranslate"><span class="pre">fromfile</span></code> qui ne sont pas présentée ici pour ne pas alourdir la présentation.</p>
+</div>
+<div class="section" id="syntaxe">
+<h3><span class="section-number">4.3.1. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
+<p>La bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> propose la fonction <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> qui permet d’importer des données <strong>numériques</strong> dans un tableau numpy. Sa signature est :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chemin_vers_fichier&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Il renvoie un tableau numpy.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'chemin_vers_fichier'</span></code> est <strong>une chaine de caractère</strong> (entre <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> donc) donnant le chemin (relatif ou absolu) vers le fichier à lire</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skiprows=3</span></code> donne le nombre de ligne au début du fichier à sauter (commentaires et ligne de titre)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code> est le caractère (ne pas oublier les <code class="docutils literal notranslate"><span class="pre">''</span></code>autour de la virgule) qui sépare les colonnes dans le fichier de données.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usecols=(0,</span> <span class="pre">1,</span> <span class="pre">4)</span></code> indique les colonnes à importer. Cet argument est <strong>optionnel</strong>, si rien n’est donné, toutes les colonnes sont importées.</p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<ul class="simple">
+<li><p>Si vous voulez importer une seul colonne, utiliser la syntaxe <code class="docutils literal notranslate"><span class="pre">usecols=3</span></code>. Vous obtiendrez alors un vecteur numpy.</p></li>
+<li><p>L’indice des colonnes commence à 0 comme pour un tableau numpy.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unpack</span></code>: (Optionnel).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> (par défaut), la fonction renvoie les données sous forme de tableau numpy avec la même structure que dans le fichier.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>, renvoie les données sous plusieurs variables (vecteurs numpy) et chaque variable contient une colonne</p></li>
+</ul>
+</li>
+<li><p><em>D’autres arguments optionnels existent mais ils ont moins d’utilité.</em></p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>L’importation ne pourra fonctionner que si le tableau de données expérimentales est bien formé, c’est-à-dire si chaque ligne de données possède le même nombre de colonnes.</p>
+</div>
+</div>
+<div class="section" id="exemple">
+<h3><span class="section-number">4.3.2. </span>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
+<p>Le script suivant est dans un fichier. Les données précédentes sont situées dans le fichier <code class="docutils literal notranslate"><span class="pre">Sf6/sf6.dat</span></code>.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+C’est un chemin…<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">… relatif par rapport au fichier où se trouve le script.</p>
+</div>
+</details><div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># On n&#39;oublie pas d&#39;importer numpy</span>
+
+<span class="n">nom_fichier</span> <span class="o">=</span> <span class="s2">&quot;Sf6/sf6.dat&quot;</span>  <span class="c1"># Bien penser aux &quot;&quot; car ce doit être une chaine de caractère</span>
+
+<span class="sd">&quot;&quot;&quot;Importation complète sous forme de tableau&quot;&quot;&quot;</span>
+<span class="n">datas1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>  <span class="c1"># Il y a bien 6 lignes de commentaires et une ligne de titre.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tableau complet : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datas1</span><span class="p">)</span>  <span class="c1"># Le tableau étant volumineux, Python n&#39;en affiche qu&#39;une partie.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Première colonne du tableau :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datas1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># On peut extraire une colonne, ici la colonne des températures.</span>
+
+
+<span class="sd">&quot;&quot;&quot;Importation complète avec un vecteur par colonne&quot;&quot;&quot;</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">Etat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># On récupère ainsi des vecteurs séparés</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vecteur de pressions :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>  <span class="c1"># Vecteur des données de Pression en bar</span>
+
+
+<span class="sd">&quot;&quot;&quot;Importation partielle d&#39;une colonne</span>
+<span class="sd">Il est déconseillé, pour des raison d&#39;efficacité d&#39;importer une à une les colonnes si vous les voulez toutes.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">V1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># On importe la colonne d&#39;indice 2, soit les volumes</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vecteur des volumes :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>  <span class="c1"># Vecteur de données de Volume en m^3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tableau complet : 
+[[15.1    7.5    4.     0.   ]
+ [15.1    7.75   3.8    0.   ]
+ [15.1    8.     3.6    0.   ]
+ ...
+ [45.6   38.5    0.25   3.   ]
+ [45.6   39.75   0.2    3.   ]
+ [45.6   44.     0.175  3.   ]]
+Première colonne du tableau :
+[15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1
+ 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1
+ 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 15.1 20.1 20.1 20.1 20.1 20.1
+ 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1
+ 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1 20.1
+ 20.1 20.1 20.1 20.1 20.1 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8
+ 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8
+ 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8 24.8
+ 24.8 24.8 24.8 30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.
+ 30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.
+ 30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.  30.
+ 30.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.
+ 35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.
+ 35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.  35.
+ 35.  35.  35.  35.  35.  40.  40.  40.  40.  40.  40.  40.  40.  40.
+ 40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.
+ 40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.  40.
+ 40.  40.  40.  40.  40.  40.  40.  40.  40.  45.6 45.6 45.6 45.6 45.6
+ 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6
+ 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6
+ 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6 45.6
+ 45.6 45.6]
+Vecteur de pressions :
+[ 7.5   7.75  8.    8.5   9.    9.5   9.75 10.   10.5  11.   11.5  12.
+ 12.5  13.   13.5  14.   14.5  15.   15.5  16.   16.5  17.   17.5  18.
+ 18.5  19.   19.   19.   19.1  19.1  19.1  19.1  19.1  19.25 19.5  20.
+ 39.    7.5   8.    8.5   9.    9.5  10.   10.5  11.   11.5  12.   12.5
+ 13.   13.5  14.   14.5  15.   15.5  16.   16.5  17.   17.5  18.   18.5
+ 19.   19.5  20.   20.5  21.   21.5  21.5  21.5  21.5  21.5  21.5  21.75
+ 22.   23.   37.    7.75  8.    8.5   9.    9.5  10.   10.5  11.   11.5
+ 12.   12.5  13.   13.5  14.   14.5  15.   15.5  16.   16.5  17.   17.5
+ 18.   18.5  19.   19.5  20.   20.5  21.   21.75 22.25 23.   23.5  24.
+ 24.   24.   24.   24.25 24.5  25.   28.    8.    8.5   9.    9.5  10.
+ 10.5  11.   11.5  12.   12.5  13.   13.5  14.   14.5  15.   15.5  16.
+ 16.5  17.   17.5  18.   18.5  19.   19.5  20.   20.5  21.5  22.   22.5
+ 23.5  24.5  25.   26.   26.75 27.   27.   27.   27.   28.   30.5   8.
+  8.5   9.    9.5  10.   10.5  11.   11.5  12.   12.5  13.   13.5  14.
+ 14.5  15.   15.5  16.   16.5  17.   17.5  18.   18.5  19.   19.5  20.
+ 21.25 21.5  22.   22.5  23.25 24.   24.5  25.5  26.25 27.25 28.   29.
+ 29.5  30.25 30.25 30.25 30.5  30.75 31.   31.5  40.    8.5   9.    9.5
+ 10.   10.5  11.   11.5  12.   12.5  13.   13.5  14.   14.5  15.   15.5
+ 16.   16.5  17.   17.5  18.   18.5  19.25 20.   20.75 21.5  22.   22.5
+ 23.25 24.   24.75 25.5  26.25 27.25 28.25 29.   30.   31.   32.   32.75
+ 33.5  33.5  33.5  33.75 34.   35.   38.    8.5   9.    9.5  10.   10.5
+ 11.   11.5  12.   12.5  13.   13.5  14.   14.5  15.   15.5  16.   16.5
+ 17.   17.5  18.   18.5  19.   19.75 20.25 20.75 21.5  22.   22.75 23.25
+ 24.   24.75 25.5  26.5  27.5  28.5  29.5  30.25 31.5  32.5  33.5  35.
+ 35.75 36.75 37.5  38.   38.5  38.5  39.75 44.  ]
+Vecteur des volumes :
+[4.    3.8   3.6   3.4   3.2   3.    2.9   2.8   2.65  2.5   2.35  2.25
+ 2.15  2.    1.9   1.85  1.75  1.65  1.6   1.5   1.45  1.4   1.35  1.25
+ 1.2   1.15  1.1   1.    0.9   0.8   0.7   0.6   0.4   0.3   0.2   0.15
+ 0.125 4.    3.8   3.5   3.25  3.05  2.9   2.75  2.6   2.45  2.35  2.2
+ 2.1   2.    1.9   1.85  1.75  1.65  1.6   1.55  1.45  1.4   1.35  1.3
+ 1.25  1.2   1.15  1.1   1.05  1.    0.9   0.8   0.7   0.6   0.4   0.3
+ 0.2   0.15  0.125 4.    3.8   3.55  3.35  3.15  2.95  2.8   2.65  2.5
+ 2.4   2.35  2.15  2.05  1.95  1.9   1.8   1.725 1.65  1.6   1.5   1.45
+ 1.4   1.35  1.3   1.25  1.2   1.15  1.1   1.05  1.    0.95  0.9   0.85
+ 0.8   0.7   0.6   0.5   0.3   0.2   0.15  3.9   3.65  3.4   3.2   3.1
+ 2.9   2.75  2.6   2.45  2.35  2.225 2.15  2.05  1.95  1.85  1.8   1.7
+ 1.65  1.6   1.5   1.45  1.4   1.35  1.3   1.25  1.2   1.15  1.1   1.05
+ 1.    0.9   0.85  0.8   0.75  0.7   0.6   0.5   0.4   0.2   0.15  4.
+ 3.75  3.5   3.3   3.1   2.95  2.8   2.65  2.5   2.4   2.3   2.2   2.1
+ 2.    1.9   1.85  1.75  1.7   1.65  1.575 1.5   1.45  1.4   1.35  1.3
+ 1.25  1.2   1.15  1.1   1.05  1.    0.95  0.9   0.85  0.8   0.75  0.7
+ 0.65  0.6   0.5   0.4   0.35  0.25  0.2   0.175 0.15  3.8   3.55  3.35
+ 3.15  3.    2.95  2.7   2.6   2.45  2.35  2.25  2.15  2.1   2.    1.9
+ 1.825 1.75  1.7   1.65  1.575 1.5   1.45  1.35  1.3   1.25  1.2   1.15
+ 1.1   1.05  1.    0.95  0.9   0.85  0.8   0.75  0.7   0.65  0.6   0.55
+ 0.5   0.4   0.35  0.3   0.25  0.2   0.15  3.95  3.65  3.45  3.25  3.1
+ 2.95  2.8   2.65  2.5   2.4   2.3   2.2   2.1   2.    1.95  1.875 1.8
+ 1.75  1.7   1.6   1.55  1.5   1.45  1.4   1.35  1.3   1.25  1.2   1.15
+ 1.1   1.05  1.    0.95  0.9   0.85  0.8   0.75  0.7   0.65  0.6   0.55
+ 0.5   0.45  0.4   0.35  0.3   0.25  0.2   0.175]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sauvegarder-des-donnees-depuis-python">
+<h2><span class="section-number">4.4. </span>Sauvegarder des données depuis Python<a class="headerlink" href="#sauvegarder-des-donnees-depuis-python" title="Permalink to this headline">¶</a></h2>
+<p>Vous l’utilisez peut-être moins souvent, mais vous pouvez sauvegarder un tableau numpy dans un fichier avec <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nom_tableau</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">tableau_a_sauver</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">comments</span></code> : Commentaires à ajouter au début du fichier (ils seront précédés de <code class="docutils literal notranslate"><span class="pre">#</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">header</span></code> : Chain de caractère ajoutant une ligne d’en-tête (par exemple <code class="docutils literal notranslate"><span class="pre">&quot;T(K),P(bar),V(m^3)&quot;</span></code>)</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="exo_science.html" title="previous page"><span class="section-number">3. </span>S’entraîner</a>
+    <a class='right-next' id="next-link" href="num_random.html" title="next page"><span class="section-number">5. </span>La bibliothèque numpy.random</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

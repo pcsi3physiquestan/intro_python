@@ -14,58 +14,57 @@ kernelspec:
   name: python3
 ---
 
-# Langage de programmation
+# Environnement de développement.
+Un environnement de développement (IDE) est un logiciel permettant d'écrire du code Python et de l'interpréter grâce à l'interface du logiciel. Il existe de nombreux IDE pour Python. Celui conseillé pour l'instant est Pyzo, une présentation rapide a été donnée avec [le tutoriel sur l'installation de Pyzo](https://filedn.com/lykEJ3axFalJygD0EVAUyWS/Stan/Pyzo_Anaconda/Python_pyzo_insta_gen_auroraW/index.html).
 
-## Présentation
+## Quelques bonnes pratiques.
+Vous serez amenés à créer des fichiers contenant vos scripts ou à récupérer des fichiers donnés par vos enseignants. Il est donc important de savoir où les enregistrer pour les utiliser sous Pyzo. L'organisation sera de plus importante lorsqu'il sera question de manipuler des fichiers de données expérimentales.
 
-Python est langage de programmation dit __interprété__ : il va lire une à une la série d'instruction écrite par l'utilisateur et les "interpréter" en langage machine pour exécuter les dites instructions.
+Il est donc conseillé de créer un répertoire spécifique dans lequel vous enregistrerez vos fichiers. Pour cela, il suffit d'ouvrir l'_explorateur de fichiers_ (Windows) ou _Finder_ (MacOs) pour créer un répertoire.  __Préférez créer votre répertoire dans le répertoire `Documents` (ou `MesDocuments`)__, cela facilitera l'accès aux fichiers si vous êtes amenés plus tard à utiliser des logiciels comme Jupyter. Dans l'exemple ci-dessous, un dossier `python_prepa` a été créé dans `Documents`. _Plusieurs sous dossiers pour chaque matière ont été créés, à vous de vous organiser au mieux par la suite._
 
-```{margin}
-On le différencie des langages dits __compilés__ qui lise l'ensemble du programme pour le transformer (le compiler) en un fichier exécutable en langage machine qui sera le programme qui réalisera la tâche qui lui est demandée.
-```
+![Dossier Python](./images/repertoire_python.jpg)
 
-On utilise Python de deux manières :
-* Dans une console Python (appelé aussi Shell) : on rentre alors une instruction. Python l'interprête et l'exécute. On peut alors en rentrer une autre et ainsi de suite.
-* Dans un fichier contenant une série d'instruction les unes à la suite des autres. La commande python va alors lire et exécuter l'ensemble des instructions les unes après les autres. On peut ainsi écrire des programmes plus complexes et c'est pourquoi on privilégiera cette façon de procéder.
-
-```{margin}
-Les environnements de développements comme Spyder ou Pyzo permettent d'interprêter un fichier par simple clic mais on peut aussi demander à python d'interprêter un fichier depuis un terminal en ligne de commande.
-```
-
-## Indentation
+# Indentation
 L'indentation est le décalage de certaines lignes de code appartenant au même bloc (corps d'une fonction, d'une boucle...). On décale (on indente) une ligne grâce à `Espace` (plusieurs fois) ou `Tab`.
 
-Dans beaucoup de langage, l'indentation est optionnelle pour rendre le code plus lisible. Dans Python, elle est obligatoire pour définir l'ensemble d'instructions qui feront partie d'un même bloc (ensemble d'instruction d'une fonction par exemple). Les blocs (fonction, condition, boucle) seront présentés ensuite.
+```{code-block}
+n = 10  # Code non indenté
+for i in range(n):  # Démarrage d'une boucle : le corps de la boucle doit être indenté
+    a = i ** 2  # Partie indenté
+    b = a + 2
+    print(b)  # Fin de la partie indenté (donc du bloc)
+```
 
-## Environnement de développement.
-Un environnement de développement (IDE) est un logiciel permettant d'écrire du code Python et de l'interpréter grâce à l'interface du logiciel. Il existe de nombreux IDE pour Python. Celui conseillé pour l'instant est Pyzo.
+Dans beaucoup de langage, l'indentation est optionnelle pour rendre le code plus lisible. Dans Python, __elle est obligatoire__ pour définir l'ensemble d'instructions qui feront partie d'un même bloc (ensemble d'instruction d'une fonction par exemple). Les blocs (fonction, condition, boucle) seront présentés ensuite.
+
+
 
 # Les types et opérations usuelles.
 On ne décrit ici que les types simples et les opérations que nous utiliserons le plus. D'autres types plus particuliers ou issus de bibliothèques non standards seront présentés plus tard.
 
 ```{tabbed} Les entiers
 Type : `int`
-Exemple : `3`, `123543654`, `-3465`
+Exemple : `3` ou `123543654` ou `-3465`
 
 Opérateur/Fonctions usuelles :
 * Addition : `3 + 4`
 * Soustraction : `3 - 4`
 * Multiplication : `3 * 4`
-* Division entière : `3 // 4`
-* Reste de la division euclidienne : `3 % 4`
-* Puissance : `3 ** 4`
+* Division entière : `5 // 3` (renvoie 1)
+* Reste de la division euclidienne : `5 % 3` (renvoie 2)
+* Puissance : `3 ** 2` (renvoie 9)
 ```
 
 ````{tabbed} Les flottants (nombres réels)
 Type : `float`
-Exemple : `3.45`, `3254.234`, `-23.34`, `3.`, `-5.`
+Exemple : `3.45`ou `3254.234` ou `-23.34` ou `3.` ou `-5.` (observez le `.` après le 3 et le 5).
 
 Opérateur/Fonctions usuelles :
-* Addition : `3 + 4`
-* Soustraction : `3 - 4`
-* Multiplication : `3 * 4`
-* Division : `3 / 4`
-* Puissance : `3 ** 4`
+* Addition : `3.2 + 4.1`
+* Soustraction : `3. - 4.5`
+* Multiplication : `3.1 * 4.2`
+* Division : `3.3 / 4.`
+* Puissance : `3.3 ** 4.`
 
 ```{note}
 Une opération entre un entier et un flottant est possible, elle renverra un flottant.
@@ -102,7 +101,7 @@ La position des caractères commence à 0 et non à 1
 Il existe aussi d'autres fonctions générales qui s'appliquent sur les différents types comme `print(...)` qui sert à afficher l'objet considéré.
 
 # Variables et affection
-Une variable est un élément servant à stockées des données dans un espace mémoire dédié.
+Une variable est un élément servant à stocker des données dans un espace mémoire dédié.
 
 ## Affection
 On utilise le signal `=`. Ci dessous l'affection de l'entier `1` dans la variable `a`
@@ -141,13 +140,13 @@ print("Le type de cette variable est : " + str(type(a)))
 ```
 
 ## Règles de nommage
-Un nom de variables :
+Un nom de variable :
 * peut contenir des lettres (minuscules ou majuscules), des chiffres, le caractère `_`
-* ne peut commencer par un chiffre
+* ne peut pas commencer par un chiffre
 * ne peut être un mot reservé par python (comme `print`) (Python renverra une erreur le cas échéant donc pas la peine d'apprendre ces mots par coeur !)
 
 # Les listes
-Les listes sont des objets Python un peu plus complexe qui permettent de stocker, un ensemble d'objets dans un ordre choisi.
+Les listes sont des objets Python un peu plus complexes qui permettent de stocker, un ensemble d'objets dans un ordre choisi.
 
 ## Créer et manipuler une liste
 ```{margin}

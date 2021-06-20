@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3. Instructions itératives. &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/boucles.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. S’entraîner." href="exo_general.html" />
+    <link rel="prev" title="2.2. Instructions conditionnelles" href="condition.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/boucles.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Instructions itératives." />
+<meta property="og:description" content="Instructions itératives.  Les boucles permettent de réaliser plusieurs fois la même série d’instructions. On distingue deux types de boucles :  les boucles born" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Réviser les bases
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#indentation">
+     1.2. Indentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+     1.3. Les types et opérations usuelles.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#variables-et-affection">
+     1.4. Variables et affection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-listes">
+     1.5. Les listes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-commentaires">
+     1.6. Les commentaires
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_general.html">
+   3. S’entraîner.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science.html">
+   3. S’entraîner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="import_file.html">
+   4. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   5. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science_2.html">
+   6. S’entraîner
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compléments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html">
+   1. Comprendre ses erreurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+   2. La fonction numpy.polyfit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+   3. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
+   4. Simulations plus complexes avec numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
+   5. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#les-dictionnaires">
+   6. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
+   7. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/boucles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/boucles.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/boucles.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-for">
+   2.3.1. Boucle for
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple">
+     2.3.1.1. Un exemple
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntaxe">
+     2.3.1.2. Syntaxe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple">
+     2.3.1.3. Exemple
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aller-plus-loin-avec-range">
+     2.3.1.4. Aller plus loin avec range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-while">
+   2.3.2. Boucle while
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.3.2.1. Un exemple
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2.3.2.2. Syntaxe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2.3.2.3. Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="instructions-iteratives">
+<h1><span class="section-number">2.3. </span>Instructions itératives.<a class="headerlink" href="#instructions-iteratives" title="Permalink to this headline">¶</a></h1>
+<p>Les boucles permettent de réaliser plusieurs fois la même série d’instructions. On distingue deux types de boucles :</p>
+<ul class="simple">
+<li><p>les boucles bornées (<code class="docutils literal notranslate"><span class="pre">for</span></code>) : on sait quand la boucle va s’arrêter.</p></li>
+<li><p>les boucles non bornées (<code class="docutils literal notranslate"><span class="pre">while</span></code>) : on impose une condition d’arrêt de la boucle sans savoir quand elle sera réalisée.</p></li>
+</ul>
+<div class="section" id="boucle-for">
+<h2><span class="section-number">2.3.1. </span>Boucle for<a class="headerlink" href="#boucle-for" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="un-exemple">
+<h3><span class="section-number">2.3.1.1. </span>Un exemple<a class="headerlink" href="#un-exemple" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container" id="exemple-for">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+9
+25
+49
+81
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="syntaxe">
+<h3><span class="section-number">2.3.1.2. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Début de la boucle : <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">variable_d_iteration</span> <span class="pre">in</span> <span class="pre">objet_iterable:</span></code> : le <code class="docutils literal notranslate"><span class="pre">:</span></code> est obligatoire</p></li>
+<li><p>Eviter d’utiliser comme <code class="docutils literal notranslate"><span class="pre">variable_d_iteration</span></code> une variable qui existe déjà.</p></li>
+<li><p>Un <code class="docutils literal notranslate"><span class="pre">objet_iterable</span></code> est un objet qui contient plusieurs éléments et qui peut être parcouru (itéré). La <code class="docutils literal notranslate"><span class="pre">variable_d_iteration</span></code> prendre comme valeur à chaque tour de boucle les différents éléments. Pour nous les <code class="docutils literal notranslate"><span class="pre">objet_iterable</span></code> sont :</p>
+<ul>
+<li><p>les listes</p></li>
+<li><p>les vecteurs numpy (cf. suite)</p></li>
+<li><p>des objets créés pour la boucle comme <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> qui va créer une suire de nombres (0, 1, 2, 3, 4)</p></li>
+</ul>
+</li>
+<li><p>Le corps de la boucle (série d’instruction à exécuter en boucle) doit <strong>être indenté</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="exemple">
+<h3><span class="section-number">2.3.1.3. </span>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A partir d’une liste déjà créée : cf. l’<a class="reference internal" href="#exemple-for"><span class="std std-ref">exemple précédent</span></a>.</p></li>
+<li><p>On utilise <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> :</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>  <span class="c1"># On aura donc n=0, n=1, n=2, n=3 et on sort de la boucle</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+4
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>La “liste” créée par <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> commence à 0 et s’arrête à <strong>n-1</strong></p>
+</div>
+</div>
+<div class="section" id="aller-plus-loin-avec-range">
+<h3><span class="section-number">2.3.1.4. </span>Aller plus loin avec range<a class="headerlink" href="#aller-plus-loin-avec-range" title="Permalink to this headline">¶</a></h3>
+<p>La syntaxe précédente <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> suffit en général. Mais il existe une autre syntaxe plus complète : <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> qui créé une suite de nombre partant de <code class="docutils literal notranslate"><span class="pre">start</span></code> inclus jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> <strong>non inclus</strong> par pas de <code class="docutils literal notranslate"><span class="pre">step</span></code></p>
+<div class="note admonition">
+<p class="admonition-title">Exemples</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">8,</span> <span class="pre">2)</span></code> crée la suite de nombres <code class="docutils literal notranslate"><span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">9,</span> <span class="pre">2)</span></code> crée la suite de nombres <code class="docutils literal notranslate"><span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7</span></code> (pas le 9 qui est exclus)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">5,</span> <span class="pre">2)</span></code> crée la suite de nombres <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(7,</span> <span class="pre">5,</span> <span class="pre">1)</span></code> crée une suite vide puisque 7 est plus grand que 5</p></li>
+</ul>
+<p>On peut aussi utiliser un pas négatif (avec <code class="docutils literal notranslate"><span class="pre">start</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">stop</span></code>) :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(8,</span> <span class="pre">4,</span> <span class="pre">-1)</span></code> crée la suite de nombres <code class="docutils literal notranslate"><span class="pre">8,</span> <span class="pre">7,</span> <span class="pre">6,</span> <span class="pre">5</span></code></p></li>
+</ul>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>C’est un détail pour nous mais <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> ne crée pas une liste (on peut s’en rendre compte en demande <code class="docutils literal notranslate"><span class="pre">print(range(3))</span></code> ou <code class="docutils literal notranslate"><span class="pre">type(range(3))</span></code>). Si on veut le transformer en liste, il faudra écrire <code class="docutils literal notranslate"><span class="pre">list(range(3))</span></code>. Cela dit, il est conseillé alors d’utiliser un vecteur numpy (cf. suite).</p>
+</div>
+</div>
+</div>
+<div class="section" id="boucle-while">
+<h2><span class="section-number">2.3.2. </span>Boucle while<a class="headerlink" href="#boucle-while" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><span class="section-number">2.3.2.1. </span>Un exemple<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initialisation</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Incrémentation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+8
+27
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">2.3.2.2. </span>Syntaxe<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Initialisation</strong> : Une boucle nécessite en général une initialisation (précédemment définir le <code class="docutils literal notranslate"><span class="pre">i</span></code> et lui donner une valeur de départ).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">condition:</span></code> : le <code class="docutils literal notranslate"><span class="pre">:</span></code> est obligatoire</p></li>
+<li><p>le bloc d’instruction <strong>doit être indenté</strong>.</p></li>
+<li><p>le bloc d’instruction <strong>doit contenir une instruction qui modifie la condition</strong> : sinon on crée un boucle infinie ! (précédemment, l’incrémentation modifie la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> et donc la condition).</p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Un microcontrolleur (comme Arduino) est programmé avec une boucle infinie pour réaliser sans fin les instructions qu’on lui a donné. Dans nos programmes, on le fera rarement…</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">2.3.2.3. </span>Exemple<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;On va remplir une liste avec le carré des entiers n tant que n^2 - 2n &lt; 5.</span>
+<span class="sd">On ne peut utiliser une boucle for car on ne sait pas jusqu&#39;à quel n aller.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="sd">&quot;&quot;&quot; Initialisation de la boucle &quot;&quot;&quot;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Création de la liste qu&#39;on va remplir</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initialisation des entiers.</span>
+
+<span class="k">while</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>  <span class="c1"># Condition à vérifier</span>
+	<span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Importance de l&#39;initialisation : sinon on ne peut ajouter de valeur à la liste.</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Sans l&#39;incrémentation, n garde la même valeur et la boucle est infinie.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="condition.html" title="previous page"><span class="section-number">2.2. </span>Instructions conditionnelles</a>
+    <a class='right-next' id="next-link" href="exo_general.html" title="next page"><span class="section-number">3. </span>S’entraîner.</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

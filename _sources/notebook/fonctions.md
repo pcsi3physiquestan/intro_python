@@ -21,7 +21,7 @@ Une fonction est une série d'instructions préenregistrées qui prend en entré
 Syntaxe : `nomfonction(argument1, argument 2)`
 
 ```{margin}
-Pensez à assigner ce que renvoie la fonction dans uen variable pour une utilisation ultérieure.
+Pensez à assigner ce que renvoie la fonction dans une variable pour une utilisation ultérieure.
 ```
 
 ## Signature d'une fonction
@@ -54,7 +54,7 @@ Quelques fonctions utiles (non exhaustif):
 * `help(nom_fonction)` : Affiche l'aide d'une fonction.
 
 ### Les modules supplémentaires
-Des fonctions supplémentaires (entre autre) sont contenus dans des modules (ou bibliothèques) qui nécessite d'être importés. Les méthodes d'importations sont :
+Des fonctions supplémentaires (entre autre) sont contenus dans des modules (ou bibliothèques) qui nécessitent d'être importés. Les méthodes d'importations sont :
 
 ````{tabbed} Importation dans l'espace standard
 ```{code-block} ipython3
@@ -102,8 +102,8 @@ Les instructions ci-dessous sont le minimum dans une fonction :
 * le mot-clé `def` est indispensable et le `:` à la fin aussi.
 * __L'indentation (décalage du corps de la fonction vers la droite) est obligatoire en Python.__
 * choisir un nom de fonction (ici `somme3`) explicite (les règles de nommage sont les mêmes que pour les variables)
-* Le nom des arguments `arg1, ...` sera celui utilisé _dans_ le bloc d'instruction de la fonction.
-* pensez au `return` sans quoi votre fonction ne renverra rien...
+* Le nom des arguments `arg1, ...` sera celui utilisé _dans_ le bloc d'instruction de la fonction. `arg1` n'existe pas en dehors de la fonction.
+* pensez au `return` sans quoi votre fonction ne renverra rien... Ici, on pourra accéder contenu de la variable `total` en dehors de la fonction.
 
 ```{margin}
 Il peut arriver qu'une fonction ne prennent aucun argument ou ne renvoie rien. Mais c'est prévu par le concepteur de la fonction.
@@ -118,6 +118,6 @@ La cellule précédente a créé la fonction mais n'a pas _utilisé la fonction_
 
 ```{code-cell}
 """ On appelle la fonction qu'on vient de créer précédemment"""
-toti = somme3(1, 2, 3)
+toti = somme3(1, 2, 3)  # On appelle la fonction et on stocke son retour dans la variable toti
 print(toti)
 ```

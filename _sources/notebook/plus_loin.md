@@ -97,7 +97,7 @@ Pour corriger son erreur, il faut :
 * chercher le message d'erreur (ici `ValueError: x and y must have same first dimension, but have shapes (3,) and (2,)`)
 * chercher la partie du message d'erreur qui point vers __votre code__ (on peut raisonnablement penser qu'il n'y a pas d'erreurs dans les fonctions des bibliothèques officielles). Ici `ax.plot(L1, L2)` : `L1` et `L2` n'ont pas la même taille, c'est là le problème.
 
-## Les parenthèses...
+### Les parenthèses...
 Lorsqu'on écrit une formule un peu trop grosse, il arrive qu'on oublie de fermer une parenthèse.
 
 ```{code-cell}
@@ -122,95 +122,18 @@ En effet, Python  ne se rend compte du problème de parenthèse mal fermée que 
 
 +++
 
-# La bibliothèque numpy.random
-La sous-bibliothèque `numpy.random` a été rapidement évoquée dans un exercice. Elle sera très utile en physique et en chimie pourles calculs d'incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : `uniform` et `normal`.
-
-## Rappel : Importation de la bibliothèque
-```{code-cell}
-import numpy.random as rd  # Il est conseillé d'importer les bibliothèques au début de votre script
-
+## Pas d'erreur mais...
+```{attention}
+Ce n'est pas parce que l'interpréteur Python ne renvoie pas une erreur que votre programme est bon. Il peut faire des calculs et renvoyer des valeurs __qui ne sont pas celles recherchées.__
 ```
 
-## Signature des fonctions
-On ne présente pas ici les loi de probabilités. Voici quelques informations :
-* [Loi uniforme - Wikipedia](https://fr.wikipedia.org/wiki/Loi_uniforme_continue)
-* [Loi normale (ou gaussienne) - Wikipedia](https://fr.wikipedia.org/wiki/Loi_normale)
-
-La syntaxe :
-* `rd.uniform(a, b, N)` va réaliser N tirages aléatoires suivant une loi uniforme entre les valeurs `a` et `b`.
-* `rd.normal(m, s, N)` va réaliser N tirages aléatoires suivant une loi normale d'espérance `m` et d'écart-type `s`
-
-```{note} 
-Les deux fonctions renvoient un vecteur `numpy`
+```{tip} 
+__Prenez l'habitude de tester votre code sur des cas simples où vous connaissez les valeurs de retours attendues pour vérifier que votre programme fait bien ce qui est demandé (éviter les cas particuliers).__
 ```
 
-```{code-cell}
-%time  # Permet d'afficher le temps d'exécution (pas à connaître). 
-# On verra qu'on peut ainsi faire un grande nombre de simulation rapidement
++++
 
-N = 1000000  # Nombre d'échantillons
-X1 = rd.uniform(-4, 6, N)
-X2 = rd.normal(8, 2, N)
 
-f, ax = plt.subplots()
-ax.hist(X1, bins='rice', color='red', label='Distribution uniforme')
-ax.hist(X2, bins='rice', color='blue', label='Distribution normale')
-ax.legend()
-plt.show()
-
-```
-
-## Pour aller encore plus loin...
-La syntaxe précédente suffira en général. Mais si on a plusieurs variables $u_1, u_2, u_3, ...$ qui suivent le même type de loi (ex : loi uniforme) avec des paramètres différents (entre $a_1$ et$b_1$, entre $a_2$ et$b_2$, entre $a_2$ et $b_2$,...). On peut alors utiliser demander à la fonction  `uniform` (idem pour `normal`) de créer un tableau `numpy` de valeur où chaque colonne contient N tirages suivant chaque distritubion choisie. Ci-après la syntaxe :
-
-```{code-cell}
-N = 1000000  # Nombre de tirages
-u_min = [1, 5, 10]  # 3 valeurs minimales des 3 distributions uniformes
-u_max = [3, 7, 12]  # 3 valeurs amximales des 3 distributions uniformes
-
-k = len(u_min)
-
-u_sims = rd.uniform(u_min, u_max, (N, k))  # On demande explicite un tableau de taille N*k
-
-X1 = u_sims[:, 0]  # Simulation des u1
-X2 = u_sims[:, 1]  # Simulation des u2
-X3 = u_sims[:, 2]  # Simulation des u3
-
-f, ax = plt.subplots()
-ax.hist(X1, bins='rice', color='red', label='Entre 1 et 3')
-ax.hist(X2, bins='rice', color='blue', label='Entre 5 et 7')
-ax.hist(X3, bins='rice', color='black', label='Entre 10 et 12')
-ax.legend()
-plt.show()
-
-```
-
-Et avec des lois normales :
-
-```{code-cell}
-N = 1000000  # Nombre de tirages
-u_mean = [1, 5, 15]  # 3 valeurs minimales des 3 distributions uniformes
-u_u = [1, 2, 3]  # 3 valeurs amximales des 3 distributions uniformes
-
-k = len(u_min)
-
-u_sims = rd.normal(u_mean, u_u, (N, k))  # On demande explicite un tableau de taille N*k
-
-X1 = u_sims[:, 0]  # Simulation des u1
-X2 = u_sims[:, 1]  # Simulation des u2
-X3 = u_sims[:, 2]  # Simulation des u3
-
-f, ax = plt.subplots()
-ax.hist(X1, bins='rice', color='red', label='m=1, s=1')
-ax.hist(X2, bins='rice', color='blue', label='m=5, s=2')
-ax.hist(X3, bins='rice', color='black', label='m=15, s=3')
-ax.legend()
-plt.show()
-```
-
-```{margin}
-Voir la [partie sur les tableaux](tableau_numpy) pour la sélection d'une colonne du tableau.
-```
 
 +++
 
@@ -415,7 +338,63 @@ __Les affichage__:
 
 +++
 
+# Simulations plus complexes avec numpy.random
+La syntaxe précédente suffira en général. Mais si on a plusieurs variables $u_1, u_2, u_3, ...$ qui suivent le même type de loi (ex : loi uniforme) avec des paramètres différents (entre $a_1$ et$b_1$, entre $a_2$ et$b_2$, entre $a_2$ et $b_2$,...). On peut alors utiliser demander à la fonction  `uniform` (idem pour `normal`) de créer un tableau `numpy` de valeur où chaque colonne contient N tirages suivant chaque distritubion choisie. Ci-après la syntaxe :
+
+```{code-cell}
+N = 1000000  # Nombre de tirages
+u_min = [1, 5, 10]  # 3 valeurs minimales des 3 distributions uniformes
+u_max = [3, 7, 12]  # 3 valeurs amximales des 3 distributions uniformes
+
+k = len(u_min)
+
+u_sims = rd.uniform(u_min, u_max, (N, k))  # On demande explicite un tableau de taille N*k
+
+X1 = u_sims[:, 0]  # Simulation des u1
+X2 = u_sims[:, 1]  # Simulation des u2
+X3 = u_sims[:, 2]  # Simulation des u3
+
+f, ax = plt.subplots()
+ax.hist(X1, bins='rice', color='red', label='Entre 1 et 3')
+ax.hist(X2, bins='rice', color='blue', label='Entre 5 et 7')
+ax.hist(X3, bins='rice', color='black', label='Entre 10 et 12')
+ax.legend()
+plt.show()
+
+```
+
+Et avec des lois normales :
+
+```{code-cell}
+N = 1000000  # Nombre de tirages
+u_mean = [1, 5, 15]  # 3 valeurs minimales des 3 distributions uniformes
+u_u = [1, 2, 3]  # 3 valeurs amximales des 3 distributions uniformes
+
+k = len(u_min)
+
+u_sims = rd.normal(u_mean, u_u, (N, k))  # On demande explicite un tableau de taille N*k
+
+X1 = u_sims[:, 0]  # Simulation des u1
+X2 = u_sims[:, 1]  # Simulation des u2
+X3 = u_sims[:, 2]  # Simulation des u3
+
+f, ax = plt.subplots()
+ax.hist(X1, bins='rice', color='red', label='m=1, s=1')
+ax.hist(X2, bins='rice', color='blue', label='m=5, s=2')
+ax.hist(X3, bins='rice', color='black', label='m=15, s=3')
+ax.legend()
+plt.show()
+```
+
+```{margin}
+Voir la [partie sur les tableaux](tableau_numpy) pour la sélection d'une colonne du tableau.
+```
+
++++
+
 # La compréhension des listes
+
++++
 
 ## Position du problème
 On a vu que les listes classiques ne permettaient pas d'appliquer une fonction `f` à chaque élément en écrivant `f(L)` (`L` étant une liste classique). Cela a motivé l'utilisation des listes numpy. Néanmoins :
@@ -453,6 +432,8 @@ y = fonction_morceau(x)
 
 `The truth value of an array with more than one element is ambiguous.` : Le message est clair : il cherche à travailler sur le vecteur et non sur chaque élément.
 
++++
+
 ## Première solution
 On peut écrire une boucle classique qui parcout tous les éléments de `x` et leur applique `fonction_morceau` :
 
@@ -471,6 +452,8 @@ ax.plot(x, y)
 plt.show()
 
 ```
+
++++
 
 ## Utilisation de la compréhension des listes.
 Une __liste en compréhension__ est une liste qui est obtenue par action (et/ou filtrage) de chaque élément d'une autre liste. La syntaxe est simple :
@@ -507,6 +490,7 @@ ax.plot(x, y)
 plt.show()
 
 ```
+
 +++
 
 # Les dictionnaires

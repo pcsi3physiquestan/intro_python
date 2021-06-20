@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. S’entraîner &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/exo_science_2.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Comprendre ses erreurs" href="plus_loin.html" />
+    <link rel="prev" title="5. La bibliothèque numpy.random" href="num_random.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/exo_science_2.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="S’entraîner" />
+<meta property="og:description" content="S’entraîner  Important  Une partie des exercices suivants utilisent des données expérimentales stockées dans des fichiers. Chaque exercice vous donnera le lien " />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Réviser les bases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#indentation">
+     1.2. Indentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+     1.3. Les types et opérations usuelles.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#variables-et-affection">
+     1.4. Variables et affection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-listes">
+     1.5. Les listes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-commentaires">
+     1.6. Les commentaires
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boucles.html">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_general.html">
+   3. S’entraîner.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science.html">
+   3. S’entraîner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="import_file.html">
+   4. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   5. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. S’entraîner
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compléments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html">
+   1. Comprendre ses erreurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+   2. La fonction numpy.polyfit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+   3. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
+   4. Simulations plus complexes avec numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
+   5. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#les-dictionnaires">
+   6. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
+   7. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/exo_science_2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_science_2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_science_2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-de-numpy-random">
+   6.1. Utilisation de numpy.random
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#etude-de-donnees-experimentales">
+   6.2. Etude de données expérimentales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiences-multiples">
+   6.3. Expériences multiples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#celerite-des-ultrasons">
+   6.4. Célérité des ultrasons
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="s-entrainer">
+<h1><span class="section-number">6. </span>S’entraîner<a class="headerlink" href="#s-entrainer" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Une partie des exercices suivants utilisent des données expérimentales stockées dans des fichiers. Chaque exercice vous donnera le lien permettant de télécharger le fichier. Vous avez normalement créé un répertoire pour votre travail sous Python. Dans ce répertoire (ou le sous-répertoire où vous comptez créer vos fichier <code class="docutils literal notranslate"><span class="pre">.py</span></code> pour les exercices, créez un répertoire <code class="docutils literal notranslate"><span class="pre">donnees_exp</span></code> dans lesquelles vous téléchargerez les fichiers fournis.</p>
+<p>Vous devrez ensuite réfléchir au chemin relatif à utiliser dans vos scripts pour importer les données expérimentales de ces fichiers.</p>
+</div>
+<div class="section" id="utilisation-de-numpy-random">
+<h2><span class="section-number">6.1. </span>Utilisation de numpy.random<a class="headerlink" href="#utilisation-de-numpy-random" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Utilisation de numpy.random</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">uniform(a,</span> <span class="pre">b,</span> <span class="pre">N)</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> permet de réaliser N tirages aléatoires suivant une loi uniforme (toutes les valeurs ont la même probabilité) entre a et b. La fonction renvoie un vecteur numpy de taille N contenant les tirages.</p>
+<p>Vous devez :</p>
+<ol class="simple">
+<li><p>importer la sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> dans l’espace nommé <code class="docutils literal notranslate"><span class="pre">rd</span></code> pour l’utiliser ensuite.</p></li>
+<li><p>Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">uniform</span></code> pour créer un vecteur contenant <span class="math notranslate nohighlight">\(N = 1000000\)</span> de tirages aléatoires entre 0 et 5.</p></li>
+<li><p>Obtenir alors le vecteur X contenant le carré de chaque valeur tirée précédemment.</p></li>
+<li><p>Tracer l’histogramme des valeurs de X. Le titre sera “Distribution statistique”, il n’est pas utile d’afficher la légende.</p></li>
+</ol>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Quelques indices pour s’organiser<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Vous avez besoin des deux bibliothèques scientifiques en plus de <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>. N’oubliez pas de les importer aussi.</p></li>
+<li><p class="card-text">Bien comprendre le fonctionnement de <code class="docutils literal notranslate"><span class="pre">uniform</span></code> pour l’utiliser.</p></li>
+</ul>
+</div>
+</details><p>Vous devriez obtenir le graphique suivant (Cliquez sur la croix. Cela peut <strong>un peu</strong> varier puisqu’on fait des tirages aléatoires) :</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/exo_science_2_2_0.png" src="../_images/exo_science_2_2_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="etude-de-donnees-experimentales">
+<h2><span class="section-number">6.2. </span>Etude de données expérimentales<a class="headerlink" href="#etude-de-donnees-experimentales" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Etude de données expérimentales</p>
+<p>On étudie un circuit RC en régime libre. On a pris <span class="math notranslate nohighlight">\(R = 100k\Omega\)</span> et on veut mesurer la capacité <span class="math notranslate nohighlight">\(C\)</span> grâce aux données expérimentales. Les données sont fournies dans le fichier <code class="docutils literal notranslate"><span class="pre">circuit_rc_decharge.dat</span></code> accessible par <a class="reference external" href="https://github.com/pcsi3physiquestan/donnees_exp/blob/main/circuit_rc.dat?raw=true">ce lien</a>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Si votre navigateur ouvre le fichier au lieu de le télécharger, faites un clic droit sur le lien et choisir <code class="docutils literal notranslate"><span class="pre">Enregistrer</span> <span class="pre">la</span> <span class="pre">cible</span> <span class="pre">du</span> <span class="pre">lien</span></code>)</p>
+</div>
+<p>Pour rappel, la tension <span class="math notranslate nohighlight">\(u_c\)</span> aux bornes du condensateur est régit par l’équation différentielle :</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\rm{d}u_c}{\rm{dt}} + \frac{u_c}{RC} = 0
+\]</div>
+<p>Il a pour solution :</p>
+<div class="math notranslate nohighlight">
+\[
+u_c(t) = U_0 \exp(-\frac{t}{\tau})
+\]</div>
+<p>avec <span class="math notranslate nohighlight">\(\tau = RC\)</span> et <span class="math notranslate nohighlight">\(U_0 = U(t=0)\)</span></p>
+<p>On sait que <span class="math notranslate nohighlight">\(u_c(t &gt; \tau) &lt; 0.37 U_0\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Il est conseillé de vérifier votre travail au fur et à mesure avec par exemple des <code class="docutils literal notranslate"><span class="pre">print</span></code> réguliers.</p>
+</div>
+<ol class="simple">
+<li><p>Après avoir téléchargé le fichier de données et l’avoir déplacé dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees_exp</span></code>, l’ouvrir dans pyzo et observer son contenu. Quelles données expérimentales contient-il ?</p></li>
+<li><p>Créer un fichier script Python (faire attention à sa localisation) et commencer par y importer les bibliothèques numpy et matplotlib.pyplot. Ecrire ensuite les instructions important la colonne temps et la colonne tension (en binaire) dans deux vecteurs <code class="docutils literal notranslate"><span class="pre">temps</span></code> et <code class="docutils literal notranslate"><span class="pre">ucb</span></code>.</p></li>
+<li><p>La tension n’est pas données en volt mais en représentation binaire. En vous servant de la description données dans le fichier de données, écrire une fonction <code class="docutils literal notranslate"><span class="pre">bin_to_volt</span></code> qui prend comme argument une valeur <code class="docutils literal notranslate"><span class="pre">b</span></code> en binaire et qui renvoie la valeur de tension correspondant en Volt. Utilisez la pour obtenir un vecteur numpy <code class="docutils literal notranslate"><span class="pre">uc</span></code> à partir de <code class="docutils literal notranslate"><span class="pre">ucb</span></code></p></li>
+<li><p>Représenter, sur un graphique légendé et titré la courbe <span class="math notranslate nohighlight">\(u_c(t)\)</span>. L’allure est-elle conforme (visuellement) aux attentes théoriques ?</p></li>
+<li><p>En utilisant les informations données dans l’énoncé, écrire une fonction <code class="docutils literal notranslate"><span class="pre">estime_tau</span></code> qui prend en argument deux vecteurs numpy <code class="docutils literal notranslate"><span class="pre">t</span></code> et <code class="docutils literal notranslate"><span class="pre">u</span></code> et qui estime le temps <code class="docutils literal notranslate"><span class="pre">tau</span></code>. On admettra que <span class="math notranslate nohighlight">\(u(t)\)</span> est bien décroissante et on pourra prendre la première valeur de <span class="math notranslate nohighlight">\(u\)</span> comme valeur de <span class="math notranslate nohighlight">\(U_0\)</span>. Utiliser cette fonction pour obtenir une estimation de <span class="math notranslate nohighlight">\(\tau\)</span> puis de <span class="math notranslate nohighlight">\(C\)</span>.</p></li>
+</ol>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Valeur constructeur<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">La valeur annoncée par le constructeur est <span class="math notranslate nohighlight">\(C = 0.1 \mu F\)</span> mais en l’absence d’étude plus complète sur les incertitudes de mesure, on ne peut décider si la valeur que vous avez estimée est cohérente. Vous trouverez ci-dessous les valeurs à trouver (cliquer sur la croix).</p>
+</div>
+</details></div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/exo_science_2_4_0.png" src="../_images/exo_science_2_4_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10700.0
+11000.0
+Valeur estimée de tau : 10850.0
+Valeur estimée de C : 1.085e-07
+Tous les chiffres ne sont pas forcément significatifs...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="experiences-multiples">
+<h2><span class="section-number">6.3. </span>Expériences multiples<a class="headerlink" href="#experiences-multiples" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Expériences multiples</p>
+<p>On reprend l’exemple précédent (même valeurs de R et C) mais cette fois le montage réalisé au moyen d’un microcontrolleur Arduino a permis d’automatiser la mesure de la constante <span class="math notranslate nohighlight">\(\tau\)</span>. On a ainsi réalisé <span class="math notranslate nohighlight">\(N\)</span> décharges de C et le microcontrolleur a été programmé pour mesurer à chaque fois <span class="math notranslate nohighlight">\(\tau\)</span> et le transmettre à l’ordinateur. Un programme non présenté ici a stocké les valeurs de <span class="math notranslate nohighlight">\(\tau\)</span> dans un fichier accessible à <a class="reference external" href="https://github.com/pcsi3physiquestan/donnees_exp/blob/main/circuit_rc_auto.dat?raw=true">ce lien</a>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Si votre navigateur ouvre le fichier au lieu de le télécharger, faites un clic droit sur le lien et choisir <code class="docutils literal notranslate"><span class="pre">Enregistrer</span> <span class="pre">la</span> <span class="pre">cible</span> <span class="pre">du</span> <span class="pre">lien</span></code>)</p>
+</div>
+<ol class="simple">
+<li><p>Après avoir téléchargé le fichier de données et l’avoir déplacé dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees_exp</span></code>, l’ouvrir dans pyzo et observer son contenu. Quelles données expérimentales contient-il ?</p></li>
+<li><p>Créer un fichier script Python (faire attention à sa localisation) et commencer par y importer les bibliothèques numpy et matplotlib.pyplot. Ecrire ensuite les instructions important la colonne tau dans un vecteur <code class="docutils literal notranslate"><span class="pre">taus</span></code>. Afficher ensuite en une seule instruction le nombre N de décharges qui ont été réalisées.</p></li>
+<li><p>Créer un graphique représentant l’histogramme des valeurs de <span class="math notranslate nohighlight">\(\tau\)</span> mesurées. Observe-t-on des valeurs assurément problèmatiques ?</p></li>
+<li><p>Utiliser les fonctions de numpy pour estimer la valeur moyennes des mesures de <span class="math notranslate nohighlight">\(\tau\)</span> ainsi que l’écart-type des mesures. Utiliser la valeur moyenne de <span class="math notranslate nohighlight">\(\tau\)</span> pour obtenir une estimation de la capacitance <span class="math notranslate nohighlight">\(C\)</span>.</p></li>
+</ol>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nombre de mesures : 1000
+</pre></div>
+</div>
+<img alt="../_images/exo_science_2_6_1.png" src="../_images/exo_science_2_6_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tau moyen :  9985.208
+Ecart-type :  27.001144379410995
+Tous les chiffres ne sont pas forcément significatifs...
+Valeur estimée de C : 1.085e-07
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="celerite-des-ultrasons">
+<h2><span class="section-number">6.4. </span>Célérité des ultrasons<a class="headerlink" href="#celerite-des-ultrasons" title="Permalink to this headline">¶</a></h2>
+<p>Cet exercice est un plus complet. Veillez à bien comprendre ce qui a été fait précédemment.</p>
+<div class="tip admonition">
+<p class="admonition-title">Célérité des ultrasons</p>
+<p>Le but est d’étudier la propagation des ultrasons dans l’air pour estimer leur célérité. Grâce à un microcontrolleur (Arduino), on a réalisé un grand nombre de mesures (environ 1000) du temps de vol <span class="math notranslate nohighlight">\(\Delta t\)</span> des ultrasons pour plusieurs distances différentes <span class="math notranslate nohighlight">\(2D\)</span> (on a réalisé un aller-retour par réflexion sur un obstacle) afin d’estimer pour chaque distance la célérité moyenne <span class="math notranslate nohighlight">\(c = {D \over \Delta t(D)}\)</span>. On fera alors la moyenne des célérités sur toutes les distances pour estimer la célérité des ultrasons dans l’air.</p>
+<p>Le fichier de données est à télécharger à <a class="reference external" href="https://github.com/pcsi3physiquestan/donnees_exp/blob/main/vitesse_son_2.dat?raw=true">ce lien</a>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Si votre navigateur ouvre le fichier au lieu de le télécharger, faites un clic droit sur le lien et choisir <code class="docutils literal notranslate"><span class="pre">Enregistrer</span> <span class="pre">la</span> <span class="pre">cible</span> <span class="pre">du</span> <span class="pre">lien</span></code>)</p>
+</div>
+<ol class="simple">
+<li><p>Après avoir téléchargé le fichier de données et l’avoir déplacé dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees_exp</span></code>, l’ouvrir dans pyzo et observer son contenu. Quelles données expérimentales contient-il ?</p></li>
+<li><p>Vous avez dû remarquer que la forme du tableau de données n’est pas comme les précédents. Ecrire une série d’instructions qui charge les données expérimentales et stocke les distances <span class="math notranslate nohighlight">\(D\)</span> dans un vecteur numpy <code class="docutils literal notranslate"><span class="pre">D</span></code> et le reste du tableau (sans la colonne des distances) dans un tableau numpy <code class="docutils literal notranslate"><span class="pre">temps_vol</span></code>. Vous trouverez plus d’informations sur la <a class="reference internal" href="plus_loin.html#tableau-numpy"><span class="std std-ref">manipulation des tableau numpy ici</span></a>.</p></li>
+<li><p>Créer un graphique et y tracer, pour chaque distance l’histogramme des valeurs mesurées. On prendra soin de bien légender chaque histogramme par sa distance. <strong>Vous DEVEZ utiliser une boucle qui puisse s’adapter à un autre fichier de données qui aurait la même forme mais pas forcément les mêmes distances (ni le même nombre de distances étudiées).</strong></p></li>
+<li><p>Observer les histogrammes, vous devriez observer que certaines mesures sont <em>clairement aberrantes</em>. Nous allons proposées une méthode de sélection des valeurs acceptables.</p></li>
+</ol>
+<p>La méthode de sélection (non expliquée ici) consiste à calculer la moyenne <span class="math notranslate nohighlight">\(\Delta t_m (D)\)</span> et l’écart-type <span class="math notranslate nohighlight">\(\sigma (D)\)</span> des valeurs de temps de vol pour une distance <span class="math notranslate nohighlight">\(D\)</span> puis parcourir l’ensemble des valeurs mesurées <span class="math notranslate nohighlight">\(\Delta t_i (D)\)</span> pour la distance <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<ul class="simple">
+<li><p>Si l’écart à la moyenne <span class="math notranslate nohighlight">\(\left\vert (\Delta t_i (D) - \Delta t_m (D) \right\vert\)</span> est inférieure à 2 écart-type (<span class="math notranslate nohighlight">\(2 \sigma (D)\)</span>), alors on garde la valeur.</p></li>
+<li><p>Si l’écart à la moyenne <span class="math notranslate nohighlight">\(\left\vert (\Delta t_i (D) - \Delta t_m (D) \right\vert\)</span> est supérieure à 2 écart-type (<span class="math notranslate nohighlight">\(2 \sigma (D)\)</span>), alors on enlève la valeur.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Ecrire une fonction qui prend comme argument un vecteur numpy <code class="docutils literal notranslate"><span class="pre">u</span></code> et qui renvoie un vecteur numpy <code class="docutils literal notranslate"><span class="pre">u_sel</span></code> ne contenant que les valeurs acceptables.</p></li>
+<li><p>Pour chaque distance <span class="math notranslate nohighlight">\(D\)</span> (toujours avec la contrainte de devoir s’adapter à un autre fichier de mesure), sélectionner les valeurs à garder puis calculer le temps de vol moyen puis la célérité du son associée <span class="math notranslate nohighlight">\(c(D)\)</span>. Stocker cette célérité dans un vecteur numpy <code class="docutils literal notranslate"><span class="pre">cs</span></code>.</p></li>
+<li><p>Estimer la moyenne de <code class="docutils literal notranslate"><span class="pre">cs</span></code> comme une estimation de la célérité des ultrasons. Sachant qu’elle est à peu près identique à la célérité du son dans l’air, vérifier si l’ordre de grandeur obtenu est correct. Sans estimation des incertitudes de mesures, on se limitera à une vérification de l’ordre de grandeur.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="num_random.html" title="previous page"><span class="section-number">5. </span>La bibliothèque numpy.random</a>
+    <a class='right-next' id="next-link" href="plus_loin.html" title="next page"><span class="section-number">1. </span>Comprendre ses erreurs</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

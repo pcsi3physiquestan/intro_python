@@ -18,7 +18,7 @@ kernelspec:
 
 Les listes classiques ont plusieurs limites quand on veut faire du calcul numérique. En effet, les opérations sur les listes classiques éléments par éléments (ajouter le même nombre à tous les éléments d'une liste, sommer deux à deux les éléments de deux listes...) nécessite de créer systématiquement des boucles.
 
-C'est pourquoi on utilisera le module `numpy` qui propose un objet particulier : le __tableau numpy__ (ou _vecteur numpy_ qu'on il n'a qu'une dimension). Les opérations sur un tableau numpy sont __différentes des opérations sur une liste classiques__, il est important de différencier les deux pour ne pas se tromper.
+C'est pourquoi on utilisera le module `numpy` qui propose un objet particulier : le __tableau numpy__ (ou _vecteur numpy_ quand il n'a qu'une dimension). Les opérations sur un tableau numpy sont __différentes des opérations sur une liste classiques__, il est important de différencier les deux pour ne pas se tromper.
 
 ## Importer la bibliothèque
 
@@ -61,31 +61,18 @@ A partir d'une liste d'entiers ou de flottants (uniquement) :
 
 ```{code-block} ipython3
 L = [1, 6, 2, 5, 3.4]  # Ne mettre QUE des nombres
-Ln = np.array(L)  # Ln est un vecteur numpy
+V1 = np.array(L)  # V1 est un vecteur numpy
 
 """ou directement"""
-Ln = np.array([1, 6, 2, 5, 3.4])  #
+V1 = np.array([1, 6, 2, 5, 3.4])  #
 ```
 ````
 
-````{tabbed} D'une fonction
-Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.
-
-```{code-block} ipython3
-""" Exemple : La fonction suivante evalue le polynome 
-p(x) = 2 + 3x (éléments du premièr argument [2, 3])
-pour les valeurs de la liste [1, 4, 6, 7, 8, 24] (deuxième argument)
-"""
-y = np.polyval([2, 3], [1, 4, 6, 7, 8, 24])
-
-```
-
-`y` est un vecteur numpy contenant {glue:}`ex_v`
-
-````
 
 ````{tabbed} arange
-_A connaître_ : `arange(start, stop, step)` est une fonction de `numpy` qui va créer une liste de flottants partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
+_A connaître_ : `arange(start, stop, step)` est une fonction de `numpy` qui va créer une liste de _flottants_ partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
+
+`start`, `stop` et `step` peuvent être des flottants contrairement à `range`.
 
 ```{code-block} ipython3
 y = np.arange(2, 6, 0.5)
@@ -106,12 +93,28 @@ y = np.linspace(2, 6, 9)
 
 ````{tabbed} zeros et ones
 _A connaître_ : `zeros(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments nuls.  
-A connaître : `ones(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments tous égaux à 1.
+_A connaître_ : `ones(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments tous égaux à 1.
 
 ```{code-block} ipython3
 y = np.zeros(5)  # Crée un vecteur [0, 0, 0, 0, 0]
 y = np.ones(5)  # Crée un vecteur [1, 1, 1, 1, 1]
 ```
+````
+
+````{tabbed} D'une fonction
+Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.
+
+```{code-block} ipython3
+""" Exemple : La fonction suivante evalue le polynome 
+p(x) = 2 + 3x (éléments du premièr argument [2, 3])
+pour les valeurs de la liste [1, 4, 6, 7, 8, 24] (deuxième argument)
+"""
+y = np.polyval([2, 3], [1, 4, 6, 7, 8, 24])
+
+```
+
+`y` est un vecteur numpy contenant {glue:}`ex_v`
+
 ````
 
 ```{margin}
@@ -136,16 +139,16 @@ L'opérateur `+`  na pas la même fonction que pour des listes classiques.
 :tags: [hide-output]
 """Essayer de prévoir ce que va afficher chaque print puis afficher le résultat (croix à droite en bas)"""
 
-L1 = np.array([1, 2, 3, 4])
-L2 = np.array([2, 3, 4, 5])
+V1 = np.array([1, 2, 3, 4])
+V2 = np.array([2, 3, 4, 5])
 
-print(L1 + L2)
-print(L1 * L2)
-print(L1 - L2)
-print(L1 / L2)
+print(V1 + V2)
+print(V1 * V2)
+print(V1 - V2)
+print(V1 / V2)
 
-L3 = np.ones(5) * 4  # Méthode très utile
-print(L3)
+V3 = np.ones(5) * 4  # Méthode très utile
+print(V3)
 
 ```
 
@@ -163,15 +166,15 @@ Attention : ces fonctions sont dans la bibliothèque `numpy`, pas la bibliothèq
 np.pi est une variable de la bibliothèque numpy égale à pi
 """
 
-L1 = np.array([0, np.pi / 6, np.pi / 3, np.pi / 2, np.pi])
-L2 = np.linspace(0, 1, 5)  
+V1 = np.array([0, np.pi / 6, np.pi / 3, np.pi / 2, np.pi])
+V2 = np.linspace(0, 1, 5)  
 
-print(L2)
-print(np.sin(L1))
-print(np.cos(L1))
-print(np.tan(L1))
-print(np.exp(L2))
-print(np.log(L2))  # on écrit log mais il s'agit de la fonction ln classique.
+print(V2)
+print(np.sin(V1))
+print(np.cos(V1))
+print(np.tan(V1))
+print(np.exp(V2))
+print(np.log(V2))  # on écrit log mais il s'agit de la fonction ln classique.
 
 ```
 
@@ -184,14 +187,14 @@ Les vecteurs `numpy` sont __de taille fixe__. On ne peut pas changer leur taille
 Il existe par contre une fonction __dans le module `numpy`__ qui s'appelle `append` (il faut suivre...) qu'on appellera donc ici `np.append` (cf. l'[importation](import-np)). __Cette fonction ne modifie pas le vecteur initial mais crée un nouveau vecteur qu'il va falloir enregistrer dans une variable__.
 
 ```{code-cell}
-L1 = np.array([1, 2, 3])
+V1 = np.array([1, 2, 3])
 
-L2 = np.append(L1, 4)  # On ajoute la valeur 4
-print(L1)  # L1 est toujours array([1, 2, 3])
-print(L2)  # L2 est array([1, 2, 3, 4])
+V2 = np.append(V1, 4)  # On ajoute la valeur 4
+print(V1)  # V1 est toujours array([1, 2, 3])
+print(V2)  # V2 est array([1, 2, 3, 4])
 
-L3 = np.append(L1, L2)  # On peut aussi concatener deux vecteurs numpy.
-print(L3)
+V3 = np.append(V1, V2)  # On peut aussi concatener deux vecteurs numpy.
+print(V3)
 ```
 
 ### Sélection d'une partie d'un vecteur numpy
@@ -201,20 +204,15 @@ Le principe est le même que pour la sélection d'une partie d'une liste. Si on 
 On peut créer un tableau `numpy` à 2 dimensions. C'est très utile pour traiter des données expérimentales. 
 
 ````{tabbed} D'une liste de liste
-On utilise à nouveau `array`. Attention : les lignes doivent avoir toutes le même nombre d'éléments. De même pour les colonnes. Mais le tableau peut-être rectangulaire.
+On utilise à nouveau `array`. Attention : Le tableau doit être rectangulaire (ou carré) : les lignes doivent avoir toutes le même nombre d'éléments.
 
 ```{code-block} ipython3
 L = [[2.3, 2.5], [3.14, 3.16]]  # Ne mettre QUE des nombres
-Ln = np.array(L)  # Ln est un tableau numpy
+V1 = np.array(L)  # V1 est un tableau numpy
 
 """ou directement"""
-Ln = np.array([[2.3, 2.5], [3.14, 3.16]])  # Note : on entre le tableau ligne par ligne
+V1 = np.array([[2.3, 2.5], [3.14, 3.16]])  # Note : on entre le tableau ligne par ligne
 ```
-````
-
-````{tabbed} D'une fonction
-Même principe que précédemment, certaines fonctions renverront un tableau numpy.
-
 ````
 
 ````{tabbed} zeros() et ones()
@@ -222,7 +220,7 @@ A connaître : `zeros((N, m))` est une fonction de `numpy` qui crée un tableau 
 A connaître : `ones((N, m))` est une fonction de `numpy` qui crée un tableau de `N` éléments par `m` éléments tous égaux à 1.
 
 ```{margin}
-La double parenthèse est importante : il y a un seul argument (5, 3) (on parle de _tuple_) et non deux argument 5 et 3.
+La double parenthèse est importante : il y a un seul argument (5, 3) (on parle de _tuple_) et non deux arguments 5 et 3.
 ```
 
 

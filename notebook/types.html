@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Langage de programmation &#8212; Python : Bases à connaître</title>
+    <title>1.1. Environnement de développement. &#8212; Python : Bases à connaître</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -55,8 +55,8 @@
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/types.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Les fonctions." href="fonctions.html" />
-    <link rel="prev" title="Eléments de bases pour programmer en Python" href="../intro_python.html" />
+    <link rel="next" title="2. Fonctions, conditions boucles" href="blocs.html" />
+    <link rel="prev" title="1. Le langage Python" href="bases_intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -65,8 +65,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/types.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Langage de programmation" />
-<meta property="og:description" content="Langage de programmation  Présentation  Python est langage de programmation dit interprété : il va lire une à une la série d’instruction écrite par l’utilisateu" />
+<meta property="og:title"       content="Environnement de développement." />
+<meta property="og:description" content="Environnement de développement.  Un environnement de développement (IDE) est un logiciel permettant d’écrire du code Python et de l’interpréter grâce à l’interf" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -102,50 +102,76 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Eléments de bases
+  Réviser les bases
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   1. Langage de programmation
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
   </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#indentation">
+     1.2. Indentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#les-types-et-operations-usuelles">
+     1.3. Les types et opérations usuelles.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#variables-et-affection">
+     1.4. Variables et affection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#les-listes">
+     1.5. Les listes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#les-commentaires">
+     1.6. Les commentaires
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boucles.html">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#les-types-et-operations-usuelles">
-   2. Les types et opérations usuelles.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#variables-et-affection">
-   3. Variables et affection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#les-listes">
-   4. Les listes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#les-commentaires">
-   5. Les commentaires
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Fonctions et blocs
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="fonctions.html">
-   1. Les fonctions.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="structures.html">
-   2. Blocs d’instructions.
+  <a class="reference internal" href="exo_general.html">
+   3. S’entraîner.
   </a>
  </li>
 </ul>
@@ -165,22 +191,30 @@
    2. Matplotlib : tracés graphiques
   </a>
  </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  S'entrainer
- </span>
-</p>
-<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="exo_science.html">
-   1. A vous de coder
+   3. S’entraîner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="import_file.html">
+   4. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   5. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science_2.html">
+   6. S’entraîner
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Pour aller plus loin
+  Compléments
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -190,18 +224,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-bibliotheque-numpy-random">
-   2. La bibliothèque numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
-   3. La fonction numpy.polyfit
+   2. La fonction numpy.polyfit
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
-   4. Tableaux numpy : manipulations
+   3. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
+   4. Simulations plus complexes avec numpy.random
   </a>
  </li>
  <li class="toctree-l1">
@@ -312,95 +346,90 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   1. Langage de programmation
+   1.1. Environnement de développement.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#presentation">
-     1.1. Présentation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indentation">
-     1.2. Indentation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#environnement-de-developpement">
-     1.3. Environnement de développement.
+    <a class="reference internal nav-link" href="#quelques-bonnes-pratiques">
+     1.1.1. Quelques bonnes pratiques.
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indentation">
+   1.2. Indentation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#les-types-et-operations-usuelles">
-   2. Les types et opérations usuelles.
+   1.3. Les types et opérations usuelles.
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables-et-affection">
-   3. Variables et affection
+   1.4. Variables et affection
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#affection">
-     3.1. Affection
+     1.4.1. Affection
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulation">
-     3.2. Manipulation
+     1.4.2. Manipulation
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#type-d-une-variable">
-     3.3. Type d’une variable
+     1.4.3. Type d’une variable
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regles-de-nommage">
-     3.4. Règles de nommage
+     1.4.4. Règles de nommage
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#les-listes">
-   4. Les listes
+   1.5. Les listes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creer-et-manipuler-une-liste">
-     4.1. Créer et manipuler une liste
+     1.5.1. Créer et manipuler une liste
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extraction">
-     4.2. Extraction
+     1.5.2. Extraction
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#un-element">
-       4.2.1. Un élément
+       1.5.2.1. Un élément
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#une-partie-de-la-liste">
-       4.2.2. Une partie de la liste
+       1.5.2.2. Une partie de la liste
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fonctions-de-bases">
-     4.3. Fonctions de bases
+     1.5.3. Fonctions de bases
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#les-commentaires">
-   5. Les commentaires
+   1.6. Les commentaires
   </a>
  </li>
 </ul>
@@ -415,74 +444,67 @@
         
               <div>
                 
-  <div class="section" id="langage-de-programmation">
-<h1><span class="section-number">1. </span>Langage de programmation<a class="headerlink" href="#langage-de-programmation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="presentation">
-<h2><span class="section-number">1.1. </span>Présentation<a class="headerlink" href="#presentation" title="Permalink to this headline">¶</a></h2>
-<p>Python est langage de programmation dit <strong>interprété</strong> : il va lire une à une la série d’instruction écrite par l’utilisateur et les “interpréter” en langage machine pour exécuter les dites instructions.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>On le différencie des langages dits <strong>compilés</strong> qui lise l’ensemble du programme pour le transformer (le compiler) en un fichier exécutable en langage machine qui sera le programme qui réalisera la tâche qui lui est demandée.</p>
-</div>
-<p>On utilise Python de deux manières :</p>
-<ul class="simple">
-<li><p>Dans une console Python (appelé aussi Shell) : on rentre alors une instruction. Python l’interprête et l’exécute. On peut alors en rentrer une autre et ainsi de suite.</p></li>
-<li><p>Dans un fichier contenant une série d’instruction les unes à la suite des autres. La commande python va alors lire et exécuter l’ensemble des instructions les unes après les autres. On peut ainsi écrire des programmes plus complexes et c’est pourquoi on privilégiera cette façon de procéder.</p></li>
-</ul>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Les environnements de développements comme Spyder ou Pyzo permettent d’interprêter un fichier par simple clic mais on peut aussi demander à python d’interprêter un fichier depuis un terminal en ligne de commande.</p>
+  <div class="section" id="environnement-de-developpement">
+<h1><span class="section-number">1.1. </span>Environnement de développement.<a class="headerlink" href="#environnement-de-developpement" title="Permalink to this headline">¶</a></h1>
+<p>Un environnement de développement (IDE) est un logiciel permettant d’écrire du code Python et de l’interpréter grâce à l’interface du logiciel. Il existe de nombreux IDE pour Python. Celui conseillé pour l’instant est Pyzo, une présentation rapide a été donnée avec <a class="reference external" href="https://filedn.com/lykEJ3axFalJygD0EVAUyWS/Stan/Pyzo_Anaconda/Python_pyzo_insta_gen_auroraW/index.html">le tutoriel sur l’installation de Pyzo</a>.</p>
+<div class="section" id="quelques-bonnes-pratiques">
+<h2><span class="section-number">1.1.1. </span>Quelques bonnes pratiques.<a class="headerlink" href="#quelques-bonnes-pratiques" title="Permalink to this headline">¶</a></h2>
+<p>Vous serez amenés à créer des fichiers contenant vos scripts ou à récupérer des fichiers donnés par vos enseignants. Il est donc important de savoir où les enregistrer pour les utiliser sous Pyzo. L’organisation sera de plus importante lorsqu’il sera question de manipuler des fichiers de données expérimentales.</p>
+<p>Il est donc conseillé de créer un répertoire spécifique dans lequel vous enregistrerez vos fichiers. Pour cela, il suffit d’ouvrir l’<em>explorateur de fichiers</em> (Windows) ou <em>Finder</em> (MacOs) pour créer un répertoire.  <strong>Préférez créer votre répertoire dans le répertoire <code class="docutils literal notranslate"><span class="pre">Documents</span></code> (ou <code class="docutils literal notranslate"><span class="pre">MesDocuments</span></code>)</strong>, cela facilitera l’accès aux fichiers si vous êtes amenés plus tard à utiliser des logiciels comme Jupyter. Dans l’exemple ci-dessous, un dossier <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> a été créé dans <code class="docutils literal notranslate"><span class="pre">Documents</span></code>. <em>Plusieurs sous dossiers pour chaque matière ont été créés, à vous de vous organiser au mieux par la suite.</em></p>
+<p><img alt="Dossier Python" src="../_images/repertoire_python.jpg" /></p>
 </div>
 </div>
 <div class="section" id="indentation">
-<h2><span class="section-number">1.2. </span>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h2>
+<h1><span class="section-number">1.2. </span>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h1>
 <p>L’indentation est le décalage de certaines lignes de code appartenant au même bloc (corps d’une fonction, d’une boucle…). On décale (on indente) une ligne grâce à <code class="docutils literal notranslate"><span class="pre">Espace</span></code> (plusieurs fois) ou <code class="docutils literal notranslate"><span class="pre">Tab</span></code>.</p>
-<p>Dans beaucoup de langage, l’indentation est optionnelle pour rendre le code plus lisible. Dans Python, elle est obligatoire pour définir l’ensemble d’instructions qui feront partie d’un même bloc (ensemble d’instruction d’une fonction par exemple). Les blocs (fonction, condition, boucle) seront présentés ensuite.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Code non indenté</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  <span class="c1"># Démarrage d&#39;une boucle : le corps de la boucle doit être indenté</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># Partie indenté</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># Fin de la partie indenté (donc du bloc)</span>
+</pre></div>
 </div>
-<div class="section" id="environnement-de-developpement">
-<h2><span class="section-number">1.3. </span>Environnement de développement.<a class="headerlink" href="#environnement-de-developpement" title="Permalink to this headline">¶</a></h2>
-<p>Un environnement de développement (IDE) est un logiciel permettant d’écrire du code Python et de l’interpréter grâce à l’interface du logiciel. Il existe de nombreux IDE pour Python. Celui conseillé pour l’instant est Pyzo.</p>
-</div>
+<p>Dans beaucoup de langage, l’indentation est optionnelle pour rendre le code plus lisible. Dans Python, <strong>elle est obligatoire</strong> pour définir l’ensemble d’instructions qui feront partie d’un même bloc (ensemble d’instruction d’une fonction par exemple). Les blocs (fonction, condition, boucle) seront présentés ensuite.</p>
 </div>
 <div class="section" id="les-types-et-operations-usuelles">
-<h1><span class="section-number">2. </span>Les types et opérations usuelles.<a class="headerlink" href="#les-types-et-operations-usuelles" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.3. </span>Les types et opérations usuelles.<a class="headerlink" href="#les-types-et-operations-usuelles" title="Permalink to this headline">¶</a></h1>
 <p>On ne décrit ici que les types simples et les opérations que nous utiliserons le plus. D’autres types plus particuliers ou issus de bibliothèques non standards seront présentés plus tard.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8b67ca84-6cd7-4e35-aef4-0ad7e434e7ac" name="df23b00c-6ce9-44b3-ac54-6c2c870709ea" type="radio">
-</input><label class="tabbed-label" for="8b67ca84-6cd7-4e35-aef4-0ad7e434e7ac">
+<input checked="checked" id="3a184e74-df1e-45b9-87cc-8dd39216b431" name="a36cf106-4358-4174-a5ac-d471504d6331" type="radio">
+</input><label class="tabbed-label" for="3a184e74-df1e-45b9-87cc-8dd39216b431">
 Les entiers</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">123543654</span></code>, <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
+Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
 <p>Opérateur/Fonctions usuelles :</p>
 <ul class="simple">
 <li><p>Addition : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span></code></p></li>
 <li><p>Soustraction : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">4</span></code></p></li>
 <li><p>Multiplication : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></code></p></li>
-<li><p>Division entière : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">//</span> <span class="pre">4</span></code></p></li>
-<li><p>Reste de la division euclidienne : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">%</span> <span class="pre">4</span></code></p></li>
-<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">4</span></code></p></li>
+<li><p>Division entière : <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">//</span> <span class="pre">3</span></code> (renvoie 1)</p></li>
+<li><p>Reste de la division euclidienne : <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">3</span></code> (renvoie 2)</p></li>
+<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
 </ul>
 </div>
-<input id="8f7e46c5-0e08-4ed7-8d1a-d637e98a29fd" name="df23b00c-6ce9-44b3-ac54-6c2c870709ea" type="radio">
-</input><label class="tabbed-label" for="8f7e46c5-0e08-4ed7-8d1a-d637e98a29fd">
+<input id="338fff21-57c4-47e1-9401-7ad63887df35" name="a36cf106-4358-4174-a5ac-d471504d6331" type="radio">
+</input><label class="tabbed-label" for="338fff21-57c4-47e1-9401-7ad63887df35">
 Les flottants (nombres réels)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>, <code class="docutils literal notranslate"><span class="pre">3254.234</span></code>, <code class="docutils literal notranslate"><span class="pre">-23.34</span></code>, <code class="docutils literal notranslate"><span class="pre">3.</span></code>, <code class="docutils literal notranslate"><span class="pre">-5.</span></code></p>
+Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
 <p>Opérateur/Fonctions usuelles :</p>
 <ul class="simple">
-<li><p>Addition : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span></code></p></li>
-<li><p>Soustraction : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">4</span></code></p></li>
-<li><p>Multiplication : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></code></p></li>
-<li><p>Division : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">/</span> <span class="pre">4</span></code></p></li>
-<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">4</span></code></p></li>
+<li><p>Addition : <code class="docutils literal notranslate"><span class="pre">3.2</span> <span class="pre">+</span> <span class="pre">4.1</span></code></p></li>
+<li><p>Soustraction : <code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">-</span> <span class="pre">4.5</span></code></p></li>
+<li><p>Multiplication : <code class="docutils literal notranslate"><span class="pre">3.1</span> <span class="pre">*</span> <span class="pre">4.2</span></code></p></li>
+<li><p>Division : <code class="docutils literal notranslate"><span class="pre">3.3</span> <span class="pre">/</span> <span class="pre">4.</span></code></p></li>
+<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3.3</span> <span class="pre">**</span> <span class="pre">4.</span></code></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
 </div>
 </div>
-<input id="81117cd7-5c5b-412d-9904-762fc77f955b" name="df23b00c-6ce9-44b3-ac54-6c2c870709ea" type="radio">
-</input><label class="tabbed-label" for="81117cd7-5c5b-412d-9904-762fc77f955b">
+<input id="e59e5766-bd93-4463-bc78-15703cd341b8" name="a36cf106-4358-4174-a5ac-d471504d6331" type="radio">
+</input><label class="tabbed-label" for="e59e5766-bd93-4463-bc78-15703cd341b8">
 Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
@@ -493,8 +515,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">True</spa
 <li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 </ul>
 </div>
-<input id="26d06233-a95f-4d6d-8ba6-5653cff8fdad" name="df23b00c-6ce9-44b3-ac54-6c2c870709ea" type="radio">
-</input><label class="tabbed-label" for="26d06233-a95f-4d6d-8ba6-5653cff8fdad">
+<input id="8c1fb3b7-d98c-43ca-a373-7beaf0af2586" name="a36cf106-4358-4174-a5ac-d471504d6331" type="radio">
+</input><label class="tabbed-label" for="8c1fb3b7-d98c-43ca-a373-7beaf0af2586">
 Les chaines de caractères</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>
@@ -514,10 +536,10 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 <p>Il existe aussi d’autres fonctions générales qui s’appliquent sur les différents types comme <code class="docutils literal notranslate"><span class="pre">print(...)</span></code> qui sert à afficher l’objet considéré.</p>
 </div>
 <div class="section" id="variables-et-affection">
-<h1><span class="section-number">3. </span>Variables et affection<a class="headerlink" href="#variables-et-affection" title="Permalink to this headline">¶</a></h1>
-<p>Une variable est un élément servant à stockées des données dans un espace mémoire dédié.</p>
+<h1><span class="section-number">1.4. </span>Variables et affection<a class="headerlink" href="#variables-et-affection" title="Permalink to this headline">¶</a></h1>
+<p>Une variable est un élément servant à stocker des données dans un espace mémoire dédié.</p>
 <div class="section" id="affection">
-<h2><span class="section-number">3.1. </span>Affection<a class="headerlink" href="#affection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.1. </span>Affection<a class="headerlink" href="#affection" title="Permalink to this headline">¶</a></h2>
 <p>On utilise le signal <code class="docutils literal notranslate"><span class="pre">=</span></code>. Ci dessous l’affection de l’entier <code class="docutils literal notranslate"><span class="pre">1</span></code> dans la variable <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -532,7 +554,7 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 </div>
 </div>
 <div class="section" id="manipulation">
-<h2><span class="section-number">3.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
 <p>Une variable peut être utilisée par les opérateurs et fonctions associées au type de la données stockées. Par exemple, avec des flottants :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -551,7 +573,7 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 </div>
 </div>
 <div class="section" id="type-d-une-variable">
-<h2><span class="section-number">3.3. </span>Type d’une variable<a class="headerlink" href="#type-d-une-variable" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.3. </span>Type d’une variable<a class="headerlink" href="#type-d-une-variable" title="Permalink to this headline">¶</a></h2>
 <p>Pour connaître le type d’une variable, on utilise la fonction <code class="docutils literal notranslate"><span class="pre">type()</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,20 +599,20 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="regles-de-nommage">
-<h2><span class="section-number">3.4. </span>Règles de nommage<a class="headerlink" href="#regles-de-nommage" title="Permalink to this headline">¶</a></h2>
-<p>Un nom de variables :</p>
+<h2><span class="section-number">1.4.4. </span>Règles de nommage<a class="headerlink" href="#regles-de-nommage" title="Permalink to this headline">¶</a></h2>
+<p>Un nom de variable :</p>
 <ul class="simple">
 <li><p>peut contenir des lettres (minuscules ou majuscules), des chiffres, le caractère <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
-<li><p>ne peut commencer par un chiffre</p></li>
+<li><p>ne peut pas commencer par un chiffre</p></li>
 <li><p>ne peut être un mot reservé par python (comme <code class="docutils literal notranslate"><span class="pre">print</span></code>) (Python renverra une erreur le cas échéant donc pas la peine d’apprendre ces mots par coeur !)</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="les-listes">
-<h1><span class="section-number">4. </span>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h1>
-<p>Les listes sont des objets Python un peu plus complexe qui permettent de stocker, un ensemble d’objets dans un ordre choisi.</p>
+<h1><span class="section-number">1.5. </span>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h1>
+<p>Les listes sont des objets Python un peu plus complexes qui permettent de stocker, un ensemble d’objets dans un ordre choisi.</p>
 <div class="section" id="creer-et-manipuler-une-liste">
-<h2><span class="section-number">4.1. </span>Créer et manipuler une liste<a class="headerlink" href="#creer-et-manipuler-une-liste" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.1. </span>Créer et manipuler une liste<a class="headerlink" href="#creer-et-manipuler-une-liste" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code> est une fonction dans Python, on évitera de l’utiliser comme nom de variable</p>
@@ -637,9 +659,9 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="extraction">
-<h2><span class="section-number">4.2. </span>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.2. </span>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="un-element">
-<h3><span class="section-number">4.2.1. </span>Un élément<a class="headerlink" href="#un-element" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.2.1. </span>Un élément<a class="headerlink" href="#un-element" title="Permalink to this headline">¶</a></h3>
 <p>On peut extraire un élément d’une liste comme pour une chaine de caractère :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,7 +704,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="une-partie-de-la-liste">
-<h3><span class="section-number">4.2.2. </span>Une partie de la liste<a class="headerlink" href="#une-partie-de-la-liste" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.2.2. </span>Une partie de la liste<a class="headerlink" href="#une-partie-de-la-liste" title="Permalink to this headline">¶</a></h3>
 <p>On peut extraire un ensemble d’éléments d’une liste (on obtient alors une liste).</p>
 <p><code class="docutils literal notranslate"><span class="pre">l[3:6]</span></code> : on commence au 4ème élément (l’indexation commence à 0) et on s’arrête au 7ème élément <strong>non inclus</strong>.</p>
 <div class="cell docutils container">
@@ -711,7 +733,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="fonctions-de-bases">
-<h2><span class="section-number">4.3. </span>Fonctions de bases<a class="headerlink" href="#fonctions-de-bases" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.3. </span>Fonctions de bases<a class="headerlink" href="#fonctions-de-bases" title="Permalink to this headline">¶</a></h2>
 <p>Plusieurs fonctions de bases s’appliquent à une liste (ici la liste s’appellera <code class="docutils literal notranslate"><span class="pre">l</span></code>).</p>
 <ul class="simple">
 <li><p>Longueur de la liste : <code class="docutils literal notranslate"><span class="pre">len(l)</span></code></p></li>
@@ -720,7 +742,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="les-commentaires">
-<h1><span class="section-number">5. </span>Les commentaires<a class="headerlink" href="#les-commentaires" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.6. </span>Les commentaires<a class="headerlink" href="#les-commentaires" title="Permalink to this headline">¶</a></h1>
 <p>On peut ajouter des commentaires (parties non interprêtées) :</p>
 <ul class="simple">
 <li><p>commentaires sur une ligne avec <code class="docutils literal notranslate"><span class="pre">#</span></code></p></li>
@@ -753,8 +775,8 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../intro_python.html" title="previous page">Eléments de bases pour programmer en Python</a>
-    <a class='right-next' id="next-link" href="fonctions.html" title="next page"><span class="section-number">1. </span>Les fonctions.</a>
+    <a class='left-prev' id="prev-link" href="bases_intro.html" title="previous page"><span class="section-number">1. </span>Le langage Python</a>
+    <a class='right-next' id="next-link" href="blocs.html" title="next page"><span class="section-number">2. </span>Fonctions, conditions boucles</a>
 
         </div>
         
