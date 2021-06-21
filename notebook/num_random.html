@@ -68,7 +68,7 @@
 <meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/num_random.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="La bibliothèque numpy.random" />
-<meta property="og:description" content="La bibliothèque numpy.random  La sous-bibliothèque numpy.random a été rapidement évoquée dans un exercice. Elle sera très utile en physique et en chimie pourles" />
+<meta property="og:description" content="La bibliothèque numpy.random  La sous-bibliothèque numpy.random sera très utile en physique et en chimie pour les calculs d’incertitude (simulation de Monte-Car" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -221,38 +221,33 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html">
+  <a class="reference internal" href="complement.html">
    1. Comprendre ses erreurs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
    2. La fonction numpy.polyfit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+  <a class="reference internal" href="plus_loin.html">
    3. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
-   4. Simulations plus complexes avec numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   5. La compréhension des listes
+   4. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   6. Les dictionnaires
+   5. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   7. Fonctions et méthodes
+   6. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -380,7 +375,7 @@
                 
   <div class="section" id="la-bibliotheque-numpy-random">
 <h1><span class="section-number">5. </span>La bibliothèque numpy.random<a class="headerlink" href="#la-bibliotheque-numpy-random" title="Permalink to this headline">¶</a></h1>
-<p>La sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> a été rapidement évoquée dans un exercice. Elle sera très utile en physique et en chimie pourles calculs d’incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : <code class="docutils literal notranslate"><span class="pre">uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
+<p>La sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> sera très utile en physique et en chimie pour les calculs d’incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : <code class="docutils literal notranslate"><span class="pre">uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
 <div class="section" id="rappel-importation-de-la-bibliotheque">
 <h2><span class="section-number">5.1. </span>Rappel : Importation de la bibliothèque<a class="headerlink" href="#rappel-importation-de-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -429,8 +424,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 1 µs, total: 8 µs
-Wall time: 15 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 1 µs, total: 9 µs
+Wall time: 15.7 µs
 </pre></div>
 </div>
 <img alt="../_images/num_random_3_1.png" src="../_images/num_random_3_1.png" />

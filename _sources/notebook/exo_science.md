@@ -35,7 +35,7 @@ On suppose qu'il s'agit du mouvement d'une "Masse sur un axe". Le tracé de la c
 Vous devriez obtenir le graphique suivant (cliquez sur la croix).
 
 ```{code-cell}
-:tags: [remove-input, hide-input]
+:tags: [remove-input, hide-output]
 import matplotlib.pyplot  as plt
 import numpy as np
 
@@ -67,7 +67,7 @@ $$
 x_M(t) = (X_0 - l_0) \cos (\omega_0 t) + l_0
 $$
 
-avec $\omega_0 = \sqrt{\frac{k}{m}}
+avec $\omega_0 = \sqrt{\frac{k}{m}}$
 
 1. Montrer par le calcul que la vitesse du point M est donnée par $v_M(t) = -(X_0 - l_0) \omega_0 \sin (\omega_0 t)$.
 2. Vous devez créer quatre graphiques :
@@ -84,7 +84,7 @@ N'oubliez le caractère vectoriel des opérations sur les vecteurs numpy, vous d
 ````
 
 ```{code-cell}
-:tags: [remove-input, hide-input]
+:tags: [remove-input, hide-output]
 
 k = 11
 m = 0.3

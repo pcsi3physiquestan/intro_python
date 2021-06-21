@@ -14,7 +14,7 @@ kernelspec:
   name: python3
 ---
 
-Essayez avant tout de bien comprendre la première partie. Certains points abordés ici serviront très peu ou seront abordés pendant l'année.
+Certains points abordés ici serviront très peu ou seront abordés pendant l'année. Il s'agit d'approfondissement pour ceux qui ont déjà bien compris les parties précédentes.
 
 ```{code-cell}
 """On importe les bibliothèques scientifiques car elles seront utilisées ensuite"""
@@ -28,169 +28,6 @@ L'ordre des parties va du plus important au moins important.
 
 ```
 
-(erreurs)=
-# Comprendre ses erreurs
-
-Quand on écrit du code, on fait des erreurs. Ca arrive à tout le monde. Il y a deux types d'erreurs :
-* Les erreurs qui empêchent le code de s'exécuter correctement : Python renvoie alors un message d'erreur.
-* Les erreurs qui n'empêchent pas le code de s'exécuter mais qui font que le programme ne renvoie pas ce qui est attendu.
-
-## Python et les messages d'erreurs.
-
-### Exemple basique
-
-Lorsqu'un script bute sur un erreur d'exécution. Python affiche un message :
-
-```{code-cell}
-
-L1 = np.array([1, 2, 3])
-L2 = np.array([1, 2])
-
-L3 = L1 + L2
-
-a = 3 * 4
-
-print(L3)
-
-```
-
-Pour comprendre et corriger son erreur, deux points sont importants :
-* L'endroit où l'erreur a été commise : ici `----> 6 L3 = L1 + L2`. C'est à la ligne 6.
-* Le message d'erreur : `ValueError: operands could not be broadcast together with shapes (3,) (2,) `. Avec un peu de connaissance en anglais, on comprend que les deux vecteurs numpy n'ont pas la même taille (shape) et qu'on ne peut donc pas les sommer.
-
-Dans la majorité des cas, ces deux éléments vont permettront de comprendre votre erreur.
-
-### Le cas d'erreur dans une fonction
-Il arrive que certaines erreurs se trouvent dans une fonction. Le message d'erreur est alors un peu plus compliqué :
-```{code-cell}
-def x_carre(x):
-  return x ** 2
-
-a = "r"
-
-b = x_carre(a)
-
-print(b)
-
-```
-
-Ici, Python signale deux endroits où il y a une erreur. L'explication est simple : ici le message est assez clair, l'opérateur puissance (`**`) ne peut s'appliquer entre une chaine de caractère `str` et un entier `int` (logique !!). Sauf que cette erreur se produit dans une fonction (`x_carre`). Python signale alors :
-* l'endroit où la fonction a été appelée `b = x_carre(a)`
-* l'endroit _dans la fonction_ à l'erreur a été déclenchée (`return x ** 2`)
-
-A vous de savoir si le problème est la définition de la fonction ou la manière de l'appeler. Ici c'est vraisemblablement la manière de l'appeler car on ne devrait pas chercher à calculer le carré d'une chaine de caractère !
-
-Ce système est très efficace mais peut dérouter, surtout quand on utilise des fonctions déjà existantes qui sont souvent imbriquées. Un exemple ci-dessous.
-
-```{code-cell}
-
-L1 = np.array([1, 2, 3])
-L2 = np.array([1, 2])
-
-f, ax = plt.subplots()
-ax.plot(L1, L2)
-
-```
-
-Pour corriger son erreur, il faut :
-* garder son calme !
-* chercher le message d'erreur (ici `ValueError: x and y must have same first dimension, but have shapes (3,) and (2,)`)
-* chercher la partie du message d'erreur qui point vers __votre code__ (on peut raisonnablement penser qu'il n'y a pas d'erreurs dans les fonctions des bibliothèques officielles). Ici `ax.plot(L1, L2)` : `L1` et `L2` n'ont pas la même taille, c'est là le problème.
-
-### Les parenthèses...
-Lorsqu'on écrit une formule un peu trop grosse, il arrive qu'on oublie de fermer une parenthèse.
-
-```{code-cell}
-u1 = 1
-u2 = 0.1
-v1 = 15
-v2 = 14
-a = v1 / v2
-ua = a * np.sqrt((u1 / v1) ** 2 + (u2 / v2) ** 2
-
-
-
-print(ua)
-
-```
-
-Problèmes :
-* le message est peu verbeux (syntaxe invalide)
-* la ligne pointé par le message n'est pas la ligne où il y a une erreur !
-
-En effet, Python  ne se rend compte du problème de parenthèse mal fermée que lorsqu'il arrive sur une nouvelle instruction. C'est pourquoi, __en cas d'erreur de syntaxe invalide, pensez aussi à vérifier l'écriture des lignes _au dessus_ de l'endroit signalé par le message d'erreur.__
-
-+++
-
-## Pas d'erreur mais...
-```{attention}
-Ce n'est pas parce que l'interpréteur Python ne renvoie pas une erreur que votre programme est bon. Il peut faire des calculs et renvoyer des valeurs __qui ne sont pas celles recherchées.__
-```
-
-```{tip} 
-__Prenez l'habitude de tester votre code sur des cas simples où vous connaissez les valeurs de retours attendues pour vérifier que votre programme fait bien ce qui est demandé (éviter les cas particuliers).__
-```
-
-+++
-
-
-
-+++
-
-
-# La fonction numpy.polyfit
-
-Il arrive fréquemment qu'on veuille ajuster un modèle théorique sur des points de données expérimentaux. Le plus courramment utilisé pour non est l'ajustement d'un modèle affine $y = ax + b$ à des points expérimentaux $(x_i, y_i)$ (i allant de 1 à  N). On veut connaître les valeurs de $a$ et $b$ qui donne une droite passant au plus près des points expérimentaux.
-
-On ne va pas présenter ici ce que signifie "au plus près", ni comment sont déterminer les coefficients $a$ et $b$. On présente juste une fonction (`polyfit`) de la bibliothèque `numpy` qui permet justement de réaliser cet ajustement (on parle de __régression linéaire__).
-
-```{note}
-`polyfit` permet de réaliser un ajustement par un polynôme de degré `n` quelconque. On se limitera ici à $n=1$ soit une droite.
-```
-
-## La syntaxe
-
-On dispose de deux vecteurs numpy (ou listes classiques) contenant les $x_i$ (variable `xi`) et les $y_i$ (variable `yi`) expérimentaux. On écrit :
-
-```python
-p = polyfit(xi, yi, n)  # n est le degré du polynôme d'ajustement donc pour nous n=1
-
-```
-
-```{margin}
-`polyfit` permet de réaliser un ajustement par un polynôme de degré `n` quelconque. On se limitera ici à $n=1$ soit une droite.
-```
-
-`p` est un vecteur numpy contenant les coefficients du polynôme par ordre de puissance décroissante. Ainsi pour :
-
-```python
-p = polyfit(xi, yi, 1)  # n est le degré du polynôme d'ajustement donc pour nous n=1
-```
-
-`p` contient : `[a, b]` avec comme modèle : `y = ax + b`. On y accède par : `p[0]` (pente) et `p[1]` (ordonnée à l'origine).
-
-## Un exemple
-```{code-cell}
-""" Fausses (!) données expérimentales """
-xi = np.array([0.2, 0.8, 1.6, 3.4, 4.5, 7.5])
-yi = np.array([4.4, 5.7, 7.2, 11.7, 13.3, 21.8])
-
-"""Ajustement linéaire"""
-p = np.polyfit(xi, yi, 1)
-y_adj = p[0] * xi + p[1]  # On applique la droite ajusté aux xi pour comparaison.
-
-
-f, ax = plt.subplots()
-f.suptitle("Ajustement linéaire")
-
-ax.plot(xi, yi, marker='+', label='Données expérimentales', linestyle='', color='red')  # On voit l'intérêt des options
-ax.plot(xi, y_adj, marker='', label='Ajustement', linestyle='-', color='blue')  # On voit l'intérêt des options
-
-ax.legend()
-
-```
-
-+++
 
 (tableau_numpy)=
 # Tableaux numpy : manipulations
@@ -338,59 +175,6 @@ __Les affichage__:
 
 +++
 
-# Simulations plus complexes avec numpy.random
-La syntaxe précédente suffira en général. Mais si on a plusieurs variables $u_1, u_2, u_3, ...$ qui suivent le même type de loi (ex : loi uniforme) avec des paramètres différents (entre $a_1$ et$b_1$, entre $a_2$ et$b_2$, entre $a_2$ et $b_2$,...). On peut alors utiliser demander à la fonction  `uniform` (idem pour `normal`) de créer un tableau `numpy` de valeur où chaque colonne contient N tirages suivant chaque distritubion choisie. Ci-après la syntaxe :
-
-```{code-cell}
-N = 1000000  # Nombre de tirages
-u_min = [1, 5, 10]  # 3 valeurs minimales des 3 distributions uniformes
-u_max = [3, 7, 12]  # 3 valeurs amximales des 3 distributions uniformes
-
-k = len(u_min)
-
-u_sims = rd.uniform(u_min, u_max, (N, k))  # On demande explicite un tableau de taille N*k
-
-X1 = u_sims[:, 0]  # Simulation des u1
-X2 = u_sims[:, 1]  # Simulation des u2
-X3 = u_sims[:, 2]  # Simulation des u3
-
-f, ax = plt.subplots()
-ax.hist(X1, bins='rice', color='red', label='Entre 1 et 3')
-ax.hist(X2, bins='rice', color='blue', label='Entre 5 et 7')
-ax.hist(X3, bins='rice', color='black', label='Entre 10 et 12')
-ax.legend()
-plt.show()
-
-```
-
-Et avec des lois normales :
-
-```{code-cell}
-N = 1000000  # Nombre de tirages
-u_mean = [1, 5, 15]  # 3 valeurs minimales des 3 distributions uniformes
-u_u = [1, 2, 3]  # 3 valeurs amximales des 3 distributions uniformes
-
-k = len(u_min)
-
-u_sims = rd.normal(u_mean, u_u, (N, k))  # On demande explicite un tableau de taille N*k
-
-X1 = u_sims[:, 0]  # Simulation des u1
-X2 = u_sims[:, 1]  # Simulation des u2
-X3 = u_sims[:, 2]  # Simulation des u3
-
-f, ax = plt.subplots()
-ax.hist(X1, bins='rice', color='red', label='m=1, s=1')
-ax.hist(X2, bins='rice', color='blue', label='m=5, s=2')
-ax.hist(X3, bins='rice', color='black', label='m=15, s=3')
-ax.legend()
-plt.show()
-```
-
-```{margin}
-Voir la [partie sur les tableaux](tableau_numpy) pour la sélection d'une colonne du tableau.
-```
-
-+++
 
 # La compréhension des listes
 
@@ -491,6 +275,13 @@ plt.show()
 
 ```
 
+```{margin}
+On peut aussi filtrer la liste pour n'appliquer `fonction(x)` que sous certaines conditions :
+
+`[fonction(x) for x in L if x > 1]`
+
+```
+
 +++
 
 # Les dictionnaires
@@ -498,8 +289,8 @@ Les __dictionnaires__ sont des objets python un peu plus complexes que vous pour
 
 ```{code-cell}
 """ On définit un dictionnaire. 
-- Il a 4 champs : fruit, couleur, rouge, prix.
-- On a assigner à ces champs les valeurs respectives : "Pomme", "Rouge", 234, 3.45
+- Il a 4 champs : fruit, couleur, nombre, prix.
+- On a assigné à ces champs les valeurs respectives : "Pomme", "Rouge", 234, 3.45
 
 """
 a = {'fruit': "Pomme", 'couleur': "Rouge", 'nombre': 234, 'prix': 3.45}

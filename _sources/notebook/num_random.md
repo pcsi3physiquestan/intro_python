@@ -15,7 +15,7 @@ kernelspec:
 ---
 
 # La bibliothèque numpy.random
-La sous-bibliothèque `numpy.random` a été rapidement évoquée dans un exercice. Elle sera très utile en physique et en chimie pourles calculs d'incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : `uniform` et `normal`.
+La sous-bibliothèque `numpy.random` sera très utile en physique et en chimie pour les calculs d'incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : `uniform` et `normal`.
 
 ## Rappel : Importation de la bibliothèque
 ```{code-cell}

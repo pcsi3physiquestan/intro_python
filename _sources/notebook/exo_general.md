@@ -62,7 +62,7 @@ print(L1 + L2)
 print(L)
 ```
 
-1. Préciser pour chaque instruction `print` ce qui sera afficher
+1. Préciser pour chaque instruction `print` ce qui sera affiché.
 
 ```{toggle} Cliquer pour afficher les réponses __après réflexion.__
 1. `print(len(L1))` affiche la longueur de la liste `L1`, soit `3`
@@ -88,7 +88,7 @@ Vous allez devoir écrire votre propre code. Commencez par :
 Vous devez créer deux fonctions qui prennent chacune comme argument un entier `n` et renvoient la somme des entiers compris entre 0 et `n` __inclus__.
 
 1. La première utilisera une boucle `for`
-2. La seconde utilisera une boucle`while`
+2. La seconde utilisera une boucle `while`
 
 Tester ensuite votre fonction en affichant son retour pour $n = 0, 1, 2, 5$ et $100$. Les résultats pour ces valeurs sont donnés ci-dessous (cliquez sur la croix).
 ````
@@ -114,9 +114,9 @@ print("n=100 : ", somme_carre(100))
 
 ````{admonition} Choix d'une boucle
 :class: tip
-Vous devez créer une fonction `somme_ks` qui prend chacune comme argument un entier `n` et renvoient la somme des entiers $k$ tels que $k + k^2 + k^3 \leq n$.
+Vous devez créer une fonction `somme_ks` qui prend chacune comme argument un entier `n` et renvoie la somme des entiers $k$ tels que $k + k^2 + k^3 \leq n$.
 
-1. Pourquoi ne peut-on utiliser qu'un seul type de boucle ? Laquelle
+1. Pourquoi ne peut-on utiliser qu'un seul type de boucle ? Laquelle ?
 2. Proposer une fonction.
 
 Tester ensuite votre fonction en affichant son retour pour $n = 0, 2, 5, 100$ et $2000$. Les résultats pour ces valeurs sont donnés ci-dessous (cliquez sur la croix).

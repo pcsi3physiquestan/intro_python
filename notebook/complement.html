@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Comprendre ses erreurs &#8212; Python : Bases à connaître</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/complement.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Tableaux numpy : manipulations" href="plus_loin.html" />
+    <link rel="prev" title="6. S’entraîner" href="exo_science_2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/complement.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Comprendre ses erreurs" />
+<meta property="og:description" content="Comprendre ses erreurs  Quand on écrit du code, on fait des erreurs. Ca arrive à tout le monde. Il y a deux types d’erreurs :  Les erreurs qui empêchent le code" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Réviser les bases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#indentation">
+     1.2. Indentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
+     1.3. Les types et opérations usuelles.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#variables-et-affection">
+     1.4. Variables et affection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-listes">
+     1.5. Les listes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html#les-commentaires">
+     1.6. Les commentaires
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boucles.html">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_general.html">
+   3. S’entraîner.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   1. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   2. Matplotlib : tracés graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science.html">
+   3. S’entraîner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="import_file.html">
+   4. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   5. La bibliothèque numpy.random
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_science_2.html">
+   6. S’entraîner
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compléments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Comprendre ses erreurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#la-fonction-numpy-polyfit">
+   2. La fonction numpy.polyfit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html">
+   3. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
+   4. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#les-dictionnaires">
+   5. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
+   6. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/complement.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/complement.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/complement.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Comprendre ses erreurs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-et-les-messages-d-erreurs">
+     1.1. Python et les messages d’erreurs.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exemple-basique">
+       1.1.1. Exemple basique
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#le-cas-d-erreur-dans-une-fonction">
+       1.1.2. Le cas d’erreur dans une fonction
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-parentheses">
+       1.1.3. Les parenthèses…
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pas-d-erreur-mais">
+     1.2. Pas d’erreur mais…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-fonction-numpy-polyfit">
+   2. La fonction numpy.polyfit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-syntaxe">
+     2.1. La syntaxe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple">
+     2.2. Un exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Voici un complément un utile sur l’étude des erreurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;On importe les bibliothèques scientifiques car elles seront utilisées ensuite&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comprendre-ses-erreurs">
+<span id="erreurs"></span><h1><span class="section-number">1. </span>Comprendre ses erreurs<a class="headerlink" href="#comprendre-ses-erreurs" title="Permalink to this headline">¶</a></h1>
+<p>Quand on écrit du code, on fait des erreurs. Ca arrive à tout le monde. Il y a deux types d’erreurs :</p>
+<ul class="simple">
+<li><p>Les erreurs qui empêchent le code de s’exécuter correctement : Python renvoie alors un message d’erreur.</p></li>
+<li><p>Les erreurs qui n’empêchent pas le code de s’exécuter mais qui font que le programme ne renvoie pas ce qui est attendu.</p></li>
+</ul>
+<div class="section" id="python-et-les-messages-d-erreurs">
+<h2><span class="section-number">1.1. </span>Python et les messages d’erreurs.<a class="headerlink" href="#python-et-les-messages-d-erreurs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exemple-basique">
+<h3><span class="section-number">1.1.1. </span>Exemple basique<a class="headerlink" href="#exemple-basique" title="Permalink to this headline">¶</a></h3>
+<p>Lorsqu’un script bute sur un erreur d’exécution. Python affiche un message :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">L3</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">L3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b43b36e465ad</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">L3</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,) (2,) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour comprendre et corriger son erreur, deux points sont importants :</p>
+<ul class="simple">
+<li><p>L’endroit où l’erreur a été commise : ici <code class="docutils literal notranslate"><span class="pre">----&gt;</span> <span class="pre">6</span> <span class="pre">L3</span> <span class="pre">=</span> <span class="pre">L1</span> <span class="pre">+</span> <span class="pre">L2</span></code>. C’est à la ligne 6.</p></li>
+<li><p>Le message d’erreur : <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">operands</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">broadcast</span> <span class="pre">together</span> <span class="pre">with</span> <span class="pre">shapes</span> <span class="pre">(3,)</span> <span class="pre">(2,)</span> </code>. Avec un peu de connaissance en anglais, on comprend que les deux vecteurs numpy n’ont pas la même taille (shape) et qu’on ne peut donc pas les sommer.</p></li>
+</ul>
+<p>Dans la majorité des cas, ces deux éléments vont permettront de comprendre votre erreur.</p>
+</div>
+<div class="section" id="le-cas-d-erreur-dans-une-fonction">
+<h3><span class="section-number">1.1.2. </span>Le cas d’erreur dans une fonction<a class="headerlink" href="#le-cas-d-erreur-dans-une-fonction" title="Permalink to this headline">¶</a></h3>
+<p>Il arrive que certaines erreurs se trouvent dans une fonction. Le message d’erreur est alors un peu plus compliqué :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_carre</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">x_carre</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">5177</span><span class="n">d4a278f0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">b</span> <span class="o">=</span> <span class="n">x_carre</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-3-5177d4a278f0&gt;</span> in <span class="ni">x_carre</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">x_carre</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>   <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for ** or pow(): &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici, Python signale deux endroits où il y a une erreur. L’explication est simple : ici le message est assez clair, l’opérateur puissance (<code class="docutils literal notranslate"><span class="pre">**</span></code>) ne peut s’appliquer entre une chaine de caractère <code class="docutils literal notranslate"><span class="pre">str</span></code> et un entier <code class="docutils literal notranslate"><span class="pre">int</span></code> (logique !!). Sauf que cette erreur se produit dans une fonction (<code class="docutils literal notranslate"><span class="pre">x_carre</span></code>). Python signale alors :</p>
+<ul class="simple">
+<li><p>l’endroit où la fonction a été appelée <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">x_carre(a)</span></code></p></li>
+<li><p>l’endroit <em>dans la fonction</em> à l’erreur a été déclenchée (<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">2</span></code>)</p></li>
+</ul>
+<p>A vous de savoir si le problème est la définition de la fonction ou la manière de l’appeler. Ici c’est vraisemblablement la manière de l’appeler car on ne devrait pas chercher à calculer le carré d’une chaine de caractère !</p>
+<p>Ce système est très efficace mais peut dérouter, surtout quand on utilise des fonctions déjà existantes qui sont souvent imbriquées. Un exemple ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">c859c85d5b52</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
+<span class="ne">-&gt; </span><span class="mi">1743</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span><span class="s2">         for line in lines:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1745</span><span class="s2">             self.add_line(line)</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="s2">                 this += args[0],</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span><span class="s2">                 args = args[1:]</span>
+<span class="ne">--&gt; </span><span class="mi">273</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span><span class="s2">     def get_next_color(self):</span>
+
+<span class="nn">~/miniconda3/envs/jupybook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
+<span class="ne">--&gt; </span><span class="mi">399</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
+
+<span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (3,) and (2,)
+</pre></div>
+</div>
+<img alt="../_images/complement_7_1.png" src="../_images/complement_7_1.png" />
+</div>
+</div>
+<p>Pour corriger son erreur, il faut :</p>
+<ul class="simple">
+<li><p>garder son calme !</p></li>
+<li><p>chercher le message d’erreur (ici <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">same</span> <span class="pre">first</span> <span class="pre">dimension,</span> <span class="pre">but</span> <span class="pre">have</span> <span class="pre">shapes</span> <span class="pre">(3,)</span> <span class="pre">and</span> <span class="pre">(2,)</span></code>)</p></li>
+<li><p>chercher la partie du message d’erreur qui point vers <strong>votre code</strong> (on peut raisonnablement penser qu’il n’y a pas d’erreurs dans les fonctions des bibliothèques officielles). Ici <code class="docutils literal notranslate"><span class="pre">ax.plot(L1,</span> <span class="pre">L2)</span></code> : <code class="docutils literal notranslate"><span class="pre">L1</span></code> et <code class="docutils literal notranslate"><span class="pre">L2</span></code> n’ont pas la même taille, c’est là le problème.</p></li>
+</ul>
+</div>
+<div class="section" id="les-parentheses">
+<h3><span class="section-number">1.1.3. </span>Les parenthèses…<a class="headerlink" href="#les-parentheses" title="Permalink to this headline">¶</a></h3>
+<p>Lorsqu’on écrit une formule un peu trop grosse, il arrive qu’on oublie de fermer une parenthèse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">/</span> <span class="n">v2</span>
+<span class="n">ua</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u1</span> <span class="o">/</span> <span class="n">v1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">u2</span> <span class="o">/</span> <span class="n">v2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ua</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-5-8048891cc3a0&gt;&quot;</span><span class="gt">, line </span><span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ua</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Problèmes :</p>
+<ul class="simple">
+<li><p>le message est peu verbeux (syntaxe invalide)</p></li>
+<li><p>la ligne pointé par le message n’est pas la ligne où il y a une erreur !</p></li>
+</ul>
+<p>En effet, Python  ne se rend compte du problème de parenthèse mal fermée que lorsqu’il arrive sur une nouvelle instruction. C’est pourquoi, <strong>en cas d’erreur de syntaxe invalide, pensez aussi à vérifier l’écriture des lignes <em>au dessus</em> de l’endroit signalé par le message d’erreur.</strong></p>
+</div>
+</div>
+<div class="section" id="pas-d-erreur-mais">
+<h2><span class="section-number">1.2. </span>Pas d’erreur mais…<a class="headerlink" href="#pas-d-erreur-mais" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Ce n’est pas parce que l’interpréteur Python ne renvoie pas une erreur que votre programme est bon. Il peut faire des calculs et renvoyer des valeurs <strong>qui ne sont pas celles recherchées.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Prenez l’habitude de tester votre code sur des cas simples où vous connaissez les valeurs de retours attendues pour vérifier que votre programme fait bien ce qui est demandé (éviter les cas particuliers).</strong></p>
+</div>
+</div>
+</div>
+<div class="section" id="la-fonction-numpy-polyfit">
+<h1><span class="section-number">2. </span>La fonction numpy.polyfit<a class="headerlink" href="#la-fonction-numpy-polyfit" title="Permalink to this headline">¶</a></h1>
+<p>Il arrive fréquemment qu’on veuille ajuster un modèle théorique sur des points de données expérimentaux. Le plus courramment utilisé pour non est l’ajustement d’un modèle affine <span class="math notranslate nohighlight">\(y = ax + b\)</span> à des points expérimentaux <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> (i allant de 1 à  N). On veut connaître les valeurs de <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> qui donne une droite passant au plus près des points expérimentaux.</p>
+<p>On ne va pas présenter ici ce que signifie “au plus près”, ni comment sont déterminer les coefficients <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>. On présente juste une fonction (<code class="docutils literal notranslate"><span class="pre">polyfit</span></code>) de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui permet justement de réaliser cet ajustement (on parle de <strong>régression linéaire</strong>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de réaliser un ajustement par un polynôme de degré <code class="docutils literal notranslate"><span class="pre">n</span></code> quelconque. On se limitera ici à <span class="math notranslate nohighlight">\(n=1\)</span> soit une droite.</p>
+</div>
+<div class="section" id="la-syntaxe">
+<h2><span class="section-number">2.1. </span>La syntaxe<a class="headerlink" href="#la-syntaxe" title="Permalink to this headline">¶</a></h2>
+<p>On dispose de deux vecteurs numpy (ou listes classiques) contenant les <span class="math notranslate nohighlight">\(x_i\)</span> (variable <code class="docutils literal notranslate"><span class="pre">xi</span></code>) et les <span class="math notranslate nohighlight">\(y_i\)</span> (variable <code class="docutils literal notranslate"><span class="pre">yi</span></code>) expérimentaux. On écrit :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># n est le degré du polynôme d&#39;ajustement donc pour nous n=1</span>
+
+</pre></div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de réaliser un ajustement par un polynôme de degré <code class="docutils literal notranslate"><span class="pre">n</span></code> quelconque. On se limitera ici à <span class="math notranslate nohighlight">\(n=1\)</span> soit une droite.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> est un vecteur numpy contenant les coefficients du polynôme par ordre de puissance décroissante. Ainsi pour :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># n est le degré du polynôme d&#39;ajustement donc pour nous n=1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> contient : <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> avec comme modèle : <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">ax</span> <span class="pre">+</span> <span class="pre">b</span></code>. On y accède par : <code class="docutils literal notranslate"><span class="pre">p[0]</span></code> (pente) et <code class="docutils literal notranslate"><span class="pre">p[1]</span></code> (ordonnée à l’origine).</p>
+</div>
+<div class="section" id="un-exemple">
+<h2><span class="section-number">2.2. </span>Un exemple<a class="headerlink" href="#un-exemple" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Fausses (!) données expérimentales &quot;&quot;&quot;</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">])</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">,</span> <span class="mf">21.8</span><span class="p">])</span>
+
+<span class="sd">&quot;&quot;&quot;Ajustement linéaire&quot;&quot;&quot;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On applique la droite ajusté aux xi pour comparaison.</span>
+
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Ajustement linéaire&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Données expérimentales&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">y_adj</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajustement&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1cbf82b190&gt;
+</pre></div>
+</div>
+<img alt="../_images/complement_13_1.png" src="../_images/complement_13_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="exo_science_2.html" title="previous page"><span class="section-number">6. </span>S’entraîner</a>
+    <a class='right-next' id="next-link" href="plus_loin.html" title="next page"><span class="section-number">3. </span>Tableaux numpy : manipulations</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

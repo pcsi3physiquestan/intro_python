@@ -219,38 +219,33 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html">
+  <a class="reference internal" href="complement.html">
    1. Comprendre ses erreurs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
    2. La fonction numpy.polyfit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+  <a class="reference internal" href="plus_loin.html">
    3. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
-   4. Simulations plus complexes avec numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   5. La compréhension des listes
+   4. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   6. Les dictionnaires
+   5. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   7. Fonctions et méthodes
+   6. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -436,7 +431,7 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 <h2><span class="section-number">2.2. </span>Eléments d’un graphique<a class="headerlink" href="#elements-d-un-graphique" title="Permalink to this headline">¶</a></h2>
 <p>Les éléments principaux sont données sur le schéma ci-dessous.</p>
 <p><img alt="Graphique matplotlib" src="../_images/graphique_modif.png" /></p>
-<p>On distinguera par la suite la fenêtres graphiques des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l’exemple suivant (4 axes ou zone de tracé).</p>
+<p>On distinguera par la suite la fenêtre graphique des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l’exemple suivant (4 axes ou zone de tracé).</p>
 <p><img alt="Multigraphe" src="../_images/multi_g.png" /></p>
 </div>
 <div class="section" id="methode-generale">
@@ -480,9 +475,9 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 <div class="section" id="remarques-sur-le-code">
 <h3><span class="section-number">2.3.2. </span>Remarques sur le code<a class="headerlink" href="#remarques-sur-le-code" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">subplots</span></code> n’est pas obligatoire mais il permet d’affecter la fenêtre graphique et les axes (zone de tracé) à des variables (ici <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code>) pour être sûr d’affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).</p></li>
-<li><p>Le <code class="docutils literal notranslate"><span class="pre">f.</span></code> permet justement d’ajouter un titre à la fenêtre graphique <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
-<li><p>Idem pour <code class="docutils literal notranslate"><span class="pre">ax.</span></code> qui légende les axes (zone  de tracé) <code class="docutils literal notranslate"><span class="pre">ax</span></code> (et pas un autre s’il y en a plusieurs). Le tracé plot sera donc dans la zone de tracé <code class="docutils literal notranslate"><span class="pre">ax</span></code>, idem pour les légendes des abscisses et ordonnées…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subplots</span></code> créer une fenêtre graphique avec une zone de tracé. On affecte la fenêtre graphique et les axes (zone de tracé) à des variables (ici <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code>) pour être sûr d’affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).</p></li>
+<li><p>Le <code class="docutils literal notranslate"><span class="pre">f.</span></code> permet de modifier spécifique la fenêtre graphique associée. On peut ajouter un titre à la fenêtre graphique <code class="docutils literal notranslate"><span class="pre">f</span></code> (<code class="docutils literal notranslate"><span class="pre">f.suptitle</span></code>).</p></li>
+<li><p>Idem pour <code class="docutils literal notranslate"><span class="pre">ax.</span></code> qui permet de légender les axes (<code class="docutils literal notranslate"><span class="pre">ax.set_xlabel(...)</span></code>) et d’y tracer un graphique (<code class="docutils literal notranslate"><span class="pre">ax.plot(...)</span></code>).</p></li>
 <li><p>La légende est <strong>affichée</strong> par la méthode <code class="docutils literal notranslate"><span class="pre">legend()</span></code> mais pour légender <strong>une courbe</strong> il faut utiliser l’argument <code class="docutils literal notranslate"><span class="pre">label=&quot;chaine</span> <span class="pre">de</span> <span class="pre">caractère&quot;</span></code> dans la fonction <code class="docutils literal notranslate"><span class="pre">plot</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">show</span></code> permet d’afficher les graphiques qui ont été créé.</p></li>
 </ul>
@@ -528,8 +523,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 <p>On cite les plus utiles :</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e4c3464f-e3e8-4726-bb00-eee0cb1b2956" name="f484af04-e6d6-4951-a4e2-4e00134e96df" type="radio">
-</input><label class="tabbed-label" for="e4c3464f-e3e8-4726-bb00-eee0cb1b2956">
+<input checked="checked" id="5b024b03-3c68-42a7-9df9-65a0cf886555" name="5dda2fd8-46fe-485c-99cf-53b0f0fd36c6" type="radio">
+</input><label class="tabbed-label" for="5b024b03-3c68-42a7-9df9-65a0cf886555">
 Pour plot et errorbar</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linestyle</span></code> : style de ligne qui relie les points (non exhaustif):</p>
@@ -547,15 +542,15 @@ Pour plot et errorbar</label><div class="tabbed-content docutils">
 <li><p><code class="docutils literal notranslate"><span class="pre">marker</span> <span class="pre">=</span> <span class="pre">''</span></code> : pas de marqueurs</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">legend</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>
-<input id="458d0fbc-c98e-4108-b85c-e99ce8ce5ac4" name="f484af04-e6d6-4951-a4e2-4e00134e96df" type="radio">
-</input><label class="tabbed-label" for="458d0fbc-c98e-4108-b85c-e99ce8ce5ac4">
+<input id="869fdfb7-4c8a-4ede-9328-72a014114f11" name="5dda2fd8-46fe-485c-99cf-53b0f0fd36c6" type="radio">
+</input><label class="tabbed-label" for="869fdfb7-4c8a-4ede-9328-72a014114f11">
 Pour hist</label><div class="tabbed-content docutils">
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">legend</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>

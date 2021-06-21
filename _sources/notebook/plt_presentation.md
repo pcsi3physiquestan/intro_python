@@ -40,7 +40,7 @@ Les éléments principaux sont données sur le schéma ci-dessous.
 
 ![Graphique matplotlib](./images/graphique_modif.png)
 
-On distinguera par la suite la fenêtres graphiques des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l'exemple suivant (4 axes ou zone de tracé).
+On distinguera par la suite la fenêtre graphique des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l'exemple suivant (4 axes ou zone de tracé).
 
 ![Multigraphe](./images/multi_g.png)
 
@@ -76,9 +76,9 @@ plt.show()  # On demande d'afficher le graphique.
 ```
 
 ### Remarques sur le code
-* `subplots` n'est pas obligatoire mais il permet d'affecter la fenêtre graphique et les axes (zone de tracé) à des variables (ici `f` et `ax`) pour être sûr d'affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).
-* Le `f.` permet justement d'ajouter un titre à la fenêtre graphique `f`.
-* Idem pour `ax.` qui légende les axes (zone  de tracé) `ax` (et pas un autre s'il y en a plusieurs). Le tracé plot sera donc dans la zone de tracé `ax`, idem pour les légendes des abscisses et ordonnées...
+* `subplots` créer une fenêtre graphique avec une zone de tracé. On affecte la fenêtre graphique et les axes (zone de tracé) à des variables (ici `f` et `ax`) pour être sûr d'affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).
+* Le `f.` permet de modifier spécifique la fenêtre graphique associée. On peut ajouter un titre à la fenêtre graphique `f` (`f.suptitle`).
+* Idem pour `ax.` qui permet de légender les axes (`ax.set_xlabel(...)`) et d'y tracer un graphique (`ax.plot(...)`).
 * La légende est __affichée__ par la méthode `legend()` mais pour légender __une courbe__ il faut utiliser l'argument `label="chaine de caractère"` dans la fonction `plot`
 * `show` permet d'afficher les graphiques qui ont été créé.
 
@@ -128,12 +128,12 @@ On cite les plus utiles :
     * `marker = '*'`
     * `marker = 'o'`
     * `marker = ''` : pas de marqueurs
-* `legend = 'La légende'` : associer une légende à une courbe
+* `label = 'La légende'` : associer une légende à une courbe
 * `color = 'nom_de_couleur_en_anglais'`
 ````
 
 ````{tabbed} Pour hist
-* `legend = 'La légende'` : associer une légende à une courbe
+* `label = 'La légende'` : associer une légende à une courbe
 * `color = 'nom_de_couleur_en_anglais'`
 ````
 

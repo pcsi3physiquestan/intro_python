@@ -221,38 +221,33 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html">
+  <a class="reference internal" href="complement.html">
    1. Comprendre ses erreurs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
    2. La fonction numpy.polyfit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+  <a class="reference internal" href="plus_loin.html">
    3. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
-   4. Simulations plus complexes avec numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   5. La compréhension des listes
+   4. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   6. Les dictionnaires
+   5. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   7. Fonctions et méthodes
+   6. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -429,7 +424,7 @@
 </pre></div>
 </div>
 <ol class="simple">
-<li><p>Préciser pour chaque instruction <code class="docutils literal notranslate"><span class="pre">print</span></code> ce qui sera afficher</p></li>
+<li><p>Préciser pour chaque instruction <code class="docutils literal notranslate"><span class="pre">print</span></code> ce qui sera affiché.</p></li>
 </ol>
 <div class="toggle docutils container">
 <ol class="simple">
@@ -448,7 +443,7 @@
 <li><p>Réfléchir à l’algorithme qu’on vous demande de créer.</p></li>
 <li><p>Ecrire la fonction demandée dans le fichier que vous avez créé.</p></li>
 <li><p>Dans le même fichier, écrire une série d’instructions pour vérifier que votre fonction fonctionne bien (cf. exercices).</p></li>
-<li><p>Exécuter le fichier (<code class="docutils literal notranslate"><span class="pre">Exécuter</span> <span class="pre">&gt;</span> <span class="pre">Exécuter</span> <span class="pre">le</span> <span class="pre">contenu</span> <span class="pre">de</span> <span class="pre">l'onglet</span> <span class="pre">courant</span></code> ou <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">E</span></code>) et vérifier que vous obtenez ce qu’il faut. Comprendre les erreurs et les corriger si nécessaire. Vous trouverez <a class="reference internal" href="plus_loin.html#erreurs"><span class="std std-ref">ici quelques conseils pour gérer les erreurs de codage.</span></a></p></li>
+<li><p>Exécuter le fichier (<code class="docutils literal notranslate"><span class="pre">Exécuter</span> <span class="pre">&gt;</span> <span class="pre">Exécuter</span> <span class="pre">le</span> <span class="pre">contenu</span> <span class="pre">de</span> <span class="pre">l'onglet</span> <span class="pre">courant</span></code> ou <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">E</span></code>) et vérifier que vous obtenez ce qu’il faut. Comprendre les erreurs et les corriger si nécessaire. Vous trouverez <a class="reference internal" href="complement.html#erreurs"><span class="std std-ref">ici quelques conseils pour gérer les erreurs de codage.</span></a></p></li>
 </ol>
 <div class="section" id="boucle-simple">
 <h3><span class="section-number">3.2.1. </span>Boucle simple<a class="headerlink" href="#boucle-simple" title="Permalink to this headline">¶</a></h3>
@@ -457,7 +452,7 @@
 <p>Vous devez créer deux fonctions qui prennent chacune comme argument un entier <code class="docutils literal notranslate"><span class="pre">n</span></code> et renvoient la somme des entiers compris entre 0 et <code class="docutils literal notranslate"><span class="pre">n</span></code> <strong>inclus</strong>.</p>
 <ol class="simple">
 <li><p>La première utilisera une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
-<li><p>La seconde utilisera une boucle<code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>La seconde utilisera une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
 </ol>
 <p>Tester ensuite votre fonction en affichant son retour pour <span class="math notranslate nohighlight">\(n = 0, 1, 2, 5\)</span> et <span class="math notranslate nohighlight">\(100\)</span>. Les résultats pour ces valeurs sont donnés ci-dessous (cliquez sur la croix).</p>
 </div>
@@ -477,9 +472,9 @@ n=100 :  5050
 <h3><span class="section-number">3.2.2. </span>Choix d’une boucle<a class="headerlink" href="#choix-d-une-boucle" title="Permalink to this headline">¶</a></h3>
 <div class="tip admonition">
 <p class="admonition-title">Choix d’une boucle</p>
-<p>Vous devez créer une fonction <code class="docutils literal notranslate"><span class="pre">somme_ks</span></code> qui prend chacune comme argument un entier <code class="docutils literal notranslate"><span class="pre">n</span></code> et renvoient la somme des entiers <span class="math notranslate nohighlight">\(k\)</span> tels que <span class="math notranslate nohighlight">\(k + k^2 + k^3 \leq n\)</span>.</p>
+<p>Vous devez créer une fonction <code class="docutils literal notranslate"><span class="pre">somme_ks</span></code> qui prend chacune comme argument un entier <code class="docutils literal notranslate"><span class="pre">n</span></code> et renvoie la somme des entiers <span class="math notranslate nohighlight">\(k\)</span> tels que <span class="math notranslate nohighlight">\(k + k^2 + k^3 \leq n\)</span>.</p>
 <ol class="simple">
-<li><p>Pourquoi ne peut-on utiliser qu’un seul type de boucle ? Laquelle</p></li>
+<li><p>Pourquoi ne peut-on utiliser qu’un seul type de boucle ? Laquelle ?</p></li>
 <li><p>Proposer une fonction.</p></li>
 </ol>
 <p>Tester ensuite votre fonction en affichant son retour pour <span class="math notranslate nohighlight">\(n = 0, 2, 5, 100\)</span> et <span class="math notranslate nohighlight">\(2000\)</span>. Les résultats pour ces valeurs sont donnés ci-dessous (cliquez sur la croix).</p>

@@ -221,38 +221,33 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html">
+  <a class="reference internal" href="complement.html">
    1. Comprendre ses erreurs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-fonction-numpy-polyfit">
+  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
    2. La fonction numpy.polyfit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
+  <a class="reference internal" href="plus_loin.html">
    3. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#simulations-plus-complexes-avec-numpy-random">
-   4. Simulations plus complexes avec numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   5. La compréhension des listes
+   4. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   6. Les dictionnaires
+   5. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   7. Fonctions et méthodes
+   6. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -421,7 +416,7 @@
 <h3><span class="section-number">4.1.1. </span>Chemin absolu<a class="headerlink" href="#chemin-absolu" title="Permalink to this headline">¶</a></h3>
 <p>Si vous avez déjà utilisé un explorateur de fichier, vous avez peut-être remarqué qu’en remontant d’un dossier parent à un autre on finit par arrive à un répertoire <em>racine</em> (<code class="docutils literal notranslate"><span class="pre">C:/</span></code> sous <code class="docutils literal notranslate"><span class="pre">Windows</span></code> et <code class="docutils literal notranslate"><span class="pre">/</span></code> ou le nom de l’ordinateur sous <code class="docutils literal notranslate"><span class="pre">MacOs</span></code> et <code class="docutils literal notranslate"><span class="pre">Linux</span></code>). On peut ainsi localiser un fichier par la succession de répértoire dans lesquels il est inclus depuis ce répertoire racine, on parle de <strong>chemin absolu</strong>.</p>
 <blockquote>
-<div><p>Exemple sous Windows : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous Windows) <code class="docutils literal notranslate"><span class="pre">Users</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">Documents</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la créatino de votre compte sur votre ordinateur). On note alors le <strong>chemin absole vers le fichier</strong> :
+<div><p>Exemple sous Windows : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous Windows) <code class="docutils literal notranslate"><span class="pre">Users</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">Documents</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la création de votre compte sur votre ordinateur). On note alors le <strong>chemin absolu vers le fichier</strong> :
 <code class="docutils literal notranslate"><span class="pre">C:/Users/nom_utilisateur/Documents/python_prepa/exercice.py</span></code></p>
 </div></blockquote>
 <div class="margin sidebar">
@@ -432,19 +427,19 @@
 </ul>
 </div>
 <blockquote>
-<div><p>Exemple sous MacOS et Linux : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous MacOs ou Linux) <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la créatino de votre compte sur votre ordinateur). On note alors le <strong>chemin absolu vers le fichier</strong> :
+<div><p>Exemple sous MacOS et Linux : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous MacOs ou Linux) <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la création de votre compte sur votre ordinateur). On note alors le <strong>chemin absolu vers le fichier</strong> :
 <code class="docutils literal notranslate"><span class="pre">/home/nom_utilisateur/python_prepa/exercice.py</span></code></p>
 </div></blockquote>
 </div>
 <div class="section" id="chemin-relatif">
 <h3><span class="section-number">4.1.2. </span>Chemin relatif<a class="headerlink" href="#chemin-relatif" title="Permalink to this headline">¶</a></h3>
-<p>Les chemins absolus sont pratiques car ils ne souffrent d’aucune ambiguité. Il ont par contre le défaut d’être long et nécessite la connaissance du chemin complet (logique !). Il est souvent utiliser uniquement le chemin depuis le fichier qu’on est en train d’utiliser. On parle de <strong>chemin relatif</strong></p>
+<p>Les chemins absolus sont pratiques car ils ne souffrent d’aucune ambiguité. Il ont par contre le défaut d’être long et nécessite la connaissance du chemin complet (logique !). Il est souvent pratique d’utiliser uniquement le chemin depuis le fichier qu’on est en train d’utiliser. On parle de <strong>chemin relatif</strong>.</p>
 <blockquote>
 <div><p>Exemple : On utilise le fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> précédent mais on a besoin de données expérimentales situées dans le fichier <code class="docutils literal notranslate"><span class="pre">/home/nom_utilisateur/python_prepa/donnees/data.txt</span></code>. Pour “passer” du répertoire de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> au répertoire de <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>, il suffit simplement d’entrer dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees</span></code>. Le <strong>chemin relatif de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> vers <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> est alors :</strong>
 <code class="docutils literal notranslate"><span class="pre">donnees/data.txt</span></code>
 <em>On remarquera l’absence de <code class="docutils literal notranslate"><span class="pre">C:/</span></code> ou <code class="docutils literal notranslate"><span class="pre">/</span></code> au début qui signifie qu’il s’agit d’un chemin relatif.</em></p>
 </div></blockquote>
-<p>La plupart du temps, l’utilisation de chemin relatif serra préfèrée.</p>
+<p>La plupart du temps, l’utilisation de chemin relatif sera préfèrée.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Il arrive qu’on doivent remonter d’un répertoire, on utilise alors <code class="docutils literal notranslate"><span class="pre">..</span></code></p>
@@ -463,8 +458,8 @@
 </ul>
 <p>Un fichier de données expérimentales contient en général :</p>
 <ol class="simple">
-<li><p>(Facultatif) un en-tête décrivant les données expérimentales receuillies (expérience réalisée et conditions expérimentales, date, …)</p></li>
-<li><p>Un tableau de valeur avec</p>
+<li><p>(Facultatif) un en-tête décrivant les données expérimentales recueillies (expérience réalisée et conditions expérimentales, date, …)</p></li>
+<li><p>Un tableau de valeurs avec</p>
 <ul class="simple">
 <li><p>une ligne (ou plusieurs) d’en-tête donnant les grandeurs mesurées et leur unité</p></li>
 <li><p>des lignes contenant les données expérimentales</p></li>
@@ -476,7 +471,7 @@
 <ul class="simple">
 <li><p>6 lignes de commentaires et une ligne d’en-tête</p></li>
 <li><p>les mesures dans l’ordre : Température en Kelvin, Pression en bar, Volume en <span class="math notranslate nohighlight">\(cm^3\)</span> puis un entier représentant l’état du système (Liquide, Gaz, Liquide+Gaz, Fluide supercritique).</p></li>
-<li><p>Un séparation des colonnes par des <code class="docutils literal notranslate"><span class="pre">,</span></code></p></li>
+<li><p>Une séparation des colonnes par des <code class="docutils literal notranslate"><span class="pre">,</span></code></p></li>
 </ul>
 <div class="figure align-center" id="donnees-exp">
 <img alt="../_images/fichier_donnees.png" src="../_images/fichier_donnees.png" />
@@ -659,12 +654,12 @@ Vecteur des volumes :
 </div>
 <div class="section" id="sauvegarder-des-donnees-depuis-python">
 <h2><span class="section-number">4.4. </span>Sauvegarder des données depuis Python<a class="headerlink" href="#sauvegarder-des-donnees-depuis-python" title="Permalink to this headline">¶</a></h2>
-<p>Vous l’utilisez peut-être moins souvent, mais vous pouvez sauvegarder un tableau numpy dans un fichier avec <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nom_tableau</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">tableau_a_sauver</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<p>Vous l’utiliserez peut-être moins souvent, mais vous pouvez sauvegarder un tableau numpy dans un fichier avec <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">tableau_a_sauver</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">comments</span></code> : Commentaires à ajouter au début du fichier (ils seront précédés de <code class="docutils literal notranslate"><span class="pre">#</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comments</span></code> : Commentaires à ajouter au début du fichier</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">header</span></code> : Chain de caractère ajoutant une ligne d’en-tête (par exemple <code class="docutils literal notranslate"><span class="pre">&quot;T(K),P(bar),V(m^3)&quot;</span></code>)</p></li>
 </ul>
 </div>
