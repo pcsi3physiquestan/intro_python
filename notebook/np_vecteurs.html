@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Matplotlib : tracés graphiques" href="plt_presentation.html" />
-    <link rel="prev" title="3. S’entraîner." href="exo_general.html" />
+    <link rel="prev" title="2.3. Instructions itératives." href="boucles.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -169,11 +169,6 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_general.html">
-   3. S’entraîner.
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -191,61 +186,48 @@
    2. Matplotlib : tracés graphiques
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science.html">
-   3. S’entraîner
-  </a>
- </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plus loin avec numpy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   4. Traiter des données expérimentales avec numpy
+   1. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   5. La bibliothèque numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science_2.html">
-   6. S’entraîner
+   2. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Compléments
+  Pour aller plus loin
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="complement.html">
-   1. Comprendre ses erreurs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
-   2. La fonction numpy.polyfit
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   3. Tableaux numpy : manipulations
+   1. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   4. La compréhension des listes
+   2. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   5. Les dictionnaires
+   3. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   6. Fonctions et méthodes
+   4. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -253,7 +235,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
 </div>
 
 </div>
@@ -435,8 +417,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="7fa02820-203f-4cf1-9565-b4a26b125dc7" name="601bb3a8-021d-4f44-a17c-03f61a04be97" type="radio">
-</input><label class="tabbed-label" for="7fa02820-203f-4cf1-9565-b4a26b125dc7">
+<input checked="checked" id="b6b82123-9bed-4c9e-a1f5-fc82ef139609" name="7a4e11df-f4b7-438f-95e3-344632d2243c" type="radio">
+</input><label class="tabbed-label" for="b6b82123-9bed-4c9e-a1f5-fc82ef139609">
 D’une liste</label><div class="tabbed-content docutils">
 <p>A partir d’une liste d’entiers ou de flottants (uniquement) :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
@@ -447,8 +429,8 @@ D’une liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="1a8e4653-cb03-4eac-b62f-9343b06b173b" name="601bb3a8-021d-4f44-a17c-03f61a04be97" type="radio">
-</input><label class="tabbed-label" for="1a8e4653-cb03-4eac-b62f-9343b06b173b">
+<input id="ee3ebd7f-5a9b-4d87-841c-5b7d3631d9d6" name="7a4e11df-f4b7-438f-95e3-344632d2243c" type="radio">
+</input><label class="tabbed-label" for="ee3ebd7f-5a9b-4d87-841c-5b7d3631d9d6">
 arange</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">arange(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui va créer une liste de <em>flottants</em> partant de <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclus) et allant jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> (<strong>exclus</strong>) par pas de valeur <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> et <code class="docutils literal notranslate"><span class="pre">step</span></code> peuvent être des flottants contrairement à <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
@@ -457,8 +439,8 @@ arange</label><div class="tabbed-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5])</span></code></span></p>
 </div>
-<input id="794c6e6f-2e7d-48d9-a314-c108ae9ca62b" name="601bb3a8-021d-4f44-a17c-03f61a04be97" type="radio">
-</input><label class="tabbed-label" for="794c6e6f-2e7d-48d9-a314-c108ae9ca62b">
+<input id="b11bcd43-78ad-4894-9898-5eab413c9df9" name="7a4e11df-f4b7-438f-95e3-344632d2243c" type="radio">
+</input><label class="tabbed-label" for="b11bcd43-78ad-4894-9898-5eab413c9df9">
 linspace</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">stop,</span> <span class="pre">N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments réparties uniformément entre les valeurs <code class="docutils literal notranslate"><span class="pre">start</span></code> et <code class="docutils literal notranslate"><span class="pre">stop</span></code> (cette fois <code class="docutils literal notranslate"><span class="pre">stop</span></code> est inclus, il faut la compter dans les N valeurs !).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
@@ -466,8 +448,8 @@ linspace</label><div class="tabbed-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5,</span> <span class="pre">6.</span> <span class="pre">])</span></code></span></p>
 </div>
-<input id="ece9e6c0-d090-4ade-9a63-c463f90cee3f" name="601bb3a8-021d-4f44-a17c-03f61a04be97" type="radio">
-</input><label class="tabbed-label" for="ece9e6c0-d090-4ade-9a63-c463f90cee3f">
+<input id="0ba3ae74-77d0-4951-8fad-e4d86e0444a8" name="7a4e11df-f4b7-438f-95e3-344632d2243c" type="radio">
+</input><label class="tabbed-label" for="0ba3ae74-77d0-4951-8fad-e4d86e0444a8">
 zeros et ones</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">zeros(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments nuls.<br />
 <em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">ones(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments tous égaux à 1.</p>
@@ -476,8 +458,8 @@ zeros et ones</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="2d2a5e28-f2bf-42bd-9386-b1f0a140d0a7" name="601bb3a8-021d-4f44-a17c-03f61a04be97" type="radio">
-</input><label class="tabbed-label" for="2d2a5e28-f2bf-42bd-9386-b1f0a140d0a7">
+<input id="8fdd7e76-6531-43c6-8395-cea3b2ef4580" name="7a4e11df-f4b7-438f-95e3-344632d2243c" type="radio">
+</input><label class="tabbed-label" for="8fdd7e76-6531-43c6-8395-cea3b2ef4580">
 D’une fonction</label><div class="tabbed-content docutils">
 <p>Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Exemple : La fonction suivante evalue le polynome </span>
@@ -618,8 +600,8 @@ D’une fonction</label><div class="tabbed-content docutils">
 <h2><span class="section-number">1.4. </span>Créer un tableau numpy<a class="headerlink" href="#creer-un-tableau-numpy" title="Permalink to this headline">¶</a></h2>
 <p>On peut créer un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> à 2 dimensions. C’est très utile pour traiter des données expérimentales.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2ea0b1a8-bf3b-4213-8e71-baf718a8089c" name="14470d95-79c2-48f5-abfa-0770c8f1f313" type="radio">
-</input><label class="tabbed-label" for="2ea0b1a8-bf3b-4213-8e71-baf718a8089c">
+<input checked="checked" id="c67cba66-0406-4070-b7d4-3f8c382e62aa" name="17554f1b-aaf9-4ed9-a936-073618fe58f7" type="radio">
+</input><label class="tabbed-label" for="c67cba66-0406-4070-b7d4-3f8c382e62aa">
 D’une liste de liste</label><div class="tabbed-content docutils">
 <p>On utilise à nouveau <code class="docutils literal notranslate"><span class="pre">array</span></code>. Attention : Le tableau doit être rectangulaire (ou carré) : les lignes doivent avoir toutes le même nombre d’éléments.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">]]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
@@ -630,8 +612,8 @@ D’une liste de liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b196fdb7-fd0b-4deb-a497-c4cf8623c8fe" name="14470d95-79c2-48f5-abfa-0770c8f1f313" type="radio">
-</input><label class="tabbed-label" for="b196fdb7-fd0b-4deb-a497-c4cf8623c8fe">
+<input id="46e8f943-56ad-4894-ab38-f34910adcea0" name="17554f1b-aaf9-4ed9-a936-073618fe58f7" type="radio">
+</input><label class="tabbed-label" for="46e8f943-56ad-4894-ab38-f34910adcea0">
 zeros() et ones()</label><div class="tabbed-content docutils">
 <p>A connaître : <code class="docutils literal notranslate"><span class="pre">zeros((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments nuls.
 A connaître : <code class="docutils literal notranslate"><span class="pre">ones((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments tous égaux à 1.</p>
@@ -686,7 +668,7 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="exo_general.html" title="previous page"><span class="section-number">3. </span>S’entraîner.</a>
+    <a class='left-prev' id="prev-link" href="boucles.html" title="previous page"><span class="section-number">2.3. </span>Instructions itératives.</a>
     <a class='right-next' id="next-link" href="plt_presentation.html" title="next page"><span class="section-number">2. </span>Matplotlib : tracés graphiques</a>
 
         </div>
@@ -697,7 +679,7 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
     <div class="container">
       <p>
         
-          By C. Lacpatia<br/>
+          By Capacités numériques<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

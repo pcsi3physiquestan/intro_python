@@ -55,7 +55,7 @@
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plt_presentation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. S’entraîner" href="exo_science.html" />
+    <link rel="next" title="1. Traiter des données expérimentales avec numpy" href="import_file.html" />
     <link rel="prev" title="1. Numpy : manipuler des tableaux de nombres." href="np_vecteurs.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -169,11 +169,6 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_general.html">
-   3. S’entraîner.
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -191,61 +186,48 @@
    2. Matplotlib : tracés graphiques
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science.html">
-   3. S’entraîner
-  </a>
- </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plus loin avec numpy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   4. Traiter des données expérimentales avec numpy
+   1. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   5. La bibliothèque numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science_2.html">
-   6. S’entraîner
+   2. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Compléments
+  Pour aller plus loin
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="complement.html">
-   1. Comprendre ses erreurs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
-   2. La fonction numpy.polyfit
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   3. Tableaux numpy : manipulations
+   1. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   4. La compréhension des listes
+   2. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   5. Les dictionnaires
+   3. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   6. Fonctions et méthodes
+   4. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -253,7 +235,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
 </div>
 
 </div>
@@ -523,8 +505,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 <p>On cite les plus utiles :</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5b024b03-3c68-42a7-9df9-65a0cf886555" name="5dda2fd8-46fe-485c-99cf-53b0f0fd36c6" type="radio">
-</input><label class="tabbed-label" for="5b024b03-3c68-42a7-9df9-65a0cf886555">
+<input checked="checked" id="488c0ab1-767d-4174-92d3-48d8e9bf704b" name="8cd17a8c-d119-400b-a73f-e9fa8cf85cb3" type="radio">
+</input><label class="tabbed-label" for="488c0ab1-767d-4174-92d3-48d8e9bf704b">
 Pour plot et errorbar</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linestyle</span></code> : style de ligne qui relie les points (non exhaustif):</p>
@@ -546,8 +528,8 @@ Pour plot et errorbar</label><div class="tabbed-content docutils">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>
-<input id="869fdfb7-4c8a-4ede-9328-72a014114f11" name="5dda2fd8-46fe-485c-99cf-53b0f0fd36c6" type="radio">
-</input><label class="tabbed-label" for="869fdfb7-4c8a-4ede-9328-72a014114f11">
+<input id="8ba97041-6419-4a78-892c-04492b969a0d" name="8cd17a8c-d119-400b-a73f-e9fa8cf85cb3" type="radio">
+</input><label class="tabbed-label" for="8ba97041-6419-4a78-892c-04492b969a0d">
 Pour hist</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
@@ -597,7 +579,7 @@ Pour hist</label><div class="tabbed-content docutils">
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="np_vecteurs.html" title="previous page"><span class="section-number">1. </span>Numpy : manipuler des tableaux de nombres.</a>
-    <a class='right-next' id="next-link" href="exo_science.html" title="next page"><span class="section-number">3. </span>S’entraîner</a>
+    <a class='right-next' id="next-link" href="import_file.html" title="next page"><span class="section-number">1. </span>Traiter des données expérimentales avec numpy</a>
 
         </div>
         
@@ -607,7 +589,7 @@ Pour hist</label><div class="tabbed-content docutils">
     <div class="container">
       <p>
         
-          By C. Lacpatia<br/>
+          By Capacités numériques<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

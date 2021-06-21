@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. La bibliothèque numpy.random &#8212; Python : Bases à connaître</title>
+    <title>2. La bibliothèque numpy.random &#8212; Python : Bases à connaître</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,8 +57,8 @@
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/num_random.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. S’entraîner" href="exo_science_2.html" />
-    <link rel="prev" title="4. Traiter des données expérimentales avec numpy" href="import_file.html" />
+    <link rel="next" title="1. Tableaux numpy : manipulations" href="plus_loin.html" />
+    <link rel="prev" title="1. Traiter des données expérimentales avec numpy" href="import_file.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -171,18 +171,13 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_general.html">
-   3. S’entraîner.
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
   Bilbiothèques scientifiques
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="np_vecteurs.html">
    1. Numpy : manipuler des tableaux de nombres.
@@ -193,61 +188,48 @@
    2. Matplotlib : tracés graphiques
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science.html">
-   3. S’entraîner
-  </a>
- </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plus loin avec numpy
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   4. Traiter des données expérimentales avec numpy
+   1. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. La bibliothèque numpy.random
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_science_2.html">
-   6. S’entraîner
+   2. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Compléments
+  Pour aller plus loin
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="complement.html">
-   1. Comprendre ses erreurs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="complement.html#la-fonction-numpy-polyfit">
-   2. La fonction numpy.polyfit
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   3. Tableaux numpy : manipulations
+   1. Tableaux numpy : manipulations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   4. La compréhension des listes
+   2. La compréhension des listes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   5. Les dictionnaires
+   3. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   6. Fonctions et méthodes
+   4. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -255,7 +237,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
 </div>
 
 </div>
@@ -343,22 +325,22 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rappel-importation-de-la-bibliotheque">
-   5.1. Rappel : Importation de la bibliothèque
+   2.1. Rappel : Importation de la bibliothèque
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#signature-des-fonctions-usuelles">
-   5.2. Signature des fonctions usuelles
+   2.2. Signature des fonctions usuelles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#interet-de-la-vectorialisation">
-   5.3. Intérêt de la vectorialisation
+   2.3. Intérêt de la vectorialisation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#caracteristique-d-une-distribution">
-   5.4. Caractéristique d’une distribution
+   2.4. Caractéristique d’une distribution
   </a>
  </li>
 </ul>
@@ -374,10 +356,10 @@
               <div>
                 
   <div class="section" id="la-bibliotheque-numpy-random">
-<h1><span class="section-number">5. </span>La bibliothèque numpy.random<a class="headerlink" href="#la-bibliotheque-numpy-random" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2. </span>La bibliothèque numpy.random<a class="headerlink" href="#la-bibliotheque-numpy-random" title="Permalink to this headline">¶</a></h1>
 <p>La sous-bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> sera très utile en physique et en chimie pour les calculs d’incertitude (simulation de Monte-Carlo). Elle propose des fonctions qui permettent de simuler un tirage aléatoire suivant une loi choisi. On présente deux fonctions en particulier : <code class="docutils literal notranslate"><span class="pre">uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
 <div class="section" id="rappel-importation-de-la-bibliotheque">
-<h2><span class="section-number">5.1. </span>Rappel : Importation de la bibliothèque<a class="headerlink" href="#rappel-importation-de-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Rappel : Importation de la bibliothèque<a class="headerlink" href="#rappel-importation-de-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>  <span class="c1"># Il est conseillé d&#39;importer les bibliothèques au début de votre script</span>
@@ -391,7 +373,7 @@
 </div>
 </div>
 <div class="section" id="signature-des-fonctions-usuelles">
-<h2><span class="section-number">5.2. </span>Signature des fonctions usuelles<a class="headerlink" href="#signature-des-fonctions-usuelles" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Signature des fonctions usuelles<a class="headerlink" href="#signature-des-fonctions-usuelles" title="Permalink to this headline">¶</a></h2>
 <p>On ne présente pas ici les loi de probabilités. Voici quelques informations :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Loi_uniforme_continue">Loi uniforme - Wikipedia</a></p></li>
@@ -424,8 +406,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 1 µs, total: 9 µs
-Wall time: 15.7 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6 µs, sys: 1 µs, total: 7 µs
+Wall time: 14.5 µs
 </pre></div>
 </div>
 <img alt="../_images/num_random_3_1.png" src="../_images/num_random_3_1.png" />
@@ -433,7 +415,7 @@ Wall time: 15.7 µs
 </div>
 </div>
 <div class="section" id="interet-de-la-vectorialisation">
-<h2><span class="section-number">5.3. </span>Intérêt de la vectorialisation<a class="headerlink" href="#interet-de-la-vectorialisation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Intérêt de la vectorialisation<a class="headerlink" href="#interet-de-la-vectorialisation" title="Permalink to this headline">¶</a></h2>
 <p>Les fonctions <code class="docutils literal notranslate"><span class="pre">uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">normal</span></code> renvoient des <em>vecteurs numpy</em>. On <strong>peut donc réaliser des opérations termes à termes entre deux vecteurs issus de ces fonctions.</strong></p>
 <div class="note admonition">
 <p class="admonition-title">Exemple</p>
@@ -464,7 +446,7 @@ Wall time: 15.7 µs
 </div>
 </div>
 <div class="section" id="caracteristique-d-une-distribution">
-<h2><span class="section-number">5.4. </span>Caractéristique d’une distribution<a class="headerlink" href="#caracteristique-d-une-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Caractéristique d’une distribution<a class="headerlink" href="#caracteristique-d-une-distribution" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> permet aussi de remonter à des grandeurs utiles sur une distribution statistique : sa moyenne et son écart-type. Ces fonctions seront aussi utiles avec des données expérimentales.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mean(vec)</span></code> renvoie la moyenne des éléments du vecteur numpy <code class="docutils literal notranslate"><span class="pre">vec</span></code></p></li>
@@ -502,8 +484,8 @@ Wall time: 15.7 µs
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="import_file.html" title="previous page"><span class="section-number">4. </span>Traiter des données expérimentales avec numpy</a>
-    <a class='right-next' id="next-link" href="exo_science_2.html" title="next page"><span class="section-number">6. </span>S’entraîner</a>
+    <a class='left-prev' id="prev-link" href="import_file.html" title="previous page"><span class="section-number">1. </span>Traiter des données expérimentales avec numpy</a>
+    <a class='right-next' id="next-link" href="plus_loin.html" title="next page"><span class="section-number">1. </span>Tableaux numpy : manipulations</a>
 
         </div>
         
@@ -513,7 +495,7 @@ Wall time: 15.7 µs
     <div class="container">
       <p>
         
-          By C. Lacpatia<br/>
+          By Capacités numériques<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
