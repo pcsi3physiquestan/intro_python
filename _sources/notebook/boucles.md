@@ -109,3 +109,5 @@ while n**2 - 2*n < N:  # Condition à vérifier
 print(l)
 ```
 
+## Pour vous entraîner
+Voici le [lien vers les exercices pour vous entraîner](https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_general.html)

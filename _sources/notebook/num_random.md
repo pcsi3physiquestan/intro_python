@@ -90,3 +90,5 @@ plt.show()
 On ne rentre pas les détails, mais l'option `ddof=1` est importante sinon le calcul de  `std` ne sera pas correct.
 ```
 
+## Pour vous entraîner
+Voici le [lien vers les exercices pour vous entraîner sur l'importation et l'utilisation de la bibliothèque random](https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science_2.html)

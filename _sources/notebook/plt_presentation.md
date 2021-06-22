@@ -144,3 +144,6 @@ La liste présente les plus importantes et à connaître. Vous en rencontrerez p
 * pour ajuster l'apparence des barres d'incertitudes
 * pour ajuster la taille de la courbe
 * pour ajouter du texte ou des flèches
+
+## Pour vous entraîner
+Voici le [lien vers les exercices pour vous entraîner sur l'utilisation de numpy et matplotlib](https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science.html)

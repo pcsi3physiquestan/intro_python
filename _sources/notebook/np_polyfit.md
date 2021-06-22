@@ -102,3 +102,6 @@ ax.legend()
 
 """ Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux."""
 ```
+
+## Pour vous entraîner
+Voici le [lien vers les exercices pour vous entraîner sur l'utilisation de la régression linéaire](https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_polyfit.html)
