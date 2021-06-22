@@ -28,6 +28,181 @@ L'ordre des parties va du plus important au moins important.
 
 ```
 
+# Fenêtre multi-graphique
+Comme expliqué précédemment, on peut créer une fenêtre graphique avec plusieurs tracés (plusieurs axes). Nous vous expliquons comment faire.
+
+## Création de la grille.
+
+```{code-block}
+import matplotlib.pyplot as plt
+f, ax = plt.subplots(nlignes, ncolonnes)  # nlignes et ncolonnes sont des entiers
+```
+
+* `f` toujours la fenêtre graphique
+* `ax` est alors un vecteur (si nlignes OU ncolonnes vaut 1) ou un tableau (sinon) qui contient toutes les zones de tracé.
+
+On accède alors à la zone de tracé voulue grâce à 
+* `ax[i]` si c'est un vecteur où i est les indices de la ligne ou de la colonne souhaitée.
+* `ax[i, j]` si c'est un tableau où i et j sont les indices respectifs de la ligne et de la colonne souhaités.
+
+```{attention}
+Comme pour les listes et les vecteurs numpy, __les indices commencent à 0__. Observez l'exemple ci-dessous pour voir les indices des zones de tracés.
+```
+
+```{code-cell}
+:tags: [remove-input]
+import matplotlib.pyplot as plt
+import numpy as np
+
+f, ax = plt.subplots(3, 3, figsize=(8, 5))
+
+f.suptitle("Grille multi graphique")
+
+for i in range(3):
+    for j in range(3):
+         ax[i, j].text(0.5, 0.5, 'ax[{}, {}]'.format(i, j), horizontalalignment='center', verticalalignment='center', transform=ax[i, j].transAxes, color='red')
+plt.show()
+```
+
+## Création d'un tracé
+La création d'un tracé (`hist`, `plot`, `errorbar`) se fait de la même manière précédemment mais un axe est appelé par la syntaxe `ax[i, j]` ou `ax[i]`. Ci-dessous deux exemples :
+* Le premier avec une seule ligne : `ax` est un vecteur, on utilise `ax[i]`
+* Le second avec deux lignes et deux colonnes : `ax` est un tableau, on utilise `ax[i, j]`
+
+```{code-cell}
+"""Exemple de tracé : sur une seule ligne.
+On trace l'évolution temporelle de la tension aux bornes d'un condensateur et de l'intensité qui le traverse dans deux axes différents.
+"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+tau = 1  # Constante de temps
+U0 = 5  # Tension initiale
+C = 1e-4  # Condensateur
+
+t = np.linspace(0, 5 * tau, 1000)  # On trace 1000 points sur 5 tau.
+uc = U0 * np.exp(-t / tau)  # Tension uC
+i = - C / tau * U0 * np.exp(-t / tau)  # Intensité
+
+f, ax = plt.subplots(1, 2)  # 1 ligne et 2 colonnes : ax est un vecteur
+
+f.suptitle("Circuit RC en régime libre")
+""" Tracé du premier graphique"""
+ax[0].set_xlabel("t(s)")  # Une seule ligne : ax donc un vecteur. Un seul indice suffit
+ax[0].set_ylabel("uc(V)")  # Une seule ligne : ax donc un vecteur. Un seul indice suffit
+
+ax[0].plot(t, uc, label='uC(t)', color='red')
+ax[0].legend()
+
+""" Tracé du second graphique"""
+ax[1].set_xlabel("t(s)")  # Une seule ligne : ax donc un vecteur. Un seul indice suffit
+ax[1].set_ylabel("i(A)")  # Une seule ligne : ax donc un vecteur. Un seul indice suffit
+
+ax[1].plot(t, i, label='i(t)', color='blue')
+
+ax[1].legend()
+
+```
+
+```{code-cell}
+"""Exemple de tracé : un tableau 2*2
+On trace l'évolution temporelle de l'angle, de la vitesse angulaire, de l'énergie potentielle et cinétique d'une pendule simple aux petites oscillations
+"""
+l = 1  # Longueur du pendule (m)
+g = 9.81  # Champ de pesanteur (m/s^2)
+m = 1  # Masse(kg)
+w0 = np.sqrt(g / l)  # Pulsation propre (rad/s)
+theta0 = 0.5  # Amplitude des oscillations (rad)
+
+N = 1000
+t = np.linspace(0, 3 * 2 * np.pi / w0, N)
+theta = theta0 * np.cos(w0 * t)  # Angle
+thetapoint = -w0 * theta0 * np.sin(w0 * t)  # Vitesse angulaire
+Ep = 1 / 2 * m * g *l * theta ** 2  # Energie potentielle dans l'approximation des petites angles
+Ec = 1 / 2 * m * l ** 2 * thetapoint ** 2  # Energie cinétique
+
+
+"""Création du graphique
+"""
+f, ax = plt.subplots(2, 2)  # ax est un tableau
+f.suptitle("Petites oscillations d'un pendule")
+
+"""Tracé de l'angle : en haut à gauche"""
+ax[0, 0].set_xlabel("t(s)")
+ax[0, 0].set_ylabel("theta(rad)")
+ax[0, 0].plot(t, theta, label="Angle", color="blue")
+ax[0, 0].legend()
+
+"""Tracé de la vitesse angulaire : en haut à droite"""
+ax[0, 1].set_xlabel("t(s)")
+ax[0, 1].set_ylabel("theta point(rad/s)")
+ax[0, 1].plot(t, thetapoint, label="Vitesse angulaire", color="red")
+ax[0, 1].legend()
+
+"""Tracé de l'énergie potentielle : en base à gauche"""
+ax[1, 0].set_xlabel("t(s)")
+ax[1, 0].set_ylabel("Ep(J)")
+ax[1, 0].plot(t, Ep, label="Energie potentielle", color="blue")
+ax[1, 0].legend()
+
+"""Tracé de l'énergie cinétique : en haut à droite"""
+ax[1, 1].set_xlabel("t(s)")
+ax[1, 1].set_ylabel("Ec(J)")
+ax[1, 1].plot(t, Ec, label="Energie cinétique", color="red")
+ax[1, 1].legend()
+
+plt.show()
+```
+
+## Améliorer l'apparence du graphique
+On remarque que l'introduction des légendes des axes ou la position de la légende laisse à désirer. Si vous souhaitez obtenir un graphique plus propre voici deux modifications utiles :
+* transformer la légende en titre de chaque zone (`ax[i, j].set_title("Titre")`)
+* Ajouter __juste avant d'afficher le graphique__ `f.tight_layout()` : matplotlib va alors calculer tout seule les marges à mettre entre les graphiques en tenant compte des légendes et titres (_c'est pourquoi il faut le mettre à la fin puisqu'au début... il n'y a pas de légende !_)
+
+Ci-après le code modifié.
+
+```{code-cell}
+f, ax = plt.subplots(2, 2)  # ax est un tableau
+f.suptitle("Petites oscillations d'un pendule")
+
+"""Tracé de l'angle : en haut à gauche"""
+ax[0, 0].set_xlabel("t(s)")
+ax[0, 0].set_ylabel("theta(rad)")
+ax[0, 0].plot(t, theta, label="Angle", color="blue")
+ax[0, 0].set_title("Angle")
+
+"""Tracé de la vitesse angulaire : en haut à droite"""
+ax[0, 1].set_xlabel("t(s)")
+ax[0, 1].set_ylabel("theta point(rad/s)")
+ax[0, 1].plot(t, thetapoint, label="Vitesse angulaire", color="red")
+ax[0, 1].set_title("Vitesse angulaire")
+
+"""Tracé de l'énergie potentielle : en bas à gauche"""
+ax[1, 0].set_xlabel("t(s)")
+ax[1, 0].set_ylabel("Ep(J)")
+ax[1, 0].plot(t, Ep, label="Energie potentielle", color="blue")
+ax[1, 0].set_title("Energie potentielle")
+
+"""Tracé de l'énergie cinétique : en haut à droite"""
+ax[1, 1].set_xlabel("t(s)")
+ax[1, 1].set_ylabel("Ec(J)")
+ax[1, 1].plot(t, Ec, label="Energie cinétique", color="red")
+ax[1, 1].set_title("Energie cinétique")
+
+f.tight_layout()
+plt.show()
+
+```
+
+```{tip}
+Il existe des options intéressantes dans la fonction subplots. Sans rentrer dans les détails, citons `sharex` et `sharey` qui permet aux graphiques de partager la même échelle pour les abscisses ou les ordonnées (soit pour tous les graphiques de la fenêtre, soit par ligne/colonne).
+
+Pour plus d'information, vous pouvez consulter [la page sur la fonction subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html?highlight=subplots)
+
+```
+
 
 (tableau_numpy)=
 # Tableaux numpy : manipulations
@@ -284,71 +459,6 @@ On peut aussi filtrer la liste pour n'appliquer `fonction(x)` que sous certaines
 
 +++
 
-# Tenir compte des incertitudes avec polyfit.
-Rappel : On ajuste un modèle $Y=aX+b$ à partir de points de mesures $(x_i, y_i)$.
-
-## Sur les ordonnées
-`polyfit` permet de tenir compte des incertitudes de mesure sur les ordonnées $y_i$ en pondérant la fonction $\Gamma(a,b)$ à minimiser. Les expressions théoriques auront peut d'utilité mais on donne la syntaxe :
-
-```{code-block}
-polyfit(x, y, deg, w=incy)
-```
-où :
-* `incy` est un vecteur contenant les incertitudes sur les ordonnées
-
-## Sur les paramètres estimés.
-Si l'on veut l'incertitude sur la pente `a` et sur l'ordonnée à l'origine `b`, il existe deux méthodes :
-* Réaliser une simulation de Monte-Carlo grâce à des tirages aléatoires (on utilisera la bibliothèques `numpy.random`, cf. les cours physique et de chimie)
-* Utiliser des relations mathématiques entre les incertitudes (on parle de propagation des variances).
-
-`polyfit` permet de calculer des incertitudes suivant la deuxième méthode. La syntaxe est :
-
-```{code-block}
-p, V = polyfit(x, y, deg, cov=True)
-```
-où :
-* `V` est une valeur de retour qui est un tableau numpy (on parle de _matrice de covariance_). Pour une droite affine, c'est un tableau $2\times 2$ et les termes diagonaux donnent le carré des incertitudes de mesure :
-* `np.sqrt(V[0:0])` donne l'incertitude sur la pente $a$ (donc `p[0]`).
-* `np.sqrt(V[1:1])` donne l'incertitude sur l'ordonnée à l'origine $b$ (donc `p[1]`).
-
-## Combiner les deux
-Si l'on veut à la fois tenir compte des incertitudes sur les ordonnées ET évaluer l'incertitude sur $a$ et $b$, on utilisera la syntaxe :
-```{code-block}
-p, V = polyfit(x, y, deg, w=inc_y, cov='unscaled')
-```
-
-
-+++
-# Les dictionnaires
-Les __dictionnaires__ sont des objets python un peu plus complexes que vous pourriez rencontrer comme retour d'une fonction native. Un dictionnaire, comme une liste possède un ensemble d'éléments (des entiers, flottants, chaine de caractère, listes, vecteur numpy ...) mais ces éléments sont rangés dans des _champs nommés_. Un exemple avec les différentes manipulations utiles :
-
-```{code-cell}
-""" On définit un dictionnaire. 
-- Il a 4 champs : fruit, couleur, nombre, prix.
-- On a assigné à ces champs les valeurs respectives : "Pomme", "Rouge", 234, 3.45
-
-"""
-a = {'fruit': "Pomme", 'couleur': "Rouge", 'nombre': 234, 'prix': 3.45}
-
-b = a['fruit']  # Pour accéder au contenu du champ "fruit" du dictionnaire a
-
-print('Nom des champs :')
-for truc in a:  # truc prendra les différents nom des champs
-  print(truc)  # On affiche le nom des champs
-
-print('Contenu des champs :')
-for truc in a:  # truc prendra les différents nom des champs
-  print(a[truc])  # On affiche le contenu de chaque champ
-
-```
-
-```{tip}
-Attention:
-* Si `fruit` est le nom d'un champ, on écrit `a["fruit"]` avec des `""` : c'est bien une chaine de caractère
-* Si `truc` est le nombre de la variable qui contient la chaine de caractère `"fruit"`, on écrit `a[truc]`
-```
-
-+++
 
 # Fonctions et méthodes
 Vous avez peut-être remarqué que la façon d'appeler les "fonctions" pouvait un peu différer suivant les cas :
@@ -365,7 +475,7 @@ Par exemple, si je crée un vecteur numpy `v0` : c'est un objet.
 * Il possède certaines attributs. Ex : `shape` donnera sa taille. Pour obtenir cet attribut, on écrira `v0.shape` (l'attribut `shape` de l'objet `v0`)
 * Il possède des méthodes. Ex : `fill(valeur)` remplit le vecteur avec la même `valeur`. Pour appliquer cette méthode à `v0`, on écrira `v0.fill(3)`.
 
-Il n'est pas nécessaire de maîtriser complètement la POO. Il suffira surtout de repérer quand on utilise la syntaxe d'une fonction (ex : `round(3.4)`) et qu'on il s'agit de la syntaxe d'une méthode (ex : `ax.set_xlabel('Légende des x')`).
+Il n'est pas nécessaire de maîtriser complètement la POO. Il suffira surtout de repérer quand on utilise la syntaxe d'une fonction (ex : `round(3.4)`) et quand il s'agit de la syntaxe d'une méthode (ex : `ax.set_xlabel('Légende des x')`).
 
 
 

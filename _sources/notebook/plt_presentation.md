@@ -72,6 +72,8 @@ ax.plot(x, y, label="Légende")  # On trace la courbe voulue
 
 ax.legend()  # On affiche la légende de la zone de tracé
 
+ax.grid()  # Optionnel : permet d'afficher une grille sur le graphique
+
 plt.show()  # On demande d'afficher le graphique.
 ```
 
