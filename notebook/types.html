@@ -194,13 +194,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="np_polyfit.html">
+   1. Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   1. Traiter des données expérimentales avec numpy
+   2. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   2. La bibliothèque numpy.random
+   3. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
@@ -221,13 +226,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin.html#tenir-compte-des-incertitudes-avec-polyfit">
+   3. Tenir compte des incertitudes avec polyfit.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#les-dictionnaires">
-   3. Les dictionnaires
+   4. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   5. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -447,8 +457,8 @@
 <h1><span class="section-number">1.3. </span>Les types et opérations usuelles.<a class="headerlink" href="#les-types-et-operations-usuelles" title="Permalink to this headline">¶</a></h1>
 <p>On ne décrit ici que les types simples et les opérations que nous utiliserons le plus. D’autres types plus particuliers ou issus de bibliothèques non standards seront présentés plus tard.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0521b6c6-077f-4f9c-af6f-8d18cb2bbb3a" name="3b562e01-85cc-47ed-8b9b-b47587e55f41" type="radio">
-</input><label class="tabbed-label" for="0521b6c6-077f-4f9c-af6f-8d18cb2bbb3a">
+<input checked="checked" id="56c4198d-97bc-4673-994c-3a4c3a34b5bb" name="aab6fed6-1f84-462b-8ad3-e6b659059b04" type="radio">
+</input><label class="tabbed-label" for="56c4198d-97bc-4673-994c-3a4c3a34b5bb">
 Les entiers</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
@@ -462,8 +472,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3</span><
 <li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
 </ul>
 </div>
-<input id="8553c558-1ae1-420d-b066-2d485c04fcd7" name="3b562e01-85cc-47ed-8b9b-b47587e55f41" type="radio">
-</input><label class="tabbed-label" for="8553c558-1ae1-420d-b066-2d485c04fcd7">
+<input id="de50dfac-b01e-43c2-a70e-c4fdf4d42753" name="aab6fed6-1f84-462b-8ad3-e6b659059b04" type="radio">
+</input><label class="tabbed-label" for="de50dfac-b01e-43c2-a70e-c4fdf4d42753">
 Les flottants (nombres réels)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
@@ -480,8 +490,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</spa
 <p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
 </div>
 </div>
-<input id="daa4c797-85ed-41db-878b-ea04d0450289" name="3b562e01-85cc-47ed-8b9b-b47587e55f41" type="radio">
-</input><label class="tabbed-label" for="daa4c797-85ed-41db-878b-ea04d0450289">
+<input id="3993c07f-1434-44ea-931c-a828092518e2" name="aab6fed6-1f84-462b-8ad3-e6b659059b04" type="radio">
+</input><label class="tabbed-label" for="3993c07f-1434-44ea-931c-a828092518e2">
 Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
@@ -492,8 +502,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">True</spa
 <li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 </ul>
 </div>
-<input id="0d962072-2a6a-4f07-a48b-ac9aeb9765df" name="3b562e01-85cc-47ed-8b9b-b47587e55f41" type="radio">
-</input><label class="tabbed-label" for="0d962072-2a6a-4f07-a48b-ac9aeb9765df">
+<input id="a12e6df2-4003-4da9-837c-8de70fee4b53" name="aab6fed6-1f84-462b-8ad3-e6b659059b04" type="radio">
+</input><label class="tabbed-label" for="a12e6df2-4003-4da9-837c-8de70fee4b53">
 Les chaines de caractères</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>

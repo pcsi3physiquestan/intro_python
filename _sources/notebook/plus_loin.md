@@ -284,6 +284,41 @@ On peut aussi filtrer la liste pour n'appliquer `fonction(x)` que sous certaines
 
 +++
 
+# Tenir compte des incertitudes avec polyfit.
+Rappel : On ajuste un modèle $Y=aX+b$ à partir de points de mesures $(x_i, y_i)$.
+
+## Sur les ordonnées
+`polyfit` permet de tenir compte des incertitudes de mesure sur les ordonnées $y_i$ en pondérant la fonction $\Gamma(a,b)$ à minimiser. Les expressions théoriques auront peut d'utilité mais on donne la syntaxe :
+
+```{code-block}
+polyfit(x, y, deg, w=incy)
+```
+où :
+* `incy` est un vecteur contenant les incertitudes sur les ordonnées
+
+## Sur les paramètres estimés.
+Si l'on veut l'incertitude sur la pente `a` et sur l'ordonnée à l'origine `b`, il existe deux méthodes :
+* Réaliser une simulation de Monte-Carlo grâce à des tirages aléatoires (on utilisera la bibliothèques `numpy.random`, cf. les cours physique et de chimie)
+* Utiliser des relations mathématiques entre les incertitudes (on parle de propagation des variances).
+
+`polyfit` permet de calculer des incertitudes suivant la deuxième méthode. La syntaxe est :
+
+```{code-block}
+p, V = polyfit(x, y, deg, cov=True)
+```
+où :
+* `V` est une valeur de retour qui est un tableau numpy (on parle de _matrice de covariance_). Pour une droite affine, c'est un tableau $2\times 2$ et les termes diagonaux donnent le carré des incertitudes de mesure :
+* `np.sqrt(V[0:0])` donne l'incertitude sur la pente $a$ (donc `p[0]`).
+* `np.sqrt(V[1:1])` donne l'incertitude sur l'ordonnée à l'origine $b$ (donc `p[1]`).
+
+## Combiner les deux
+Si l'on veut à la fois tenir compte des incertitudes sur les ordonnées ET évaluer l'incertitude sur $a$ et $b$, on utilisera la syntaxe :
+```{code-block}
+p, V = polyfit(x, y, deg, w=inc_y, cov='unscaled')
+```
+
+
++++
 # Les dictionnaires
 Les __dictionnaires__ sont des objets python un peu plus complexes que vous pourriez rencontrer comme retour d'une fonction native. Un dictionnaire, comme une liste possède un ensemble d'éléments (des entiers, flottants, chaine de caractère, listes, vecteur numpy ...) mais ces éléments sont rangés dans des _champs nommés_. Un exemple avec les différentes manipulations utiles :
 

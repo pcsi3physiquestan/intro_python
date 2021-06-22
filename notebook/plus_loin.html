@@ -52,10 +52,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plus_loin.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2. La bibliothèque numpy.random" href="num_random.html" />
+    <link rel="prev" title="3. La bibliothèque numpy.random" href="num_random.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -193,13 +195,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="np_polyfit.html">
+   1. Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   1. Traiter des données expérimentales avec numpy
+   2. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   2. La bibliothèque numpy.random
+   3. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
@@ -220,13 +227,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="#tenir-compte-des-incertitudes-avec-polyfit">
+   3. Tenir compte des incertitudes avec polyfit.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="#les-dictionnaires">
-   3. Les dictionnaires
+   4. Les dictionnaires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   5. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -377,13 +389,35 @@
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tenir-compte-des-incertitudes-avec-polyfit">
+   3. Tenir compte des incertitudes avec polyfit.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sur-les-ordonnees">
+     3.1. Sur les ordonnées
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sur-les-parametres-estimes">
+     3.2. Sur les paramètres estimés.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combiner-les-deux">
+     3.3. Combiner les deux
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#les-dictionnaires">
-   3. Les dictionnaires
+   4. Les dictionnaires
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   5. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -759,8 +793,48 @@ Explication des réponses<div class="summary-down docutils">
 </div>
 </div>
 </div>
+<div class="section" id="tenir-compte-des-incertitudes-avec-polyfit">
+<h1><span class="section-number">3. </span>Tenir compte des incertitudes avec polyfit.<a class="headerlink" href="#tenir-compte-des-incertitudes-avec-polyfit" title="Permalink to this headline">¶</a></h1>
+<p>Rappel : On ajuste un modèle <span class="math notranslate nohighlight">\(Y=aX+b\)</span> à partir de points de mesures <span class="math notranslate nohighlight">\((x_i, y_i)\)</span>.</p>
+<div class="section" id="sur-les-ordonnees">
+<h2><span class="section-number">3.1. </span>Sur les ordonnées<a class="headerlink" href="#sur-les-ordonnees" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de tenir compte des incertitudes de mesure sur les ordonnées <span class="math notranslate nohighlight">\(y_i\)</span> en pondérant la fonction <span class="math notranslate nohighlight">\(\Gamma(a,b)\)</span> à minimiser. Les expressions théoriques auront peut d’utilité mais on donne la syntaxe :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">incy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">incy</span></code> est un vecteur contenant les incertitudes sur les ordonnées</p></li>
+</ul>
+</div>
+<div class="section" id="sur-les-parametres-estimes">
+<h2><span class="section-number">3.2. </span>Sur les paramètres estimés.<a class="headerlink" href="#sur-les-parametres-estimes" title="Permalink to this headline">¶</a></h2>
+<p>Si l’on veut l’incertitude sur la pente <code class="docutils literal notranslate"><span class="pre">a</span></code> et sur l’ordonnée à l’origine <code class="docutils literal notranslate"><span class="pre">b</span></code>, il existe deux méthodes :</p>
+<ul class="simple">
+<li><p>Réaliser une simulation de Monte-Carlo grâce à des tirages aléatoires (on utilisera la bibliothèques <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>, cf. les cours physique et de chimie)</p></li>
+<li><p>Utiliser des relations mathématiques entre les incertitudes (on parle de propagation des variances).</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> permet de calculer des incertitudes suivant la deuxième méthode. La syntaxe est :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">V</span></code> est une valeur de retour qui est un tableau numpy (on parle de <em>matrice de covariance</em>). Pour une droite affine, c’est un tableau <span class="math notranslate nohighlight">\(2\times 2\)</span> et les termes diagonaux donnent le carré des incertitudes de mesure :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sqrt(V[0:0])</span></code> donne l’incertitude sur la pente <span class="math notranslate nohighlight">\(a\)</span> (donc <code class="docutils literal notranslate"><span class="pre">p[0]</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sqrt(V[1:1])</span></code> donne l’incertitude sur l’ordonnée à l’origine <span class="math notranslate nohighlight">\(b\)</span> (donc <code class="docutils literal notranslate"><span class="pre">p[1]</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="combiner-les-deux">
+<h2><span class="section-number">3.3. </span>Combiner les deux<a class="headerlink" href="#combiner-les-deux" title="Permalink to this headline">¶</a></h2>
+<p>Si l’on veut à la fois tenir compte des incertitudes sur les ordonnées ET évaluer l’incertitude sur <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>, on utilisera la syntaxe :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">inc_y</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="s1">&#39;unscaled&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="les-dictionnaires">
-<h1><span class="section-number">3. </span>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Permalink to this headline">¶</a></h1>
 <p>Les <strong>dictionnaires</strong> sont des objets python un peu plus complexes que vous pourriez rencontrer comme retour d’une fonction native. Un dictionnaire, comme une liste possède un ensemble d’éléments (des entiers, flottants, chaine de caractère, listes, vecteur numpy …) mais ces éléments sont rangés dans des <em>champs nommés</em>. Un exemple avec les différentes manipulations utiles :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -808,7 +882,7 @@ Rouge
 </div>
 </div>
 <div class="section" id="fonctions-et-methodes">
-<h1><span class="section-number">4. </span>Fonctions et méthodes<a class="headerlink" href="#fonctions-et-methodes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Fonctions et méthodes<a class="headerlink" href="#fonctions-et-methodes" title="Permalink to this headline">¶</a></h1>
 <p>Vous avez peut-être remarqué que la façon d’appeler les “fonctions” pouvait un peu différer suivant les cas :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">print(f)</span></code> : La <strong>fonction</strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> agit sur <em>l’argument</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en l’affichant.</p></li>
@@ -850,7 +924,7 @@ Rouge
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="num_random.html" title="previous page"><span class="section-number">2. </span>La bibliothèque numpy.random</a>
+    <a class='left-prev' id="prev-link" href="num_random.html" title="previous page"><span class="section-number">3. </span>La bibliothèque numpy.random</a>
 
         </div>
         
