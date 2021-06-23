@@ -34,6 +34,7 @@ $$
 
 Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple $(a,b)$ au calcul de $\Gamma$ pour quelques couples de valeurss $(a,b)$. On remarque que plus $\Gamma$ est faible, plus la droite d'ajustement semble passer près des points de mesure.
 
+(sharey_ex=)
 ```{code-cell}
 :tags: [remove-input]
 import numpy as np
@@ -46,11 +47,11 @@ a = [4, 1, 2, 2.35]
 b = [0, 5, 4, 3.62]
 
 
-f, ax = plt.subplots(4, 3, figsize=(9, 6))
+f, ax = plt.subplots(4, 3, figsize=(9, 6), sharey='col')
 f.suptitle("La méthode des moindres carrés")
 ax[0, 0].set_title("Ecarts (bleu) pour un couple (a,b)")
-ax[0, 1].set_title("Carré des écarts")
-ax[0, 2].set_title("Somme des écarts")
+ax[0, 1].set_title("Carrés des écarts")
+ax[0, 2].set_title("Somme des carrés")
 
 for i in range(len(a)):
     ax[i, 0].set_ylabel("a = {};  n = {}".format(a[i], b[i]), fontsize='x-small')

@@ -159,9 +159,9 @@ plt.show()
 ## Améliorer l'apparence du graphique
 On remarque que l'introduction des légendes des axes ou la position de la légende laisse à désirer. Si vous souhaitez obtenir un graphique plus propre voici deux modifications utiles :
 * transformer la légende en titre de chaque zone (`ax[i, j].set_title("Titre")`)
-* Ajouter __juste avant d'afficher le graphique__ `f.tight_layout()` : matplotlib va alors calculer tout seule les marges à mettre entre les graphiques en tenant compte des légendes et titres (_c'est pourquoi il faut le mettre à la fin puisqu'au début... il n'y a pas de légende !_)
+* Ajouter __juste avant d'afficher le graphique__ `f.tight_layout()` : matplotlib va alors calculer tout seul les marges à mettre entre les graphiques en tenant compte des légendes et titres (_c'est pourquoi il faut le mettre à la fin puisqu'au début... il n'y a pas de légende !_)
 
-Ci-après le code modifié.
+Ci-après le code modifié (voir les lignes MODIF et AJOUT).
 
 ```{code-cell}
 f, ax = plt.subplots(2, 2)  # ax est un tableau
@@ -171,33 +171,33 @@ f.suptitle("Petites oscillations d'un pendule")
 ax[0, 0].set_xlabel("t(s)")
 ax[0, 0].set_ylabel("theta(rad)")
 ax[0, 0].plot(t, theta, label="Angle", color="blue")
-ax[0, 0].set_title("Angle")
+ax[0, 0].set_title("Angle")  # MODIF : On met un titre au lieu de la légende (label ne sert d'ailleurs plus à rien)
 
 """Tracé de la vitesse angulaire : en haut à droite"""
 ax[0, 1].set_xlabel("t(s)")
 ax[0, 1].set_ylabel("theta point(rad/s)")
 ax[0, 1].plot(t, thetapoint, label="Vitesse angulaire", color="red")
-ax[0, 1].set_title("Vitesse angulaire")
+ax[0, 1].set_title("Vitesse angulaire")  # MODIF : On met un titre au lieu de la légende (label ne sert d'ailleurs plus à rien)
 
 """Tracé de l'énergie potentielle : en bas à gauche"""
 ax[1, 0].set_xlabel("t(s)")
 ax[1, 0].set_ylabel("Ep(J)")
 ax[1, 0].plot(t, Ep, label="Energie potentielle", color="blue")
-ax[1, 0].set_title("Energie potentielle")
+ax[1, 0].set_title("Energie potentielle")  # MODIF : On met un titre au lieu de la légende (label ne sert d'ailleurs plus à rien)
 
 """Tracé de l'énergie cinétique : en haut à droite"""
 ax[1, 1].set_xlabel("t(s)")
 ax[1, 1].set_ylabel("Ec(J)")
 ax[1, 1].plot(t, Ec, label="Energie cinétique", color="red")
-ax[1, 1].set_title("Energie cinétique")
+ax[1, 1].set_title("Energie cinétique")  # MODIF : On met un titre au lieu de la légende (label ne sert d'ailleurs plus à rien)
 
-f.tight_layout()
+f.tight_layout()  # AJOUT : Gestion des marges pour afficher les légendes des axes.
 plt.show()
 
 ```
 
 ```{tip}
-Il existe des options intéressantes dans la fonction subplots. Sans rentrer dans les détails, citons `sharex` et `sharey` qui permet aux graphiques de partager la même échelle pour les abscisses ou les ordonnées (soit pour tous les graphiques de la fenêtre, soit par ligne/colonne).
+Il existe des options intéressantes dans la fonction subplots. Sans rentrer dans les détails, citons `sharex` et `sharey` qui permet aux graphiques de partager la même échelle pour les abscisses ou les ordonnées (soit pour tous les graphiques de la fenêtre, soit par ligne/colonne). `sharey` a par exemple été utilisé [ici pour mettre à la même échelle les calculs des carrés des écarts](sharey_ex).
 
 Pour plus d'information, vous pouvez consulter [la page sur la fonction subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html?highlight=subplots)
 

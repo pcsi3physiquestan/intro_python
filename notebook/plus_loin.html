@@ -508,7 +508,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd2c3a33970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2744170c40&gt;
 </pre></div>
 </div>
 <img alt="../_images/plus_loin_5_1.png" src="../_images/plus_loin_5_1.png" />
@@ -576,9 +576,9 @@
 <p>On remarque que l’introduction des légendes des axes ou la position de la légende laisse à désirer. Si vous souhaitez obtenir un graphique plus propre voici deux modifications utiles :</p>
 <ul class="simple">
 <li><p>transformer la légende en titre de chaque zone (<code class="docutils literal notranslate"><span class="pre">ax[i,</span> <span class="pre">j].set_title(&quot;Titre&quot;)</span></code>)</p></li>
-<li><p>Ajouter <strong>juste avant d’afficher le graphique</strong> <code class="docutils literal notranslate"><span class="pre">f.tight_layout()</span></code> : matplotlib va alors calculer tout seule les marges à mettre entre les graphiques en tenant compte des légendes et titres (<em>c’est pourquoi il faut le mettre à la fin puisqu’au début… il n’y a pas de légende !</em>)</p></li>
+<li><p>Ajouter <strong>juste avant d’afficher le graphique</strong> <code class="docutils literal notranslate"><span class="pre">f.tight_layout()</span></code> : matplotlib va alors calculer tout seul les marges à mettre entre les graphiques en tenant compte des légendes et titres (<em>c’est pourquoi il faut le mettre à la fin puisqu’au début… il n’y a pas de légende !</em>)</p></li>
 </ul>
-<p>Ci-après le code modifié.</p>
+<p>Ci-après le code modifié (voir les lignes MODIF et AJOUT).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># ax est un tableau</span>
@@ -588,27 +588,27 @@
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t(s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;theta(rad)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Angle&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Angle&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Angle&quot;</span><span class="p">)</span>  <span class="c1"># MODIF : On met un titre au lieu de la légende (label ne sert d&#39;ailleurs plus à rien)</span>
 
 <span class="sd">&quot;&quot;&quot;Tracé de la vitesse angulaire : en haut à droite&quot;&quot;&quot;</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t(s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;theta point(rad/s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">thetapoint</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Vitesse angulaire&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Vitesse angulaire&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Vitesse angulaire&quot;</span><span class="p">)</span>  <span class="c1"># MODIF : On met un titre au lieu de la légende (label ne sert d&#39;ailleurs plus à rien)</span>
 
 <span class="sd">&quot;&quot;&quot;Tracé de l&#39;énergie potentielle : en bas à gauche&quot;&quot;&quot;</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t(s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Ep(J)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Ep</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Energie potentielle&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Energie potentielle&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Energie potentielle&quot;</span><span class="p">)</span>  <span class="c1"># MODIF : On met un titre au lieu de la légende (label ne sert d&#39;ailleurs plus à rien)</span>
 
 <span class="sd">&quot;&quot;&quot;Tracé de l&#39;énergie cinétique : en haut à droite&quot;&quot;&quot;</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t(s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Ec(J)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Ec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Energie cinétique&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Energie cinétique&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Energie cinétique&quot;</span><span class="p">)</span>  <span class="c1"># MODIF : On met un titre au lieu de la légende (label ne sert d&#39;ailleurs plus à rien)</span>
 
-<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># AJOUT : Gestion des marges pour afficher les légendes des axes.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -619,7 +619,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Il existe des options intéressantes dans la fonction subplots. Sans rentrer dans les détails, citons <code class="docutils literal notranslate"><span class="pre">sharex</span></code> et <code class="docutils literal notranslate"><span class="pre">sharey</span></code> qui permet aux graphiques de partager la même échelle pour les abscisses ou les ordonnées (soit pour tous les graphiques de la fenêtre, soit par ligne/colonne).</p>
+<p>Il existe des options intéressantes dans la fonction subplots. Sans rentrer dans les détails, citons <code class="docutils literal notranslate"><span class="pre">sharex</span></code> et <code class="docutils literal notranslate"><span class="pre">sharey</span></code> qui permet aux graphiques de partager la même échelle pour les abscisses ou les ordonnées (soit pour tous les graphiques de la fenêtre, soit par ligne/colonne). <code class="docutils literal notranslate"><span class="pre">sharey</span></code> a par exemple été utilisé <span class="xref myst">ici pour mettre à la même échelle les calculs des carrés des écarts</span>.</p>
 <p>Pour plus d’information, vous pouvez consulter <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html?highlight=subplots">la page sur la fonction subplots</a></p>
 </div>
 </div>
