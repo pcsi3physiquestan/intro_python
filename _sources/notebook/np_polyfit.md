@@ -32,6 +32,52 @@ $$
 \Gamma(a, b) = \sum_{i=1}^{i=k} \left( y_i - y_{adj}(x_i) \right)^2 = \sum_{i=1}^{i=k} \left( y_i - (a x_i + b) \right)^2
 $$
 
+Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple $(a,b)$ au calcul de $\Gamma$ pour quelques couples de valeurss $(a,b)$. On remarque que plus $\Gamma$ est faible, plus la droite d'ajustement semble passer près des points de mesure.
+
+```{code-cell}
+:tags: [remove-input]
+import numpy as np
+import matplotlib.pyplot as plt
+
+xi = np.array([0.2, 0.8, 1.6, 3.4, 4.5, 7.5])
+yi = np.array([4.4, 5.7, 7.2, 11.7, 13.3, 21.8])
+
+a = [4, 1, 2, 2.35]
+b = [0, 5, 4, 3.62]
+
+
+f, ax = plt.subplots(4, 3, figsize=(9, 6))
+f.suptitle("La méthode des moindres carrés")
+ax[0, 0].set_title("Ecarts (bleu) pour un couple (a,b)")
+ax[0, 1].set_title("Carré des écarts")
+ax[0, 2].set_title("Somme des écarts")
+
+for i in range(len(a)):
+    ax[i, 0].set_ylabel("a = {};  n = {}".format(a[i], b[i]), fontsize='x-small')
+    ax[i, 0].plot(xi, yi, marker='o', markersize=1, color='red', linestyle='', label='yi')
+    yi_adj = a[i] * xi + b[i]
+    ecm = (yi + yi_adj) / 2
+    ecu = np.abs(yi - yi_adj) / 2
+    ax[i, 0].plot(xi, yi_adj, color='black', linestyle='--', linewidth=0.5, label='yi_adj')
+    ax[i, 0].errorbar(xi, ecm, yerr=ecu, color='blue', linestyle='', label="Ecarts", linewidth=0.5)
+    ax[i, 0].legend(fontsize='xx-small')
+    
+    en = (yi - yi_adj) ** 2
+    ax[i, 1].plot(xi, en, linestyle='', marker='o', markersize=1, color="red")
+    ax[i, 1].bar(xi, en, width=.05, label="(yi_- y_adj)^2")
+    ax[i, 1].legend(fontsize='xx-small')
+
+    Gamma = ((yi - (a[i] * xi + b [i])) ** 2).sum()
+    ax[i, 2].set_axis_off()
+    ax[i, 2].text(0, 0.5, "Gamma({}, {}) = {:.0f}".format(a[i], b[i], Gamma))
+
+f.tight_layout()
+plt.show()
+
+
+```
+
+
 On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs $\hat a$ et $\hat b$ qui minimise $\Gamma(a,b)$ sont calculables analytiquement. Elles ont pour expression :
 
 $$
@@ -89,6 +135,10 @@ yi = np.array([4.4, 5.7, 7.2, 11.7, 13.3, 21.8])
 p = np.polyfit(xi, yi, 1)  # p est un vecteur contenant les coefficients.
 y_adj = p[0] * xi + p[1]  # On applique la droite ajusté aux xi pour comparaison.
 
+print("--------")
+print("La droite ajustée a pour équation :")
+print(str(p[0]) + " * x + " + str(p[1]))
+print("--------")
 
 f, ax = plt.subplots()
 f.suptitle("Ajustement linéaire")

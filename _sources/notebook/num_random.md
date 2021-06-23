@@ -80,6 +80,10 @@ ax.legend()
 plt.show()
 ```
 
+```{note}
+Ce principe consistant à simuler ungrand nombre de tirages des $X_i$ pour obtenir la distribution de $Y$ puis sa valeur moyenne et son écart-type s'appelle __simulation de Monte-Carlo__. Elle sera utilisée en physique et en chimie pour estimer des incertitudes de mesure.
+```
+
 ## Caractéristique d'une distribution
 `numpy` permet aussi de remonter à des grandeurs utiles sur une distribution statistique : sa moyenne et son écart-type. Ces fonctions seront aussi utiles avec des données expérimentales.
 

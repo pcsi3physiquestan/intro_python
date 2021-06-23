@@ -387,6 +387,12 @@
 \[
 \Gamma(a, b) = \sum_{i=1}^{i=k} \left( y_i - y_{adj}(x_i) \right)^2 = \sum_{i=1}^{i=k} \left( y_i - (a x_i + b) \right)^2
 \]</div>
+<p>Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple <span class="math notranslate nohighlight">\((a,b)\)</span> au calcul de <span class="math notranslate nohighlight">\(\Gamma\)</span> pour quelques couples de valeurss <span class="math notranslate nohighlight">\((a,b)\)</span>. On remarque que plus <span class="math notranslate nohighlight">\(\Gamma\)</span> est faible, plus la droite d’ajustement semble passer près des points de mesure.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/np_polyfit_1_0.png" src="../_images/np_polyfit_1_0.png" />
+</div>
+</div>
 <p>On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs <span class="math notranslate nohighlight">\(\hat a\)</span> et <span class="math notranslate nohighlight">\(\hat b\)</span> qui minimise <span class="math notranslate nohighlight">\(\Gamma(a,b)\)</span> sont calculables analytiquement. Elles ont pour expression :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -445,6 +451,10 @@
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># p est un vecteur contenant les coefficients.</span>
 <span class="n">y_adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On applique la droite ajusté aux xi pour comparaison.</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La droite ajustée a pour équation :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; * x + &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
 
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Ajustement linéaire&quot;</span><span class="p">)</span>
@@ -461,10 +471,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------
+La droite ajustée a pour équation :
+2.3536193029490615 * x + 3.6224754244861437
+--------
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux.&#39;
 </pre></div>
 </div>
-<img alt="../_images/np_polyfit_1_1.png" src="../_images/np_polyfit_1_1.png" />
+<img alt="../_images/np_polyfit_3_2.png" src="../_images/np_polyfit_3_2.png" />
 </div>
 </div>
 </div>
