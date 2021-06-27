@@ -26,15 +26,15 @@ Nous allons donner, sans rentrer dans les détails un sens au terme "au plus pr�
 Cf. les cours de physique et chimie pour la notion d'incertitude de mesure. On gardera l'idée qu'elle quantifie la variabilité de la mesure d'une grandeur.
 ```
 
-En effet, du fait des incertitudes (de la variabilité des mesures), les points $(x_i, y_i)$ ne sont jamais complètement alignés. Pour une droite d'ajustement $y_{adj} = ax + b$, il y aura un écart entre $y_i$ et $y_{adj}(x_i)$. _La méthode des moindres carrés consiste à minimiser globalement ces écarts, c'est-à-dire à minimiser par rapport à a et b la somme des carrés des écarts, soit la fonction_ :
+Du fait des incertitudes (de la variabilité des mesures), les points $(x_i, y_i)$ ne sont jamais complètement alignés. Pour une droite d'ajustement $y_{adj} = ax + b$, il y aura un écart entre $y_i$ et $y_{adj}(x_i)$. _La méthode des moindres carrés consiste à minimiser globalement ces écarts, c'est-à-dire à minimiser par rapport à a et b la somme des carrés des écarts, soit la fonction_ :
 
 $$
 \Gamma(a, b) = \sum_{i=1}^{i=k} \left( y_i - y_{adj}(x_i) \right)^2 = \sum_{i=1}^{i=k} \left( y_i - (a x_i + b) \right)^2
 $$
 
-Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple $(a,b)$ au calcul de $\Gamma$ pour quelques couples de valeurss $(a,b)$. On remarque que plus $\Gamma$ est faible, plus la droite d'ajustement semble passer près des points de mesure.
+Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple $(a,b)$ au calcul de $\Gamma$ pour quelques couples de valeurs $(a,b)$. On remarque que plus $\Gamma(a, b)$ est faible, plus la droite d'ajustement semble passer près des points de mesure.
 
-(sharey_ex=)
+(sharey_ex)=
 ```{code-cell}
 :tags: [remove-input]
 import numpy as np
@@ -79,7 +79,7 @@ plt.show()
 ```
 
 
-On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs $\hat a$ et $\hat b$ qui minimise $\Gamma(a,b)$ sont calculables analytiquement. Elles ont pour expression :
+On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs $\hat a$ et $\hat b$ qui minimise $\Gamma(a,b)$ sont calculables analytiquement. Elles ont pour expression (pas à connaître par coeur) :
 
 $$
 \begin{cases}
@@ -114,7 +114,7 @@ Cette fonction renvoie un vecteur contenant les coefficient du polynôme par __d
 ### Méthode d'utilisation.
 Réaliser une régression linéaire demande de la rigueur, il ne faut pas simplement appliquer la formule précédente. Vous devez :
 1. Tracer le nuage de points des $(x_i, y_i)$ __et vérifier qu'ils sont globalement alignés__. Il ne sert à rien de faire une régression linéaire s'il y a des points qui dévient clairement d'un modèle affine ou si la tendance n'est pas affine.
-2. Ensuite seulement, utiliser la fonction polyfit pour obtenir les paramètres d'ajustment optimaux.
+2. Ensuite seulement, utiliser la fonction polyfit pour obtenir les paramètres d'ajustement optimaux.
 3. Représenter la droite d'ajustement sur le même graphique pour vérifier qu'elle est cohérente avec les points de mesures. Des méthodes de tests seront présentées plus précisément en physique et en chimie.
 
 ```{margin}
@@ -132,26 +132,36 @@ import matplotlib.pyplot as plt
 xi = np.array([0.2, 0.8, 1.6, 3.4, 4.5, 7.5])
 yi = np.array([4.4, 5.7, 7.2, 11.7, 13.3, 21.8])
 
-"""Ajustement linéaire"""
-p = np.polyfit(xi, yi, 1)  # p est un vecteur contenant les coefficients.
-y_adj = p[0] * xi + p[1]  # On applique la droite ajusté aux xi pour comparaison.
-
-print("--------")
-print("La droite ajustée a pour équation :")
-print(str(p[0]) + " * x + " + str(p[1]))
-print("--------")
-
+"""Tracé graphique pour test visuel"""
 f, ax = plt.subplots()
 f.suptitle("Ajustement linéaire")
 
 ax.plot(xi, yi, marker='+', label='Données expérimentales', linestyle='', color='red')  # On voit l'intérêt des options pour ne pas relier les points
-"""L'observation des points de mesure montre effectivement une tendance linéaire"""
+
+# plt.show()  
+""" La ligne précédente a été commentée pour pouvoir tracer ensuite la droite de régression linéaire. 
+En pratique, elle permet de vérifier que les points s'alignent à peu près."""
+
+print("L'observation des points de mesure montre effectivement une tendance linéaire")
+
+
+
+"""Ajustement linéaire"""
+p = np.polyfit(xi, yi, 1)  # p est un vecteur contenant les coefficients.
+y_adj = p[0] * xi + p[1]  # On applique la droite ajustée aux xi pour comparaison.
+
+print("--------")
+print("La droite ajustée a pour équation :")
+print(str(p[0]) + " * x + " + str(p[1]))
+print("En pratique, il faudrait tronquer aux bons chiffres significatifs")
+print("--------")
+
 
 ax.plot(xi, y_adj, marker='', label='Ajustement', linestyle='-', color='blue')  # On voit l'intérêt des options
 
 ax.legend()
 
-""" Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux."""
+""" Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux. (cf. exercice)"""
 ```
 
 ## Pour vous entraîner

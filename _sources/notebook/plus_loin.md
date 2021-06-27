@@ -65,7 +65,7 @@ plt.show()
 ```
 
 ## Création d'un tracé
-La création d'un tracé (`hist`, `plot`, `errorbar`) se fait de la même manière précédemment mais un axe est appelé par la syntaxe `ax[i, j]` ou `ax[i]`. Ci-dessous deux exemples :
+La création d'un tracé (`hist`, `plot`, `errorbar`) se fait de la même manière que précédemment mais un axe est appelé par la syntaxe `ax[i, j]` ou `ax[i]`. Ci-dessous deux exemples :
 * Le premier avec une seule ligne : `ax` est un vecteur, on utilise `ax[i]`
 * Le second avec deux lignes et deux colonnes : `ax` est un tableau, on utilise `ax[i, j]`
 
@@ -134,24 +134,28 @@ ax[0, 0].set_xlabel("t(s)")
 ax[0, 0].set_ylabel("theta(rad)")
 ax[0, 0].plot(t, theta, label="Angle", color="blue")
 ax[0, 0].legend()
+ax[0, 0].grid()  # On ajoute une grille
 
 """Tracé de la vitesse angulaire : en haut à droite"""
 ax[0, 1].set_xlabel("t(s)")
 ax[0, 1].set_ylabel("theta point(rad/s)")
 ax[0, 1].plot(t, thetapoint, label="Vitesse angulaire", color="red")
 ax[0, 1].legend()
+ax[0, 1].grid()  # On ajoute une grille
 
 """Tracé de l'énergie potentielle : en base à gauche"""
 ax[1, 0].set_xlabel("t(s)")
 ax[1, 0].set_ylabel("Ep(J)")
 ax[1, 0].plot(t, Ep, label="Energie potentielle", color="blue")
 ax[1, 0].legend()
+ax[1, 0].grid()  # On ajoute une grille
 
-"""Tracé de l'énergie cinétique : en haut à droite"""
+"""Tracé de l'énergie cinétique : en bas à droite"""
 ax[1, 1].set_xlabel("t(s)")
 ax[1, 1].set_ylabel("Ec(J)")
 ax[1, 1].plot(t, Ec, label="Energie cinétique", color="red")
 ax[1, 1].legend()
+ax[1, 1].grid()  # On ajoute une grille
 
 plt.show()
 ```

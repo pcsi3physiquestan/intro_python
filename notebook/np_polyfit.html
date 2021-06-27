@@ -382,19 +382,18 @@
 <p class="sidebar-title"></p>
 <p>Cf. les cours de physique et chimie pour la notion d’incertitude de mesure. On gardera l’idée qu’elle quantifie la variabilité de la mesure d’une grandeur.</p>
 </div>
-<p>En effet, du fait des incertitudes (de la variabilité des mesures), les points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> ne sont jamais complètement alignés. Pour une droite d’ajustement <span class="math notranslate nohighlight">\(y_{adj} = ax + b\)</span>, il y aura un écart entre <span class="math notranslate nohighlight">\(y_i\)</span> et <span class="math notranslate nohighlight">\(y_{adj}(x_i)\)</span>. <em>La méthode des moindres carrés consiste à minimiser globalement ces écarts, c’est-à-dire à minimiser par rapport à a et b la somme des carrés des écarts, soit la fonction</em> :</p>
+<p>Du fait des incertitudes (de la variabilité des mesures), les points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> ne sont jamais complètement alignés. Pour une droite d’ajustement <span class="math notranslate nohighlight">\(y_{adj} = ax + b\)</span>, il y aura un écart entre <span class="math notranslate nohighlight">\(y_i\)</span> et <span class="math notranslate nohighlight">\(y_{adj}(x_i)\)</span>. <em>La méthode des moindres carrés consiste à minimiser globalement ces écarts, c’est-à-dire à minimiser par rapport à a et b la somme des carrés des écarts, soit la fonction</em> :</p>
 <div class="math notranslate nohighlight">
 \[
 \Gamma(a, b) = \sum_{i=1}^{i=k} \left( y_i - y_{adj}(x_i) \right)^2 = \sum_{i=1}^{i=k} \left( y_i - (a x_i + b) \right)^2
 \]</div>
-<p>Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple <span class="math notranslate nohighlight">\((a,b)\)</span> au calcul de <span class="math notranslate nohighlight">\(\Gamma\)</span> pour quelques couples de valeurss <span class="math notranslate nohighlight">\((a,b)\)</span>. On remarque que plus <span class="math notranslate nohighlight">\(\Gamma\)</span> est faible, plus la droite d’ajustement semble passer près des points de mesure.</p>
-<p>(sharey_ex=)</p>
-<div class="cell tag_remove-input docutils container">
+<p>Les tracés ci-après montre le passage (gauche à droite) des écarts modèle-mesures pour un couple <span class="math notranslate nohighlight">\((a,b)\)</span> au calcul de <span class="math notranslate nohighlight">\(\Gamma\)</span> pour quelques couples de valeurs <span class="math notranslate nohighlight">\((a,b)\)</span>. On remarque que plus <span class="math notranslate nohighlight">\(\Gamma(a, b)\)</span> est faible, plus la droite d’ajustement semble passer près des points de mesure.</p>
+<div class="cell tag_remove-input docutils container" id="sharey-ex">
 <div class="cell_output docutils container">
 <img alt="../_images/np_polyfit_1_0.png" src="../_images/np_polyfit_1_0.png" />
 </div>
 </div>
-<p>On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs <span class="math notranslate nohighlight">\(\hat a\)</span> et <span class="math notranslate nohighlight">\(\hat b\)</span> qui minimise <span class="math notranslate nohighlight">\(\Gamma(a,b)\)</span> sont calculables analytiquement. Elles ont pour expression :</p>
+<p>On ne présente pas ici les calculs permettant de minimiser une fonction de plusieurs variables mais on admettra que dans le cas précédent, les valeurs <span class="math notranslate nohighlight">\(\hat a\)</span> et <span class="math notranslate nohighlight">\(\hat b\)</span> qui minimise <span class="math notranslate nohighlight">\(\Gamma(a,b)\)</span> sont calculables analytiquement. Elles ont pour expression (pas à connaître par coeur) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
@@ -429,7 +428,7 @@
 <p>Réaliser une régression linéaire demande de la rigueur, il ne faut pas simplement appliquer la formule précédente. Vous devez :</p>
 <ol class="simple">
 <li><p>Tracer le nuage de points des <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> <strong>et vérifier qu’ils sont globalement alignés</strong>. Il ne sert à rien de faire une régression linéaire s’il y a des points qui dévient clairement d’un modèle affine ou si la tendance n’est pas affine.</p></li>
-<li><p>Ensuite seulement, utiliser la fonction polyfit pour obtenir les paramètres d’ajustment optimaux.</p></li>
+<li><p>Ensuite seulement, utiliser la fonction polyfit pour obtenir les paramètres d’ajustement optimaux.</p></li>
 <li><p>Représenter la droite d’ajustement sur le même graphique pour vérifier qu’elle est cohérente avec les points de mesures. Des méthodes de tests seront présentées plus précisément en physique et en chimie.</p></li>
 </ol>
 <div class="margin sidebar">
@@ -448,37 +447,49 @@
 <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">])</span>
 <span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">,</span> <span class="mf">21.8</span><span class="p">])</span>
 
-<span class="sd">&quot;&quot;&quot;Ajustement linéaire&quot;&quot;&quot;</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># p est un vecteur contenant les coefficients.</span>
-<span class="n">y_adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On applique la droite ajusté aux xi pour comparaison.</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La droite ajustée a pour équation :&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; * x + &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
-
+<span class="sd">&quot;&quot;&quot;Tracé graphique pour test visuel&quot;&quot;&quot;</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Ajustement linéaire&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Données expérimentales&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options pour ne pas relier les points</span>
-<span class="sd">&quot;&quot;&quot;L&#39;observation des points de mesure montre effectivement une tendance linéaire&quot;&quot;&quot;</span>
+
+<span class="c1"># plt.show()  </span>
+<span class="sd">&quot;&quot;&quot; La ligne précédente a été commentée pour pouvoir tracer ensuite la droite de régression linéaire. </span>
+<span class="sd">En pratique, elle permet de vérifier que les points s&#39;alignent à peu près.&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;observation des points de mesure montre effectivement une tendance linéaire&quot;</span><span class="p">)</span>
+
+
+
+<span class="sd">&quot;&quot;&quot;Ajustement linéaire&quot;&quot;&quot;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># p est un vecteur contenant les coefficients.</span>
+<span class="n">y_adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On applique la droite ajustée aux xi pour comparaison.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La droite ajustée a pour équation :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; * x + &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;En pratique, il faudrait tronquer aux bons chiffres significatifs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------&quot;</span><span class="p">)</span>
+
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">y_adj</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajustement&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>  <span class="c1"># On voit l&#39;intérêt des options</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="sd">&quot;&quot;&quot; Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux.&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot; Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux. (cf. exercice)&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;observation des points de mesure montre effectivement une tendance linéaire
+--------
 La droite ajustée a pour équation :
 2.3536193029490615 * x + 3.6224754244861437
+En pratique, il faudrait tronquer aux bons chiffres significatifs
 --------
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Ce sont des fausses données sans incertitude de mesure, on ne va donc pas comparer le modèle ajusté aux résultats expérimentaux. (cf. exercice)&#39;
 </pre></div>
 </div>
 <img alt="../_images/np_polyfit_3_2.png" src="../_images/np_polyfit_3_2.png" />
