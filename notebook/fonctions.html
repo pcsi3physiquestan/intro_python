@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2.1. Les fonctions. &#8212; Python : Bases à connaître</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,28 +49,19 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/fonctions.html" />
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/fonctions.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. Instructions conditionnelles" href="condition.html" />
     <link rel="prev" title="2. Fonctions, conditions boucles" href="blocs.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/fonctions.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Les fonctions." />
-<meta property="og:description" content="Les fonctions.  Une fonction est une série d’instructions préenregistrées qui prend en entrée une ou plusieurs données (on parle d’arguments) et qui après exécu" />
-
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -82,74 +70,57 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro_python.html">
    Eléments de bases pour programmer en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Réviser les bases
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bases_intro.html">
    1. Le langage Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="types.html">
      1.1. Environnement de développement.
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#indentation">
-     1.2. Indentation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
-     1.3. Les types et opérations usuelles.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#variables-et-affection">
-     1.4. Variables et affection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-listes">
-     1.5. Les listes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-commentaires">
-     1.6. Les commentaires
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="blocs.html">
    2. Fonctions, conditions boucles
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      2.1. Les fonctions.
@@ -166,77 +137,61 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Bilbiothèques scientifiques
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_vecteurs.html">
-   1. Numpy : manipuler des tableaux de nombres.
+   3. Numpy : manipuler des tableaux de nombres.
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plt_presentation.html">
-   2. Matplotlib : tracés graphiques
+   4. Matplotlib : tracés graphiques
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Plus loin avec numpy
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_polyfit.html">
-   1. Régression linéaire
+   5. Régression linéaire
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   2. Traiter des données expérimentales avec numpy
+   6. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   3. La bibliothèque numpy.random
+   7. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Pour aller plus loin
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   1. Fenêtre multi-graphique
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
-   2. Tableaux numpy : manipulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   3. La compréhension des listes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   8. Fenêtre multi-graphique
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -289,12 +244,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -320,12 +275,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#executer-une-fonction">
    2.1.1. Exécuter une fonction
@@ -382,8 +336,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -448,8 +401,8 @@
 <h3><span class="section-number">2.1.3.2. </span>Les modules supplémentaires<a class="headerlink" href="#les-modules-supplementaires" title="Permalink to this headline">¶</a></h3>
 <p>Des fonctions supplémentaires (entre autre) sont contenus dans des modules (ou bibliothèques) qui nécessitent d’être importés. Les méthodes d’importations sont :</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="eb8c57ae-1434-464d-a37f-41d9dcf495a1" name="b0753bdc-1487-40e7-a987-977efbf1a313" type="radio">
-</input><label class="tabbed-label" for="eb8c57ae-1434-464d-a37f-41d9dcf495a1">
+<input checked="checked" id="ab3114f6-9435-447a-9faa-3f4f6da1183e" name="facbcd23-18e5-49dc-87af-2b635d3c48c1" type="radio">
+</input><label class="tabbed-label" for="ab3114f6-9435-447a-9faa-3f4f6da1183e">
 Importation dans l’espace standard</label><div class="tabbed-content docutils">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
@@ -459,8 +412,8 @@ Importation dans l’espace standard</label><div class="tabbed-content docutils"
 </pre></div>
 </div>
 </div>
-<input id="90501ef0-2ae7-489f-a18b-beb04c7db5f0" name="b0753bdc-1487-40e7-a987-977efbf1a313" type="radio">
-</input><label class="tabbed-label" for="90501ef0-2ae7-489f-a18b-beb04c7db5f0">
+<input id="840f00e4-e10d-46b9-984d-3667c4a643ad" name="facbcd23-18e5-49dc-87af-2b635d3c48c1" type="radio">
+</input><label class="tabbed-label" for="840f00e4-e10d-46b9-984d-3667c4a643ad">
 Importation dans un espace nommé</label><div class="tabbed-content docutils">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
 </pre></div>
@@ -583,11 +536,9 @@ Importation dans un espace nommé</label><div class="tabbed-content docutils">
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

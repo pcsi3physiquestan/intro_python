@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Traiter des données expérimentales avec numpy &#8212; Python : Bases à connaître</title>
+    <title>6. Traiter des données expérimentales avec numpy &#8212; Python : Bases à connaître</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,28 +51,19 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/import_file.html" />
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/import_file.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. La bibliothèque numpy.random" href="num_random.html" />
-    <link rel="prev" title="1. Régression linéaire" href="np_polyfit.html" />
-
+    <link rel="next" title="7. La bibliothèque numpy.random" href="num_random.html" />
+    <link rel="prev" title="5. Régression linéaire" href="np_polyfit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/import_file.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Traiter des données expérimentales avec numpy" />
-<meta property="og:description" content="Traiter des données expérimentales avec numpy  Lorsqu’il y a peu de données expérimentales, on peut les importer “à la main” mais si ces données sont nombreuses" />
-
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -84,74 +72,57 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro_python.html">
    Eléments de bases pour programmer en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Réviser les bases
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bases_intro.html">
    1. Le langage Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="types.html">
      1.1. Environnement de développement.
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#indentation">
-     1.2. Indentation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
-     1.3. Les types et opérations usuelles.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#variables-et-affection">
-     1.4. Variables et affection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-listes">
-     1.5. Les listes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-commentaires">
-     1.6. Les commentaires
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="blocs.html">
    2. Fonctions, conditions boucles
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="fonctions.html">
      2.1. Les fonctions.
@@ -168,77 +139,61 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Bilbiothèques scientifiques
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_vecteurs.html">
-   1. Numpy : manipuler des tableaux de nombres.
+   3. Numpy : manipuler des tableaux de nombres.
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plt_presentation.html">
-   2. Matplotlib : tracés graphiques
+   4. Matplotlib : tracés graphiques
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Plus loin avec numpy
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_polyfit.html">
-   1. Régression linéaire
+   5. Régression linéaire
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Traiter des données expérimentales avec numpy
+   6. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   3. La bibliothèque numpy.random
+   7. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Pour aller plus loin
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   1. Fenêtre multi-graphique
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
-   2. Tableaux numpy : manipulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   3. La compréhension des listes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   8. Fenêtre multi-graphique
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -291,12 +246,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -322,60 +277,58 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preambule-repertoire-et-chemin-vers-un-fichier">
-   2.1. Préambule : Répertoire et chemin vers un fichier
+   6.1. Préambule : Répertoire et chemin vers un fichier
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chemin-absolu">
-     2.1.1. Chemin absolu
+     6.1.1. Chemin absolu
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chemin-relatif">
-     2.1.2. Chemin relatif
+     6.1.2. Chemin relatif
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preparer-l-importation">
-   2.2. Préparer l’importation
+   6.2. Préparer l’importation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importation-dans-python">
-   2.3. Importation dans Python
+   6.3. Importation dans Python
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#syntaxe">
-     2.3.1. Syntaxe
+     6.3.1. Syntaxe
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exemple">
-     2.3.2. Exemple
+     6.3.2. Exemple
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sauvegarder-des-donnees-depuis-python">
-   2.4. Sauvegarder des données depuis Python
+   6.4. Sauvegarder des données depuis Python
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -389,10 +342,10 @@
 <p>Il existe des fonctions de la bibliothèque standard (<code class="docutils literal notranslate"><span class="pre">open</span></code>) qui permettent d’accéder au contenu d’un fichier puis d’écrire dans un fichier. Nous ne présentons pas ici ces fonctions pour ne pas alourdir la présentation bien qu’elles puissent être très utiles pour un utilisateur de Python. On se concentre ici sur l’importation et l’exportation de données expérimentales qui seront des nombres (entiers ou flottants) directement dans des vecteurs et tableaux <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 </div>
 <div class="section" id="traiter-des-donnees-experimentales-avec-numpy">
-<h1><span class="section-number">2. </span>Traiter des données expérimentales avec numpy<a class="headerlink" href="#traiter-des-donnees-experimentales-avec-numpy" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Traiter des données expérimentales avec numpy<a class="headerlink" href="#traiter-des-donnees-experimentales-avec-numpy" title="Permalink to this headline">¶</a></h1>
 <p>Lorsqu’il y a peu de données expérimentales, on peut les importer “à la main” mais si ces données sont nombreuses, il devient utile de stocker ces données dans un fichier (extension <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.dat</span></code> ou autre) pour les importer dans Python lorsqu’on veut les utiliser. Cela permettra en plus de réutiliser un script Python déjà écrit sur de nouvelles données expérimentales en ne changeant que le nom du fichier.</p>
 <div class="section" id="preambule-repertoire-et-chemin-vers-un-fichier">
-<h2><span class="section-number">2.1. </span>Préambule : Répertoire et chemin vers un fichier<a class="headerlink" href="#preambule-repertoire-et-chemin-vers-un-fichier" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Préambule : Répertoire et chemin vers un fichier<a class="headerlink" href="#preambule-repertoire-et-chemin-vers-un-fichier" title="Permalink to this headline">¶</a></h2>
 <p>En général les données expérimentales proviendront :</p>
 <ul class="simple">
 <li><p>d’un système d’acquisition tiers qui a enregistré les données dans un fichier localisé ailleurs sur l’ordinateur. Dans ce cas, il faudra localiser l’endroit où est stocké le fichier : la suite de répertoires et sous-répertoires dans lequel se trouve le fichier, c’est-à-dire le <strong>chemin</strong> vers ce fichier.</p></li>
@@ -400,7 +353,7 @@
 </ul>
 <p>Dans tous les cas, Python n’est pas censé connaître où est le fichier de données, il faudra donc lui donner le <strong>chemin</strong> d’accès au fichier.</p>
 <div class="section" id="chemin-absolu">
-<h3><span class="section-number">2.1.1. </span>Chemin absolu<a class="headerlink" href="#chemin-absolu" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1. </span>Chemin absolu<a class="headerlink" href="#chemin-absolu" title="Permalink to this headline">¶</a></h3>
 <p>Si vous avez déjà utilisé un explorateur de fichier, vous avez peut-être remarqué qu’en remontant d’un dossier parent à un autre on finit par arrive à un répertoire <em>racine</em> (<code class="docutils literal notranslate"><span class="pre">C:/</span></code> sous <code class="docutils literal notranslate"><span class="pre">Windows</span></code> et <code class="docutils literal notranslate"><span class="pre">/</span></code> ou le nom de l’ordinateur sous <code class="docutils literal notranslate"><span class="pre">MacOs</span></code> et <code class="docutils literal notranslate"><span class="pre">Linux</span></code>). On peut ainsi localiser un fichier par la succession de répértoire dans lesquels il est inclus depuis ce répertoire racine, on parle de <strong>chemin absolu</strong>.</p>
 <blockquote>
 <div><p>Exemple sous Windows : Si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> que nous vous avons conseillé de créer. Il est situé dans la succession de répertoire (sous Windows) <code class="docutils literal notranslate"><span class="pre">Users</span> <span class="pre">&gt;</span> <span class="pre">nom_utilisateur</span> <span class="pre">&gt;</span> <span class="pre">Documents</span> <span class="pre">&gt;</span> <span class="pre">python_prepa</span></code> (<code class="docutils literal notranslate"><span class="pre">nom_utilisateur</span></code> est à remplacer par le nom que vous avez choisi à la création de votre compte sur votre ordinateur). On note alors le <strong>chemin absolu vers le fichier</strong> :
@@ -419,7 +372,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="chemin-relatif">
-<h3><span class="section-number">2.1.2. </span>Chemin relatif<a class="headerlink" href="#chemin-relatif" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2. </span>Chemin relatif<a class="headerlink" href="#chemin-relatif" title="Permalink to this headline">¶</a></h3>
 <p>Les chemins absolus sont pratiques car ils ne souffrent d’aucune ambiguité. Il ont par contre le défaut d’être long et nécessite la connaissance du chemin complet (logique !). Il est souvent pratique d’utiliser uniquement le chemin depuis le fichier qu’on est en train d’utiliser. On parle de <strong>chemin relatif</strong>.</p>
 <blockquote>
 <div><p>Exemple : On utilise le fichier <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> précédent mais on a besoin de données expérimentales situées dans le fichier <code class="docutils literal notranslate"><span class="pre">/home/nom_utilisateur/python_prepa/donnees/data.txt</span></code>. Pour “passer” du répertoire de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> au répertoire de <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>, il suffit simplement d’entrer dans le répertoire <code class="docutils literal notranslate"><span class="pre">donnees</span></code>. Le <strong>chemin relatif de <code class="docutils literal notranslate"><span class="pre">exercice.py</span></code> vers <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> est alors :</strong>
@@ -437,7 +390,7 @@
 </div>
 </div>
 <div class="section" id="preparer-l-importation">
-<h2><span class="section-number">2.2. </span>Préparer l’importation<a class="headerlink" href="#preparer-l-importation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Préparer l’importation<a class="headerlink" href="#preparer-l-importation" title="Permalink to this headline">¶</a></h2>
 <p>Avant d’importer un fichier de données, il est important :</p>
 <ul class="simple">
 <li><p>de le localiser (cf. supra)</p></li>
@@ -462,17 +415,17 @@
 </ul>
 <div class="figure align-center" id="donnees-exp">
 <img alt="../_images/fichier_donnees.png" src="../_images/fichier_donnees.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Exemple de fichier de données affichés dans Pyzo</span><a class="headerlink" href="#donnees-exp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Exemple de fichier de données affichés dans Pyzo</span><a class="headerlink" href="#donnees-exp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="importation-dans-python">
-<h2><span class="section-number">2.3. </span>Importation dans Python<a class="headerlink" href="#importation-dans-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Importation dans Python<a class="headerlink" href="#importation-dans-python" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Il existe d’autres fonctions d’importation comme <code class="docutils literal notranslate"><span class="pre">fromfile</span></code> qui ne sont pas présentée ici pour ne pas alourdir la présentation.</p>
 </div>
 <div class="section" id="syntaxe">
-<h3><span class="section-number">2.3.1. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
 <p>La bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> propose la fonction <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> qui permet d’importer des données <strong>numériques</strong> dans un tableau numpy. Sa signature est :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chemin_vers_fichier&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -506,7 +459,7 @@
 </div>
 </div>
 <div class="section" id="exemple">
-<h3><span class="section-number">2.3.2. </span>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
 <p>Le script suivant est dans un fichier. Les données précédentes sont situées dans le fichier <code class="docutils literal notranslate"><span class="pre">Sf6/sf6.dat</span></code>.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -640,7 +593,7 @@ Vecteur des volumes :
 </div>
 </div>
 <div class="section" id="sauvegarder-des-donnees-depuis-python">
-<h2><span class="section-number">2.4. </span>Sauvegarder des données depuis Python<a class="headerlink" href="#sauvegarder-des-donnees-depuis-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Sauvegarder des données depuis Python<a class="headerlink" href="#sauvegarder-des-donnees-depuis-python" title="Permalink to this headline">¶</a></h2>
 <p>Vous l’utiliserez peut-être moins souvent, mais vous pouvez sauvegarder un tableau numpy dans un fichier avec <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code> :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">tableau_a_sauver</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
@@ -677,8 +630,8 @@ Vecteur des volumes :
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="np_polyfit.html" title="previous page"><span class="section-number">1. </span>Régression linéaire</a>
-    <a class='right-next' id="next-link" href="num_random.html" title="next page"><span class="section-number">3. </span>La bibliothèque numpy.random</a>
+    <a class='left-prev' id="prev-link" href="np_polyfit.html" title="previous page"><span class="section-number">5. </span>Régression linéaire</a>
+    <a class='right-next' id="next-link" href="num_random.html" title="next page"><span class="section-number">7. </span>La bibliothèque numpy.random</a>
 
         </div>
         
@@ -699,11 +652,9 @@ Vecteur des volumes :
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

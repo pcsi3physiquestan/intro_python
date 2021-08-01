@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Matplotlib : tracés graphiques &#8212; Python : Bases à connaître</title>
+    <title>4. Matplotlib : tracés graphiques &#8212; Python : Bases à connaître</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,28 +49,19 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plt_presentation.html" />
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/plt_presentation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Régression linéaire" href="np_polyfit.html" />
-    <link rel="prev" title="1. Numpy : manipuler des tableaux de nombres." href="np_vecteurs.html" />
-
+    <link rel="next" title="5. Régression linéaire" href="np_polyfit.html" />
+    <link rel="prev" title="3. Numpy : manipuler des tableaux de nombres." href="np_vecteurs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/plt_presentation.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Matplotlib : tracés graphiques" />
-<meta property="og:description" content="Matplotlib : tracés graphiques  Le module matplotlib permet le tracé graphique à partir de listes de valeurs (ou plus souvent de vecteurs numpy).  Importation d" />
-
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -82,74 +70,57 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro_python.html">
    Eléments de bases pour programmer en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Réviser les bases
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bases_intro.html">
    1. Le langage Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="types.html">
      1.1. Environnement de développement.
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#indentation">
-     1.2. Indentation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
-     1.3. Les types et opérations usuelles.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#variables-et-affection">
-     1.4. Variables et affection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-listes">
-     1.5. Les listes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-commentaires">
-     1.6. Les commentaires
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="blocs.html">
    2. Fonctions, conditions boucles
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="fonctions.html">
      2.1. Les fonctions.
@@ -166,77 +137,61 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Bilbiothèques scientifiques
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_vecteurs.html">
-   1. Numpy : manipuler des tableaux de nombres.
+   3. Numpy : manipuler des tableaux de nombres.
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Matplotlib : tracés graphiques
+   4. Matplotlib : tracés graphiques
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Plus loin avec numpy
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_polyfit.html">
-   1. Régression linéaire
+   5. Régression linéaire
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   2. Traiter des données expérimentales avec numpy
+   6. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   3. La bibliothèque numpy.random
+   7. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Pour aller plus loin
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   1. Fenêtre multi-graphique
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
-   2. Tableaux numpy : manipulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   3. La compréhension des listes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   8. Fenêtre multi-graphique
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -289,12 +244,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -320,50 +275,49 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importation-du-module">
-   2.1. Importation du module
+   4.1. Importation du module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elements-d-un-graphique">
-   2.2. Eléments d’un graphique
+   4.2. Eléments d’un graphique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-generale">
-   2.3. Méthode générale
+   4.3. Méthode générale
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#un-exemple-basique">
-     2.3.1. Un exemple basique
+     4.3.1. Un exemple basique
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#remarques-sur-le-code">
-     2.3.2. Remarques sur le code
+     4.3.2. Remarques sur le code
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#les-types-de-courbes-utiles">
-     2.3.3. Les types de courbes utiles.
+     4.3.3. Les types de courbes utiles.
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#fonctions-utiles">
-       2.3.3.1. Fonctions utiles
+       4.3.3.1. Fonctions utiles
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#arguments-optionnels-utiles">
-       2.3.3.2. Arguments optionnels utiles
+       4.3.3.2. Arguments optionnels utiles
       </a>
      </li>
     </ul>
@@ -372,18 +326,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#autres-fonctions-et-arguments">
-   2.4. Autres fonctions et arguments
+   4.4. Autres fonctions et arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pour-vous-entrainer">
-   2.5. Pour vous entraîner
+   4.5. Pour vous entraîner
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -393,10 +346,10 @@
               <div>
                 
   <div class="section" id="matplotlib-traces-graphiques">
-<h1><span class="section-number">2. </span>Matplotlib : tracés graphiques<a class="headerlink" href="#matplotlib-traces-graphiques" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Matplotlib : tracés graphiques<a class="headerlink" href="#matplotlib-traces-graphiques" title="Permalink to this headline">¶</a></h1>
 <p>Le module <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> permet le tracé graphique à partir de listes de valeurs (ou plus souvent de vecteurs <code class="docutils literal notranslate"><span class="pre">numpy</span></code>).</p>
 <div class="section" id="importation-du-module">
-<h2><span class="section-number">2.1. </span>Importation du module<a class="headerlink" href="#importation-du-module" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Importation du module<a class="headerlink" href="#importation-du-module" title="Permalink to this headline">¶</a></h2>
 <p>La grande majorité des fonctions utiles sont dans le sous module <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, c’est pourquoi, on importera directement <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,16 +373,16 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="elements-d-un-graphique">
-<h2><span class="section-number">2.2. </span>Eléments d’un graphique<a class="headerlink" href="#elements-d-un-graphique" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Eléments d’un graphique<a class="headerlink" href="#elements-d-un-graphique" title="Permalink to this headline">¶</a></h2>
 <p>Les éléments principaux sont données sur le schéma ci-dessous.</p>
 <p><img alt="Graphique matplotlib" src="../_images/graphique_modif.png" /></p>
 <p>On distinguera par la suite la fenêtre graphique des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l’exemple suivant (4 axes ou zone de tracé).</p>
 <p><img alt="Multigraphe" src="../_images/multi_g.png" /></p>
 </div>
 <div class="section" id="methode-generale">
-<h2><span class="section-number">2.3. </span>Méthode générale<a class="headerlink" href="#methode-generale" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Méthode générale<a class="headerlink" href="#methode-generale" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="un-exemple-basique">
-<h3><span class="section-number">2.3.1. </span>Un exemple basique<a class="headerlink" href="#un-exemple-basique" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>Un exemple basique<a class="headerlink" href="#un-exemple-basique" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -467,7 +420,7 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="remarques-sur-le-code">
-<h3><span class="section-number">2.3.2. </span>Remarques sur le code<a class="headerlink" href="#remarques-sur-le-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Remarques sur le code<a class="headerlink" href="#remarques-sur-le-code" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subplots</span></code> créer une fenêtre graphique avec une zone de tracé. On affecte la fenêtre graphique et les axes (zone de tracé) à des variables (ici <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code>) pour être sûr d’affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).</p></li>
 <li><p>Le <code class="docutils literal notranslate"><span class="pre">f.</span></code> permet de modifier spécifique la fenêtre graphique associée. On peut ajouter un titre à la fenêtre graphique <code class="docutils literal notranslate"><span class="pre">f</span></code> (<code class="docutils literal notranslate"><span class="pre">f.suptitle</span></code>).</p></li>
@@ -477,9 +430,9 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </ul>
 </div>
 <div class="section" id="les-types-de-courbes-utiles">
-<h3><span class="section-number">2.3.3. </span>Les types de courbes utiles.<a class="headerlink" href="#les-types-de-courbes-utiles" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.3. </span>Les types de courbes utiles.<a class="headerlink" href="#les-types-de-courbes-utiles" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="fonctions-utiles">
-<h4><span class="section-number">2.3.3.1. </span>Fonctions utiles<a class="headerlink" href="#fonctions-utiles" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.3.1. </span>Fonctions utiles<a class="headerlink" href="#fonctions-utiles" title="Permalink to this headline">¶</a></h4>
 <p>Sans être exhaustif, on donne trois types de courbes utiles :</p>
 <ol class="simple">
 <li><p>tracé d’un histogramme : <code class="docutils literal notranslate"><span class="pre">hist(liste_valeurs,</span> <span class="pre">bins='rice')</span></code></p></li>
@@ -502,7 +455,7 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="arguments-optionnels-utiles">
-<h4><span class="section-number">2.3.3.2. </span>Arguments optionnels utiles<a class="headerlink" href="#arguments-optionnels-utiles" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.3.2. </span>Arguments optionnels utiles<a class="headerlink" href="#arguments-optionnels-utiles" title="Permalink to this headline">¶</a></h4>
 <p>Les fonctions précédentes permettent d’utiliser des arguments optionnels pour modifier l’allure de la courbe ou légender la courbe.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un exemple :</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nuages&#39;</span><span class="p">)</span>
@@ -517,8 +470,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 <p>On cite les plus utiles :</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="41287e08-2b02-4b78-a189-2344ad875360" name="940fdc9b-53f4-44cb-b2e5-98c91af70f9e" type="radio">
-</input><label class="tabbed-label" for="41287e08-2b02-4b78-a189-2344ad875360">
+<input checked="checked" id="15ca7647-97cc-452a-b672-a9cf12e917b4" name="fb04f9aa-14e2-4327-89b4-e37db18ee12f" type="radio">
+</input><label class="tabbed-label" for="15ca7647-97cc-452a-b672-a9cf12e917b4">
 Pour plot et errorbar</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linestyle</span></code> : style de ligne qui relie les points (non exhaustif):</p>
@@ -540,8 +493,8 @@ Pour plot et errorbar</label><div class="tabbed-content docutils">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>
-<input id="688ef536-2df0-4ffa-8893-b8dcdd08ec95" name="940fdc9b-53f4-44cb-b2e5-98c91af70f9e" type="radio">
-</input><label class="tabbed-label" for="688ef536-2df0-4ffa-8893-b8dcdd08ec95">
+<input id="71f5cec8-fa1b-4638-b21d-d0593eb02f11" name="fb04f9aa-14e2-4327-89b4-e37db18ee12f" type="radio">
+</input><label class="tabbed-label" for="71f5cec8-fa1b-4638-b21d-d0593eb02f11">
 Pour hist</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
@@ -553,7 +506,7 @@ Pour hist</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="autres-fonctions-et-arguments">
-<h2><span class="section-number">2.4. </span>Autres fonctions et arguments<a class="headerlink" href="#autres-fonctions-et-arguments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Autres fonctions et arguments<a class="headerlink" href="#autres-fonctions-et-arguments" title="Permalink to this headline">¶</a></h2>
 <p>La liste présente les plus importantes et à connaître. Vous en rencontrerez peut-être d’autres (pas à connaître):</p>
 <ul class="simple">
 <li><p>pour sauvegarder la figure</p></li>
@@ -564,7 +517,7 @@ Pour hist</label><div class="tabbed-content docutils">
 </ul>
 </div>
 <div class="section" id="pour-vous-entrainer">
-<h2><span class="section-number">2.5. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">¶</a></h2>
 <p>Voici le <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science.html">lien vers les exercices pour vous entraîner sur l’utilisation de numpy et matplotlib</a></p>
 </div>
 </div>
@@ -594,8 +547,8 @@ Pour hist</label><div class="tabbed-content docutils">
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="np_vecteurs.html" title="previous page"><span class="section-number">1. </span>Numpy : manipuler des tableaux de nombres.</a>
-    <a class='right-next' id="next-link" href="np_polyfit.html" title="next page"><span class="section-number">1. </span>Régression linéaire</a>
+    <a class='left-prev' id="prev-link" href="np_vecteurs.html" title="previous page"><span class="section-number">3. </span>Numpy : manipuler des tableaux de nombres.</a>
+    <a class='right-next' id="next-link" href="np_polyfit.html" title="next page"><span class="section-number">5. </span>Régression linéaire</a>
 
         </div>
         
@@ -616,11 +569,9 @@ Pour hist</label><div class="tabbed-content docutils">
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

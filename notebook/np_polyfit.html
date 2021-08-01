@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Régression linéaire &#8212; Python : Bases à connaître</title>
+    <title>5. Régression linéaire &#8212; Python : Bases à connaître</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,28 +51,19 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python_source/notebook/np_polyfit.html" />
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/np_polyfit.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Traiter des données expérimentales avec numpy" href="import_file.html" />
-    <link rel="prev" title="2. Matplotlib : tracés graphiques" href="plt_presentation.html" />
-
+    <link rel="next" title="6. Traiter des données expérimentales avec numpy" href="import_file.html" />
+    <link rel="prev" title="4. Matplotlib : tracés graphiques" href="plt_presentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/intro_python_source/notebook/np_polyfit.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Régression linéaire" />
-<meta property="og:description" content="Régression linéaire  Il arrive fréquemment qu’on veuille ajuster un modèle théorique sur des points de données expérimentaux. Le plus courramment utilisé pour n" />
-
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -84,74 +72,57 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python : Bases à connaître</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro_python.html">
    Eléments de bases pour programmer en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Réviser les bases
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bases_intro.html">
    1. Le langage Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="types.html">
      1.1. Environnement de développement.
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#indentation">
-     1.2. Indentation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-types-et-operations-usuelles">
-     1.3. Les types et opérations usuelles.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#variables-et-affection">
-     1.4. Variables et affection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-listes">
-     1.5. Les listes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="types.html#les-commentaires">
-     1.6. Les commentaires
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="blocs.html">
    2. Fonctions, conditions boucles
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="fonctions.html">
      2.1. Les fonctions.
@@ -168,77 +139,61 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Bilbiothèques scientifiques
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="np_vecteurs.html">
-   1. Numpy : manipuler des tableaux de nombres.
+   3. Numpy : manipuler des tableaux de nombres.
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plt_presentation.html">
-   2. Matplotlib : tracés graphiques
+   4. Matplotlib : tracés graphiques
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Plus loin avec numpy
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Régression linéaire
+   5. Régression linéaire
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="import_file.html">
-   2. Traiter des données expérimentales avec numpy
+   6. Traiter des données expérimentales avec numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="num_random.html">
-   3. La bibliothèque numpy.random
+   7. La bibliothèque numpy.random
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Pour aller plus loin
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin.html">
-   1. Fenêtre multi-graphique
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#tableaux-numpy-manipulations">
-   2. Tableaux numpy : manipulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#la-comprehension-des-listes">
-   3. La compréhension des listes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plus_loin.html#fonctions-et-methodes">
-   4. Fonctions et méthodes
+   8. Fenêtre multi-graphique
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -291,12 +246,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -322,48 +277,46 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modelisation-du-probleme">
-   1.1. Modélisation du problème
+   5.1. Modélisation du problème
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numpy-polyfit">
-   1.2. numpy.polyfit
+   5.2. numpy.polyfit
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#syntaxe">
-     1.2.1. Syntaxe
+     5.2.1. Syntaxe
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#methode-d-utilisation">
-     1.2.2. Méthode d’utilisation.
+     5.2.2. Méthode d’utilisation.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#un-exemple-de-syntaxe">
-     1.2.3. Un exemple de syntaxe
+     5.2.3. Un exemple de syntaxe
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pour-vous-entrainer">
-   1.3. Pour vous entraîner
+   5.3. Pour vous entraîner
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -373,10 +326,10 @@
               <div>
                 
   <div class="section" id="regression-lineaire">
-<h1><span class="section-number">1. </span>Régression linéaire<a class="headerlink" href="#regression-lineaire" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Régression linéaire<a class="headerlink" href="#regression-lineaire" title="Permalink to this headline">¶</a></h1>
 <p>Il arrive fréquemment qu’on veuille ajuster un modèle théorique sur des points de données expérimentaux. Le plus courramment utilisé pour nous est l’ajustement d’un modèle affine <span class="math notranslate nohighlight">\(Y = aX + b\)</span> à des points expérimentaux <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> (i allant de 1 à  k). On veut connaître les valeurs de <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> qui donne une droite passant au plus près des points expérimentaux (on parle de <strong>régression linéaire</strong>).</p>
 <div class="section" id="modelisation-du-probleme">
-<h2><span class="section-number">1.1. </span>Modélisation du problème<a class="headerlink" href="#modelisation-du-probleme" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Modélisation du problème<a class="headerlink" href="#modelisation-du-probleme" title="Permalink to this headline">¶</a></h2>
 <p>Nous allons donner, sans rentrer dans les détails un sens au terme “au plus près”. La méthode proposée ici s’appelle la méthode des <strong>moindres carrés</strong>. Dans toute la suite la méthode proposée suppose qu’il n’y a pas d’incertitudes sur les abscisses <span class="math notranslate nohighlight">\(x_i\)</span> ou qu’elles sont négligeables devant celles sur les <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -404,9 +357,9 @@
 <p>avec <span class="math notranslate nohighlight">\(\overline{y}\)</span> la moyenne des <span class="math notranslate nohighlight">\(y_i\)</span> et <span class="math notranslate nohighlight">\(\overline{x}\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
 </div>
 <div class="section" id="numpy-polyfit">
-<h2><span class="section-number">1.2. </span>numpy.polyfit<a class="headerlink" href="#numpy-polyfit" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>numpy.polyfit<a class="headerlink" href="#numpy-polyfit" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="syntaxe">
-<h3><span class="section-number">1.2.1. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h3>
 <p>La majorité des méthodes numériques proposées par les logiciels utilisent la méthode des moindres carrés (DROITEREG sous Excel et Libreoffice par exemple). C’est aussi le cas de la fonction <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Sa syntaxe (version simple) est:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
@@ -424,7 +377,7 @@
 <p>Cette fonction renvoie un vecteur contenant les coefficient du polynôme par <strong>degré décroissants</strong>. Ainsi, pour un degré 1 et si on écrit la droite d’ajustement <span class="math notranslate nohighlight">\(Y = aX + b\)</span>, le vecteur aura la forme : <code class="docutils literal notranslate"><span class="pre">array([a,</span> <span class="pre">b])</span></code></p>
 </div>
 <div class="section" id="methode-d-utilisation">
-<h3><span class="section-number">1.2.2. </span>Méthode d’utilisation.<a class="headerlink" href="#methode-d-utilisation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Méthode d’utilisation.<a class="headerlink" href="#methode-d-utilisation" title="Permalink to this headline">¶</a></h3>
 <p>Réaliser une régression linéaire demande de la rigueur, il ne faut pas simplement appliquer la formule précédente. Vous devez :</p>
 <ol class="simple">
 <li><p>Tracer le nuage de points des <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> <strong>et vérifier qu’ils sont globalement alignés</strong>. Il ne sert à rien de faire une régression linéaire s’il y a des points qui dévient clairement d’un modèle affine ou si la tendance n’est pas affine.</p></li>
@@ -437,7 +390,7 @@
 </div>
 </div>
 <div class="section" id="un-exemple-de-syntaxe">
-<h3><span class="section-number">1.2.3. </span>Un exemple de syntaxe<a class="headerlink" href="#un-exemple-de-syntaxe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>Un exemple de syntaxe<a class="headerlink" href="#un-exemple-de-syntaxe" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -498,7 +451,7 @@ En pratique, il faudrait tronquer aux bons chiffres significatifs
 </div>
 </div>
 <div class="section" id="pour-vous-entrainer">
-<h2><span class="section-number">1.3. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">¶</a></h2>
 <p>Voici le <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_polyfit.html">lien vers les exercices pour vous entraîner sur l’utilisation de la régression linéaire</a></p>
 </div>
 </div>
@@ -528,8 +481,8 @@ En pratique, il faudrait tronquer aux bons chiffres significatifs
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="plt_presentation.html" title="previous page"><span class="section-number">2. </span>Matplotlib : tracés graphiques</a>
-    <a class='right-next' id="next-link" href="import_file.html" title="next page"><span class="section-number">2. </span>Traiter des données expérimentales avec numpy</a>
+    <a class='left-prev' id="prev-link" href="plt_presentation.html" title="previous page"><span class="section-number">4. </span>Matplotlib : tracés graphiques</a>
+    <a class='right-next' id="next-link" href="import_file.html" title="next page"><span class="section-number">6. </span>Traiter des données expérimentales avec numpy</a>
 
         </div>
         
@@ -550,11 +503,9 @@ En pratique, il faudrait tronquer aux bons chiffres significatifs
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
