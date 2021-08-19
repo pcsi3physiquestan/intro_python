@@ -44,9 +44,9 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/np_vecteurs.html" />
@@ -259,7 +259,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/np_vecteurs.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/intro_python_source/main?urlpath=tree/notebook/np_vecteurs.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -267,6 +267,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -376,8 +379,8 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="66ee6a47-bcda-42b6-aa9d-753307e2244a" name="0f742b42-6794-4b13-95c7-5dedbe56fd33" type="radio">
-</input><label class="tabbed-label" for="66ee6a47-bcda-42b6-aa9d-753307e2244a">
+<input checked="checked" id="5be6d880-0ed8-4acc-9124-c66012f63f2d" name="1e1d9509-2d20-4415-aaa8-d3915762b1b4" type="radio">
+</input><label class="tabbed-label" for="5be6d880-0ed8-4acc-9124-c66012f63f2d">
 D’une liste</label><div class="tabbed-content docutils">
 <p>A partir d’une liste d’entiers ou de flottants (uniquement) :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
@@ -388,8 +391,8 @@ D’une liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="99ec7408-b341-4330-925b-e30b0ebc9ba3" name="0f742b42-6794-4b13-95c7-5dedbe56fd33" type="radio">
-</input><label class="tabbed-label" for="99ec7408-b341-4330-925b-e30b0ebc9ba3">
+<input id="1e40b286-87aa-497f-b18a-b86a81643a98" name="1e1d9509-2d20-4415-aaa8-d3915762b1b4" type="radio">
+</input><label class="tabbed-label" for="1e40b286-87aa-497f-b18a-b86a81643a98">
 arange</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">arange(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui va créer une liste de <em>flottants</em> partant de <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclus) et allant jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> (<strong>exclus</strong>) par pas de valeur <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> et <code class="docutils literal notranslate"><span class="pre">step</span></code> peuvent être des flottants contrairement à <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
@@ -398,8 +401,8 @@ arange</label><div class="tabbed-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5])</span></code></span></p>
 </div>
-<input id="7d32fbb8-21e4-444f-82b9-c5ff67e88f9e" name="0f742b42-6794-4b13-95c7-5dedbe56fd33" type="radio">
-</input><label class="tabbed-label" for="7d32fbb8-21e4-444f-82b9-c5ff67e88f9e">
+<input id="8ca42a8c-7e52-4513-839c-8812211531dd" name="1e1d9509-2d20-4415-aaa8-d3915762b1b4" type="radio">
+</input><label class="tabbed-label" for="8ca42a8c-7e52-4513-839c-8812211531dd">
 linspace</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">stop,</span> <span class="pre">N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments réparties uniformément entre les valeurs <code class="docutils literal notranslate"><span class="pre">start</span></code> et <code class="docutils literal notranslate"><span class="pre">stop</span></code> (cette fois <code class="docutils literal notranslate"><span class="pre">stop</span></code> est inclus, il faut la compter dans les N valeurs !).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
@@ -407,8 +410,8 @@ linspace</label><div class="tabbed-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5,</span> <span class="pre">6.</span> <span class="pre">])</span></code></span></p>
 </div>
-<input id="8f9bf7f9-3487-4362-9211-27c2837e745f" name="0f742b42-6794-4b13-95c7-5dedbe56fd33" type="radio">
-</input><label class="tabbed-label" for="8f9bf7f9-3487-4362-9211-27c2837e745f">
+<input id="45f3e273-b79f-4066-8efb-3ff0933c6cb1" name="1e1d9509-2d20-4415-aaa8-d3915762b1b4" type="radio">
+</input><label class="tabbed-label" for="45f3e273-b79f-4066-8efb-3ff0933c6cb1">
 zeros et ones</label><div class="tabbed-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">zeros(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments nuls.<br />
 <em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">ones(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments tous égaux à 1.</p>
@@ -417,8 +420,8 @@ zeros et ones</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="68865738-9bd5-4dc0-ac74-8916c63e0531" name="0f742b42-6794-4b13-95c7-5dedbe56fd33" type="radio">
-</input><label class="tabbed-label" for="68865738-9bd5-4dc0-ac74-8916c63e0531">
+<input id="bec19339-4221-4a4f-aa49-97d089455965" name="1e1d9509-2d20-4415-aaa8-d3915762b1b4" type="radio">
+</input><label class="tabbed-label" for="bec19339-4221-4a4f-aa49-97d089455965">
 D’une fonction</label><div class="tabbed-content docutils">
 <p>Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Exemple : La fonction suivante evalue le polynome </span>
@@ -559,8 +562,8 @@ D’une fonction</label><div class="tabbed-content docutils">
 <h2><span class="section-number">3.4. </span>Créer un tableau numpy<a class="headerlink" href="#creer-un-tableau-numpy" title="Permalink to this headline">¶</a></h2>
 <p>On peut créer un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> à 2 dimensions. C’est très utile pour traiter des données expérimentales.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b419d1e0-1854-43b5-91b0-c6cdc08ec36e" name="dfc946e1-bf04-4a50-8a3d-9305e9431dc7" type="radio">
-</input><label class="tabbed-label" for="b419d1e0-1854-43b5-91b0-c6cdc08ec36e">
+<input checked="checked" id="bcd4f5cc-1dc2-4515-b666-d31c7a02223b" name="b29a0947-60a7-47a9-ae1b-8d2f4d30f322" type="radio">
+</input><label class="tabbed-label" for="bcd4f5cc-1dc2-4515-b666-d31c7a02223b">
 D’une liste de liste</label><div class="tabbed-content docutils">
 <p>On utilise à nouveau <code class="docutils literal notranslate"><span class="pre">array</span></code>. Attention : Le tableau doit être rectangulaire (ou carré) : les lignes doivent avoir toutes le même nombre d’éléments.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">]]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
@@ -571,8 +574,8 @@ D’une liste de liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9a50f6fe-cd21-4cb1-8872-2580c2179f02" name="dfc946e1-bf04-4a50-8a3d-9305e9431dc7" type="radio">
-</input><label class="tabbed-label" for="9a50f6fe-cd21-4cb1-8872-2580c2179f02">
+<input id="3d7ab08b-6313-4a69-8ac1-b04f9262dc36" name="b29a0947-60a7-47a9-ae1b-8d2f4d30f322" type="radio">
+</input><label class="tabbed-label" for="3d7ab08b-6313-4a69-8ac1-b04f9262dc36">
 zeros() et ones()</label><div class="tabbed-content docutils">
 <p>A connaître : <code class="docutils literal notranslate"><span class="pre">zeros((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments nuls.
 A connaître : <code class="docutils literal notranslate"><span class="pre">ones((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments tous égaux à 1.</p>
@@ -606,8 +609,8 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "pcsi3physiquestan/intro_python_source",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
