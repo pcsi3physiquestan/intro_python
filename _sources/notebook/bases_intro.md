@@ -34,7 +34,7 @@ Les environnements de développements comme Spyder ou Pyzo permettent d'interpr�
 :class: note
 Python existe sous plusieurs versions et possède des bibliothèques supplémentaires proposant des fonctionnalités utiles (calcul scientifique, tracé graphique, analyse numérique...). Dans le cadre des classes préparatoires, il est important d'installer la verion 3.X de Python ainsi que les bibliothèques scientifiques comme numyp, scipy, matplotlib...
 
-Pour une installation simple et identique à ce qui sera utilisé dans l'année, il est demandé d'installer la suite Anaconda Python et l'environnement Pyzo. Vous trouverez [ici un tutoriel détaillé pour l'installation des deux](https://filedn.com/lykEJ3axFalJygD0EVAUyWS/Stan/Pyzo_Anaconda/Python_pyzo_insta_gen_auroraW/index.html).
+Pour une installation simple et identique à ce qui sera utilisé dans l'année, il est demandé d'installer la suite Anaconda Python et l'environnement Pyzo. Vous trouverez [ici un tutoriel détaillé pour l'installation des deux](https://filedn.eu/l2bpHGgwv4dYLpu8bJBwYM7/Stan/Pyzo_Anaconda/Python_pyzo_insta_gen_auroraW/co/Python_Installation.html).
 ````
 
 Remarque : A plusieurs reprises des éléments de code sont proposés. Vous pouvez les tester vous même en les copiant dans un fichier script que vous exécuterez. En haut à droite de chaque cellule de code, vous trouverez un petit bouton ![Bouton](./images/copie_code.png) qui vous permettra de copier le code pour le coller ensuite dans votre fichier.
