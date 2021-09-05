@@ -13,7 +13,6 @@ kernelspec:
   language: python
   name: python3
 ---
-
 # Syntaxe : récapitulation
 
 ## Opérations de base
