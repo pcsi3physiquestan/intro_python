@@ -132,3 +132,94 @@ while condition:
 	Modification_de_la_condition
 ```
 ````
+
+## Numpy
+````{tabbed} Création
+* `V1 = np.array(L)`  : L est une liste et V1 est un vecteur numpy
+* `arange(start, stop, step)` : une vecteur de _flottants_ partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
+* `linspace(start, stop, N)` : un vecteur de `N` éléments réparties uniformément entre les valeurs `start` et `stop` (__inclus__)
+* `zeros(N)` : un vecteur de `N` éléments nuls.  
+* `ones(N)` : un vecteur de `N` éléments tous égaux à 1.
+````
+
+````{tabbed} Extraction
+Comme pour les listes
+````
+
+````{tabbed} Opérations
+* Opérations termes à termes `+,-,/,*`
+* Fonctions classiques __à partir de la bibliothèque numpy__ `sin, cos, tan, exp, log`
+````
+
+````{tabbed} Régression linéaire
+```python
+import numpy as np
+coefs = np.polyfit(x, y, 1) 
+""" 
+coefs : vecteur numpy contenant
+les coefficients du polynome par ordre croissant
+"""
+```
+````
+
+````{tabbed} Numpy.random
+```python
+import numpy.random as rd
+X = rd.uniform(a, b, N)
+"""
+X : Vecteur numpy de taille N contenant
+N tirages aléatoires uniformes entre a et b
+"""
+Y = rd.normal(m, s, N)
+"""
+X : Vecteur numpy de taille N contenant
+N tirages aléatoires suivant une loi normale
+d'espérance m et d'écart-type s
+"""
+```
+````
+
+````{tabbed} Importer depuis un fichier
+```python
+"""Extraire tout sous forme de tableau numpy"""
+T = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',')
+
+"""Extraire chaque colonne dans un vecteur différent"""
+V1, V2, V3 = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',', unpack=False)
+
+"""Extraire une colonne particulière"""
+V1 = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',', usecols=2)
+```
+````
+
+## Matplotlib.pyplot
+### Structure générale
+```python
+import matplotlib.pyplot as plt
+
+#...
+#Creation des vecteurs x et y
+#...
+#...
+
+f, ax = plt.subplots()  # On crée la fenêtre graphique et les axes (= zone de tracé, ici une seule zone)
+
+f.suptitle("Titre du graphique")  # On donne un titre au graphique
+
+ax.set_xlabel("Temps (s)")  # On légende les abscisses de la zone de tracé
+ax.set_ylabel("Position (m)")  # On légende les ordonnées de la zone de tracé
+
+ax.plot(x, y, label="Légende")  # On trace la courbe voulue
+
+ax.legend()  # On affiche la légende de la zone de tracé
+
+ax.grid()  # Optionnel : permet d'afficher une grille sur le graphique
+
+plt.show()  # On demande d'afficher le graphique.
+```
+
+### Fonctions de tracés
+* Nuage de points simples : `ax.plot(x, y, marker='+', linestyle='', color='red', label='Nuages')`
+* Avec incertitudes : `ax.errorbar(x, y, xerr=incert_x, yerr=incert_y, marker='+', linestyle='', color='red', label='Nuages')`
+* Histogramme : `hist(liste_valeurs, bins='rice')`
+
