@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Syntaxe : récapitulation &#8212; Python : Bases à connaître</title>
+    <title>8. Syntaxe &#8212; Python : Bases à connaître</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,8 +49,6 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/intro_python/notebook/syntaxe.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -189,7 +187,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Syntaxe : récapitulation
+   8. Syntaxe
   </a>
  </li>
 </ul>
@@ -303,60 +301,6 @@
    8.1. Opérations de base
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#les-listes">
-   8.2. Les listes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fonctions">
-   8.3. Fonctions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fonctions-standards-utiles-non-exhaustif">
-     8.3.1. Fonctions standards utiles (non exhaustif)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importer-un-module">
-     8.3.2. Importer un module
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definir-une-fonction">
-     8.3.3. Définir une fonction
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#blocs">
-   8.4. Blocs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy">
-   8.5. Numpy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matplotlib-pyplot">
-   8.6. Matplotlib.pyplot
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#structure-generale">
-     8.6.1. Structure générale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fonctions-de-traces">
-     8.6.2. Fonctions de tracés
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
             </nav>
@@ -368,13 +312,13 @@
         
               <div>
                 
-  <div class="section" id="syntaxe-recapitulation">
-<h1><span class="section-number">8. </span>Syntaxe : récapitulation<a class="headerlink" href="#syntaxe-recapitulation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="syntaxe">
+<h1><span class="section-number">8. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="operations-de-base">
 <h2><span class="section-number">8.1. </span>Opérations de base<a class="headerlink" href="#operations-de-base" title="Permalink to this headline">¶</a></h2>
 <div class="tabbed-set docutils">
-<input checked="checked" id="1d2fbb82-1dd1-4d50-bf9b-78497c75ee6f" name="35d81546-bcde-4572-9f50-003f303a815f" type="radio">
-</input><label class="tabbed-label" for="1d2fbb82-1dd1-4d50-bf9b-78497c75ee6f">
+<input checked="checked" id="e4e25a8c-8638-41f6-90ad-187fe61adc9a" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
+</input><label class="tabbed-label" for="e4e25a8c-8638-41f6-90ad-187fe61adc9a">
 Les entiers</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
@@ -388,8 +332,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3</span><
 <li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
 </ul>
 </div>
-<input id="66c9041b-7f0c-49ac-b31e-e20352ac3db7" name="35d81546-bcde-4572-9f50-003f303a815f" type="radio">
-</input><label class="tabbed-label" for="66c9041b-7f0c-49ac-b31e-e20352ac3db7">
+<input id="35ecef72-5a05-4829-b360-d4f0e6b2665d" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
+</input><label class="tabbed-label" for="35ecef72-5a05-4829-b360-d4f0e6b2665d">
 Les flottants (nombres réels)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
@@ -406,8 +350,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</spa
 <p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
 </div>
 </div>
-<input id="eb6d9e37-6472-46c4-be97-fadfcde78e38" name="35d81546-bcde-4572-9f50-003f303a815f" type="radio">
-</input><label class="tabbed-label" for="eb6d9e37-6472-46c4-be97-fadfcde78e38">
+<input id="a0bccb61-d2f7-4751-8799-d495c17cecdc" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
+</input><label class="tabbed-label" for="a0bccb61-d2f7-4751-8799-d495c17cecdc">
 Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
@@ -418,8 +362,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">True</spa
 <li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 </ul>
 </div>
-<input id="74743777-53b3-4781-b0ee-380ee17acb2c" name="35d81546-bcde-4572-9f50-003f303a815f" type="radio">
-</input><label class="tabbed-label" for="74743777-53b3-4781-b0ee-380ee17acb2c">
+<input id="1408e922-ea04-45ac-a906-5759888cf81a" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
+</input><label class="tabbed-label" for="1408e922-ea04-45ac-a906-5759888cf81a">
 Les chaines de caractères</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>
@@ -435,193 +379,6 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 <p>La position des caractères commence à 0 et non à 1</p>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="les-listes">
-<h2><span class="section-number">8.2. </span>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Créer une liste vide : <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[]</span></code></p></li>
-<li><p>Créer une liste à partir de données : <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[3,</span> <span class="pre">&quot;phrase&quot;,</span> <span class="pre">4.2,</span> <span class="pre">&quot;teste&quot;]</span></code></p></li>
-<li><p>Ajouter un élément à une liste <code class="docutils literal notranslate"><span class="pre">l2</span></code> <strong>à la fin</strong> : <code class="docutils literal notranslate"><span class="pre">l2.append(&quot;Un</span> <span class="pre">ajout&quot;)</span></code></p></li>
-<li><p>Concaténer deux listes <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l3</span></code> : <code class="docutils literal notranslate"><span class="pre">l1</span> <span class="pre">+</span> <span class="pre">l3</span></code></p></li>
-<li><p>Longueur de la liste : <code class="docutils literal notranslate"><span class="pre">len(l)</span></code></p></li>
-<li><p>Extraction : <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">l[k]</span></code> (<span class="math notranslate nohighlight">\(0 &lt;= k &lt; len(l)\)</span>)</p></li>
-</ul>
-</div>
-<div class="section" id="fonctions">
-<h2><span class="section-number">8.3. </span>Fonctions<a class="headerlink" href="#fonctions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fonctions-standards-utiles-non-exhaustif">
-<h3><span class="section-number">8.3.1. </span>Fonctions standards utiles (non exhaustif)<a class="headerlink" href="#fonctions-standards-utiles-non-exhaustif" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">print(a)</span></code> : Affiche la variable</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">len(l)</span></code> : Longueur d’une liste ou d’une chaine de caractères</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">min(a,</span> <span class="pre">b,</span> <span class="pre">...)</span></code> et <code class="docutils literal notranslate"><span class="pre">max(a,</span> <span class="pre">b,</span> <span class="pre">...)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int(b)</span></code> : Transforme en entier (utile pour transformer une chaine de caractère <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> en entier <code class="docutils literal notranslate"><span class="pre">1</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">str(a)</span></code> : Transforme (un nombre) en une chaine de caractère. Utile pour afficher un nombre dans une phrase.</p></li>
-</ul>
-</div>
-<div class="section" id="importer-un-module">
-<h3><span class="section-number">8.3.2. </span>Importer un module<a class="headerlink" href="#importer-un-module" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nom_module</span> <span class="k">as</span> <span class="nn">alias_module</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="definir-une-fonction">
-<h3><span class="section-number">8.3.3. </span>Définir une fonction<a class="headerlink" href="#definir-une-fonction" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nom_fonction</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-	<span class="n">corps</span> <span class="n">_de_la_fonction</span>
-	<span class="o">...</span>
-	<span class="k">return</span> <span class="n">objets_à_retourner</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="blocs">
-<h2><span class="section-number">8.4. </span>Blocs<a class="headerlink" href="#blocs" title="Permalink to this headline">¶</a></h2>
-<div class="tabbed-set docutils">
-<input checked="checked" id="227f0ded-c744-4801-948e-41525d46e537" name="4caaf4df-2633-4a5e-802b-929b3289d8dd" type="radio">
-</input><label class="tabbed-label" for="227f0ded-c744-4801-948e-41525d46e537">
-Condition</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
-	<span class="o">...</span>
-<span class="k">elif</span> <span class="n">condition</span><span class="p">:</span>
-	<span class="o">...</span>
-<span class="k">else</span><span class="p">:</span>
-	<span class="o">...</span>
-</pre></div>
-</div>
-</div>
-<input id="6444a4dc-5206-449a-858d-b9d10ca6703a" name="4caaf4df-2633-4a5e-802b-929b3289d8dd" type="radio">
-</input><label class="tabbed-label" for="6444a4dc-5206-449a-858d-b9d10ca6703a">
-Boucle for</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">obj_iter</span><span class="p">:</span>
-	<span class="n">corps_de_boucle</span>
-	<span class="o">...</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">range(N)</span></code> permet d’itérer de 0 à <strong>N-1</strong></p>
-</div>
-<input id="24764e98-3830-49e4-8e58-353823da14bd" name="4caaf4df-2633-4a5e-802b-929b3289d8dd" type="radio">
-</input><label class="tabbed-label" for="24764e98-3830-49e4-8e58-353823da14bd">
-Boucle while</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Initialisation</span>
-<span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
-	<span class="o">...</span>
-	<span class="o">...</span>
-	<span class="n">Modification_de_la_condition</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="numpy">
-<h2><span class="section-number">8.5. </span>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
-<div class="tabbed-set docutils">
-<input checked="checked" id="b53d651c-a545-462a-8522-3fdcd399e7e9" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="b53d651c-a545-462a-8522-3fdcd399e7e9">
-Création</label><div class="tabbed-content docutils">
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">V1</span> <span class="pre">=</span> <span class="pre">np.array(L)</span></code>  : L est une liste et V1 est un vecteur numpy</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">arange(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> : une vecteur de <em>flottants</em> partant de <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclus) et allant jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> (<strong>exclus</strong>) par pas de valeur <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">stop,</span> <span class="pre">N)</span></code> : un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments réparties uniformément entre les valeurs <code class="docutils literal notranslate"><span class="pre">start</span></code> et <code class="docutils literal notranslate"><span class="pre">stop</span></code> (<strong>inclus</strong>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zeros(N)</span></code> : un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments nuls.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ones(N)</span></code> : un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments tous égaux à 1.</p></li>
-</ul>
-</div>
-<input id="060945d7-6302-415a-a6f0-258f22fc3922" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="060945d7-6302-415a-a6f0-258f22fc3922">
-Extraction</label><div class="tabbed-content docutils">
-<p>Comme pour les listes</p>
-</div>
-<input id="7fca4ce3-b7aa-4939-81d5-09cfb2de3aec" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="7fca4ce3-b7aa-4939-81d5-09cfb2de3aec">
-Opérations</label><div class="tabbed-content docutils">
-<ul class="simple">
-<li><p>Opérations termes à termes <code class="docutils literal notranslate"><span class="pre">+,-,/,*</span></code></p></li>
-<li><p>Fonctions classiques <strong>à partir de la bibliothèque numpy</strong> <code class="docutils literal notranslate"><span class="pre">sin,</span> <span class="pre">cos,</span> <span class="pre">tan,</span> <span class="pre">exp,</span> <span class="pre">log</span></code></p></li>
-</ul>
-</div>
-<input id="1f986a5c-326e-446a-a29f-c0bcfb7cc334" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="1f986a5c-326e-446a-a29f-c0bcfb7cc334">
-Régression linéaire</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
-<span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">coefs : vecteur numpy contenant</span>
-<span class="sd">les coefficients du polynome par ordre croissant</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<input id="4f40b68c-df79-4474-9cf6-fa74f27a0248" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="4f40b68c-df79-4474-9cf6-fa74f27a0248">
-Numpy.random</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">X : Vecteur numpy de taille N contenant</span>
-<span class="sd">N tirages aléatoires uniformes entre a et b</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">X : Vecteur numpy de taille N contenant</span>
-<span class="sd">N tirages aléatoires suivant une loi normale</span>
-<span class="sd">d&#39;espérance m et d&#39;écart-type s</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<input id="8a60e43b-d3ca-41bb-aad8-edf070e1b73d" name="51fc0302-c75d-4558-bef2-3e8962aac222" type="radio">
-</input><label class="tabbed-label" for="8a60e43b-d3ca-41bb-aad8-edf070e1b73d">
-Importer depuis un fichier</label><div class="tabbed-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Extraire tout sous forme de tableau numpy&quot;&quot;&quot;</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chemin_vers_fichier&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-
-<span class="sd">&quot;&quot;&quot;Extraire chaque colonne dans un vecteur différent&quot;&quot;&quot;</span>
-<span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">,</span> <span class="n">V3</span> <span class="o">=</span> <span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chemin_vers_fichier&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="sd">&quot;&quot;&quot;Extraire une colonne particulière&quot;&quot;&quot;</span>
-<span class="n">V1</span> <span class="o">=</span> <span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chemin_vers_fichier&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="matplotlib-pyplot">
-<h2><span class="section-number">8.6. </span>Matplotlib.pyplot<a class="headerlink" href="#matplotlib-pyplot" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="structure-generale">
-<h3><span class="section-number">8.6.1. </span>Structure générale<a class="headerlink" href="#structure-generale" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#...</span>
-<span class="c1">#Creation des vecteurs x et y</span>
-<span class="c1">#...</span>
-<span class="c1">#...</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># On crée la fenêtre graphique et les axes (= zone de tracé, ici une seule zone)</span>
-
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Titre du graphique&quot;</span><span class="p">)</span>  <span class="c1"># On donne un titre au graphique</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Temps (s)&quot;</span><span class="p">)</span>  <span class="c1"># On légende les abscisses de la zone de tracé</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Position (m)&quot;</span><span class="p">)</span>  <span class="c1"># On légende les ordonnées de la zone de tracé</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Légende&quot;</span><span class="p">)</span>  <span class="c1"># On trace la courbe voulue</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># On affiche la légende de la zone de tracé</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># Optionnel : permet d&#39;afficher une grille sur le graphique</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># On demande d&#39;afficher le graphique.</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fonctions-de-traces">
-<h3><span class="section-number">8.6.2. </span>Fonctions de tracés<a class="headerlink" href="#fonctions-de-traces" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Nuage de points simples : <code class="docutils literal notranslate"><span class="pre">ax.plot(x,</span> <span class="pre">y,</span> <span class="pre">marker='+',</span> <span class="pre">linestyle='',</span> <span class="pre">color='red',</span> <span class="pre">label='Nuages')</span></code></p></li>
-<li><p>Avec incertitudes : <code class="docutils literal notranslate"><span class="pre">ax.errorbar(x,</span> <span class="pre">y,</span> <span class="pre">xerr=incert_x,</span> <span class="pre">yerr=incert_y,</span> <span class="pre">marker='+',</span> <span class="pre">linestyle='',</span> <span class="pre">color='red',</span> <span class="pre">label='Nuages')</span></code></p></li>
-<li><p>Histogramme : <code class="docutils literal notranslate"><span class="pre">hist(liste_valeurs,</span> <span class="pre">bins='rice')</span></code></p></li>
-</ul>
 </div>
 </div>
 </div>
