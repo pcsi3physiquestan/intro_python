@@ -291,19 +291,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operations-de-base">
-   8.1. Opérations de base
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -314,73 +301,6 @@
                 
   <div class="section" id="syntaxe">
 <h1><span class="section-number">8. </span>Syntaxe<a class="headerlink" href="#syntaxe" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="operations-de-base">
-<h2><span class="section-number">8.1. </span>Opérations de base<a class="headerlink" href="#operations-de-base" title="Permalink to this headline">¶</a></h2>
-<div class="tabbed-set docutils">
-<input checked="checked" id="e4e25a8c-8638-41f6-90ad-187fe61adc9a" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
-</input><label class="tabbed-label" for="e4e25a8c-8638-41f6-90ad-187fe61adc9a">
-Les entiers</label><div class="tabbed-content docutils">
-<p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
-<p>Opérateur/Fonctions usuelles :</p>
-<ul class="simple">
-<li><p>Addition : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span></code></p></li>
-<li><p>Soustraction : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">4</span></code></p></li>
-<li><p>Multiplication : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></code></p></li>
-<li><p>Division entière : <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">//</span> <span class="pre">3</span></code> (renvoie 1)</p></li>
-<li><p>Reste de la division euclidienne : <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">3</span></code> (renvoie 2)</p></li>
-<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
-</ul>
-</div>
-<input id="35ecef72-5a05-4829-b360-d4f0e6b2665d" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
-</input><label class="tabbed-label" for="35ecef72-5a05-4829-b360-d4f0e6b2665d">
-Les flottants (nombres réels)</label><div class="tabbed-content docutils">
-<p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
-<p>Opérateur/Fonctions usuelles :</p>
-<ul class="simple">
-<li><p>Addition : <code class="docutils literal notranslate"><span class="pre">3.2</span> <span class="pre">+</span> <span class="pre">4.1</span></code></p></li>
-<li><p>Soustraction : <code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">-</span> <span class="pre">4.5</span></code></p></li>
-<li><p>Multiplication : <code class="docutils literal notranslate"><span class="pre">3.1</span> <span class="pre">*</span> <span class="pre">4.2</span></code></p></li>
-<li><p>Division : <code class="docutils literal notranslate"><span class="pre">3.3</span> <span class="pre">/</span> <span class="pre">4.</span></code></p></li>
-<li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3.3</span> <span class="pre">**</span> <span class="pre">4.</span></code></p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
-</div>
-</div>
-<input id="a0bccb61-d2f7-4751-8799-d495c17cecdc" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
-</input><label class="tabbed-label" for="a0bccb61-d2f7-4751-8799-d495c17cecdc">
-Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
-<p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
-<p>Opérateur/Fonctions usuelles :</p>
-<ul class="simple">
-<li><p>Négation : <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
-<li><p>Ou : <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
-<li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
-</ul>
-</div>
-<input id="1408e922-ea04-45ac-a906-5759888cf81a" name="43012d03-ca71-4dd8-9b73-be9c66445d58" type="radio">
-</input><label class="tabbed-label" for="1408e922-ea04-45ac-a906-5759888cf81a">
-Les chaines de caractères</label><div class="tabbed-content docutils">
-<p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
-Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>
-<p>Opérateur/Fonctions usuelles :</p>
-<ul class="simple">
-<li><p>Concaténation : <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;</span> <span class="pre">+</span> <span class="pre">&quot;World</span> <span class="pre">!&quot;</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;HelloWorld</span> <span class="pre">!&quot;</span></code></p></li>
-<li><p>Longueur : <code class="docutils literal notranslate"><span class="pre">len(&quot;Hello&quot;)</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
-<li><p>Transformer un nombre en chaine de caractère : <code class="docutils literal notranslate"><span class="pre">str(345.2)</span></code> renvoie la chaine de caractère <code class="docutils literal notranslate"><span class="pre">&quot;345.2&quot;</span></code></p></li>
-<li><p>Accès à un caractère : <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;[0]</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;[4]</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>,</p></li>
-</ul>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>La position des caractères commence à 0 et non à 1</p>
-</div>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
