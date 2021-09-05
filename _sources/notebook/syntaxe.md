@@ -14,7 +14,6 @@ kernelspec:
   name: python3
 ---
 # Syntaxe
-
 ## Opérations de base
 ```{tabbed} Les entiers
 Type : `int`
