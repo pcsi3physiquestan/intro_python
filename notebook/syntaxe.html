@@ -330,6 +330,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blocs">
+   8.4. Blocs
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -346,8 +351,8 @@
 <div class="section" id="operations-de-base">
 <h2><span class="section-number">8.1. </span>Opérations de base<a class="headerlink" href="#operations-de-base" title="Permalink to this headline">¶</a></h2>
 <div class="tabbed-set docutils">
-<input checked="checked" id="de709131-965a-47b0-8a3f-1093b3a83556" name="13023c55-64d0-4052-9bb8-7be81c0195f9" type="radio">
-</input><label class="tabbed-label" for="de709131-965a-47b0-8a3f-1093b3a83556">
+<input checked="checked" id="68e047f1-73d4-4135-9874-759847e87d82" name="1f513847-7faf-4b4d-91ac-166c46d2a7cd" type="radio">
+</input><label class="tabbed-label" for="68e047f1-73d4-4135-9874-759847e87d82">
 Les entiers</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
@@ -361,8 +366,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3</span><
 <li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
 </ul>
 </div>
-<input id="2a9678d2-41b4-4e73-86e1-880bd75d2249" name="13023c55-64d0-4052-9bb8-7be81c0195f9" type="radio">
-</input><label class="tabbed-label" for="2a9678d2-41b4-4e73-86e1-880bd75d2249">
+<input id="40fbcc96-1095-4b26-9a92-fb327bd0ad76" name="1f513847-7faf-4b4d-91ac-166c46d2a7cd" type="radio">
+</input><label class="tabbed-label" for="40fbcc96-1095-4b26-9a92-fb327bd0ad76">
 Les flottants (nombres réels)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
@@ -379,8 +384,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</spa
 <p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
 </div>
 </div>
-<input id="a10c5c62-e540-4488-b486-d4212d6e21c8" name="13023c55-64d0-4052-9bb8-7be81c0195f9" type="radio">
-</input><label class="tabbed-label" for="a10c5c62-e540-4488-b486-d4212d6e21c8">
+<input id="1525dc24-eef0-44a2-a80a-3ccce4aa7bcc" name="1f513847-7faf-4b4d-91ac-166c46d2a7cd" type="radio">
+</input><label class="tabbed-label" for="1525dc24-eef0-44a2-a80a-3ccce4aa7bcc">
 Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
@@ -391,8 +396,8 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">True</spa
 <li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 </ul>
 </div>
-<input id="ee4d67f1-e97f-42a6-bf4f-18ef363d5266" name="13023c55-64d0-4052-9bb8-7be81c0195f9" type="radio">
-</input><label class="tabbed-label" for="ee4d67f1-e97f-42a6-bf4f-18ef363d5266">
+<input id="064c4647-ac57-4977-b67f-c7c54625e120" name="1f513847-7faf-4b4d-91ac-166c46d2a7cd" type="radio">
+</input><label class="tabbed-label" for="064c4647-ac57-4977-b67f-c7c54625e120">
 Les chaines de caractères</label><div class="tabbed-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>
@@ -435,10 +440,27 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 </div>
 <div class="section" id="importer-un-module">
 <h3><span class="section-number">8.3.2. </span>Importer un module<a class="headerlink" href="#importer-un-module" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nom_module</span> <span class="pre">as</span> <span class="pre">alias_module</span></code></p>
 </div>
 <div class="section" id="definir-une-fonction">
 <h3><span class="section-number">8.3.3. </span>Définir une fonction<a class="headerlink" href="#definir-une-fonction" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="blocs">
+<h2><span class="section-number">8.4. </span>Blocs<a class="headerlink" href="#blocs" title="Permalink to this headline">¶</a></h2>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a58fd582-aba9-4e7c-a14f-1187ea17ba4b" name="41ec4660-c2f8-42d6-bcce-10139045de00" type="radio">
+</input><label class="tabbed-label" for="a58fd582-aba9-4e7c-a14f-1187ea17ba4b">
+Condition</label><div class="tabbed-content docutils">
+</div>
+<input id="1f780dae-ab7f-4c20-8d5e-5a0f97d4fafc" name="41ec4660-c2f8-42d6-bcce-10139045de00" type="radio">
+</input><label class="tabbed-label" for="1f780dae-ab7f-4c20-8d5e-5a0f97d4fafc">
+Boucle for</label><div class="tabbed-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">range(N)</span></code> permet d’itérer de 0 à <strong>N-1</strong></p>
+</div>
+<input id="725e58f5-ab76-46c6-8b83-92fc0e99608b" name="41ec4660-c2f8-42d6-bcce-10139045de00" type="radio">
+</input><label class="tabbed-label" for="725e58f5-ab76-46c6-8b83-92fc0e99608b">
+Boucle while</label><div class="tabbed-content docutils">
+</div>
 </div>
 </div>
 </div>

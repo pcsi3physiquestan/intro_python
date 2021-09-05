@@ -91,7 +91,9 @@ La position des caractères commence à 0 et non à 1
 
 ### Importer un module
 
-`import nom_module as alias_module`
+```{ipython}
+import nom_module as alias_module
+```
 
 ### Définir une fonction
 ```{ipython}
@@ -100,3 +102,33 @@ def nom_fonction(arg1, arg2, ...):
 	...
 	return objets_à_retourner
 ```
+
+## Blocs
+````{tabbed} Condition
+```{ipython}
+if condition:
+	...
+elif condition:
+	...
+else:
+	...
+```
+````
+````{tabbed} Boucle for
+```{ipython}
+for var in obj_iter:
+	corps_de_boucle
+	...
+```
+
+`range(N)` permet d'itérer de 0 à __N-1__
+````
+````{tabbed} Boucle while
+```{ipython}
+Initialisation
+while condition:
+	...
+	...
+	Modification_de_la_condition
+```
+````
