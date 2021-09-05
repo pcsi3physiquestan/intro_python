@@ -163,6 +163,7 @@ les coefficients du polynome par ordre croissant
 ````{tabbed} Numpy.random
 ```{code-block}
 import numpy.random as rd
+import numpy as np
 X = rd.uniform(a, b, N)
 """
 X : Vecteur numpy de taille N contenant
@@ -174,6 +175,12 @@ X : Vecteur numpy de taille N contenant
 N tirages aléatoires suivant une loi normale
 d'espérance m et d'écart-type s
 """
+
+"""Calcul d'une moyenne et d'un écart-type
+avec mean et std (numpy)
+"""
+xm = np.mean(X)  # Moyenne des valeurs du vecteurs X
+uxm = np.std(X, ddof=1)  # Ecart-type des valeurs du vecteurs X
 ```
 ````
 
