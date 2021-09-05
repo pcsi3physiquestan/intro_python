@@ -91,12 +91,12 @@ La position des caractères commence à 0 et non à 1
 
 ### Importer un module
 
-```{ipython}
+```python
 import nom_module as alias_module
 ```
 
 ### Définir une fonction
-```{ipython}
+```python
 def nom_fonction(arg1, arg2, ...):
 	corps _de_la_fonction
 	...
@@ -105,7 +105,7 @@ def nom_fonction(arg1, arg2, ...):
 
 ## Blocs
 ````{tabbed} Condition
-```{ipython}
+```python
 if condition:
 	...
 elif condition:
@@ -115,7 +115,7 @@ else:
 ```
 ````
 ````{tabbed} Boucle for
-```{ipython}
+```python
 for var in obj_iter:
 	corps_de_boucle
 	...
@@ -124,7 +124,7 @@ for var in obj_iter:
 `range(N)` permet d'itérer de 0 à __N-1__
 ````
 ````{tabbed} Boucle while
-```{ipython}
+```python
 Initialisation
 while condition:
 	...
