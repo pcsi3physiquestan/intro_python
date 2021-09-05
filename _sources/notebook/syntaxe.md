@@ -91,12 +91,12 @@ La position des caractères commence à 0 et non à 1
 
 ### Importer un module
 
-```python
+```{code-block}
 import nom_module as alias_module
 ```
 
 ### Définir une fonction
-```python
+```{code-block}
 def nom_fonction(arg1, arg2, ...):
 	corps _de_la_fonction
 	...
@@ -105,7 +105,7 @@ def nom_fonction(arg1, arg2, ...):
 
 ## Blocs
 ````{tabbed} Condition
-```python
+```{code-block}
 if condition:
 	...
 elif condition:
@@ -115,7 +115,7 @@ else:
 ```
 ````
 ````{tabbed} Boucle for
-```python
+```{code-block}
 for var in obj_iter:
 	corps_de_boucle
 	...
@@ -124,7 +124,7 @@ for var in obj_iter:
 `range(N)` permet d'itérer de 0 à __N-1__
 ````
 ````{tabbed} Boucle while
-```python
+```{code-block}
 Initialisation
 while condition:
 	...
@@ -152,7 +152,7 @@ Comme pour les listes
 ````
 
 ````{tabbed} Régression linéaire
-```python
+```{code-block}
 import numpy as np
 coefs = np.polyfit(x, y, 1) 
 """ 
@@ -163,7 +163,7 @@ les coefficients du polynome par ordre croissant
 ````
 
 ````{tabbed} Numpy.random
-```python
+```{code-block}
 import numpy.random as rd
 X = rd.uniform(a, b, N)
 """
@@ -180,7 +180,7 @@ d'espérance m et d'écart-type s
 ````
 
 ````{tabbed} Importer depuis un fichier
-```python
+```{code-block}
 """Extraire tout sous forme de tableau numpy"""
 T = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',')
 
@@ -194,7 +194,7 @@ V1 = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',', usecols=2)
 
 ## Matplotlib.pyplot
 ### Structure générale
-```python
+```{code-block}
 import matplotlib.pyplot as plt
 
 #...
