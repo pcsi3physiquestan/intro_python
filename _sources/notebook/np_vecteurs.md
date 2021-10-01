@@ -106,7 +106,7 @@ Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.
 
 ```{code-block} ipython3
 """ Exemple : La fonction suivante evalue le polynome 
-p(x) = 2 + 3x (éléments du premièr argument [2, 3])
+p(x) = 2x + 3 (éléments du premièr argument [2, 3])
 pour les valeurs de la liste [1, 4, 6, 7, 8, 24] (deuxième argument)
 """
 y = np.polyval([2, 3], [1, 4, 6, 7, 8, 24])
