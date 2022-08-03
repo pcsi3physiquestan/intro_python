@@ -53,7 +53,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Fonctions et méthodes" href="plus_loin_methodes.html" />
+    <link rel="next" title="12. Fonctions et méthodes" href="plus_loin_methodes.html" />
     <link rel="prev" title="10. Tableaux numpy : manipulations" href="plus_loin_tableaux.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -218,7 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="plus_loin_methodes.html">
-   13. Fonctions et méthodes
+   12. Fonctions et méthodes
   </a>
  </li>
 </ul>
@@ -315,31 +315,19 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   11. La compréhension des listes
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#position-du-probleme">
+   11.1. Position du problème
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#position-du-probleme">
-     11.1. Position du problème
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#premiere-solution">
-     11.2. Première solution
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#utilisation-de-la-comprehension-des-listes">
-     11.3. Utilisation de la compréhension des listes.
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fonctions-et-methodes">
-   12. Fonctions et méthodes
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#premiere-solution">
+   11.2. Première solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-de-la-comprehension-des-listes">
+   11.3. Utilisation de la compréhension des listes.
   </a>
  </li>
 </ul>
@@ -407,11 +395,11 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_11544</span><span class="o">/</span><span class="mf">4177233307.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_3664</span><span class="o">/</span><span class="mf">4177233307.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Vecteur de 1000 valeurs entre 0 et 15</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nn">~\AppData\Local\Temp/ipykernel_11544/840554964.py</span> in <span class="ni">fonction_morceau</span><span class="nt">(x)</span>
+<span class="nn">~\AppData\Local\Temp/ipykernel_3664/840554964.py</span> in <span class="ni">fonction_morceau</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>   <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
@@ -494,23 +482,6 @@
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="fonctions-et-methodes">
-<h1><span class="section-number">12. </span>Fonctions et méthodes<a class="headerlink" href="#fonctions-et-methodes" title="Permalink to this headline">¶</a></h1>
-<p>Vous avez peut-être remarqué que la façon d’appeler les “fonctions” pouvait un peu différer suivant les cas :</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">print(f)</span></code> : La <strong>fonction</strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> agit sur <em>l’argument</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en l’affichant.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">f.suptitle()</span></code> : la <strong>méthode</strong>  <code class="docutils literal notranslate"><span class="pre">suptitle</span></code> agit sur <em>l’objet</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en le modifiant</p></li>
-</ul>
-<p>On ne revient pas sur les fonctions qui ont déjà été présentées précédemment.</p>
-<p>Les <strong>méthodes</strong> sont comme des fonctions mais qui sont étroitement associées à certains types de variables (on parle d’objets). Cette notion est reliée à la <strong>Programmation Orientée Objet</strong> (POO) rendue possibles par de nombreux langages informatiques (comme Python).</p>
-<p>Sans rentrer dans les détails, on peut en POO définir des <em>objets</em> qui vont posséder certaines caractéristiques (des <em>attributs</em>) et certaines fonctions propres (des <em>méthodes</em>) qui permettent de les modifier ou d’obtenir certaines caractéristiques.</p>
-<p>Par exemple, si je crée un vecteur numpy <code class="docutils literal notranslate"><span class="pre">v0</span></code> : c’est un objet.</p>
-<ul class="simple">
-<li><p>Il possède certaines attributs. Ex : <code class="docutils literal notranslate"><span class="pre">shape</span></code> donnera sa taille. Pour obtenir cet attribut, on écrira <code class="docutils literal notranslate"><span class="pre">v0.shape</span></code> (l’attribut <code class="docutils literal notranslate"><span class="pre">shape</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">v0</span></code>)</p></li>
-<li><p>Il possède des méthodes. Ex : <code class="docutils literal notranslate"><span class="pre">fill(valeur)</span></code> remplit le vecteur avec la même <code class="docutils literal notranslate"><span class="pre">valeur</span></code>. Pour appliquer cette méthode à <code class="docutils literal notranslate"><span class="pre">v0</span></code>, on écrira <code class="docutils literal notranslate"><span class="pre">v0.fill(3)</span></code>.</p></li>
-</ul>
-<p>Il n’est pas nécessaire de maîtriser complètement la POO. Il suffira surtout de repérer quand on utilise la syntaxe d’une fonction (ex : <code class="docutils literal notranslate"><span class="pre">round(3.4)</span></code>) et quand il s’agit de la syntaxe d’une méthode (ex : <code class="docutils literal notranslate"><span class="pre">ax.set_xlabel('Légende</span> <span class="pre">des</span> <span class="pre">x')</span></code>).</p>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -547,7 +518,7 @@
     <a class='right-next' id="next-link" href="plus_loin_methodes.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Fonctions et méthodes</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Fonctions et méthodes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

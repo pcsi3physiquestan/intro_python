@@ -14,7 +14,7 @@ kernelspec:
   name: python3
 ---
 # Syntaxe
-On rappelle qu'un memento de la syntaxe des structures et fonction usueles est disponible [en ligne](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/poster_python.pdf) pour vous aider lorsque vous coder.
+On rappelle qu'un memento de la syntaxe des structures et fonction usueles est disponible [en ligne](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/poster_python.pdf?raw=true) pour vous aider lorsque vous coder.
 
 ## Opérations de base
 ```{tabbed} Les entiers
