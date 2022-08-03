@@ -18,4 +18,4 @@ kernelspec:
 
 Cette présentation regroupe l'ensemble des éléments de langage de Python que vous avez pu utiliserau lycée et qui seront nécessaires pour travailler dans les disciplines scientifiques. Le temps et les attentes en prépas nécessite une maîtrise au préalable de ces éléments pour suivre ce qui sera fait en classe.
 
-Un memento de la syntaxe des structures et fonction usueles est disponible [en ligne](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/poster_python.pdf) pour vous aider lorsque vous coder.
+Un memento de la syntaxe des structures et fonction usueles est disponible [en ligne](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/poster_python.pdf?raw=true) pour vous aider lorsque vous coder.
