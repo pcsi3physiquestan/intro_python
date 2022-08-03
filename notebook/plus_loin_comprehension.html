@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. La compréhension des listes &#8212; Méthodes numériques</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/methodes_num/notebook/plus_loin_comprehension.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13. Fonctions et méthodes" href="plus_loin_methodes.html" />
+    <link rel="prev" title="10. Tableaux numpy : manipulations" href="plus_loin_tableaux.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Méthodes numériques</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Eléments de bases pour programmer en Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Réviser les bases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="bases_intro.html">
+   1. Le langage Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="types.html">
+     1.1. Environnement de développement.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="blocs.html">
+   2. Fonctions, conditions boucles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fonctions.html">
+     2.1. Les fonctions.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="condition.html">
+     2.2. Instructions conditionnelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boucles.html">
+     2.3. Instructions itératives.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bilbiothèques scientifiques
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_vecteurs.html">
+   3. Numpy : manipuler des tableaux de nombres.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plt_presentation.html">
+   4. Matplotlib : tracés graphiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plus loin avec numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_polyfit.html">
+   5. Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="import_file.html">
+   6. Traiter des données expérimentales avec numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="num_random.html">
+   7. La bibliothèque numpy.random
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Récapitulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syntaxe.html">
+   8. Syntaxe
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pour aller plus loin
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin_multi.html">
+   9. Fenêtre multi-graphique
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin_tableaux.html">
+   10. Tableaux numpy : manipulations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. La compréhension des listes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plus_loin_methodes.html">
+   13. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/plus_loin_comprehension.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/plus_loin_comprehension.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/plus_loin_comprehension.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   11. La compréhension des listes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#position-du-probleme">
+     11.1. Position du problème
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#premiere-solution">
+     11.2. Première solution
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-de-la-comprehension-des-listes">
+     11.3. Utilisation de la compréhension des listes.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonctions-et-methodes">
+   12. Fonctions et méthodes
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Certains points abordés ici serviront très peu ou seront abordés pendant l’année. Il s’agit d’approfondissement pour ceux qui ont déjà bien compris les parties précédentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;On importe les bibliothèques scientifiques car elles seront utilisées ensuite&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="la-comprehension-des-listes">
+<h1><span class="section-number">11. </span>La compréhension des listes<a class="headerlink" href="#la-comprehension-des-listes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="position-du-probleme">
+<h2><span class="section-number">11.1. </span>Position du problème<a class="headerlink" href="#position-du-probleme" title="Permalink to this headline">¶</a></h2>
+<p>On a vu que les listes classiques ne permettaient pas d’appliquer une fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> à chaque élément en écrivant <code class="docutils literal notranslate"><span class="pre">f(L)</span></code> (<code class="docutils literal notranslate"><span class="pre">L</span></code> étant une liste classique). Cela a motivé l’utilisation des listes numpy. Néanmoins :</p>
+<ul class="simple">
+<li><p>On est quelques fois obligé d’utiliser les listes classiques</p></li>
+<li><p>La syntaxe <code class="docutils literal notranslate"><span class="pre">f(L)</span></code> ne fonctionne que si <code class="docutils literal notranslate"><span class="pre">f</span></code> est <em>vectorialisable</em>, c’est-à-dire programmée pour pouvoir s’appliquer à chaque élément.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Fonctions et opérateurs vectorialisables</p>
+<p>Non exhaustif :</p>
+<ul class="simple">
+<li><p>Les opérateurs classiues <code class="docutils literal notranslate"><span class="pre">+,-,/,*</span></code> sont vectorialisables</p></li>
+<li><p>Les fonctions de la bibliothèques numpy (sin, cos, exp…) sont vectorialisables.</p></li>
+</ul>
+</div>
+<p>Un exemple fréquent est quand la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> fait appelle à un structure conditionnelle qui n’est pas vectorialisable. On reprend la fonction définie par morceau :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
+  <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Si 3 &lt;= x &lt; 5</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+  <span class="k">else</span><span class="p">:</span>  <span class="c1"># Si x &gt;=5</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">3</span>
+  <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Impossible de l’appliquer directement à un vecteur numpy (pour la tracer par exemple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Vecteur de 1000 valeurs entre 0 et 15</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_11544</span><span class="o">/</span><span class="mf">4177233307.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Vecteur de 1000 valeurs entre 0 et 15</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_11544/840554964.py</span> in <span class="ni">fonction_morceau</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>   <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Si x &lt; 3</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Si 3 &lt;= x &lt; 5</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">truth</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">with</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">one</span> <span class="pre">element</span> <span class="pre">is</span> <span class="pre">ambiguous.</span></code> : Le message est clair : il cherche à travailler sur le vecteur et non sur chaque élément.</p>
+</div>
+<div class="section" id="premiere-solution">
+<h2><span class="section-number">11.2. </span>Première solution<a class="headerlink" href="#premiere-solution" title="Permalink to this headline">¶</a></h2>
+<p>On peut écrire une boucle classique qui parcout tous les éléments de <code class="docutils literal notranslate"><span class="pre">x</span></code> et leur applique <code class="docutils literal notranslate"><span class="pre">fonction_morceau</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># On crée un vecteur nul qu&#39;on va remplir</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>  <span class="c1"># i prendra les indices de 0 à len(x) - 1</span>
+  <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fonction_morceau</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># On remplit l&#39;élément d&#39;indice i</span>
+
+
+<span class="sd">&quot;&quot;&quot;On peut même le tracer&quot;&quot;&quot;</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># On ne va pas légender le graphique puisqu&#39;il n&#39;y a pas de contexte ici.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_comprehension_9_0.png" src="../_images/plus_loin_comprehension_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="utilisation-de-la-comprehension-des-listes">
+<h2><span class="section-number">11.3. </span>Utilisation de la compréhension des listes.<a class="headerlink" href="#utilisation-de-la-comprehension-des-listes" title="Permalink to this headline">¶</a></h2>
+<p>Une <strong>liste en compréhension</strong> est une liste qui est obtenue par action (et/ou filtrage) de chaque élément d’une autre liste. La syntaxe est simple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="n">fonction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>  <span class="c1"># L est une liste et L1 la nouvelle liste en compréhension</span>
+</pre></div>
+</div>
+<p>La syntaxe est assez clair : “Applique la <code class="docutils literal notranslate"><span class="pre">fonction</span></code> à <code class="docutils literal notranslate"><span class="pre">x</span></code> pour <code class="docutils literal notranslate"><span class="pre">x</span></code> qui parcourt chaque élément de <code class="docutils literal notranslate"><span class="pre">L</span></code>”</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Ca fonction si <code class="docutils literal notranslate"><span class="pre">L</span></code> est un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Cette méthode renvoie une liste <strong>classique</strong>, pas un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Si vous voulez obtenir un vecteur numpy, il faudra utiliser la fonction <code class="docutils literal notranslate"><span class="pre">array</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fonction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>A titre d’exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fonction_morceau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+
+
+<span class="sd">&quot;&quot;&quot;On peut même le tracer&quot;&quot;&quot;</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># On ne va pas légender le graphique puisqu&#39;il n&#39;y a pas de contexte ici.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plus_loin_comprehension_11_0.png" src="../_images/plus_loin_comprehension_11_0.png" />
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>On peut aussi filtrer la liste pour n’appliquer <code class="docutils literal notranslate"><span class="pre">fonction(x)</span></code> que sous certaines conditions :</p>
+<p><code class="docutils literal notranslate"><span class="pre">[fonction(x)</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">L</span> <span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">1]</span></code></p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="fonctions-et-methodes">
+<h1><span class="section-number">12. </span>Fonctions et méthodes<a class="headerlink" href="#fonctions-et-methodes" title="Permalink to this headline">¶</a></h1>
+<p>Vous avez peut-être remarqué que la façon d’appeler les “fonctions” pouvait un peu différer suivant les cas :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(f)</span></code> : La <strong>fonction</strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> agit sur <em>l’argument</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en l’affichant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f.suptitle()</span></code> : la <strong>méthode</strong>  <code class="docutils literal notranslate"><span class="pre">suptitle</span></code> agit sur <em>l’objet</em> <code class="docutils literal notranslate"><span class="pre">f</span></code> en le modifiant</p></li>
+</ul>
+<p>On ne revient pas sur les fonctions qui ont déjà été présentées précédemment.</p>
+<p>Les <strong>méthodes</strong> sont comme des fonctions mais qui sont étroitement associées à certains types de variables (on parle d’objets). Cette notion est reliée à la <strong>Programmation Orientée Objet</strong> (POO) rendue possibles par de nombreux langages informatiques (comme Python).</p>
+<p>Sans rentrer dans les détails, on peut en POO définir des <em>objets</em> qui vont posséder certaines caractéristiques (des <em>attributs</em>) et certaines fonctions propres (des <em>méthodes</em>) qui permettent de les modifier ou d’obtenir certaines caractéristiques.</p>
+<p>Par exemple, si je crée un vecteur numpy <code class="docutils literal notranslate"><span class="pre">v0</span></code> : c’est un objet.</p>
+<ul class="simple">
+<li><p>Il possède certaines attributs. Ex : <code class="docutils literal notranslate"><span class="pre">shape</span></code> donnera sa taille. Pour obtenir cet attribut, on écrira <code class="docutils literal notranslate"><span class="pre">v0.shape</span></code> (l’attribut <code class="docutils literal notranslate"><span class="pre">shape</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">v0</span></code>)</p></li>
+<li><p>Il possède des méthodes. Ex : <code class="docutils literal notranslate"><span class="pre">fill(valeur)</span></code> remplit le vecteur avec la même <code class="docutils literal notranslate"><span class="pre">valeur</span></code>. Pour appliquer cette méthode à <code class="docutils literal notranslate"><span class="pre">v0</span></code>, on écrira <code class="docutils literal notranslate"><span class="pre">v0.fill(3)</span></code>.</p></li>
+</ul>
+<p>Il n’est pas nécessaire de maîtriser complètement la POO. Il suffira surtout de repérer quand on utilise la syntaxe d’une fonction (ex : <code class="docutils literal notranslate"><span class="pre">round(3.4)</span></code>) et quand il s’agit de la syntaxe d’une méthode (ex : <code class="docutils literal notranslate"><span class="pre">ax.set_xlabel('Légende</span> <span class="pre">des</span> <span class="pre">x')</span></code>).</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "pcsi3physiquestan/methodes_num_source",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="plus_loin_tableaux.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Tableaux numpy : manipulations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="plus_loin_methodes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Fonctions et méthodes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Capacités numériques<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
