@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10. Tableaux numpy : manipulations &#8212; Méthodes numériques</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,36 +19,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/methodes_num/notebook/plus_loin_tableaux.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -62,7 +62,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +85,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +101,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro_python.html">
-   Eléments de bases pour programmer en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro_python.html">
+                    Eléments de bases pour programmer en Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Réviser les bases
  </span>
@@ -224,97 +240,217 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/plus_loin_tableaux.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/plus_loin_tableaux.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/plus_loin_tableaux.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/plus_loin_tableaux.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/pcsi3physiquestan/methodes_num_source/blob/main/notebook/plus_loin_tableaux.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/plus_loin_tableaux.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/plus_loin_tableaux.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operations-usuelles-et-concatenation">
    10.1. Opérations usuelles et concaténation
@@ -344,13 +480,58 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tableaux numpy : manipulations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-usuelles-et-concatenation">
+   10.1. Opérations usuelles et concaténation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selection-d-une-partie-d-un-tableau">
+   10.2. Sélection d’une partie d’un tableau.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selection-d-un-element">
+     10.2.1. Sélection d’un élément.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selection-d-une-portion-d-un-tableau">
+     10.2.2. Sélection d’une portion d’un tableau
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#si-j-ai-bien-compris">
+   10.3. Si j’ai bien compris…
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <p>Certains points abordés ici serviront très peu ou seront abordés pendant l’année. Il s’agit d’approfondissement pour ceux qui ont déjà bien compris les parties précédentes.</p>
@@ -364,9 +545,9 @@
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="tableaux-numpy-manipulations">
-<span id="tableau-numpy"></span><h1><span class="section-number">10. </span>Tableaux numpy : manipulations<a class="headerlink" href="#tableaux-numpy-manipulations" title="Permalink to this headline">¶</a></h1>
+<span id="tableau-numpy"></span><h1><span class="section-number">10. </span>Tableaux numpy : manipulations<a class="headerlink" href="#tableaux-numpy-manipulations" title="Permalink to this headline">#</a></h1>
 <div class="section" id="operations-usuelles-et-concatenation">
-<h2><span class="section-number">10.1. </span>Opérations usuelles et concaténation<a class="headerlink" href="#operations-usuelles-et-concatenation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1. </span>Opérations usuelles et concaténation<a class="headerlink" href="#operations-usuelles-et-concatenation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Les opérations usuelles et fonctions mathématiques présentées précédemment s’appliquent à nouveau pour les tableaux numpy.</p></li>
 <li><p>Concaténation : La fonction <code class="docutils literal notranslate"><span class="pre">append</span></code> doit prendre un troisième argument si on concatène deux tableaux (ou un tableau et un vecteur). L’argument <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> </code>:</p>
@@ -402,24 +583,22 @@
  [4.2  3.1 ]]
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">----------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_7252</span><span class="o">/</span><span class="mf">4271976788.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">L4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># On place L2 sous L1</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">L4</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">L5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Renvoie un erreur car on ne peut placer L2 à droite de L1 : pas le même nombre de lignes</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">L5</span><span class="p">)</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">append</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">append</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">D:\cedri\anaconda3\envs\prepa\lib\site-packages\numpy\lib\function_base.py</span> in <span class="ni">append</span><span class="nt">(arr, values, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4815</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">ravel</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4816</span>         <span class="n">axis</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="o">-</span><span class="mi">1</span>
-<span class="ne">-&gt; </span><span class="mi">4817</span>     <span class="k">return</span> <span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4818</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4819</span> 
+<span class="nn">File D:\cedri\anaconda3\envs\prepa\lib\site-packages\numpy\lib\function_base.py:5444,</span> in <span class="ni">append</span><span class="nt">(arr, values, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5442</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">ravel</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5443</span>     <span class="n">axis</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="o">-</span><span class="mi">1</span>
+<span class="ne">-&gt; </span><span class="mi">5444</span> <span class="k">return</span> <span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">concatenate</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">concatenate</span><span class="nt">(*args, **kwargs)</span>
 
 <span class="ne">ValueError</span>: all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 3 and the array at index 1 has size 2
 </pre></div>
@@ -428,7 +607,7 @@
 </div>
 </div>
 <div class="section" id="selection-d-une-partie-d-un-tableau">
-<h2><span class="section-number">10.2. </span>Sélection d’une partie d’un tableau.<a class="headerlink" href="#selection-d-une-partie-d-un-tableau" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2. </span>Sélection d’une partie d’un tableau.<a class="headerlink" href="#selection-d-une-partie-d-un-tableau" title="Permalink to this headline">#</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <ul class="simple">
@@ -437,7 +616,7 @@
 </ul>
 </div>
 <div class="section" id="selection-d-un-element">
-<h3><span class="section-number">10.2.1. </span>Sélection d’un élément.<a class="headerlink" href="#selection-d-un-element" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.1. </span>Sélection d’un élément.<a class="headerlink" href="#selection-d-un-element" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">4.17</span><span class="p">]])</span>
@@ -462,7 +641,7 @@
 </div>
 </div>
 <div class="section" id="selection-d-une-portion-d-un-tableau">
-<h3><span class="section-number">10.2.2. </span>Sélection d’une portion d’un tableau<a class="headerlink" href="#selection-d-une-portion-d-un-tableau" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.2. </span>Sélection d’une portion d’un tableau<a class="headerlink" href="#selection-d-une-portion-d-un-tableau" title="Permalink to this headline">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>On rappelle que L1[1:3] sélectionne jusqu’à l’index 3 (quatrième élément ) <strong>non inclus</strong>.</p>
@@ -494,7 +673,7 @@ Cinquième sélection [ 1.6  4.2 -8.2]
 </div>
 </div>
 <div class="section" id="si-j-ai-bien-compris">
-<h2><span class="section-number">10.3. </span>Si j’ai bien compris…<a class="headerlink" href="#si-j-ai-bien-compris" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3. </span>Si j’ai bien compris…<a class="headerlink" href="#si-j-ai-bien-compris" title="Permalink to this headline">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Exercice</p>
 <p>Essayer de prévoir ce qu’affichera chaque <code class="docutils literal notranslate"><span class="pre">print</span></code> puis observer le résultat en cliquant sur la croix en bas à droite.</p>
@@ -544,36 +723,36 @@ Cas 10 : [[1. 2.]
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Explication des réponses<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text"><strong>Les vecteurs</strong> :</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Explication des réponses<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Les vecteurs</strong> :</p>
 <ul class="simple">
-<li><p class="card-text">L1 crée une liste d’entier partant de 0 jusqu’à 4 <strong>exclus</strong> soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p></li>
-<li><p class="card-text">L2 est la multiplication terme à terme L1 par lui-même, on passe chaque élément au carré soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">9]</span></code></p></li>
-<li><p class="card-text">L3 est une liste de 4 éléments composées uniquement de 1.</p></li>
+<li><p class="sd-card-text">L1 crée une liste d’entier partant de 0 jusqu’à 4 <strong>exclus</strong> soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p></li>
+<li><p class="sd-card-text">L2 est la multiplication terme à terme L1 par lui-même, on passe chaque élément au carré soit <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">9]</span></code></p></li>
+<li><p class="sd-card-text">L3 est une liste de 4 éléments composées uniquement de 1.</p></li>
 </ul>
-<p class="card-text"><strong>Le tableau</strong> :</p>
+<p class="sd-card-text"><strong>Le tableau</strong> :</p>
 <ul class="simple">
-<li><p class="card-text">M est le tableau composé des trois vecteurs. Il est donc de taille 3*4 (3 lignes, 4 colonnes). Soit :</p></li>
+<li><p class="sd-card-text">M est le tableau composé des trois vecteurs. Il est donc de taille 3*4 (3 lignes, 4 colonnes). Soit :</p></li>
 </ul>
-<p class="card-text"><img alt="Tableau numpy" src="../_images/matrice_numpy.png" /></p>
-<p class="card-text"><strong>Les affichage</strong>:</p>
+<p class="sd-card-text"><img alt="Tableau numpy" src="../_images/matrice_numpy.png" /></p>
+<p class="sd-card-text"><strong>Les affichage</strong>:</p>
 <ul class="simple">
-<li><p class="card-text">Cas 1 : Affichage du tableau complet</p></li>
-<li><p class="card-text">Cas 2 : Affichage de l’élément de la troisième ligne (indice 2), quatrième colonne (indice 3), soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
-<li><p class="card-text">Cas 3 : Afficahge de l’élément de la dernière ligne (indice -1), troisième colonne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
-<li><p class="card-text">Cas 4 : Affichage de la <strong>deuxième ligne (indice 1)</strong> soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([0.,</span> <span class="pre">1.,</span> <span class="pre">4.,</span> <span class="pre">9.])</span></code></span></p></li>
-<li><p class="card-text">Cas 5 : Affichage de la troisième ligne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.,</span> <span class="pre">1.,</span> <span class="pre">1.])</span></code></span></p></li>
-<li><p class="card-text">Cas 6 : Affichage de la dernière colonne (indice -1) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([3.,</span> <span class="pre">9.,</span> <span class="pre">1.])</span></code></span></p></li>
-<li><p class="card-text">Cas 7 : Affichage de l’avant-dernière colonne (indice -2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.,</span> <span class="pre">4.,</span> <span class="pre">1.])</span></code></span></p></li>
-<li><p class="card-text">Cas 8 : Affichage du tableau limité à la deuxième ligne (de l’indice 1 à l’indice 2 <strong>exclus</strong>) et à la première colonne soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[0.]])</span></code></span> (de l’indice 0 à l’indice 1 <strong>exclus</strong>). <em>C’est bien un tableau mais avec une seule valeur !</em></p></li>
-<li><p class="card-text">Cas 9 : Affichage de la deuxième colonne mais sans la dernière ligne (on va jusqu’au -1 <strong>exclus</strong>) <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.])</span></code></span></p></li>
-<li><p class="card-text">Cas 10 : Affichage du tableau limité aux deux premières lignes (de l’indice -3 soit indice 0 - puisqu’il y a 3 lignes - jusqu’à l’indice -1 (dernier) <strong>exclus</strong>) et à la deuxième et troisième colonne (de l’indice - 3 soit la colonne d’indice 1 - puisque qu’il y a 4 colonnes - jusqu’à l’indice 3 soit la dernière colonne <strong>exclus</strong>) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[1.,</span> <span class="pre">2.],</span>
+<li><p class="sd-card-text">Cas 1 : Affichage du tableau complet</p></li>
+<li><p class="sd-card-text">Cas 2 : Affichage de l’élément de la troisième ligne (indice 2), quatrième colonne (indice 3), soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 3 : Afficahge de l’élément de la dernière ligne (indice -1), troisième colonne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.0</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 4 : Affichage de la <strong>deuxième ligne (indice 1)</strong> soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([0.,</span> <span class="pre">1.,</span> <span class="pre">4.,</span> <span class="pre">9.])</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 5 : Affichage de la troisième ligne (indice 2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.,</span> <span class="pre">1.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 6 : Affichage de la dernière colonne (indice -1) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([3.,</span> <span class="pre">9.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 7 : Affichage de l’avant-dernière colonne (indice -2) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.,</span> <span class="pre">4.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 8 : Affichage du tableau limité à la deuxième ligne (de l’indice 1 à l’indice 2 <strong>exclus</strong>) et à la première colonne soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[0.]])</span></code></span> (de l’indice 0 à l’indice 1 <strong>exclus</strong>). <em>C’est bien un tableau mais avec une seule valeur !</em></p></li>
+<li><p class="sd-card-text">Cas 9 : Affichage de la deuxième colonne mais sans la dernière ligne (on va jusqu’au -1 <strong>exclus</strong>) <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([1.,</span> <span class="pre">1.])</span></code></span></p></li>
+<li><p class="sd-card-text">Cas 10 : Affichage du tableau limité aux deux premières lignes (de l’indice -3 soit indice 0 - puisqu’il y a 3 lignes - jusqu’à l’indice -1 (dernier) <strong>exclus</strong>) et à la deuxième et troisième colonne (de l’indice - 3 soit la colonne d’indice 1 - puisque qu’il y a 4 colonnes - jusqu’à l’indice 3 soit la dernière colonne <strong>exclus</strong>) soit <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([[1.,</span> <span class="pre">2.],</span>
 &#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1.,</span> <span class="pre">4.]])</span></code></span></p></li>
 </ul>
 </div>
@@ -602,9 +781,11 @@ Explication des réponses<div class="summary-down docutils">
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="plus_loin_multi.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -620,26 +801,28 @@ Explication des réponses<div class="summary-down docutils">
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Capacités numériques<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Capacités numériques<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

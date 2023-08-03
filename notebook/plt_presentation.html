@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4. Matplotlib : tracés graphiques &#8212; Méthodes numériques</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,36 +19,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/methodes_num/notebook/plt_presentation.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -62,7 +62,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +85,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +101,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro_python.html">
-   Eléments de bases pour programmer en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro_python.html">
+                    Eléments de bases pour programmer en Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Réviser les bases
  </span>
@@ -224,97 +240,217 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/plt_presentation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/plt_presentation.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/plt_presentation.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/plt_presentation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/pcsi3physiquestan/methodes_num_source/blob/main/notebook/plt_presentation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/plt_presentation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/plt_presentation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importation-du-module">
    4.1. Importation du module
@@ -371,20 +507,92 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matplotlib : tracés graphiques</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importation-du-module">
+   4.1. Importation du module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elements-d-un-graphique">
+   4.2. Eléments d’un graphique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-generale">
+   4.3. Méthode générale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple-basique">
+     4.3.1. Un exemple basique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remarques-sur-le-code">
+     4.3.2. Remarques sur le code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-types-de-courbes-utiles">
+     4.3.3. Les types de courbes utiles.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fonctions-utiles">
+       4.3.3.1. Fonctions utiles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arguments-optionnels-utiles">
+       4.3.3.2. Arguments optionnels utiles
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autres-fonctions-et-arguments">
+   4.4. Autres fonctions et arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pour-vous-entrainer">
+   4.5. Pour vous entraîner
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib-traces-graphiques">
-<h1><span class="section-number">4. </span>Matplotlib : tracés graphiques<a class="headerlink" href="#matplotlib-traces-graphiques" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Matplotlib : tracés graphiques<a class="headerlink" href="#matplotlib-traces-graphiques" title="Permalink to this headline">#</a></h1>
 <p>Le module <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> permet le tracé graphique à partir de listes de valeurs (ou plus souvent de vecteurs <code class="docutils literal notranslate"><span class="pre">numpy</span></code>).</p>
 <div class="section" id="importation-du-module">
-<h2><span class="section-number">4.1. </span>Importation du module<a class="headerlink" href="#importation-du-module" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Importation du module<a class="headerlink" href="#importation-du-module" title="Permalink to this headline">#</a></h2>
 <p>La grande majorité des fonctions utiles sont dans le sous module <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, c’est pourquoi, on importera directement <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -397,27 +605,27 @@
 <p class="admonition-title">Question</p>
 <p>Pour utiliser la fonction <code class="docutils literal notranslate"><span class="pre">subplots</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>. On utilise alors <code class="docutils literal notranslate"><span class="pre">subplots(...)</span></code> ou <code class="docutils literal notranslate"><span class="pre">plt.subplots(...)</span></code> ?</p>
 </div>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Cliquez pour avoir la réponse.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">On a importé <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> dans un espace nommé <code class="docutils literal notranslate"><span class="pre">plt</span></code>, on utilisera donc la syntaxe <code class="docutils literal notranslate"><span class="pre">plt.subplots(...)</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Cliquez pour avoir la réponse.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">On a importé <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> dans un espace nommé <code class="docutils literal notranslate"><span class="pre">plt</span></code>, on utilisera donc la syntaxe <code class="docutils literal notranslate"><span class="pre">plt.subplots(...)</span></code>.</p>
 </div>
 </details></div>
 <div class="section" id="elements-d-un-graphique">
-<h2><span class="section-number">4.2. </span>Eléments d’un graphique<a class="headerlink" href="#elements-d-un-graphique" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Eléments d’un graphique<a class="headerlink" href="#elements-d-un-graphique" title="Permalink to this headline">#</a></h2>
 <p>Les éléments principaux sont données sur le schéma ci-dessous.</p>
 <p><img alt="Graphique matplotlib" src="../_images/graphique_modif.png" /></p>
 <p>On distinguera par la suite la fenêtre graphique des axes (endroit où on trace des courbes) : une fenêtre graphique peut contenir plusieurs axes comme sur l’exemple suivant (4 axes ou zone de tracé).</p>
 <p><img alt="Multigraphe" src="../_images/multi_g.png" /></p>
 </div>
 <div class="section" id="methode-generale">
-<h2><span class="section-number">4.3. </span>Méthode générale<a class="headerlink" href="#methode-generale" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Méthode générale<a class="headerlink" href="#methode-generale" title="Permalink to this headline">#</a></h2>
 <div class="section" id="un-exemple-basique">
-<h3><span class="section-number">4.3.1. </span>Un exemple basique<a class="headerlink" href="#un-exemple-basique" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>Un exemple basique<a class="headerlink" href="#un-exemple-basique" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -455,7 +663,7 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="remarques-sur-le-code">
-<h3><span class="section-number">4.3.2. </span>Remarques sur le code<a class="headerlink" href="#remarques-sur-le-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Remarques sur le code<a class="headerlink" href="#remarques-sur-le-code" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subplots</span></code> créer une fenêtre graphique avec une zone de tracé. On affecte la fenêtre graphique et les axes (zone de tracé) à des variables (ici <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">ax</span></code>) pour être sûr d’affecter le titre au bon graphique (si on doit en utiliser plusieurs) ou aux bons axes (idem).</p></li>
 <li><p>Le <code class="docutils literal notranslate"><span class="pre">f.</span></code> permet de modifier spécifique la fenêtre graphique associée. On peut ajouter un titre à la fenêtre graphique <code class="docutils literal notranslate"><span class="pre">f</span></code> (<code class="docutils literal notranslate"><span class="pre">f.suptitle</span></code>).</p></li>
@@ -465,9 +673,9 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </ul>
 </div>
 <div class="section" id="les-types-de-courbes-utiles">
-<h3><span class="section-number">4.3.3. </span>Les types de courbes utiles.<a class="headerlink" href="#les-types-de-courbes-utiles" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.3. </span>Les types de courbes utiles.<a class="headerlink" href="#les-types-de-courbes-utiles" title="Permalink to this headline">#</a></h3>
 <div class="section" id="fonctions-utiles">
-<h4><span class="section-number">4.3.3.1. </span>Fonctions utiles<a class="headerlink" href="#fonctions-utiles" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.3.1. </span>Fonctions utiles<a class="headerlink" href="#fonctions-utiles" title="Permalink to this headline">#</a></h4>
 <p>Sans être exhaustif, on donne trois types de courbes utiles :</p>
 <ol class="simple">
 <li><p>tracé d’un histogramme : <code class="docutils literal notranslate"><span class="pre">hist(liste_valeurs,</span> <span class="pre">bins='rice')</span></code></p></li>
@@ -490,7 +698,7 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="arguments-optionnels-utiles">
-<h4><span class="section-number">4.3.3.2. </span>Arguments optionnels utiles<a class="headerlink" href="#arguments-optionnels-utiles" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.3.2. </span>Arguments optionnels utiles<a class="headerlink" href="#arguments-optionnels-utiles" title="Permalink to this headline">#</a></h4>
 <p>Les fonctions précédentes permettent d’utiliser des arguments optionnels pour modifier l’allure de la courbe ou légender la courbe.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un exemple :</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nuages&#39;</span><span class="p">)</span>
@@ -504,10 +712,10 @@ Cliquez pour avoir la réponse.<div class="summary-down docutils">
 </pre></div>
 </div>
 <p>On cite les plus utiles :</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="163292f9-2251-4d4f-9de3-18bfdc2c3513" name="a5828099-ed1a-4303-9106-accf294b8ed3" type="radio">
-</input><label class="tabbed-label" for="163292f9-2251-4d4f-9de3-18bfdc2c3513">
-Pour plot et errorbar</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="608f6281-c527-4392-ab65-8dcb2df1e9d6" name="3773ef79-25f7-4c24-acf6-11d56d4d09c6" type="radio">
+</input><label class="sd-tab-label" for="608f6281-c527-4392-ab65-8dcb2df1e9d6">
+Pour plot et errorbar</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linestyle</span></code> : style de ligne qui relie les points (non exhaustif):</p>
 <ul>
@@ -528,9 +736,9 @@ Pour plot et errorbar</label><div class="tabbed-content docutils">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
 </ul>
 </div>
-<input id="00f9d5b5-6d19-4a59-833f-b95baae9f2cf" name="a5828099-ed1a-4303-9106-accf294b8ed3" type="radio">
-</input><label class="tabbed-label" for="00f9d5b5-6d19-4a59-833f-b95baae9f2cf">
-Pour hist</label><div class="tabbed-content docutils">
+<input id="d28d924c-5054-473d-8d10-8ac42d039370" name="3773ef79-25f7-4c24-acf6-11d56d4d09c6" type="radio">
+</input><label class="sd-tab-label" for="d28d924c-5054-473d-8d10-8ac42d039370">
+Pour hist</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'La</span> <span class="pre">légende'</span></code> : associer une légende à une courbe</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">'nom_de_couleur_en_anglais'</span></code></p></li>
@@ -541,7 +749,7 @@ Pour hist</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="autres-fonctions-et-arguments">
-<h2><span class="section-number">4.4. </span>Autres fonctions et arguments<a class="headerlink" href="#autres-fonctions-et-arguments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Autres fonctions et arguments<a class="headerlink" href="#autres-fonctions-et-arguments" title="Permalink to this headline">#</a></h2>
 <p>La liste présente les plus importantes et à connaître. Vous en rencontrerez peut-être d’autres (pas à connaître):</p>
 <ul class="simple">
 <li><p>pour sauvegarder la figure</p></li>
@@ -552,7 +760,7 @@ Pour hist</label><div class="tabbed-content docutils">
 </ul>
 </div>
 <div class="section" id="pour-vous-entrainer">
-<h2><span class="section-number">4.5. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Pour vous entraîner<a class="headerlink" href="#pour-vous-entrainer" title="Permalink to this headline">#</a></h2>
 <p>Voici le <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science.html">lien vers les exercices pour vous entraîner sur l’utilisation de numpy et matplotlib</a></p>
 </div>
 </div>
@@ -579,9 +787,11 @@ Pour hist</label><div class="tabbed-content docutils">
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="np_vecteurs.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -597,26 +807,28 @@ Pour hist</label><div class="tabbed-content docutils">
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Capacités numériques<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Capacités numériques<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

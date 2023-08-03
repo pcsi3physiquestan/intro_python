@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.1. Environnement de développement. &#8212; Méthodes numériques</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,36 +19,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/methodes_num/notebook/types.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -62,7 +62,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +85,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +101,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro_python.html">
-   Eléments de bases pour programmer en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro_python.html">
+                    Eléments de bases pour programmer en Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Réviser les bases
  </span>
@@ -224,97 +240,217 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/types.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/types.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/types.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/types.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/pcsi3physiquestan/methodes_num_source/blob/main/notebook/types.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/types.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/types.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    1.1. Environnement de développement.
@@ -405,27 +541,133 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Environnement de développement.</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1.1. Environnement de développement.
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quelques-bonnes-pratiques">
+     1.1.1. Quelques bonnes pratiques.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indentation">
+   1.2. Indentation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-types-et-operations-usuelles">
+   1.3. Les types et opérations usuelles.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-et-affection">
+   1.4. Variables et affection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affection">
+     1.4.1. Affection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation">
+     1.4.2. Manipulation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-d-une-variable">
+     1.4.3. Type d’une variable
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regles-de-nommage">
+     1.4.4. Règles de nommage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-listes">
+   1.5. Les listes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creer-et-manipuler-une-liste">
+     1.5.1. Créer et manipuler une liste
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extraction">
+     1.5.2. Extraction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#un-element">
+       1.5.2.1. Un élément
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#une-partie-de-la-liste">
+       1.5.2.2. Une partie de la liste
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonctions-de-bases">
+     1.5.3. Fonctions de bases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-commentaires">
+   1.6. Les commentaires
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="environnement-de-developpement">
-<h1><span class="section-number">1.1. </span>Environnement de développement.<a class="headerlink" href="#environnement-de-developpement" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.1. </span>Environnement de développement.<a class="headerlink" href="#environnement-de-developpement" title="Permalink to this headline">#</a></h1>
 <p>Un environnement de développement (IDE) est un logiciel permettant d’écrire du code Python et de l’interpréter grâce à l’interface du logiciel. Il existe de nombreux IDE pour Python. Celui conseillé pour l’instant est Pyzo, une présentation rapide a été donnée avec <a class="reference external" href="https://filedn.com/lykEJ3axFalJygD0EVAUyWS/Stan/Pyzo_Anaconda/Python_pyzo_insta_gen_auroraW/index.html">le tutoriel sur l’installation de Pyzo</a>.</p>
 <div class="section" id="quelques-bonnes-pratiques">
-<h2><span class="section-number">1.1.1. </span>Quelques bonnes pratiques.<a class="headerlink" href="#quelques-bonnes-pratiques" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1.1. </span>Quelques bonnes pratiques.<a class="headerlink" href="#quelques-bonnes-pratiques" title="Permalink to this headline">#</a></h2>
 <p>Vous serez amenés à créer des fichiers contenant vos scripts ou à récupérer des fichiers donnés par vos enseignants. Il est donc important de savoir où les enregistrer pour les utiliser sous Pyzo. L’organisation sera de plus importante lorsqu’il sera question de manipuler des fichiers de données expérimentales.</p>
 <p>Il est donc conseillé de créer un répertoire spécifique dans lequel vous enregistrerez vos fichiers. Pour cela, il suffit d’ouvrir l’<em>explorateur de fichiers</em> (Windows) ou <em>Finder</em> (MacOs) pour créer un répertoire.  <strong>Préférez créer votre répertoire dans le répertoire <code class="docutils literal notranslate"><span class="pre">Documents</span></code> (ou <code class="docutils literal notranslate"><span class="pre">MesDocuments</span></code>)</strong>, cela facilitera l’accès aux fichiers si vous êtes amenés plus tard à utiliser des logiciels comme Jupyter. Dans l’exemple ci-dessous, un dossier <code class="docutils literal notranslate"><span class="pre">python_prepa</span></code> a été créé dans <code class="docutils literal notranslate"><span class="pre">Documents</span></code>. <em>Plusieurs sous dossiers pour chaque matière ont été créés, à vous de vous organiser au mieux par la suite.</em></p>
 <p><img alt="Dossier Python" src="../_images/repertoire_python.jpg" /></p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="indentation">
-<h1><span class="section-number">1.2. </span>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.2. </span>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">#</a></h1>
 <p>L’indentation est le décalage de certaines lignes de code appartenant au même bloc (corps d’une fonction, d’une boucle…). On décale (on indente) une ligne grâce à <code class="docutils literal notranslate"><span class="pre">Espace</span></code> (plusieurs fois) ou <code class="docutils literal notranslate"><span class="pre">Tab</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Code non indenté</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  <span class="c1"># Démarrage d&#39;une boucle : le corps de la boucle doit être indenté</span>
@@ -437,12 +679,12 @@
 <p>Dans beaucoup de langage, l’indentation est optionnelle pour rendre le code plus lisible. Dans Python, <strong>elle est obligatoire</strong> pour définir l’ensemble d’instructions qui feront partie d’un même bloc (ensemble d’instruction d’une fonction par exemple). Les blocs (fonction, condition, boucle) seront présentés ensuite.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="les-types-et-operations-usuelles">
-<h1><span class="section-number">1.3. </span>Les types et opérations usuelles.<a class="headerlink" href="#les-types-et-operations-usuelles" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.3. </span>Les types et opérations usuelles.<a class="headerlink" href="#les-types-et-operations-usuelles" title="Permalink to this headline">#</a></h1>
 <p>On ne décrit ici que les types simples et les opérations que nous utiliserons le plus. D’autres types plus particuliers ou issus de bibliothèques non standards seront présentés plus tard.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="5da80647-e065-46d4-aba6-dd63710ed560" name="13a18aca-e07a-464c-b960-c4d46069a1aa" type="radio">
-</input><label class="tabbed-label" for="5da80647-e065-46d4-aba6-dd63710ed560">
-Les entiers</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="1df41bda-4075-48e9-b880-bdb192558f70" name="08e2a1fa-23cc-4084-8280-c4276d7eaf2c" type="radio">
+</input><label class="sd-tab-label" for="1df41bda-4075-48e9-b880-bdb192558f70">
+Les entiers</label><div class="sd-tab-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">int</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3</span></code> ou <code class="docutils literal notranslate"><span class="pre">123543654</span></code> ou <code class="docutils literal notranslate"><span class="pre">-3465</span></code></p>
 <p>Opérateur/Fonctions usuelles :</p>
@@ -455,9 +697,9 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3</span><
 <li><p>Puissance : <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">**</span> <span class="pre">2</span></code> (renvoie 9)</p></li>
 </ul>
 </div>
-<input id="93244bec-d8ee-45d4-bd20-d05a0ab6dac4" name="13a18aca-e07a-464c-b960-c4d46069a1aa" type="radio">
-</input><label class="tabbed-label" for="93244bec-d8ee-45d4-bd20-d05a0ab6dac4">
-Les flottants (nombres réels)</label><div class="tabbed-content docutils">
+<input id="d6eec8c9-e524-459e-8699-5edc500621e8" name="08e2a1fa-23cc-4084-8280-c4276d7eaf2c" type="radio">
+</input><label class="sd-tab-label" for="d6eec8c9-e524-459e-8699-5edc500621e8">
+Les flottants (nombres réels)</label><div class="sd-tab-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">float</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</span></code>ou <code class="docutils literal notranslate"><span class="pre">3254.234</span></code> ou <code class="docutils literal notranslate"><span class="pre">-23.34</span></code> ou <code class="docutils literal notranslate"><span class="pre">3.</span></code> ou <code class="docutils literal notranslate"><span class="pre">-5.</span></code> (observez le <code class="docutils literal notranslate"><span class="pre">.</span></code> après le 3 et le 5).</p>
 <p>Opérateur/Fonctions usuelles :</p>
@@ -473,9 +715,9 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">3.45</spa
 <p>Une opération entre un entier et un flottant est possible, elle renverra un flottant.</p>
 </div>
 </div>
-<input id="72fdc957-16f6-463c-99a5-def0a707b66a" name="13a18aca-e07a-464c-b960-c4d46069a1aa" type="radio">
-</input><label class="tabbed-label" for="72fdc957-16f6-463c-99a5-def0a707b66a">
-Les booléens (Vrai ou Faux)</label><div class="tabbed-content docutils">
+<input id="c1b5c39e-659f-4b41-b8a4-c3d04c235eb5" name="08e2a1fa-23cc-4084-8280-c4276d7eaf2c" type="radio">
+</input><label class="sd-tab-label" for="c1b5c39e-659f-4b41-b8a4-c3d04c235eb5">
+Les booléens (Vrai ou Faux)</label><div class="sd-tab-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <p>Opérateur/Fonctions usuelles :</p>
@@ -485,9 +727,9 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">True</spa
 <li><p>Et : <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 </ul>
 </div>
-<input id="c0346d0b-f24c-4e8f-bd22-e79663f92cae" name="13a18aca-e07a-464c-b960-c4d46069a1aa" type="radio">
-</input><label class="tabbed-label" for="c0346d0b-f24c-4e8f-bd22-e79663f92cae">
-Les chaines de caractères</label><div class="tabbed-content docutils">
+<input id="212bb320-f71b-4ca6-aaf7-514df25d0df0" name="08e2a1fa-23cc-4084-8280-c4276d7eaf2c" type="radio">
+</input><label class="sd-tab-label" for="212bb320-f71b-4ca6-aaf7-514df25d0df0">
+Les chaines de caractères</label><div class="sd-tab-content docutils">
 <p>Type : <code class="docutils literal notranslate"><span class="pre">str</span></code>
 Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">!&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Les</span> <span class="pre">guillemets</span> <span class="pre">sont</span> <span class="pre">importantes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'Ou</span> <span class="pre">des</span> <span class="pre">apostrophes'</span></code></p>
 <p>Opérateur/Fonctions usuelles :</p>
@@ -506,10 +748,10 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 <p>Il existe aussi d’autres fonctions générales qui s’appliquent sur les différents types comme <code class="docutils literal notranslate"><span class="pre">print(...)</span></code> qui sert à afficher l’objet considéré.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="variables-et-affection">
-<h1><span class="section-number">1.4. </span>Variables et affection<a class="headerlink" href="#variables-et-affection" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.4. </span>Variables et affection<a class="headerlink" href="#variables-et-affection" title="Permalink to this headline">#</a></h1>
 <p>Une variable est un élément servant à stocker des données dans un espace mémoire dédié.</p>
 <div class="section" id="affection">
-<h2><span class="section-number">1.4.1. </span>Affection<a class="headerlink" href="#affection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.1. </span>Affection<a class="headerlink" href="#affection" title="Permalink to this headline">#</a></h2>
 <p>On utilise le signal <code class="docutils literal notranslate"><span class="pre">=</span></code>. Ci dessous l’affection de l’entier <code class="docutils literal notranslate"><span class="pre">1</span></code> dans la variable <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -524,7 +766,7 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 </div>
 </div>
 <div class="section" id="manipulation">
-<h2><span class="section-number">1.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h2>
 <p>Une variable peut être utilisée par les opérateurs et fonctions associées au type de la données stockées. Par exemple, avec des flottants :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +785,7 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hel
 </div>
 </div>
 <div class="section" id="type-d-une-variable">
-<h2><span class="section-number">1.4.3. </span>Type d’une variable<a class="headerlink" href="#type-d-une-variable" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.3. </span>Type d’une variable<a class="headerlink" href="#type-d-une-variable" title="Permalink to this headline">#</a></h2>
 <p>Pour connaître le type d’une variable, on utilise la fonction <code class="docutils literal notranslate"><span class="pre">type()</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,7 +811,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="regles-de-nommage">
-<h2><span class="section-number">1.4.4. </span>Règles de nommage<a class="headerlink" href="#regles-de-nommage" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.4. </span>Règles de nommage<a class="headerlink" href="#regles-de-nommage" title="Permalink to this headline">#</a></h2>
 <p>Un nom de variable :</p>
 <ul class="simple">
 <li><p>peut contenir des lettres (minuscules ou majuscules), des chiffres, le caractère <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
@@ -579,10 +821,10 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="les-listes">
-<h1><span class="section-number">1.5. </span>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.5. </span>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">#</a></h1>
 <p>Les listes sont des objets Python un peu plus complexes qui permettent de stocker, un ensemble d’objets dans un ordre choisi.</p>
 <div class="section" id="creer-et-manipuler-une-liste">
-<h2><span class="section-number">1.5.1. </span>Créer et manipuler une liste<a class="headerlink" href="#creer-et-manipuler-une-liste" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.1. </span>Créer et manipuler une liste<a class="headerlink" href="#creer-et-manipuler-une-liste" title="Permalink to this headline">#</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code> est une fonction dans Python, on évitera de l’utiliser comme nom de variable</p>
@@ -629,9 +871,9 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="extraction">
-<h2><span class="section-number">1.5.2. </span>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.2. </span>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">#</a></h2>
 <div class="section" id="un-element">
-<h3><span class="section-number">1.5.2.1. </span>Un élément<a class="headerlink" href="#un-element" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.2.1. </span>Un élément<a class="headerlink" href="#un-element" title="Permalink to this headline">#</a></h3>
 <p>On peut extraire un élément d’une liste comme pour une chaine de caractère :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -650,9 +892,9 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 7
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">----------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_25308</span><span class="o">/</span><span class="mf">1589671405.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">a</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># Il s&#39;agit du... quatrième élément</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># Renvoie 7</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">a</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># Il n&#39;y a pas de 6ème élément : Python affiche une erreur.</span>
@@ -674,7 +916,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="une-partie-de-la-liste">
-<h3><span class="section-number">1.5.2.2. </span>Une partie de la liste<a class="headerlink" href="#une-partie-de-la-liste" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.2.2. </span>Une partie de la liste<a class="headerlink" href="#une-partie-de-la-liste" title="Permalink to this headline">#</a></h3>
 <p>On peut extraire un ensemble d’éléments d’une liste (on obtient alors une liste).</p>
 <p><code class="docutils literal notranslate"><span class="pre">l[3:6]</span></code> : on commence au 4ème élément (l’indexation commence à 0) et on s’arrête au 7ème élément <strong>non inclus</strong>.</p>
 <div class="cell docutils container">
@@ -703,7 +945,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="section" id="fonctions-de-bases">
-<h2><span class="section-number">1.5.3. </span>Fonctions de bases<a class="headerlink" href="#fonctions-de-bases" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.3. </span>Fonctions de bases<a class="headerlink" href="#fonctions-de-bases" title="Permalink to this headline">#</a></h2>
 <p>Plusieurs fonctions de bases s’appliquent à une liste (ici la liste s’appellera <code class="docutils literal notranslate"><span class="pre">l</span></code>).</p>
 <ul class="simple">
 <li><p>Longueur de la liste : <code class="docutils literal notranslate"><span class="pre">len(l)</span></code></p></li>
@@ -712,7 +954,7 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="les-commentaires">
-<h1><span class="section-number">1.6. </span>Les commentaires<a class="headerlink" href="#les-commentaires" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.6. </span>Les commentaires<a class="headerlink" href="#les-commentaires" title="Permalink to this headline">#</a></h1>
 <p>On peut ajouter des commentaires (parties non interprêtées) :</p>
 <ul class="simple">
 <li><p>commentaires sur une ligne avec <code class="docutils literal notranslate"><span class="pre">#</span></code></p></li>
@@ -742,9 +984,11 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="bases_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -760,26 +1004,28 @@ Le type de cette variable est : &lt;class &#39;bool&#39;&gt;
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Capacités numériques<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Capacités numériques<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

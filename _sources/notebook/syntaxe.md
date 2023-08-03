@@ -17,7 +17,8 @@ kernelspec:
 On rappelle qu'un memento de la syntaxe des structures et fonction usueles est disponible [en ligne](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/poster_python.pdf?raw=true) pour vous aider lorsque vous coder.
 
 ## Opérations de base
-```{tabbed} Les entiers
+`````{tab-set}
+```{tab-item} Les entiers
 Type : `int`
 Exemple : `3` ou `123543654` ou `-3465`
 
@@ -30,7 +31,7 @@ Opérateur/Fonctions usuelles :
 * Puissance : `3 ** 2` (renvoie 9)
 ```
 
-````{tabbed} Les flottants (nombres réels)
+````{tab-item} Les flottants (nombres réels)
 Type : `float`
 Exemple : `3.45`ou `3254.234` ou `-23.34` ou `3.` ou `-5.` (observez le `.` après le 3 et le 5).
 
@@ -47,7 +48,7 @@ Une opération entre un entier et un flottant est possible, elle renverra un flo
 ````
 
 
-```{tabbed} Les booléens (Vrai ou Faux)
+```{tab-item} Les booléens (Vrai ou Faux)
 Type : `bool`
 Exemple : `True`, `False`
 
@@ -57,7 +58,7 @@ Opérateur/Fonctions usuelles :
 * Et : `and`
 ```
 
-````{tabbed} Les chaines de caractères
+````{tab-item} Les chaines de caractères
 Type : `str`
 Exemple : `"Hello World !"`, `"Les guillemets sont importantes"`, `'Ou des apostrophes'`
 
@@ -72,6 +73,7 @@ La position des caractères commence à 0 et non à 1
 ```
 
 ````
+`````
 
 ## Les listes
 * Créer une liste vide : `l = []`
@@ -104,7 +106,8 @@ def nom_fonction(arg1, arg2, ...):
 ```
 
 ## Blocs
-````{tabbed} Condition
+`````{tab-set}
+````{tab-item} Condition
 ```{code-block}
 if condition:
 	...
@@ -114,7 +117,7 @@ else:
 	...
 ```
 ````
-````{tabbed} Boucle for
+````{tab-item} Boucle for
 ```{code-block}
 for var in obj_iter:
 	corps_de_boucle
@@ -123,7 +126,7 @@ for var in obj_iter:
 
 `range(N)` permet d'itérer de 0 à __N-1__
 ````
-````{tabbed} Boucle while
+````{tab-item} Boucle while
 ```{code-block}
 Initialisation
 while condition:
@@ -132,9 +135,11 @@ while condition:
 	Modification_de_la_condition
 ```
 ````
+`````
 
 ## Numpy
-````{tabbed} Création
+`````{tab-set}
+````{tab-item} Création
 * `V1 = np.array(L)`  : L est une liste et V1 est un vecteur numpy
 * `arange(start, stop, step)` : une vecteur de _flottants_ partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
 * `linspace(start, stop, N)` : un vecteur de `N` éléments réparties uniformément entre les valeurs `start` et `stop` (__inclus__)
@@ -142,16 +147,16 @@ while condition:
 * `ones(N)` : un vecteur de `N` éléments tous égaux à 1.
 ````
 
-````{tabbed} Extraction
+````{tab-item} Extraction
 Comme pour les listes
 ````
 
-````{tabbed} Opérations
+````{tab-item} Opérations
 * Opérations termes à termes `+,-,/,*`
 * Fonctions classiques __à partir de la bibliothèque numpy__ `sin, cos, tan, exp, log`
 ````
 
-````{tabbed} Régression linéaire
+````{tab-item} Régression linéaire
 ```{code-block}
 import numpy as np
 coefs = np.polyfit(x, y, 1) 
@@ -162,7 +167,7 @@ les coefficients du polynome par ordre croissant
 ```
 ````
 
-````{tabbed} Numpy.random
+````{tab-item} Numpy.random
 ```{code-block}
 import numpy.random as rd
 import numpy as np
@@ -186,7 +191,7 @@ uxm = np.std(X, ddof=1)  # Ecart-type des valeurs du vecteurs X
 ```
 ````
 
-````{tabbed} Importer depuis un fichier
+````{tab-item} Importer depuis un fichier
 ```{code-block}
 """Extraire tout sous forme de tableau numpy"""
 T = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',')
@@ -198,6 +203,7 @@ V1, V2, V3 = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',', unpack=Fa
 V1 = loadtxt('chemin_vers_fichier', skiprows=3, delimiter=',', usecols=2)
 ```
 ````
+`````
 
 ## Matplotlib.pyplot
 ### Structure générale

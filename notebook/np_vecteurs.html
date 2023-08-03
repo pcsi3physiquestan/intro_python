@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3. Numpy : manipuler des tableaux de nombres. &#8212; Méthodes numériques</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,36 +19,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/methodes_num/notebook/np_vecteurs.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -62,7 +62,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +85,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +101,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro_python.html">
-   Eléments de bases pour programmer en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro_python.html">
+                    Eléments de bases pour programmer en Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Réviser les bases
  </span>
@@ -224,97 +240,217 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/np_vecteurs.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/np_vecteurs.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/np_vecteurs.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://stanislas.edunao.com">Plateforme Moodle</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pcsi3physiquestan/methodes_num_source/main?urlpath=tree/notebook/np_vecteurs.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/pcsi3physiquestan/methodes_num_source/blob/main/notebook/np_vecteurs.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/np_vecteurs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/np_vecteurs.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importer-la-bibliotheque">
    3.1. Importer la bibliothèque
@@ -369,21 +505,91 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Numpy : manipuler des tableaux de nombres.</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importer-la-bibliotheque">
+   3.1. Importer la bibliothèque
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creer-un-vecteur-numpy">
+   3.2. Créer un vecteur numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-sur-les-vecteurs-numpy">
+   3.3. Opérations sur les vecteurs numpy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-generales">
+     3.3.1. Opérations générales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonctions-mathematiques-usuelles">
+     3.3.2. Fonctions mathématiques usuelles.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concatenation-ajout-d-une-valeur">
+     3.3.3. Concaténation, ajout d’une valeur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selection-d-une-partie-d-un-vecteur-numpy">
+     3.3.4. Sélection d’une partie d’un vecteur numpy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creer-un-tableau-numpy">
+   3.4. Créer un tableau numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipuler-un-tableau-numpy">
+   3.5. Manipuler un tableau numpy.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonctions-de-la-bibliotheque">
+   3.6. Fonctions de la bibliothèque
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="numpy-manipuler-des-tableaux-de-nombres">
-<h1><span class="section-number">3. </span>Numpy : manipuler des tableaux de nombres.<a class="headerlink" href="#numpy-manipuler-des-tableaux-de-nombres" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Numpy : manipuler des tableaux de nombres.<a class="headerlink" href="#numpy-manipuler-des-tableaux-de-nombres" title="Permalink to this headline">#</a></h1>
 <p>Les listes classiques ont plusieurs limites quand on veut faire du calcul numérique. En effet, les opérations sur les listes classiques éléments par éléments (ajouter le même nombre à tous les éléments d’une liste, sommer deux à deux les éléments de deux listes…) nécessite de créer systématiquement des boucles.</p>
 <p>C’est pourquoi on utilisera le module <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui propose un objet particulier : le <strong>tableau numpy</strong> (ou <em>vecteur numpy</em> quand il n’a qu’une dimension). Les opérations sur un tableau numpy sont <strong>différentes des opérations sur une liste classiques</strong>, il est important de différencier les deux pour ne pas se tromper.</p>
 <div class="section" id="importer-la-bibliotheque">
-<h2><span class="section-number">3.1. </span>Importer la bibliothèque<a class="headerlink" href="#importer-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Importer la bibliothèque<a class="headerlink" href="#importer-la-bibliotheque" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container" id="import-np">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -395,24 +601,24 @@
 <p class="admonition-title">Question</p>
 <p>Pour utiliser la fonction <code class="docutils literal notranslate"><span class="pre">array</span></code> de la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. On utilise alors <code class="docutils literal notranslate"><span class="pre">array(...)</span></code> ou <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code> ?</p>
 </div>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Cliquez pour avoir la réponse.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">On a importé numpy dans un espace nommé <code class="docutils literal notranslate"><span class="pre">np</span></code>, on utilisera donc la syntaxe <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Cliquez pour avoir la réponse.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">On a importé numpy dans un espace nommé <code class="docutils literal notranslate"><span class="pre">np</span></code>, on utilisera donc la syntaxe <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code>.</p>
 </div>
 </details></div>
 <div class="section" id="creer-un-vecteur-numpy">
-<h2><span class="section-number">3.2. </span>Créer un vecteur numpy<a class="headerlink" href="#creer-un-vecteur-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Créer un vecteur numpy<a class="headerlink" href="#creer-un-vecteur-numpy" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="e908612d-a284-40b8-b279-0c87ef98263b" name="b010ffb6-4846-49a0-aa9e-c8ed2dd1adaa" type="radio">
-</input><label class="tabbed-label" for="e908612d-a284-40b8-b279-0c87ef98263b">
-D’une liste</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="e8549a7e-8b4b-46ac-81c6-caa4599bc1c7" name="9916bd90-37d1-4fe7-bb15-e62e548ecee1" type="radio">
+</input><label class="sd-tab-label" for="e8549a7e-8b4b-46ac-81c6-caa4599bc1c7">
+D’une liste</label><div class="sd-tab-content docutils">
 <p>A partir d’une liste d’entiers ou de flottants (uniquement) :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
 <span class="n">V1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="c1"># V1 est un vecteur numpy</span>
@@ -422,9 +628,9 @@ D’une liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="47d2451c-3811-487f-b9e4-1769eab0892e" name="b010ffb6-4846-49a0-aa9e-c8ed2dd1adaa" type="radio">
-</input><label class="tabbed-label" for="47d2451c-3811-487f-b9e4-1769eab0892e">
-arange</label><div class="tabbed-content docutils">
+<input id="8478a746-3ea8-4c0d-9a36-99e55e0f4937" name="9916bd90-37d1-4fe7-bb15-e62e548ecee1" type="radio">
+</input><label class="sd-tab-label" for="8478a746-3ea8-4c0d-9a36-99e55e0f4937">
+arange</label><div class="sd-tab-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">arange(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui va créer une liste de <em>flottants</em> partant de <code class="docutils literal notranslate"><span class="pre">start</span></code> (inclus) et allant jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> (<strong>exclus</strong>) par pas de valeur <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> et <code class="docutils literal notranslate"><span class="pre">step</span></code> peuvent être des flottants contrairement à <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -432,18 +638,18 @@ arange</label><div class="tabbed-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5])</span></code></span></p>
 </div>
-<input id="9121feff-b1e7-40cc-94e2-71c54c4992d2" name="b010ffb6-4846-49a0-aa9e-c8ed2dd1adaa" type="radio">
-</input><label class="tabbed-label" for="9121feff-b1e7-40cc-94e2-71c54c4992d2">
-linspace</label><div class="tabbed-content docutils">
+<input id="572227bc-8caf-4ec4-a6a1-3793f73e54b6" name="9916bd90-37d1-4fe7-bb15-e62e548ecee1" type="radio">
+</input><label class="sd-tab-label" for="572227bc-8caf-4ec4-a6a1-3793f73e54b6">
+linspace</label><div class="sd-tab-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">stop,</span> <span class="pre">N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments réparties uniformément entre les valeurs <code class="docutils literal notranslate"><span class="pre">start</span></code> et <code class="docutils literal notranslate"><span class="pre">stop</span></code> (cette fois <code class="docutils literal notranslate"><span class="pre">stop</span></code> est inclus, il faut la compter dans les N valeurs !).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> est un vecteur numpy contenant <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">array([2.</span> <span class="pre">,</span> <span class="pre">2.5,</span> <span class="pre">3.</span> <span class="pre">,</span> <span class="pre">3.5,</span> <span class="pre">4.</span> <span class="pre">,</span> <span class="pre">4.5,</span> <span class="pre">5.</span> <span class="pre">,</span> <span class="pre">5.5,</span> <span class="pre">6.</span> <span class="pre">])</span></code></span></p>
 </div>
-<input id="7c65942c-6e41-4eca-8166-5ade8476f3c8" name="b010ffb6-4846-49a0-aa9e-c8ed2dd1adaa" type="radio">
-</input><label class="tabbed-label" for="7c65942c-6e41-4eca-8166-5ade8476f3c8">
-zeros et ones</label><div class="tabbed-content docutils">
+<input id="cbc87b0d-1cc6-41ce-af2c-294d7d6a34d3" name="9916bd90-37d1-4fe7-bb15-e62e548ecee1" type="radio">
+</input><label class="sd-tab-label" for="cbc87b0d-1cc6-41ce-af2c-294d7d6a34d3">
+zeros et ones</label><div class="sd-tab-content docutils">
 <p><em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">zeros(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments nuls.<br />
 <em>A connaître</em> : <code class="docutils literal notranslate"><span class="pre">ones(N)</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un vecteur de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments tous égaux à 1.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Crée un vecteur [0, 0, 0, 0, 0]</span>
@@ -451,9 +657,9 @@ zeros et ones</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="86b3580f-0239-48a3-b26e-f83a32f80e25" name="b010ffb6-4846-49a0-aa9e-c8ed2dd1adaa" type="radio">
-</input><label class="tabbed-label" for="86b3580f-0239-48a3-b26e-f83a32f80e25">
-D’une fonction</label><div class="tabbed-content docutils">
+<input id="98e2c8a2-b751-4dbb-8711-1d11421c45be" name="9916bd90-37d1-4fe7-bb15-e62e548ecee1" type="radio">
+</input><label class="sd-tab-label" for="98e2c8a2-b751-4dbb-8711-1d11421c45be">
+D’une fonction</label><div class="sd-tab-content docutils">
 <p>Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Exemple : La fonction suivante evalue le polynome </span>
 <span class="sd">p(x) = 2x + 3 (éléments du premièr argument [2, 3])</span>
@@ -471,9 +677,9 @@ D’une fonction</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="operations-sur-les-vecteurs-numpy">
-<h2><span class="section-number">3.3. </span>Opérations sur les vecteurs numpy<a class="headerlink" href="#operations-sur-les-vecteurs-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Opérations sur les vecteurs numpy<a class="headerlink" href="#operations-sur-les-vecteurs-numpy" title="Permalink to this headline">#</a></h2>
 <div class="section" id="operations-generales">
-<h3><span class="section-number">3.3.1. </span>Opérations générales<a class="headerlink" href="#operations-generales" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Opérations générales<a class="headerlink" href="#operations-generales" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> permet de faire des opérations classiques : <code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">/,</span> <span class="pre">*</span></code></p>
 <ul class="simple">
 <li><p><strong>termes à termes</strong> entre deux vecteurs (<em>Il faut que les deux vecteurs aient la même taille</em>)</p></li>
@@ -512,7 +718,7 @@ D’une fonction</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="fonctions-mathematiques-usuelles">
-<h3><span class="section-number">3.3.2. </span>Fonctions mathématiques usuelles.<a class="headerlink" href="#fonctions-mathematiques-usuelles" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Fonctions mathématiques usuelles.<a class="headerlink" href="#fonctions-mathematiques-usuelles" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> permet de <em>vectorialiser</em> les fonctions usuelles (sin, cos, tan, exp, log…), c’est-à-dire de les appliquer sur chaque élément d’un vecteur numpy.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -548,15 +754,15 @@ D’une fonction</label><div class="tabbed-content docutils">
 [       -inf -1.38629436 -0.69314718 -0.28768207  0.        ]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\cedri\anaconda3\envs\prepa\lib\site-packages\ipykernel_launcher.py:13: RuntimeWarning: divide by zero encountered in log
-  del sys.path[0]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\cedri\AppData\Local\Temp\ipykernel_20560\3843544815.py:13: RuntimeWarning: divide by zero encountered in log
+  print(np.log(V2))  # on écrit log mais il s&#39;agit de la fonction ln classique.
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="concatenation-ajout-d-une-valeur">
-<h3><span class="section-number">3.3.3. </span>Concaténation, ajout d’une valeur<a class="headerlink" href="#concatenation-ajout-d-une-valeur" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.3. </span>Concaténation, ajout d’une valeur<a class="headerlink" href="#concatenation-ajout-d-une-valeur" title="Permalink to this headline">#</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Les vecteurs <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sont <strong>de taille fixe</strong>. On ne peut pas changer leur taille avec la méthode classique <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p>
@@ -585,17 +791,17 @@ D’une fonction</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="selection-d-une-partie-d-un-vecteur-numpy">
-<h3><span class="section-number">3.3.4. </span>Sélection d’une partie d’un vecteur numpy<a class="headerlink" href="#selection-d-une-partie-d-un-vecteur-numpy" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.4. </span>Sélection d’une partie d’un vecteur numpy<a class="headerlink" href="#selection-d-une-partie-d-un-vecteur-numpy" title="Permalink to this headline">#</a></h3>
 <p>Le principe est le même que pour la sélection d’une partie d’une liste. Si on sélectionne un seul élément, ce sera un entier ou un flottant. Si on sélectionne plusieurs éléments, ce sera un vecteur numpy.</p>
 </div>
 </div>
 <div class="section" id="creer-un-tableau-numpy">
-<h2><span class="section-number">3.4. </span>Créer un tableau numpy<a class="headerlink" href="#creer-un-tableau-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Créer un tableau numpy<a class="headerlink" href="#creer-un-tableau-numpy" title="Permalink to this headline">#</a></h2>
 <p>On peut créer un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> à 2 dimensions. C’est très utile pour traiter des données expérimentales.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="d83d8bed-f50c-4226-8518-0b44471b8d23" name="0741deb8-e5e5-46a5-9996-41fe0f9e7773" type="radio">
-</input><label class="tabbed-label" for="d83d8bed-f50c-4226-8518-0b44471b8d23">
-D’une liste de liste</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="17c8994a-d94c-4603-a413-8085e554978d" name="c0e7c4ec-e830-40ec-9359-cbd26329acf4" type="radio">
+</input><label class="sd-tab-label" for="17c8994a-d94c-4603-a413-8085e554978d">
+D’une liste de liste</label><div class="sd-tab-content docutils">
 <p>On utilise à nouveau <code class="docutils literal notranslate"><span class="pre">array</span></code>. Attention : Le tableau doit être rectangulaire (ou carré) : les lignes doivent avoir toutes le même nombre d’éléments.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.16</span><span class="p">]]</span>  <span class="c1"># Ne mettre QUE des nombres</span>
 <span class="n">V1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="c1"># V1 est un tableau numpy</span>
@@ -605,9 +811,9 @@ D’une liste de liste</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b15d27da-0921-4e1f-81f5-36532a3f964b" name="0741deb8-e5e5-46a5-9996-41fe0f9e7773" type="radio">
-</input><label class="tabbed-label" for="b15d27da-0921-4e1f-81f5-36532a3f964b">
-zeros() et ones()</label><div class="tabbed-content docutils">
+<input id="5723e2ce-7523-4349-a763-ac33c0adebbe" name="c0e7c4ec-e830-40ec-9359-cbd26329acf4" type="radio">
+</input><label class="sd-tab-label" for="5723e2ce-7523-4349-a763-ac33c0adebbe">
+zeros() et ones()</label><div class="sd-tab-content docutils">
 <p>A connaître : <code class="docutils literal notranslate"><span class="pre">zeros((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments nuls.
 A connaître : <code class="docutils literal notranslate"><span class="pre">ones((N,</span> <span class="pre">m))</span></code> est une fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui crée un tableau de <code class="docutils literal notranslate"><span class="pre">N</span></code> éléments par <code class="docutils literal notranslate"><span class="pre">m</span></code> éléments tous égaux à 1.</p>
 <div class="margin sidebar">
@@ -622,12 +828,12 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
 </div>
 </div>
 <div class="section" id="manipuler-un-tableau-numpy">
-<h2><span class="section-number">3.5. </span>Manipuler un tableau numpy.<a class="headerlink" href="#manipuler-un-tableau-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Manipuler un tableau numpy.<a class="headerlink" href="#manipuler-un-tableau-numpy" title="Permalink to this headline">#</a></h2>
 <p>La manipulation des tableaux numpy est plus délicate que les vecteurs. Une <a class="reference internal" href="plus_loin_tableaux.html#tableau-numpy"><span class="std std-ref">présentation</span></a> est proposée pour ceux qui se sentent à l’aise avec le concept de vecteurs.</p>
 <p>On pourra déjà retenir que les opérations terme à terme sont réalisable aussi avec deux tableaux de même taille.</p>
 </div>
 <div class="section" id="fonctions-de-la-bibliotheque">
-<h2><span class="section-number">3.6. </span>Fonctions de la bibliothèque<a class="headerlink" href="#fonctions-de-la-bibliotheque" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Fonctions de la bibliothèque<a class="headerlink" href="#fonctions-de-la-bibliotheque" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> embarque de nombreuses fonctions très utiles qui seront présentées durant l’année. Vous apprendrez ainsi la syntaxe associée à ces fonctions au fur et à mesure. Citons à titre d’exemple :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> :  Permet l’ajustement d’un modèle (linéaire en général)</p></li>
@@ -658,9 +864,11 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="boucles.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -676,26 +884,28 @@ A connaître : <code class="docutils literal notranslate"><span class="pre">ones
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Capacités numériques<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Capacités numériques<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

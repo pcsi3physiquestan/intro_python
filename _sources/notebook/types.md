@@ -42,7 +42,8 @@ Dans beaucoup de langage, l'indentation est optionnelle pour rendre le code plus
 # Les types et opérations usuelles.
 On ne décrit ici que les types simples et les opérations que nous utiliserons le plus. D'autres types plus particuliers ou issus de bibliothèques non standards seront présentés plus tard.
 
-```{tabbed} Les entiers
+`````{tab-set}
+```{tab-item} Les entiers
 Type : `int`
 Exemple : `3` ou `123543654` ou `-3465`
 
@@ -55,7 +56,7 @@ Opérateur/Fonctions usuelles :
 * Puissance : `3 ** 2` (renvoie 9)
 ```
 
-````{tabbed} Les flottants (nombres réels)
+````{tab-item} Les flottants (nombres réels)
 Type : `float`
 Exemple : `3.45`ou `3254.234` ou `-23.34` ou `3.` ou `-5.` (observez le `.` après le 3 et le 5).
 
@@ -72,7 +73,7 @@ Une opération entre un entier et un flottant est possible, elle renverra un flo
 ````
 
 
-```{tabbed} Les booléens (Vrai ou Faux)
+```{tab-item} Les booléens (Vrai ou Faux)
 Type : `bool`
 Exemple : `True`, `False`
 
@@ -82,7 +83,7 @@ Opérateur/Fonctions usuelles :
 * Et : `and`
 ```
 
-````{tabbed} Les chaines de caractères
+````{tab-item} Les chaines de caractères
 Type : `str`
 Exemple : `"Hello World !"`, `"Les guillemets sont importantes"`, `'Ou des apostrophes'`
 
@@ -97,6 +98,7 @@ La position des caractères commence à 0 et non à 1
 ```
 
 ````
+`````
 
 Il existe aussi d'autres fonctions générales qui s'appliquent sur les différents types comme `print(...)` qui sert à afficher l'objet considéré.
 

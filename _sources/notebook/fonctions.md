@@ -18,7 +18,7 @@ kernelspec:
 Une fonction est une série d'instructions préenregistrées qui prend en entrée une ou plusieurs données (on parle __d'arguments__) et qui après exécution des instructions peut renvoyer une ou plusieurs données (les __retours__).
 
 ## Exécuter une fonction
-Syntaxe : `nomfonction(argument1, argument 2)`
+Syntaxe : `nomfonction(argument1, argument2)`
 
 ```{margin}
 Pensez à assigner ce que renvoie la fonction dans une variable pour une utilisation ultérieure.
@@ -30,6 +30,28 @@ La signature d'une fonction définit les entrées et les sorties d'une fonction.
 * les valeurs en sortie et le type de chaque retour.
 
 La signature est en général donnée dans l'aide de la fonction pour savoir comment l'utiliser.
+
+````{sidebar} Types usuelles
+* `float` : flotant
+* `int` : entier
+* `string` : chaine de caractère
+* `list` : liste
+* `dict` : dictionnaire
+* `callable` : fonction
+* `numpy.ndarray` : vecteur numpy (cf. suite)
+````
+````{important}
+On trouvera souvent par la suite la syntaxe suivante pour préciser le type des arguments et du retour de la fonction :
+
+`nomfonction(argument1:type1, argument2:type2) -> typeretour`
+
+Ainsi la fonction:
+
+`associe(a:float, b:float) -> list`
+
+prend comme arguments deux flottants `a`et `b` et renvoie une liste.
+````
+
 
 ## Les fonctions existantes
 
@@ -56,7 +78,8 @@ Quelques fonctions utiles (non exhaustif):
 ### Les modules supplémentaires
 Des fonctions supplémentaires (entre autre) sont contenus dans des modules (ou bibliothèques) qui nécessitent d'être importés. Les méthodes d'importations sont :
 
-````{tabbed} Importation dans l'espace standard
+`````{tab-set}
+````{tab-item} Importation dans l'espace standard
 ```{code-block} ipython3
 from math import *
 ```
@@ -67,7 +90,7 @@ sin(3.14)
 ```
 ````
 
-````{tabbed} Importation dans un espace nommé
+````{tab-item} Importation dans un espace nommé
 ```{code-block} ipython3
 import math as mt
 ```
@@ -77,6 +100,7 @@ On importe toutes les fonctions du modules dans un espace nommé (ici `mt`). La 
 mt.sin(3.14)
 ```
 ````
+`````
 
 ```{important}
 Si on vous donne un programme déjà partiellement écrit, pensez à regarder comment le module a été importé pour utiliser correctement les fonctions du module.

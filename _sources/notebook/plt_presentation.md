@@ -120,7 +120,8 @@ On trace ainsi les points (x[i], y[i]) :
 
 On cite les plus utiles :
 
-````{tabbed} Pour plot et errorbar
+`````{tab-set}
+````{tab-item} Pour plot et errorbar
 * `linestyle` : style de ligne qui relie les points (non exhaustif):
     * `linestyle = ''` : pas de ligne
     * `linestyle = '-'` : ligne continue
@@ -134,10 +135,11 @@ On cite les plus utiles :
 * `color = 'nom_de_couleur_en_anglais'`
 ````
 
-````{tabbed} Pour hist
+````{tab-item} Pour hist
 * `label = 'La légende'` : associer une légende à une courbe
 * `color = 'nom_de_couleur_en_anglais'`
 ````
+`````
 
 ## Autres fonctions et arguments
 La liste présente les plus importantes et à connaître. Vous en rencontrerez peut-être d'autres (pas à connaître):

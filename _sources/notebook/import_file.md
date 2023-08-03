@@ -70,6 +70,17 @@ Il arrive qu'on doivent remonter d'un répertoire, on utilise alors `..`
 
 ````
 
+### os.chdir
+Il existe un module `os` dans l'une des fonctions `chdir(path:string)` permet de __définir le répertoire de travail de Python pour la suite du script.__ C'est dans le répertoire de travail que Python va, par défaut recherche les fichiers que l'on veut importer. __Il est vivement conseillé, lorsqu'on travaille avec des fichiers de données de définir un répertoire de travail.__
+
+> Exemple : Ouverture du fichier `donnees.txt` situé dans le répertoire `C:/Users/nom_utilisateur/Documents/python_prepa/`
+```{code-block}
+from os import chdir  # Importation de chdir
+chdir("C:/Users/nom_utilisateur/Documents/python_prepa/")  # Le nom de repertoire doit être une chaine de caractère
+
+open("donnees.txt", 'r')  # Exemple de façon d' 'ouvrir un fichier (non expliqué ici)
+```
+
 +++
 
 ## Préparer l'importation
@@ -135,7 +146,7 @@ L'importation ne pourra fonctionner que si le tableau de données expérimentale
 Le script suivant est dans un fichier. Les données précédentes sont situées dans le fichier `Sf6/sf6.dat`.
 
 ```{dropdown} C'est un chemin...
-... relatif par rapport au fichier où se trouve le script.
+... relatif par rapport au fichier où se trouve le script. On se permet donc de ne pas utiliser `chdir`.
 ```
 
 ```{code-cell}

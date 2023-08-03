@@ -55,8 +55,8 @@ glue("ex_v3", y3)
 
 ```
 
-
-````{tabbed} D'une liste
+`````{tab-set}
+````{tab-item} D'une liste
 A partir d'une liste d'entiers ou de flottants (uniquement) :
 
 ```{code-block} ipython3
@@ -69,7 +69,7 @@ V1 = np.array([1, 6, 2, 5, 3.4])  #
 ````
 
 
-````{tabbed} arange
+````{tab-item} arange
 _A connaître_ : `arange(start, stop, step)` est une fonction de `numpy` qui va créer une liste de _flottants_ partant de `start` (inclus) et allant jusqu'à `stop` (__exclus__) par pas de valeur `step`.
 
 `start`, `stop` et `step` peuvent être des flottants contrairement à `range`.
@@ -81,7 +81,7 @@ y = np.arange(2, 6, 0.5)
 
 ````
 
-````{tabbed} linspace
+````{tab-item} linspace
 _A connaître_ : `linspace(start, stop, N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments réparties uniformément entre les valeurs `start` et `stop` (cette fois `stop` est inclus, il faut la compter dans les N valeurs !).
 
 ```{code-block} ipython3
@@ -91,7 +91,7 @@ y = np.linspace(2, 6, 9)
 
 ````
 
-````{tabbed} zeros et ones
+````{tab-item} zeros et ones
 _A connaître_ : `zeros(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments nuls.  
 _A connaître_ : `ones(N)` est une fonction de `numpy` qui crée un vecteur de `N` éléments tous égaux à 1.
 
@@ -101,7 +101,7 @@ y = np.ones(5)  # Crée un vecteur [1, 1, 1, 1, 1]
 ```
 ````
 
-````{tabbed} D'une fonction
+````{tab-item} D'une fonction
 Plusieurs fonctions de la bibliothèque numpy renvoient un vecteur numpy.
 
 ```{code-block} ipython3
@@ -116,6 +116,7 @@ y = np.polyval([2, 3], [1, 4, 6, 7, 8, 24])
 `y` est un vecteur numpy contenant {glue:}`ex_v`
 
 ````
+`````
 
 ```{margin}
 La fonction `type(y)` renverra {glue:}`t_v`.
@@ -203,7 +204,8 @@ Le principe est le même que pour la sélection d'une partie d'une liste. Si on 
 ## Créer un tableau numpy
 On peut créer un tableau `numpy` à 2 dimensions. C'est très utile pour traiter des données expérimentales. 
 
-````{tabbed} D'une liste de liste
+`````{tab-set}
+````{tab-item} D'une liste de liste
 On utilise à nouveau `array`. Attention : Le tableau doit être rectangulaire (ou carré) : les lignes doivent avoir toutes le même nombre d'éléments.
 
 ```{code-block} ipython3
@@ -215,7 +217,7 @@ V1 = np.array([[2.3, 2.5], [3.14, 3.16]])  # Note : on entre le tableau ligne pa
 ```
 ````
 
-````{tabbed} zeros() et ones()
+````{tab-item} zeros() et ones()
 A connaître : `zeros((N, m))` est une fonction de `numpy` qui crée un tableau de `N` éléments par `m` éléments nuls.
 A connaître : `ones((N, m))` est une fonction de `numpy` qui crée un tableau de `N` éléments par `m` éléments tous égaux à 1.
 
@@ -229,6 +231,7 @@ y = np.zeros((5, 3))  # Crée un tableau de 0 contenant 5 lignes et 3 colonnes
 y2 = np.ones((5, 3))  # Crée un tableau de 1 contenant 5 lignes et 3 colonnes
 ```
 ````
+`````
 
 ## Manipuler un tableau numpy.
 
